@@ -1,6 +1,7 @@
 import { Form, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
 import * as Yup from 'yup';
+import {IFormValues} from '../Models/FormValues';
 import Start from './forms/Start';
 import Step1 from './forms/step1';
 import Step2 from './forms/step2';
@@ -11,25 +12,21 @@ interface IMyFormProps {
     message?: string; // if this passed all the way through you might do this or make a union type
 }
 
-// Shape of form values
-interface IFormValues {
-    email: string;
-    password: string;
-    phone: string;
-    country_code: string;
-    number: number;
-}
-
 interface IFormState {
     step: number;
 }
 
 const SignupSchema = Yup.object().shape({
-    email: Yup.string()
+    personal: Yup.object().shape({
+        email: Yup.string()
         .email('Invalid email')
         .required('Email Required'),
-    phone: Yup.string()
-        .required('Phone Required'),
+        phone: Yup.string()
+        .max(10, 'too long')
+        .required('Phone Required')
+        
+    }),
+    
 });
 
 class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
@@ -56,9 +53,9 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         const { isSubmitting } = this.props;
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
-        const steps = [<Start />, <Step1 {...this.props} title="Sign Up" />, <Step2 {...this.props} title="Final" />];
+        const steps = [<Start />, <Step1 {...this.props} title="Sign Up" />, <Step2 {...this.props} />];
         return (
-            <section className="my-5">
+            <section className="my-5" id="incorporation-form">
                 <div className="container">
                     <Form>
                         {steps[step] || <div />}
@@ -69,8 +66,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                             <div className="col-4">
                                 {
                                     steps.length !== step + 1 ?
-                                        <div><button type="button" className="form-control btn btn-primary" onClick={this.nextStep}>{ step === 0 ? 'Start' : 'Next Step'}</button></div>
-                                        : <button type="submit" className="form-control btn btn-success" disabled={isSubmitting}>{isSubmitting ? 'Submitting' : 'Submit'}</button>
+                                        <div><button type="button" className="form-control btn btn-warning" onClick={this.nextStep}>{step === 0 ? 'Start' : 'Next Step'}</button></div>
+                                        : <button type="submit" className="form-control btn btn-warning" disabled={isSubmitting}>{isSubmitting ? 'Submitting' : 'Submit'}</button>
                                 }
                             </div>
                         </div>
@@ -85,13 +82,22 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 const MasterForm = withFormik<IMyFormProps, IFormValues>({
     mapPropsToValues: props => {
         return {
-            country_code: '',
-            email: props.initialEmail || '',
-            name: '',
-            password: '',
-            phone: '',
-            // tslint:disable-next-line:object-literal-sort-keys
-            number: 0
+            company: {
+                companyname_1: '',
+                companyname_2: '',
+                nature_of_business: '',
+                office_address: '',
+                office_country: ''
+            },
+            personal: {
+                country_code: '',
+                email: props.initialEmail || '',
+                password: '',
+                phone: '',
+                // tslint:disable-next-line:object-literal-sort-keys
+                firstname: '',
+                lastname: '',
+            }
         };
     },
     validationSchema: SignupSchema,

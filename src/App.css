@@ -27,6 +27,12 @@ footer .footer-upper #email-subscribe-form .input-group {
     font-size: 14px;
 }
 
+#incorporation-form button.btn-warning {
+    background: #f58d39;
+    color: #fff;
+    border-radius: 0;
+}
+
 footer .footer-upper .email-icon {
     width: 28px;
     font-size: 17px;

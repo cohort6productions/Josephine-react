@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const Start = () => {
     return (
-        <div className="startingstep">
+        <div className="startingstep col-12 col-md-8 mx-auto">
            <h1>BEFORE INCORPORATION</h1>
             Filing in the incorporation application is not rocket science, but it will take you a lot of time and effort to complete the entire process yourself.
             <br/>
