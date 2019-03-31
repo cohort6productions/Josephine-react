@@ -1,5 +1,7 @@
-import { Form, FormikErrors, FormikProps, withFormik } from 'formik';
+import { Form, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
+import * as Yup from 'yup';
+import Start from './forms/Start';
 import Step1 from './forms/step1';
 import Step2 from './forms/step2';
 // import { FormGroup, Label } from 'reactstrap';
@@ -21,8 +23,17 @@ interface IFormValues {
 interface IFormState {
     step: number;
 }
+
+const SignupSchema = Yup.object().shape({
+    email: Yup.string()
+        .email('Invalid email')
+        .required('Email Required'),
+    phone: Yup.string()
+        .required('Phone Required'),
+});
+
 class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
-    constructor(props:FormikProps<IFormValues>) {
+    constructor(props: FormikProps<IFormValues>) {
         super(props);
 
         this.state = {
@@ -42,28 +53,31 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     }
 
     public render() {
-        const {isSubmitting} = this.props;
+        const { isSubmitting } = this.props;
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
-        const steps = [<div/>,<Step1 {...this.props} title="Sign Up" />, <Step2 {...this.props} title="Final" />];
+        const steps = [<Start />, <Step1 {...this.props} title="Sign Up" />, <Step2 {...this.props} title="Final" />];
         return (
-            <div className="container">
-                <Form>
-                    {steps[step] || <div />}
-                    <div className="row justify-content-center">
-                        {step > 0 ? <div className="col-auto">
-                            <button type="button" className="form-control btn btn-default" onClick={this.back}>Back</button>
-                        </div> : ''}
-                        <div className="col-4">
-                            {
-                                steps.length !== step + 1 ?
-                                    <button type="button" className="form-control btn btn-primary" onClick={this.nextStep}>Next Step</button>
-                                    : <button className="form-control btn btn-success" type="submit" disabled={isSubmitting}>Submit</button>
-                            }
+            <section className="my-5">
+                <div className="container">
+                    <Form>
+                        {steps[step] || <div />}
+                        <div className="row justify-content-center">
+                            {step > 0 ? <div className="col-auto">
+                                <button type="button" className="form-control btn btn-default" onClick={this.back}>Back</button>
+                            </div> : ''}
+                            <div className="col-4">
+                                {
+                                    steps.length !== step + 1 ?
+                                        <div><button type="button" className="form-control btn btn-primary" onClick={this.nextStep}>{ step === 0 ? 'Start' : 'Next Step'}</button></div>
+                                        : <button type="submit" className="form-control btn btn-success" disabled={isSubmitting}>{isSubmitting ? 'Submitting' : 'Submit'}</button>
+                                }
+                            </div>
                         </div>
-                    </div>
-                </Form>
-            </div>
+                        <pre>{isSubmitting}</pre>
+                    </Form>
+                </div>
+            </section>
         );
     }
 }
@@ -80,17 +94,7 @@ const MasterForm = withFormik<IMyFormProps, IFormValues>({
             number: 0
         };
     },
-    validate: (values) => {
-        const errors: FormikErrors<IFormValues> = {};
-        if (!values.email) {
-            errors.email = 'Required';
-        }
-
-        if (!values.phone) {
-            errors.phone = 'Required';
-        }
-        return errors;
-    },
+    validationSchema: SignupSchema,
 
     handleSubmit: (values, { setSubmitting }) => {
         alert(JSON.stringify(values))

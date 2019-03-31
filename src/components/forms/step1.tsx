@@ -1,4 +1,4 @@
-import { ErrorMessage, Field, FormikProps } from 'formik';
+import { Field, FormikProps } from 'formik';
 import * as React from 'react';
 
 interface IFormValues {
@@ -22,7 +22,7 @@ const Step1 = (props:{title:string;} & FormikProps<IFormValues>) => {
                     <div className="form-group col-6">
                         <label>Email</label>
                         <Field type="email" className="form-control" name="email" />
-                        <ErrorMessage name="email" />
+                        {touched.email && errors.email && <small className="text-danger small">{errors.email}</small>}
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@ const Step1 = (props:{title:string;} & FormikProps<IFormValues>) => {
                     <div className="form-group col-6">
                         <label>Phone Number</label>
                         <Field type="text" className="form-control" name="phone" />
-                        {touched.phone && errors.phone && <div>{errors.phone}</div>}
+                        {touched.phone && errors.phone && <small className="text-danger small">{errors.phone}</small>}
                     </div>
                 </div>
             </>

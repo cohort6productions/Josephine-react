@@ -4,6 +4,7 @@ import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import MasterForm from './components/MasterForm';
+import './styles/all.min.css';
 
 
 class App extends React.Component {
