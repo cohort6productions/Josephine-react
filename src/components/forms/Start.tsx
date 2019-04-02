@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-const Start = () => {
+const Start = (props: {nextStep: () => void}) => {
+    const {nextStep} = props;
     return (
         <div className="startingstep col-12 col-md-8 mx-auto">
            <h1>BEFORE INCORPORATION</h1>
@@ -15,6 +16,11 @@ const Start = () => {
                 <li>Contact email and phone number</li>
             </ul>
 
+            <div className="col-12">
+                <div className="col-auto">
+                    <button type="button" className="form-control btn btn-warning" onClick={nextStep}>Start business incorporation</button>
+                </div>
+            </div>
         </div>
     )
 }
