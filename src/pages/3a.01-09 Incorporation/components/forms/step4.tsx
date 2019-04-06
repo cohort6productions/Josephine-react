@@ -1,16 +1,40 @@
-import { Field, Form, FormikProps, withFormik } from 'formik';
+import { Field, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
-import { IStepProps } from '../../Models/FormProps';
-import { IFormValues, IShareholderDetails } from '../../Models/FormValues';
+import { Button, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
+import { IStepProps } from 'src/Interfaces/FormProps';
+import { IFormValues, IShareholderDetails } from 'src/Interfaces/FormValues';
 import ButtonGroup from './partials/ButtonGroup';
 
-class InnerForm extends React.Component<IStepProps & FormikProps<IFormValues & IShareholderDetails>, {modal: boolean}> {
+class InnerForm extends React.Component<IStepProps & FormikProps<IFormValues & IShareholderDetails>, {modal: boolean, shareholders: any[]}> {
     constructor(props: IStepProps & FormikProps<IFormValues & IShareholderDetails>) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            shareholders: []
         }
+    }
+
+    public handleSubmit = () => {
+        const mutatedShareholders = [
+            ...this.state.shareholders
+        ]
+        mutatedShareholders.push(this.props.values)
+        this.setState({
+            shareholders: mutatedShareholders,
+            // tslint:disable-next-line:object-literal-sort-keys
+            modal: false
+        })
+
+        this.props.resetForm()
+    }
+
+    public delete = (index: number) => {
+        const mutatedShareholders = this.state.shareholders.filter((_, i) => i !== index);
+
+
+        this.setState({
+            shareholders: mutatedShareholders
+        })
     }
 
     public toggle = () => {
@@ -19,9 +43,17 @@ class InnerForm extends React.Component<IStepProps & FormikProps<IFormValues & I
         }));
     }
 
+    public handleNext = () => {
+        this.props.setValues({
+            ...this.props.values,
+            shareholders: this.state.shareholders
+        })
+        this.props.nextStep()
+    }
+
     public render() {
         const buttonProps = {
-            nextStep: this.props.nextStep,
+            nextStep: this.handleNext,
             // tslint:disable-next-line:object-literal-sort-keys
             back: this.props.back
         }
@@ -39,12 +71,19 @@ class InnerForm extends React.Component<IStepProps & FormikProps<IFormValues & I
                     <div className="form-group col-12">
                         <button type="button" onClick={this.toggle} className="btn btn-default">+ Add a share holder</button>
                     </div>
+                    {
+                        this.state.shareholders.map((obj:any, i) => {
+                            return (
+                                <div key={i} className="col-12">{obj.firstname} {i}<button type="button" onClick={this.delete.bind(this,i)}>delete</button></div>
+                            )
+                        })
+                    }
 
-                    <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                        <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} unmountOnClose={true}>
+                        <ModalHeader toggle={this.toggle}>Shareholders Information</ModalHeader>
                         <ModalBody>
                             <div className="container">
-                        <Form>
+                            <form>
                             <Row>
                                 <div className="form-group col-12 col-md-6">
                                     <label>First name</label>
@@ -100,15 +139,11 @@ class InnerForm extends React.Component<IStepProps & FormikProps<IFormValues & I
                                     <label>Proof of address</label>
                                     {/* <Field type="file" className="form-control" name=""/>/1000 */}
                                 </div>
-                                <button type="submit">Submit</button>
+                                <Button color="primary" onClick={this.handleSubmit}>Submit</Button>
                             </Row>
-                        </Form>
+                        </form>
                         </div>
                         </ModalBody>
-                        <ModalFooter>
-                            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-                        </ModalFooter>
                     </Modal>
                     
                     <ButtonGroup {...buttonProps} buttonText="Confirm share details" />

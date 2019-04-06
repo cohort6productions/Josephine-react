@@ -2,8 +2,8 @@ import * as React from "react";
 
 // Style imports
 import "bootstrap/dist/css/bootstrap.min.css";
-import "src/App.css";
 import "src/styles/all.min.css";
+import "src/styles/App.scss";
 
 // Component inports
 

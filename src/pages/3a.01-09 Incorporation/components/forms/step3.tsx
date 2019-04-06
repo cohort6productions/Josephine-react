@@ -1,7 +1,7 @@
 import { Field, FormikProps } from 'formik';
 import * as React from 'react';
-import {IStepProps} from '../../Models/FormProps';
-import {IFormValues} from '../../Models/FormValues';
+import {IStepProps} from 'src/Interfaces/FormProps';
+import {IFormValues} from 'src/Interfaces/FormValues';
 import ButtonGroup from './partials/ButtonGroup';
 
 class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {

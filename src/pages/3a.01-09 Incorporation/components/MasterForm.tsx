@@ -1,11 +1,11 @@
 import { Form, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
+import {IFormValues} from 'src/Interfaces/FormValues';
 import * as Yup from 'yup';
-import {IFormValues} from '../Models/FormValues';
-// import Start from './forms/Start';
-// import Step1 from './forms/step1';
-// import Step2 from './forms/step2';
-// import Step3 from './forms/step3';
+import Start from './forms/Start';
+import Step1 from './forms/step1';
+import Step2 from './forms/step2';
+import Step3 from './forms/step3';
 import Step4 from './forms/step4';
 import Summary from './forms/Summary';
 // import { FormGroup, Label } from 'reactstrap';
@@ -55,23 +55,24 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public render() {
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
-        const steps = {
-        //    0: <Start nextStep={this.nextStep}/>, 
-        //    1: <Step1 {...this.props} title="Sign Up" nextStep={this.nextStep} back={this.back} />, 
-        //    2: <Step2 {...this.props} nextStep={this.nextStep} back={this.back} />,
-        //    3: <Step3 {...this.props} nextStep={this.nextStep} back={this.back} />,
-           0: <Step4 {...this.props} nextStep={this.nextStep} back={this.back} />,
-           1: <Summary {...this.props} />
-        }
+        const steps = [
+            <Start nextStep={this.nextStep} key=""/>, 
+            <Step1 key="" {...this.props} title="Sign Up" nextStep={this.nextStep} back={this.back} />, 
+            <Step2 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
+            <Step3 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
+            <Step4 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
+            <Summary key="" {...this.props} />
+        ]
         return (
             <section className="my-5" id="incorporation-form">
                 <div className="container">
                     <Form>
                         {steps[step] || <div />}
                         <div className="row justify-content-center">
+                            
                             <div className="col-12 col-md-8 my-3">
                                 <div className="progress">
-                                    <div className="progress-bar" role="progressbar" style={{ 'width': (step+1)/Object.keys(steps).length * 100+'%'}} aria-valuenow={step} aria-valuemin={0} aria-valuemax={Object.keys(steps).length} />
+                                    <div className="progress-bar" role="progressbar" style={{ 'width': (step+1)/steps.length * 100+'%'}} aria-valuenow={step} aria-valuemin={0} aria-valuemax={steps.length} />
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import { Field, FormikProps, getIn } from 'formik';
 import * as React from 'react';
-import {IFormValues} from '../../Models/FormValues';
+import {IFormValues} from 'src/Interfaces/FormValues';
 import ButtonGroup from './partials/ButtonGroup';
 
 interface IStep1Props {

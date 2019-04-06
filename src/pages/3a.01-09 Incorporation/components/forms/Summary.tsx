@@ -1,6 +1,6 @@
 import { FormikProps } from 'formik';
 import * as React from 'react';
-import {IFormValues} from '../../Models/FormValues';
+import {IFormValues} from 'src/Interfaces/FormValues';
 
 class Summary extends React.Component<FormikProps<IFormValues>, {}> {
     constructor(props:FormikProps<IFormValues>) {
@@ -48,7 +48,9 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                                 ))
                             }
                        </div>
-                       <button type="submit" className="btn btn-success">Alert</button>
+                       <div className="col-12">
+                            <button type="submit" className="btn btn-warning">Confirm</button>
+                        </div>
                     </div>
                 </div>
             );

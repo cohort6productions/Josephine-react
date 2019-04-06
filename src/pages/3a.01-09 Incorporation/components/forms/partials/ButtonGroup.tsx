@@ -3,7 +3,7 @@ interface IButtonGroup {
     nextStep: () => void;
     back: () => void;
     disabled?: boolean | false;
-    buttonText: string;
+    buttonText?: string | 'Next Step';
 }
 const ButtonGroup = (props: IButtonGroup) => {
     const {back, nextStep, disabled, buttonText} = props;

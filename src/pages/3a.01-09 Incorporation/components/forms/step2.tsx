@@ -1,7 +1,7 @@
 import { Field, FormikProps } from 'formik';
 import * as React from 'react';
-import {IStepProps} from '../../Models/FormProps';
-import {IFormValues} from '../../Models/FormValues';
+import {IStepProps} from 'src/Interfaces/FormProps';
+import {IFormValues} from 'src/Interfaces/FormValues';
 import ButtonGroup from './partials/ButtonGroup';
 
 interface IOfficeAddress{
@@ -72,9 +72,9 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
                         </div>
                         <div className="form-group col-12">
                             <label>Registered Office Address</label>
-                            <button onClick={this.handleAddressChange.bind(this, 0)}>Centre O Wan Chai</button>
-                            <button onClick={this.handleAddressChange.bind(this, 1)}>Centre O Sheung Wan</button>
-                            <button onClick={this.handleAddressChange.bind(this, 2)}>Use another address</button>
+                            <button type="button" onClick={this.handleAddressChange.bind(this, 0)}>Centre O Wan Chai</button>
+                            <button type="button" onClick={this.handleAddressChange.bind(this, 1)}>Centre O Sheung Wan</button>
+                            <button type="button" onClick={this.handleAddressChange.bind(this, 2)}>Use another address</button>
                             <Field component="textarea" className="form-control" name="company.office_address" disabled={office_address[currentIndex].disabled}/>
                         </div>
                         <div className="form-group col-12">
