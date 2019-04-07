@@ -8,6 +8,7 @@ import Step2 from './3a.03';
 import Step3 from './3a.04';
 import Step4 from './3a.05';
 import Summary from './forms/Summary';
+import Step5 from './3a.06';
 
 interface IFormProps {
     initialEmail?: string;
@@ -61,12 +62,14 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public render() {
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
+        
         const steps = [
             <Start nextStep={this.nextStep} key=""/>, 
             <Step1 key="" {...this.props} title="Sign Up" nextStep={this.nextStep} back={this.back} />, 
             <Step2 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
             <Step3 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
-            <Step4 key="" {...this.props} nextStep={this.nextStep} back={this.back} setShareholders={this.setShareholderValues} />,
+            <Step4 key="" {...this.props} total_shares={this.props.values.shares.number} nextStep={this.nextStep} back={this.back} _setValues={this.setShareholderValues} />,
+            <Step5 key="" {...this.props} shareholders={this.props.values.shareholders.filter((el) => el.type == 'personal')} nextStep={this.nextStep} back={this.back} _setValues={this.setShareholderValues} />,
             <Summary key="" {...this.props} />
         ]
         return (
@@ -90,21 +93,20 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 }
 
 const MasterForm = withFormik<IFormProps, IFormValues>({
-    mapPropsToValues: props => {
+    mapPropsToValues: () => {
         return {
             company: {
                 companyname_1: '',
                 companyname_2: '',
                 nature_of_business: '',
-                office_address: '',
-                office_country: ''
+                address: '',
+                country: ''
             },
             personal: {
                 country_code: '',
-                email: props.initialEmail || '',
+                email: '',
                 password: '',
                 phone: '',
-                // tslint:disable-next-line:object-literal-sort-keys
                 firstname: '',
                 lastname: '',
             },

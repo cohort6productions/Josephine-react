@@ -17,9 +17,10 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                             {
                                
                                     Object.keys(this.props.values.personal).map((i,j) => (
-                                        <>
+                                        <div key={i}>
+                                        
                                             {i}: {this.props.values.personal[i]} <br/>
-                                        </>
+                                        </div>
                                 
                                 ))
                             }
@@ -29,9 +30,10 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                             {
                                
                                     Object.keys(this.props.values.company).map((i,j) => (
-                                        <>
+                                        <div key={i}>
+                                        
                                             {i}: {this.props.values.company[i]} <br/>
-                                        </>
+                                        </div>
                                 
                                 ))
                             }
@@ -41,9 +43,9 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                             {
                                
                                     Object.keys(this.props.values.shares).map((i,j) => (
-                                        <>
+                                        <div key={i}>
                                             {i}: {this.props.values.shares[i]} <br/>
-                                        </>
+                                        </div>
                                 
                                 ))
                             }

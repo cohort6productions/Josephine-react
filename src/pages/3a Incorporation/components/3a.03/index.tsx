@@ -42,7 +42,7 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
         this.setState({
             currentIndex: index
         })
-        setFieldValue('company.office_address', this.state.office_address[index].address);
+        setFieldValue('company.address', this.state.office_address[index].address);
         setFieldValue('company.country', this.state.office_address[index].country);
 
     }
@@ -50,7 +50,6 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
         const {office_address, currentIndex} = this.state;
         const buttonProps = {
             nextStep: this.props.nextStep,
-            // tslint:disable-next-line:object-literal-sort-keys
             back: this.props.back
         }
         return (
@@ -77,7 +76,7 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
                                 <button className={`col-12 col-md-4 btn ${currentIndex === 1 ? 'active' : ''}`} type="button" onClick={this.handleAddressChange.bind(this, 1)}>Centre O Sheung Wan</button>
                                 <button className={`col-12 col-md-4 btn ${currentIndex === 2 ? 'active' : ''}`} type="button" onClick={this.handleAddressChange.bind(this, 2)}>Use another address</button>
                             </div>
-                            <Field component="textarea" className="form-control" name="company.office_address" disabled={office_address[currentIndex].disabled}/>
+                            <Field component="textarea" className="form-control" name="company.address" disabled={office_address[currentIndex].disabled}/>
                         </div>
     
                         <div className="form-group col-12">

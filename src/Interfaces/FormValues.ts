@@ -18,8 +18,8 @@ interface ICompanyValues {
     companyname_1: string;
     companyname_2: string;
     nature_of_business: string;
-    office_address: string;
-    office_country: string;
+    address: string;
+    country: string;
 }
 
 interface IShareValues {
@@ -29,6 +29,26 @@ interface IShareValues {
 }
 
 export interface IShareholderDetails {
+    firstname: string;
+    lastname: string;
+    email: string;
+    occupation: string;
+    phone: string;
+    country: string;
+    address:string;
+    tax_number: string;
+    tax_payable_country: string;
+    share_composition: number;
+    article_of_associate: string,
+    address_proof: string,
+    authorized_person: string,
+    companyname: string,
+    business_license: string,
+    identity: string,
+    type: string,
+}
+
+export interface IDirectorDetails {
     firstname: string;
     lastname: string;
     email: string;

@@ -2,14 +2,12 @@ import { Field, FormikProps } from 'formik';
 import * as React from 'react';
 import { IShareholderDetails } from 'src/Interfaces/FormValues';
 
-const ShareholderForm = (props: {category: string; total_shares: number;} & FormikProps<IShareholderDetails>) => {
+const DirectorForm = (props: {category: string;} & FormikProps<IShareholderDetails>) => {
         return (
             <>
                 {
                     props.category === 'personal' ? 
                     <>
-                        <input hidden type="text" className="form-control" name="type" value="props.category" />
-
                         <div className="form-group col-12 col-md-6">
                             <label>First name</label>
                             <Field type="text" className="form-control" name="firstname" />
@@ -67,12 +65,7 @@ const ShareholderForm = (props: {category: string; total_shares: number;} & Form
                     <label>Country of tax residence</label>
                     <Field type="text" className="form-control" name="tax_payable_country"/>
                 </div>
-
-                <div className="form-group col-12">
-                    <label>Share compositions</label>
-                    <Field type="number" className="form-control" name="share_composition"/>/{props.total_shares}
-                </div>
-
+                
                 <div className="col-12">
                     <hr/>
                     
@@ -108,4 +101,4 @@ const ShareholderForm = (props: {category: string; total_shares: number;} & Form
         )
 }
 
-export default ShareholderForm; 
+export default DirectorForm; 
