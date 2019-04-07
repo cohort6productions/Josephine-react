@@ -4,6 +4,7 @@ import * as React from "react";
 // Styling imports
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/all.min.css";
+import "./styles/App.scss";
 
 // Routes imports
 import DefaultRoutes from "./routes/defaultRoutes";

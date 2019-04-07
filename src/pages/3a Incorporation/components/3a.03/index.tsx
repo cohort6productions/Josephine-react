@@ -2,7 +2,7 @@ import { Field, FormikProps } from 'formik';
 import * as React from 'react';
 import {IStepProps} from 'src/Interfaces/FormProps';
 import {IFormValues} from 'src/Interfaces/FormValues';
-import ButtonGroup from './partials/ButtonGroup';
+import ButtonGroup from '../forms/partials/ButtonGroup';
 
 interface IOfficeAddress{
     office_address: any[];
@@ -72,11 +72,14 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
                         </div>
                         <div className="form-group col-12">
                             <label>Registered Office Address</label>
-                            <button type="button" onClick={this.handleAddressChange.bind(this, 0)}>Centre O Wan Chai</button>
-                            <button type="button" onClick={this.handleAddressChange.bind(this, 1)}>Centre O Sheung Wan</button>
-                            <button type="button" onClick={this.handleAddressChange.bind(this, 2)}>Use another address</button>
+                            <div className="d-flex justify-content-center align-items-center mb-3">
+                                <button className={`col-12 col-md-4 btn ${currentIndex === 0 ? 'active' : ''}`} type="button" onClick={this.handleAddressChange.bind(this, 0)}>Centre O Wan Chai</button>
+                                <button className={`col-12 col-md-4 btn ${currentIndex === 1 ? 'active' : ''}`} type="button" onClick={this.handleAddressChange.bind(this, 1)}>Centre O Sheung Wan</button>
+                                <button className={`col-12 col-md-4 btn ${currentIndex === 2 ? 'active' : ''}`} type="button" onClick={this.handleAddressChange.bind(this, 2)}>Use another address</button>
+                            </div>
                             <Field component="textarea" className="form-control" name="company.office_address" disabled={office_address[currentIndex].disabled}/>
                         </div>
+    
                         <div className="form-group col-12">
                             <label>Country</label>
                             <Field type="text" className="form-control" name="company.country" disabled={office_address[currentIndex].disabled} />

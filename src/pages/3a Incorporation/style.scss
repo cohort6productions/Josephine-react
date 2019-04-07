@@ -1,0 +1,12 @@
+button {
+    &.active {
+        background: darkblue;
+        color: #fff;
+
+        &:hover {
+            background: transparent;
+            color: darkblue;
+            border: 1px solid darkblue;
+        }
+    }
+}

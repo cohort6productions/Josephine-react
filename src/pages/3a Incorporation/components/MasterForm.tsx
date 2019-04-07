@@ -2,15 +2,14 @@ import { Form, FormikProps, withFormik } from 'formik';
 import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
 import * as Yup from 'yup';
-import Start from './forms/Start';
-import Step1 from './forms/step1';
-import Step2 from './forms/step2';
-import Step3 from './forms/step3';
-import Step4 from './forms/step4';
+import Start from './3a.01';
+import Step1 from './3a.02';
+import Step2 from './3a.03';
+import Step3 from './3a.04';
+import Step4 from './3a.05';
 import Summary from './forms/Summary';
-// import { FormGroup, Label } from 'reactstrap';
 
-interface IMyFormProps {
+interface IFormProps {
     initialEmail?: string;
     message?: string; // if this passed all the way through you might do this or make a union type
 }
@@ -46,6 +45,13 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         })
     }
 
+    public setShareholderValues = (value:any) => {
+        this.props.setValues({
+            ...this.props.values,
+            'shareholders': value
+        })
+    }
+
     public back = () => {
         this.setState({
             step: this.state.step - 1
@@ -60,7 +66,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             <Step1 key="" {...this.props} title="Sign Up" nextStep={this.nextStep} back={this.back} />, 
             <Step2 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
             <Step3 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
-            <Step4 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
+            <Step4 key="" {...this.props} nextStep={this.nextStep} back={this.back} setShareholders={this.setShareholderValues} />,
             <Summary key="" {...this.props} />
         ]
         return (
@@ -83,7 +89,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     }
 }
 
-const MasterForm = withFormik<IMyFormProps, IFormValues>({
+const MasterForm = withFormik<IFormProps, IFormValues>({
     mapPropsToValues: props => {
         return {
             company: {
@@ -102,9 +108,7 @@ const MasterForm = withFormik<IMyFormProps, IFormValues>({
                 firstname: '',
                 lastname: '',
             },
-            shareholders: [
-                
-            ],
+            shareholders: [],
             shares: {
                 class: 'Ordinary',
                 number: 0,

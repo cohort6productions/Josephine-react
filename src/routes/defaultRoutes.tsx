@@ -3,7 +3,7 @@ import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // Import components
-import IncorporationProcess from "src/pages/3a.01-09 Incorporation/3a.01-09";
+import IncorporationProcess from "src/pages/3a Incorporation/3a";
 import Error404 from "src/pages/error404/error404";
 
 export default class DefaultRoutes extends React.Component {
