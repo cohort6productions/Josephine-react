@@ -6,7 +6,8 @@ const Footer = () => {
             <footer>
                 <div className="container footer-upper">
                     <h3 className="section-header">
-                        BE IN THE <b className="text-orange">FIRST</b> TO KNOW
+                        BE IN THE <b className="text-highlight">FIRST</b> TO
+                        KNOW
                     </h3>
                     <div className="row">
                         <div className="col-md-5 col-lg-7">
