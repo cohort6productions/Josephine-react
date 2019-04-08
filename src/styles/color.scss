@@ -1,0 +1,47 @@
+// Colour palette refers from Figma design
+
+// Reference wording
+/*
+Cp = Component
+bg = Background
+*/
+
+// Component related
+$cp-bg-default: #FAFAFA;
+$cpAccent-Intense: #FF5F00;
+$cpAccent-medium: #F88C2A;
+$cpAccent-mild: #F0C107;
+$cpStatus-alert: #FF6964;
+$cpStatus-affirmative: #91D942;
+
+// Links related
+$link-bg-hover: #FFF5EC;
+$link-text-default: #F88C2A;
+
+// Color filter related
+$colorFilter-accent:#18002D;
+
+// $nav-shaded:;
+.nav-shade {
+    background: -moz-linear-gradient(top, rgba(3, 3, 3, 1) 0%, rgba(215, 215, 215, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(3, 3, 3, 1)), color-stop(100%, rgba(215, 215, 215, 1)));
+    background: -webkit-linear-gradient(top, rgba(3, 3, 3, 1) 0%, rgba(215, 215, 215, 1) 100%);
+    background: -o-linear-gradient(top, rgba(3, 3, 3, 1) 0%, rgba(215, 215, 215, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(3, 3, 3, 1) 0%, rgba(215, 215, 215, 1) 100%);
+    background: linear-gradient(to bottom, rgba(3, 3, 3, 1) 0%, rgba(215, 215, 215, 1) 100%);
+}
+
+// Button
+$btn-bg-default: #F88C2A;
+$btn-bg-hover: #FFAB2E;
+$btn-focusRing-default: #663399;
+
+// Text
+$text-default: #222224;
+$text-body: #3A3A3D;
+$text-placeholder:#919191;
+$text-highlight:#F88C2A;
+$text-light:#FAFAFA;
+
+// Misc.
+$inactivate-shade-default: rgba(58, 58, 61, 0.3);

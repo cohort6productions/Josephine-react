@@ -1,3 +1,9 @@
+// Importing Scss sheets
+@import "./cardAndShades.scss";
+@import "./color.scss";
+@import "./font.scss";
+@import "./spacing.scss";
+
 html,
 body {
     font-size: 16px;
@@ -475,6 +481,7 @@ svg:not(:root).svg-inline--fa {
         -webkit-transform: rotate(0);
         transform: rotate(0)
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
@@ -486,6 +493,7 @@ svg:not(:root).svg-inline--fa {
         -webkit-transform: rotate(0);
         transform: rotate(0)
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
@@ -522,11 +530,11 @@ svg:not(:root).svg-inline--fa {
     transform: scale(-1, -1)
 }
 
- :root .fa-flip-horizontal,
- :root .fa-flip-vertical,
- :root .fa-rotate-180,
- :root .fa-rotate-270,
- :root .fa-rotate-90 {
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-rotate-90 {
     -webkit-filter: none;
     filter: none
 }
