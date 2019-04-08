@@ -1,12 +1,12 @@
 // Importing Scss sheets
-@import "./cardAndShades.scss";
-@import "./color.scss";
-@import "./font.scss";
-@import "./spacing.scss";
+@import "./shades/cardAndShades.scss";
+@import "./colors/color.scss";
+@import "./fonts/font.scss";
+@import "./spacings/spacing.scss";
 
 html,
 body {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 header {

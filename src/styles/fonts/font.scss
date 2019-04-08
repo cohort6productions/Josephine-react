@@ -1,0 +1,149 @@
+// Importing and uploading fonts
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,700');
+@import "../colors/color.scss";
+
+@font-face {
+    font-family: 'Made Evolve Sans Bold';
+    src: url('./fonts/MadeEvolveSansBold.woff2') format('woff2'),
+        url('./fonts/MadeEvolveSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Made Evolve Sans Regular';
+    src: url('./fonts/MadeEvolveSansRegular.woff2') format('woff2'),
+        url('./fonts/MadeEvolveSansRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+// Variables
+$headerFont-regular: "Made Evolve Sans Regular",
+Arial,
+Sans-serif;
+$headerFont-bold: "Made Evolve Sans Bold",
+Arial,
+Sans-serif;
+$bodyFont: 'EB Garamond',
+"Times New Roman",
+Times,
+serif;
+
+
+
+h1 {
+    font-family: $headerFont-bold;
+    font-style: normal;
+    font-size: 72px;
+    line-height: normal;
+    letter-spacing: 0.01em;
+    color: $text-default;
+}
+
+h2 {
+    font-family: $headerFont-bold;
+    font-style: normal;
+    font-size: 50px;
+    line-height: normal;
+    color: $text-default;
+}
+
+h3 {
+    font-family: $headerFont-regular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: $text-default;
+}
+
+h4 {
+    font-family: $headerFont-regular;
+    font-family: MADE Evolve Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: normal;
+    letter-spacing: 2px;
+    color: $text-default;
+}
+
+span,
+p,
+a {
+    font-family: $headerFont-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: $text-body
+}
+
+small {
+    font-family: $headerFont-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 1px;
+    color: $text-placeholder;
+}
+
+
+
+.body-paragraphs {
+    font-family: $bodyFont;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+}
+
+.body-short-texts {
+    font-family: $headerFont-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+}
+
+.subline-default {
+    font-family: $headerFont-regular;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 1px;
+}
+
+.button-text {
+    font-family: $headerFont-regular;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.overline-header-default {
+    font-family: $headerFont-regular;
+    font-size: 24px;
+    line-height: 0px;
+    letter-spacing: 2px;
+}
+
+.overline-header-bold {
+    font-family: $headerFont-bold;
+    font-size: 24px;
+    line-height: 0px;
+    letter-spacing: 2px;
+}

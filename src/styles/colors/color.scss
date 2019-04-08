@@ -45,3 +45,12 @@ $text-light:#FAFAFA;
 
 // Misc.
 $inactivate-shade-default: rgba(58, 58, 61, 0.3);
+
+// Classes
+.text-placeholder {
+    color: $text-placeholder;
+}
+
+.text-highlight {
+    color: $text-highlight;
+}
