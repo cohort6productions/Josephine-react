@@ -2,7 +2,7 @@ import { FormikProps } from 'formik';
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
 import { IStepProps } from 'src/Interfaces/FormProps';
-import { IDirectorDetails, IFormValues, IShareholderDetails } from 'src/Interfaces/FormValues';
+import { IFormValues, IPersonalDetails } from 'src/Interfaces/FormValues';
 import ButtonGroup from '../forms/partials/ButtonGroup';
 
 interface IProps extends IStepProps {
@@ -11,7 +11,7 @@ interface IProps extends IStepProps {
     field: string;
     description: string;
     _innerhtml: any;
-    emitValue: (value: any, event: string) => void
+    emitValue?: (value: any, event: string) => void | null;
 }
 
 interface IShareholderState {
@@ -19,8 +19,8 @@ interface IShareholderState {
     modal: boolean;
     currentValues: any[];
 }
-class InnerForm extends React.Component<IProps & FormikProps<IShareholderDetails | IDirectorDetails>, IShareholderState> {
-    constructor(props: IProps & FormikProps<IFormValues & IShareholderDetails>) {
+class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, IShareholderState> {
+    constructor(props: IProps & FormikProps<IFormValues & IPersonalDetails>) {
         super(props);
         this.state = {
             activeTab: 'personal',
@@ -30,22 +30,34 @@ class InnerForm extends React.Component<IProps & FormikProps<IShareholderDetails
     }
 
     public handleSubmit = () => {
-        const mutatedShareholders = [
-            ...this.state.currentValues
-        ]
-        mutatedShareholders.push(this.props.values)
-        this.setState({
-            modal: false,
-            currentValues: mutatedShareholders
-        })
-
-        this.props.emitValue(this.props.values, 'submit')
+        this.addValues(this.props.values)
+        alert(JSON.stringify(this.props.values))
+        if (!!this.props.emitValue){
+            this.props.emitValue(this.props.values, 'submit')
+        }
 
         this.props.resetForm()
     }
 
+    public addValues = (data: any) => {
+        const mutatedShareholders = [
+            ...this.state.currentValues
+        ]
+        const newdata = {
+            ...data,
+            'category': this.state.activeTab
+        }
+        mutatedShareholders.push(newdata)
+        this.setState({
+            modal: false,
+            currentValues: mutatedShareholders
+        })
+    }
+
     public delete = (index: number) => {
-        this.props.emitValue(this.state.currentValues.find((_, i) => i === index), 'delete')
+        if (!!this.props.emitValue){
+            this.props.emitValue(this.state.currentValues.find((_, i) => i === index), 'delete')
+        }
 
         const mutated = this.state.currentValues.filter((_, i) => i !== index);
 

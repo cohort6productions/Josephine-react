@@ -1,15 +1,13 @@
 import { Field, FormikProps } from 'formik';
 import * as React from 'react';
-import { IShareholderDetails } from 'src/Interfaces/FormValues';
+import { IPersonalDetails } from 'src/Interfaces/FormValues';
 
-const ShareholderForm = (props: {category: string; total_shares: number;} & FormikProps<IShareholderDetails>) => {
+const ShareholderForm = (props: {category: string; total_shares: number;} & FormikProps<IPersonalDetails>) => {
         return (
             <>
                 {
                     props.category === 'personal' ? 
                     <>
-                        <input hidden type="text" className="form-control" name="type" value="props.category" />
-
                         <div className="form-group col-12 col-md-6">
                             <label>First name</label>
                             <Field type="text" className="form-control" name="firstname" />

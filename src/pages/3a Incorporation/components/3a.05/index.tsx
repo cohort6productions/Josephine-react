@@ -1,7 +1,7 @@
 import { FormikProps, withFormik } from 'formik';
 import * as React from 'react';
 import { IStepProps } from 'src/Interfaces/FormProps';
-import { IFormValues, IShareholderDetails } from 'src/Interfaces/FormValues';
+import { IFormValues, IPersonalDetails } from 'src/Interfaces/FormValues';
 import InnerForm from '../forms/InnerForm';
 import ShareholderForm from './ShareholderForm';
 
@@ -10,15 +10,15 @@ interface IShareholderProps extends IStepProps {
    total_shares: number;
 }
 
-class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValues & IShareholderDetails>, {occupied_shares: number}> {
-    constructor(props: IShareholderProps & FormikProps<IFormValues & IShareholderDetails>) {
+class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValues & IPersonalDetails>, {occupied_shares: number}> {
+    constructor(props: IShareholderProps & FormikProps<IFormValues & IPersonalDetails>) {
         super(props);
         this.state= {
             occupied_shares: 0
         }
     }
 
-    public handleShares = (value: IShareholderDetails, event: string) => {
+    public handleShares = (value: IPersonalDetails, event: string) => {
         let newShares = this.state.occupied_shares
         if (event === 'submit') {
             newShares = this.state.occupied_shares + value.share_composition
@@ -69,7 +69,7 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             companyname: "",
             business_license: "",
             identity: "",
-            type: "personal",
+            category: "",
         };
     },
 

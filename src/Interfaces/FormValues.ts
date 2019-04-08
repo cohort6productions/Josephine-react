@@ -2,7 +2,8 @@ export interface IFormValues {
     personal: IPersonalValues;
     company: ICompanyValues;
     shares: IShareValues;
-    shareholders: any[]
+    shareholders: any[];
+    director:any[];
 }
 
 interface IPersonalValues {
@@ -28,7 +29,7 @@ interface IShareValues {
     value: number;
 }
 
-export interface IShareholderDetails {
+export interface IPersonalDetails {
     firstname: string;
     lastname: string;
     email: string;
@@ -45,18 +46,5 @@ export interface IShareholderDetails {
     companyname: string,
     business_license: string,
     identity: string,
-    type: string,
-}
-
-export interface IDirectorDetails {
-    firstname: string;
-    lastname: string;
-    email: string;
-    occupation: string;
-    phone: string;
-    country: string;
-    address:string;
-    tax_number: string;
-    tax_payable_country: string;
-    share_composition: number;
+    category: string,
 }

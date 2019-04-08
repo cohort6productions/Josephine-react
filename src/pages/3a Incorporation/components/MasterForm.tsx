@@ -7,8 +7,8 @@ import Step1 from './3a.02';
 import Step2 from './3a.03';
 import Step3 from './3a.04';
 import Step4 from './3a.05';
-import Summary from './forms/Summary';
 import Step5 from './3a.06';
+import Summary from './forms/Summary';
 
 interface IFormProps {
     initialEmail?: string;
@@ -46,10 +46,17 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         })
     }
 
-    public setShareholderValues = (value:any) => {
+    public setShareholderValues = (data:any) => {
         this.props.setValues({
             ...this.props.values,
-            'shareholders': value
+            'shareholders': data
+        })
+    }
+
+    public setDirectorValues = (data:any) => {
+        this.props.setValues({
+            ...this.props.values,
+            'director': data
         })
     }
 
@@ -69,7 +76,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             <Step2 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
             <Step3 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
             <Step4 key="" {...this.props} total_shares={this.props.values.shares.number} nextStep={this.nextStep} back={this.back} _setValues={this.setShareholderValues} />,
-            <Step5 key="" {...this.props} shareholders={this.props.values.shareholders.filter((el) => el.type == 'personal')} nextStep={this.nextStep} back={this.back} _setValues={this.setShareholderValues} />,
+            <Step5 key="" {...this.props} shareholders={this.props.values.shareholders} nextStep={this.nextStep} back={this.back} _setValues={this.setDirectorValues} />,
             <Summary key="" {...this.props} />
         ]
         return (
@@ -115,7 +122,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                 class: 'Ordinary',
                 number: 0,
                 value: 0
-            }
+            },
+            director: []
         };
     },
     validationSchema: SignupSchema,
