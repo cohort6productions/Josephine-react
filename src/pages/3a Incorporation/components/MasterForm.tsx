@@ -44,10 +44,17 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         });
     };
 
-    public setShareholderValues = (value: any) => {
+    public setShareholderValues = (data: any) => {
         this.props.setValues({
             ...this.props.values,
-            shareholders: value
+            shareholders: data
+        });
+    };
+
+    public setDirectorValues = (data: any) => {
+        this.props.setValues({
+            ...this.props.values,
+            director: data
         });
     };
 
@@ -93,12 +100,10 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             <Step5
                 key=""
                 {...this.props}
-                shareholders={this.props.values.shareholders.filter(
-                    el => el.type === "personal"
-                )}
+                shareholders={this.props.values.shareholders}
                 nextStep={this.nextStep}
                 back={this.back}
-                _setValues={this.setShareholderValues}
+                _setValues={this.setDirectorValues}
             />,
             <Summary key="" {...this.props} />
         ];
@@ -156,7 +161,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                 class: "Ordinary",
                 number: 0,
                 value: 0
-            }
+            },
+            director: []
         };
     },
     validationSchema: SignupSchema,

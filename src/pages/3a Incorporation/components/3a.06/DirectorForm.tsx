@@ -1,8 +1,8 @@
 import { Field, FormikProps } from 'formik';
 import * as React from 'react';
-import { IShareholderDetails } from 'src/Interfaces/FormValues';
+import { IPersonalDetails } from 'src/Interfaces/FormValues';
 
-const DirectorForm = (props: {category: string;} & FormikProps<IShareholderDetails>) => {
+const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>) => {
         return (
             <>
                 {
