@@ -5,11 +5,12 @@ This version aims to create a clickable prototype for the final version of the w
 
 ## Added
 
--
+-   `homepage` contents
+-   `conference room booking` contents
 
-## Changed
+## Need to work on
 
--
+-   Styling: `homepage`, `conference room booking`
 
 ---
 
