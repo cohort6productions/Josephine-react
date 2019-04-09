@@ -1,7 +1,7 @@
 Date: 2019-04-08
 Branch: indi-footer-header
 
-This version is part of the work to make the footer and header independent from pages, making it resuable for all the other pages.
+This version is part of the work to make the footer and header independent from pages, making it reusable for all the other pages.
 
 ## Added
 
