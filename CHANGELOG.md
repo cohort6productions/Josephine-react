@@ -1,3 +1,18 @@
+Date: 2019-04-09
+Branch: clickable-demo
+
+This version aims to create a clickable prototype for the final version of the website, also where the "incorporation form" is clickable and workable for testing.
+
+## Added
+
+-
+
+## Changed
+
+-
+
+---
+
 Date: 2019-04-08
 Branch: indi-footer-header
 

@@ -3,6 +3,7 @@
 @import "./colors/color.scss";
 @import "./fonts/font.scss";
 @import "./spacings/spacing.scss";
+@import "./temp/temp.scss";
 
 html,
 body {
@@ -57,6 +58,7 @@ footer .footer-lower {
 .section-header {
     font-weight: 700;
     margin-bottom: 2.625rem;
+
 }
 
 footer h5 {
