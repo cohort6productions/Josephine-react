@@ -1,0 +1,14 @@
+.card-footer {
+    // background-color:
+}
+
+.gallery-grid {
+    width: 100%;
+    display: grid;
+    grid-gap: 1.78rem;
+    grid-template-columns: repeat(2, 50%);
+
+    &__img {
+        width: 100%;
+    }
+}

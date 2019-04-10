@@ -1,6 +1,13 @@
+// Importing Scss sheets
+@import "./shades/cardAndShades.scss";
+@import "./colors/color.scss";
+@import "./fonts/font.scss";
+@import "./spacings/spacing.scss";
+@import "./temp/temp.scss";
+
 html,
 body {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 header {
@@ -51,6 +58,7 @@ footer .footer-lower {
 .section-header {
     font-weight: 700;
     margin-bottom: 2.625rem;
+
 }
 
 footer h5 {
@@ -475,6 +483,7 @@ svg:not(:root).svg-inline--fa {
         -webkit-transform: rotate(0);
         transform: rotate(0)
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
@@ -486,6 +495,7 @@ svg:not(:root).svg-inline--fa {
         -webkit-transform: rotate(0);
         transform: rotate(0)
     }
+
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg)
@@ -522,11 +532,11 @@ svg:not(:root).svg-inline--fa {
     transform: scale(-1, -1)
 }
 
- :root .fa-flip-horizontal,
- :root .fa-flip-vertical,
- :root .fa-rotate-180,
- :root .fa-rotate-270,
- :root .fa-rotate-90 {
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-rotate-90 {
     -webkit-filter: none;
     filter: none
 }

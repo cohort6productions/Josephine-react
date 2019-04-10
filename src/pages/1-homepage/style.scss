@@ -1,0 +1,17 @@
+.itemCol {
+    display: flex;
+    flex-direction: column;
+
+    &__icon {
+        width: 20%;
+    }
+
+    &__btn {
+        justify-self: end;
+        align-self: flex-start;
+    }
+
+    &__img {
+        width: 100%;
+    }
+}
