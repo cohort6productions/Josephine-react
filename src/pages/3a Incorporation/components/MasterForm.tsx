@@ -1,14 +1,15 @@
-import { Form, FormikProps, withFormik } from "formik";
-import * as React from "react";
-import { IFormValues } from "src/Interfaces/FormValues";
-import * as Yup from "yup";
-import Start from "./3a.01";
-import Step1 from "./3a.02";
-import Step2 from "./3a.03";
-import Step3 from "./3a.04";
-import Step4 from "./3a.05";
-import Step5 from "./3a.06";
-import Summary from "./forms/Summary";
+import { Form, FormikProps, withFormik } from 'formik';
+import * as React from 'react';
+import {IFormValues} from 'src/Interfaces/FormValues';
+import * as Yup from 'yup';
+import Start from './3a.01';
+import Step1 from './3a.02';
+import Step2 from './3a.03';
+import Step3 from './3a.04';
+import Step4 from './3a.05';
+import Step5 from './3a.06';
+import Summary from './forms/Summary';
+import Step6 from './3a.07';
 
 interface IFormProps {
     initialEmail?: string;
@@ -105,8 +106,9 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 back={this.back}
                 _setValues={this.setDirectorValues}
             />,
+            <Step6 key="6" {...this.props} nextStep={this.nextStep} back={this.back} />,
             <Summary key="" {...this.props} />
-        ];
+        ]
         return (
             <section className="my-5" id="incorporation-form">
                 <div className="container">
@@ -162,7 +164,15 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                 number: 0,
                 value: 0
             },
-            director: []
+            director: [],
+            company_secretary: {
+                name: '',
+                email: '',
+                license_no: '',
+                address: '',
+                country: ''
+            }
+
         };
     },
     validationSchema: SignupSchema,

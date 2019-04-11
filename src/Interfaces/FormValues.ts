@@ -4,6 +4,7 @@ export interface IFormValues {
     shares: IShareValues;
     shareholders: any[];
     director:any[];
+    company_secretary: ICompanySecretary;
 }
 
 interface IPersonalValues {
@@ -47,4 +48,12 @@ export interface IPersonalDetails {
     business_license: string,
     identity: string,
     category: string,
+}
+
+interface ICompanySecretary {
+    name: string;
+    email: string;
+    license_no: string;
+    address: string;
+    country: string;
 }
