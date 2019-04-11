@@ -1,4 +1,6 @@
 // Import image assets
+
+// Testimonials images
 import dyanne from "./img/Testimonials/dyanne_christensen.jpg";
 import ishmael from "./img/Testimonials/ishmael_philemon_ackon.jpg";
 import paul from "./img/Testimonials/paul_gresham.jpg";
@@ -88,5 +90,98 @@ export const testimonial = [
         testimonial:
             "It’s my absolute pleasure to recommend Josephine! Her knowledge and expertise of HK company incorporation and bank account opening was a huge advantage to our entity. Without a doubt, I confidently recommend Josephine and her team !",
         img: celia
+    }
+];
+
+// Images of team members
+import josephine from "./img/Team/JL.190409.COH.WEBW.Josephine.jpg";
+import kellyY from "./img/Team/JL.190409.COH.WEBW.KellyYu.jpg";
+import kellyH from "./img/Team/JL.190409.COH.WEBW.KellyHeung.jpg";
+import ekaterina from "./img/Team/JL.190409.COH.WEBW.Skey.jpg";
+import martine from "./img/Team/JL.190409.COH.WEBW.Martin.jpg";
+import billa from "./img/Team/JL.190409.COH.WEBW.Billa.jpg";
+import jessica from "./img/Team/JL.190409.COH.WEBW.JessicaChung.jpg";
+import chinenye from "./img/Team/JL.190409.COH.WEBW.ChinenyeEgbuna.jpg";
+
+export const teamMembers = [
+    {
+        name: "Josephine Lau",
+        image: josephine,
+        position: "CEO/Founder",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Kelly Yu",
+        image: kellyY,
+        position: "Business Development Manager",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Kelly Heung",
+        image: kellyH,
+        position: "Accounting and Auditing Manager",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Ekaterina Stefashina",
+        image: ekaterina,
+        position: "Office Manager",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Martine Shum",
+        image: martine,
+        position: "Office Superhero",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Billa Mok",
+        image: billa,
+        position: "Business Plan Specialist",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Chinenye Egbuna",
+        image: chinenye,
+        position: "Assistant Account Manager",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
+    },
+    {
+        name: "Jessica Chung",
+        image: jessica,
+        position: "Office Superhero",
+        description: "long long text",
+        socialLink: {
+            li: "https://www.linkedin.com",
+            md: "https://www.medium.com"
+        }
     }
 ];
