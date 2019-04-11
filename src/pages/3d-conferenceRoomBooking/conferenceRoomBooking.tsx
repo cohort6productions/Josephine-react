@@ -22,7 +22,7 @@ import office8 from "./img/JL.190207.COH.WEBW.Gallery8.jpg";
 const Location = () => (
     <div className="container-fluid section-padding-tb96">
         <div className="container">
-            <div className="card-group">
+            <div className="card-deck">
                 <div className="card">
                     <img
                         className="card-img-top"
@@ -113,7 +113,7 @@ const Price = () => (
             <h2 className="section-header all-cap">
                 Our <bdi className="text-highlight">price</bdi>
             </h2>
-            <div className="card-group">
+            <div className="card-deck">
                 <div className="card">
                     <div className="card-top text-center">
                         <h3>Work</h3>

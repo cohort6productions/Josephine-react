@@ -1,3 +1,19 @@
+Date: 2019-04-11
+Branch: master
+
+This version aims to create a clickable prototype for the final version of the website, also where the "incorporation form" is clickable and workable for testing.
+
+## Added
+
+-   `testimonial` contents
+-
+
+## Need to work on
+
+-   Styling: `homepage`, `conference room booking`
+
+---
+
 Date: 2019-04-09
 Branch: clickable-demo
 
