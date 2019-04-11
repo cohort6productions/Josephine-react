@@ -11,6 +11,12 @@ import AboutUs from "src/pages/5c-aboutUs/aboutUs";
 import Member from "src/pages/5d-individualMember/member";
 import Error404 from "src/pages/error404/error404";
 
+// Data
+import { teamMembers } from "../pages/5c-aboutUs/data";
+
+// Helper function
+import { nameToPathConvert } from "src/helper/helper";
+
 export default class DefaultRoutes extends React.Component {
     public render() {
         return (
@@ -29,7 +35,15 @@ export default class DefaultRoutes extends React.Component {
                 <Route exact={true} path="/resources" component={Homepage} />
                 <Route exact={true} path="/subscribe" component={Newsletter} />
                 <Route exact={true} path="/aboutus" component={AboutUs} />
-                <Route exact={true} path="/members" component={Member} />
+
+                {teamMembers.map(member => (
+                    <Route
+                        path={`/aboutus/` + nameToPathConvert(member.name)}
+                        // tslint:disable-next-line:jsx-no-lambda
+                        render={() => <Member {...member} />}
+                    />
+                ))}
+
                 <Route exact={true} path="/error404" component={Error404} />
                 <Route exact={true} path="/" component={IncorporationProcess} />
             </Switch>
