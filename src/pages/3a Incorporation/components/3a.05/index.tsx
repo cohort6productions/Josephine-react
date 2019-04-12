@@ -4,6 +4,7 @@ import { IStepProps } from 'src/Interfaces/FormProps';
 import { IFormValues, IPersonalDetails } from 'src/Interfaces/FormValues';
 import InnerForm from '../forms/InnerForm';
 import ShareholderForm from './ShareholderForm';
+import * as Yup from 'yup';
 
 interface IShareholderProps extends IStepProps {
    _setValues: (values: any) => void;
@@ -50,6 +51,15 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
     }
 }
 
+const ShareholderSchema = Yup.object().shape({
+    email: Yup.string()
+        .email("Invalid email")
+        .required("Email Required"),
+    phone: Yup.string()
+        .max(10, "too long")
+        .required("Phone Required")
+});
+
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
         return {
@@ -72,6 +82,8 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             category: "",
         };
     },
+
+    validationSchema: ShareholderSchema,
 
     handleSubmit: (values, { setSubmitting }) => {
         alert(JSON.stringify(values))

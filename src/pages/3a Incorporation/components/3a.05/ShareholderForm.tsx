@@ -1,4 +1,4 @@
-import { Field, FormikProps } from "formik";
+import { Field, FormikProps, getIn } from "formik";
 import * as React from "react";
 import { IPersonalDetails } from "src/Interfaces/FormValues";
 
@@ -7,6 +7,8 @@ const ShareholderForm = (
         IPersonalDetails
     >
 ) => {
+    const { touched, errors } = props;
+
     return (
         <>
             {props.category === "personal" ? (
@@ -56,6 +58,8 @@ const ShareholderForm = (
                     name="email"
                     placeholder="john@doe.com"
                 />
+                {getIn(errors, 'personal.email') && getIn(touched, 'personal.email') && <small className="text-danger small">{getIn(errors, 'personal.email')}</small>}
+
             </div>
 
             {props.category === "personal" ? (

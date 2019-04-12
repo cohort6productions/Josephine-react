@@ -50,6 +50,19 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                                 ))
                             }
                        </div>
+
+                       <div className="col-12">
+                            <h2> Other Details</h2>
+                            {
+                               
+                                    Object.keys(this.props.values.others).map((i,j) => (
+                                        <div key={i}>
+                                            {i}: {this.props.values.others[i]} <br/>
+                                        </div>
+                                
+                                ))
+                            }
+                       </div>
                        <div className="col-12">
                             <button type="submit" className="btn btn-warning">Confirm</button>
                         </div>

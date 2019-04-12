@@ -5,6 +5,7 @@ export interface IFormValues {
     shareholders: any[];
     director:any[];
     company_secretary: ICompanySecretary;
+    others: IOtherValues;
 }
 
 interface IPersonalValues {
@@ -56,4 +57,10 @@ interface ICompanySecretary {
     license_no: string;
     address: string;
     country: string;
+}
+
+interface IOtherValues {
+    fund: string;
+    criminal_record: string;
+    business_relationship: string;
 }
