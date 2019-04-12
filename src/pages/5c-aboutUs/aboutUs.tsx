@@ -108,7 +108,7 @@ const List = () => (
 
 // Taken from components/hero
 const heroProps: IHeroProps = {
-    style: headerStyle("/images/img_dummy5.jpg"),
+    style: headerStyle("/images/banner/aboutus.jpg"),
     header: "TEAM CENTRE O",
     subLine:
         "From incorporating business to applying for visa, we have specialists, tools and relationships to take care of our clients. Our mission is to help entrepreneures focus on growing their businesses without getting distracted."

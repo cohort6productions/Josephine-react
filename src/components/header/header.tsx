@@ -1,13 +1,5 @@
 import * as React from "react";
 
-// const headerImage = {
-//     backgroundImage:
-//         "linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0), rgba(255, 255, 255, 1)), url(/images/img_dummy5.jpg)",
-//     backgroundPosition: "center",
-//     backgroundSize: "cover",
-//     height: 600
-// };
-
 class Header extends React.Component<{}, { isTop: boolean }> {
     constructor(props: {}) {
         super(props);
@@ -35,23 +27,6 @@ class Header extends React.Component<{}, { isTop: boolean }> {
                         <img src="/images/logo.png" alt="CentreO" />
                     </a>
                 </nav>
-                {/* <header>
-                    <div
-                        className="heaeder d-flex align-items-center"
-                        style={headerImage}
-                    >
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-12">
-                                    <h1>SETUP YOUR COMPANY</h1>
-                                </div>
-                                <div className="col-12">
-                                    First step towards success to stay focus.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header> */}
             </React.Fragment>
         );
     }

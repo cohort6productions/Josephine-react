@@ -6,23 +6,24 @@ import Trailer from "./a-trailer/a-trailer";
 import FindBusiness from "./b-findBusiness/b-findBusiness";
 import ConnectWithUs from "./c-connectWithUs/c-connectWithUs";
 import TrustedPartner from "./d-trustedPartner/d-trustedPartner";
+import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
 
 // Style
 import "./style.scss";
 
+// Taken from components/hero
+const heroProps: IHeroProps = {
+    style: headerStyle("/images/banner/homepage.jpg"),
+    header: "Admin services, resources & network to help business focus",
+    subLine: "Welcome to Centre O, the Hong Kong business center.",
+    buttonLink: "mailto:sales@centreo.hk"
+};
+
 export default class Homepage extends React.PureComponent {
     public render() {
         return (
-            <div>
-                <div className="container">
-                    <h1>
-                        Admin services, Resources &amp; Network to help business
-                        focus
-                    </h1>
-                    <h3>Welcome to Centre O, The Hong Kong Business Centre</h3>
-                    <button>Contact Us</button>
-                </div>
-
+            <>
+                <Hero {...heroProps} />
                 {/* Start of Watch the trailer */}
                 <Trailer />
                 {/* End of Watch the trailer */}
@@ -37,7 +38,7 @@ export default class Homepage extends React.PureComponent {
                 {/* Start of Trusted partner */}
                 <TrustedPartner />
                 {/* Emd of Trusted partner */}
-            </div>
+            </>
         );
     }
 }

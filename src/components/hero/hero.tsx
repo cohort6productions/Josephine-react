@@ -1,10 +1,14 @@
+// Module
 import * as React from "react";
+
+// Style
+import "./hero.scss";
 
 export interface IHeaderStyle {
     backgroundImage: string;
     backgroundPosition: string;
     backgroundSize: string;
-    height: number;
+    height?: number;
 }
 
 export interface IHeroProps {
@@ -16,12 +20,11 @@ export interface IHeroProps {
 
 export const headerStyle = (imgLoc: string): IHeaderStyle => ({
     backgroundImage:
-        "linear-gradient(180deg, #000000 45.42%, rgba(85, 72, 100, 0.3) 95.01%), url(" +
+        "linear-gradient(180deg, #000000 5.42%, rgba(85, 72, 100, 0.3) 95.01%), url(" +
         imgLoc +
         ")",
     backgroundPosition: "center",
-    backgroundSize: "cover",
-    height: 600
+    backgroundSize: "cover"
 });
 
 export default class Hero extends React.PureComponent<IHeroProps> {
@@ -29,31 +32,22 @@ export default class Hero extends React.PureComponent<IHeroProps> {
         return (
             <header>
                 <div
-                    className="heaeder d-flex align-items-center"
+                    className="jumbotron hero d-flex align-items-center"
                     style={this.props.style}
                 >
                     <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <h1 className="text-light">
-                                    {this.props.header}
-                                </h1>
-                            </div>
-                            {this.props.subLine ? (
-                                <div className="col-12">
-                                    <span className="text-light">
-                                        {this.props.subLine}
-                                    </span>
-                                </div>
-                            ) : null}
-                            {this.props.buttonLink ? (
-                                <div className="col-12">
-                                    <a href={this.props.buttonLink}>
-                                        Contact Us
-                                    </a>
-                                </div>
-                            ) : null}
-                        </div>
+                        <h1 className="hero__header text-light">
+                            {this.props.header}
+                        </h1>
+
+                        {this.props.subLine ? (
+                            <h3 className="hero__subheader text-light">
+                                {this.props.subLine}
+                            </h3>
+                        ) : null}
+                        {this.props.buttonLink ? (
+                            <a href={this.props.buttonLink}>Contact Us</a>
+                        ) : null}
                     </div>
                 </div>
             </header>

@@ -2,6 +2,7 @@
 import * as React from "react";
 
 // Components
+import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
 
 // Style
 import "./conferenceRoomBooking.scss";
@@ -188,17 +189,23 @@ const View = () => (
     </div>
 );
 
+// Taken from components/hero
+const heroProps: IHeroProps = {
+    style: headerStyle("/images/banner/conference.jpg"),
+    header: "Conference room",
+    subLine:
+        "We assist our clients in company incorporations and consultation services on maintain and upkeep their businesses."
+};
+
 export default class ConferenceRoomBooking extends React.PureComponent {
     public render() {
         return (
-            <div>
-                <h1>Conference</h1>
-                <h3>Welcome to Centre O, The Hong Kong Business Centre</h3>
-                <button>Contact Us</button>
+            <>
+                <Hero {...heroProps} />
                 <Location />
                 <Price />
                 <View />
-            </div>
+            </>
         );
     }
 }
