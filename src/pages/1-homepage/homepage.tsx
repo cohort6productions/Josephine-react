@@ -7,6 +7,7 @@ import FindBusiness from "./b-findBusiness/b-findBusiness";
 import ConnectWithUs from "./c-connectWithUs/c-connectWithUs";
 import TrustedPartner from "./d-trustedPartner/d-trustedPartner";
 import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
+import Subscription from "src/components/subscription/subscription";
 
 // Style
 import "./style.scss";
@@ -38,6 +39,9 @@ export default class Homepage extends React.PureComponent {
                 {/* Start of Trusted partner */}
                 <TrustedPartner />
                 {/* Emd of Trusted partner */}
+                {/* Start of subscription */}
+                <Subscription />
+                {/* End of subscription */}
             </>
         );
     }

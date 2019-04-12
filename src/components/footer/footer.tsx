@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 // Image assets
 import fb from "./img/social/facebook.svg";
@@ -15,12 +15,12 @@ import "./footer.scss";
 // Mapping of the site
 const siteMap = {
     howToStart: [
-        { path: "/", text: "Opening a new business" },
-        { path: "/", text: "Maintaining & upkeeping" },
-        { path: "/", text: "Expanding business" },
-        { path: "/", text: "Visa & licencing" },
-        { path: "/", text: "Business entering China" },
-        { path: "/", text: "Business leaving Hong Kong" }
+        { path: "/open", text: "Opening a new business" },
+        { path: "/upkeep", text: "Maintaining & upkeeping" },
+        { path: "/expand", text: "Expanding business" },
+        { path: "/visa", text: "Visa & licencing" },
+        { path: "/china", text: "Business entering China" },
+        { path: "/relocate", text: "Business leaving Hong Kong" }
     ],
     oftenUsed: [
         { path: "/incorporation", text: "HK company incorporation" },
@@ -473,4 +473,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default withRouter(Footer);

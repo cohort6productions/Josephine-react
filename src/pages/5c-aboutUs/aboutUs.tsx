@@ -2,6 +2,7 @@
 import * as React from "react";
 
 // Components
+import Subscription from "src/components/subscription/subscription";
 
 // Style
 import "./aboutUs.scss";
@@ -122,6 +123,7 @@ export default class AboutUs extends React.PureComponent {
                 <Team list={teamMembers} />
                 <Testimonials list={testimonial} />
                 <List />
+                <Subscription />
             </>
         );
     }

@@ -3,6 +3,7 @@ import * as React from "react";
 
 // Components
 import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
+import Subscription from "src/components/subscription/subscription";
 
 // Style
 import "./conferenceRoomBooking.scss";
@@ -205,6 +206,7 @@ export default class ConferenceRoomBooking extends React.PureComponent {
                 <Location />
                 <Price />
                 <View />
+                <Subscription />
             </>
         );
     }

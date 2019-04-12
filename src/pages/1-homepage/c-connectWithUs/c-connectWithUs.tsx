@@ -1,6 +1,9 @@
 // Module
 import * as React from "react";
 
+// Style
+import "./c-connectWithUs.scss";
+
 // business needs
 import tallbuilding from "./img/AL.190207.COH.WEBW.Connect1.jpg";
 import computer from "./img/AL.190207.COH.WEBW.Connect2.jpg";
@@ -26,9 +29,9 @@ const ConnectWithUs = () => {
                                 src={tallbuilding}
                                 alt=""
                             />
-                            <h4 className="itemCol__subhead  overline-header-bold">
+                            <span className="itemCol__subhead   body-short-texts">
                                 Read our blogs and Medium
-                            </h4>
+                            </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-6 itemCol">
@@ -38,26 +41,26 @@ const ConnectWithUs = () => {
                                 src={computer}
                                 alt=""
                             />
-                            <h4 className="itemCol__subhead  overline-header-bold">
+                            <span className="itemCol__subhead   body-short-texts">
                                 Meetup with business and professionals in Hong
                                 Kong
-                            </h4>
+                            </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
                         <a href="https://www.linkedin.com/company/centre-o/">
                             <img className="itemCol__img" src={money} alt="" />
-                            <h4 className="itemCol__subhead  overline-header-bold">
+                            <span className="itemCol__subhead   body-short-texts">
                                 Network with our connections on LinkedIn
-                            </h4>
+                            </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
                         <a href="https://www.facebook.com/centreobusinesscentre/">
                             <img className="itemCol__img" src={crowd} alt="" />
-                            <h4 className="itemCol__subhead  overline-header-bold">
+                            <span className="itemCol__subhead   body-short-texts">
                                 Catch us of Facebook updates
-                            </h4>
+                            </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
@@ -67,10 +70,10 @@ const ConnectWithUs = () => {
                                 src={meeting}
                                 alt=""
                             />
-                            <h4 className="itemCol__subhead  overline-header-bold">
+                            <span className="itemCol__subhead   body-short-texts">
                                 Food for thoughts on growing business in Hong
                                 Kong
-                            </h4>
+                            </span>
                         </a>
                     </div>
                 </div>

@@ -31,6 +31,14 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
     public render() {
         return (
             <Switch>
+                {/* Start of "How to start" */}
+                <Route exact={true} path="/open" component={Homepage} />
+                <Route exact={true} path="/upkeep" component={Homepage} />
+                <Route exact={true} path="/expand" component={Homepage} />
+                <Route exact={true} path="/china" component={Homepage} />
+                <Route exact={true} path="/visa" component={Homepage} />
+                <Route exact={true} path="/relocate" component={Homepage} />
+                {/* End of "How to start" */}
                 <Route
                     exact={true}
                     path="/incorporation"
