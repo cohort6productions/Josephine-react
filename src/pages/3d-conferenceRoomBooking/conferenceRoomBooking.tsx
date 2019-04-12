@@ -2,7 +2,6 @@
 import * as React from "react";
 
 // Components
-import Footer from "src/components/footer/footer";
 
 // Style
 import "./conferenceRoomBooking.scss";
@@ -199,7 +198,6 @@ export default class ConferenceRoomBooking extends React.PureComponent {
                 <Location />
                 <Price />
                 <View />
-                <Footer />
             </div>
         );
     }

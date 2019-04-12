@@ -2,7 +2,6 @@
 import * as React from "react";
 
 // Components
-import Footer from "src/components/footer/footer";
 import Trailer from "./a-trailer/a-trailer";
 import FindBusiness from "./b-findBusiness/b-findBusiness";
 import ConnectWithUs from "./c-connectWithUs/c-connectWithUs";
@@ -38,7 +37,6 @@ export default class Homepage extends React.PureComponent {
                 {/* Start of Trusted partner */}
                 <TrustedPartner />
                 {/* Emd of Trusted partner */}
-                <Footer />
             </div>
         );
     }

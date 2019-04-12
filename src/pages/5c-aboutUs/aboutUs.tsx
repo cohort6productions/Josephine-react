@@ -2,14 +2,13 @@
 import * as React from "react";
 
 // Components
-import Header from "src/components/header/header";
-import Footer from "src/components/footer/footer";
 
 // Style
 import "./aboutUs.scss";
 
 // List data
 import { testimonial, teamMembers } from "./data";
+import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
 
 const Team = (props: any) => (
     <div className="container-fluid section-padding-tb96">
@@ -107,19 +106,23 @@ const List = () => (
     </div>
 );
 
+// Taken from components/hero
+const heroProps: IHeroProps = {
+    style: headerStyle("/images/img_dummy5.jpg"),
+    header: "TEAM CENTRE O",
+    subLine:
+        "From incorporating business to applying for visa, we have specialists, tools and relationships to take care of our clients. Our mission is to help entrepreneures focus on growing their businesses without getting distracted."
+};
+
 export default class AboutUs extends React.PureComponent {
     public render() {
         return (
-            <div>
-                <Header />
-                <h1>About Us</h1>
-                <h3>Welcome to Centre O, The Hong Kong Business Centre</h3>
-                <button>Contact Us</button>
+            <>
+                <Hero {...heroProps} />
                 <Team list={teamMembers} />
                 <Testimonials list={testimonial} />
                 <List />
-                <Footer />
-            </div>
+            </>
         );
     }
 }

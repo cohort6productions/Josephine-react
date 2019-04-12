@@ -1,6 +1,7 @@
 // Module imports
 import * as React from "react";
-import { Route, Switch } from "react-router-dom";
+import * as History from "history";
+import { Route, Switch, withRouter, match } from "react-router-dom";
 
 // Import components
 import Homepage from "src/pages/1-homepage/homepage";
@@ -17,7 +18,16 @@ import { teamMembers } from "../pages/5c-aboutUs/data";
 // Helper function
 import { nameToPathConvert } from "src/helper/helper";
 
-export default class DefaultRoutes extends React.Component {
+interface IDefaultRoutesProps {
+    history: History.History;
+    location: History.Location;
+    match: match;
+}
+
+class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
+    constructor(props: IDefaultRoutesProps) {
+        super(props);
+    }
     public render() {
         return (
             <Switch>
@@ -29,16 +39,16 @@ export default class DefaultRoutes extends React.Component {
                 />
                 <Route
                     exact={true}
-                    path="/conferenceroom"
+                    path="/conference-room"
                     component={ConferenceRoomBooking}
                 />
                 <Route exact={true} path="/resources" component={Homepage} />
                 <Route exact={true} path="/subscribe" component={Newsletter} />
-                <Route exact={true} path="/aboutus" component={AboutUs} />
+                <Route exact={true} path="/about-us" component={AboutUs} />
 
                 {teamMembers.map(member => (
                     <Route
-                        path={`/aboutus/` + nameToPathConvert(member.name)}
+                        path={`/about-us/` + nameToPathConvert(member.name)}
                         // tslint:disable-next-line:jsx-no-lambda
                         render={() => <Member {...member} />}
                     />
@@ -50,3 +60,5 @@ export default class DefaultRoutes extends React.Component {
         );
     }
 }
+
+export default withRouter(DefaultRoutes);
