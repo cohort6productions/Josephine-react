@@ -41,9 +41,9 @@ export default class Hero extends React.PureComponent<IHeroProps> {
                         </h1>
 
                         {this.props.subLine ? (
-                            <h3 className="hero__subheader text-light">
+                            <h4 className="hero__subheader text-light">
                                 {this.props.subLine}
-                            </h3>
+                            </h4>
                         ) : null}
                         {this.props.buttonLink ? (
                             <a href={this.props.buttonLink}>Contact Us</a>

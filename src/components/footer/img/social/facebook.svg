@@ -1,35 +1,78 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 408.788 408.788" style="enable-background:new 0 0 408.788 408.788;" xml:space="preserve">
-<path style="fill:#475993;" d="M353.701,0H55.087C24.665,0,0.002,24.662,0.002,55.085v298.616c0,30.423,24.662,55.085,55.085,55.085  h147.275l0.251-146.078h-37.951c-4.932,0-8.935-3.988-8.954-8.92l-0.182-47.087c-0.019-4.959,3.996-8.989,8.955-8.989h37.882  v-45.498c0-52.8,32.247-81.55,79.348-81.55h38.65c4.945,0,8.955,4.009,8.955,8.955v39.704c0,4.944-4.007,8.952-8.95,8.955  l-23.719,0.011c-25.615,0-30.575,12.172-30.575,30.035v39.389h56.285c5.363,0,9.524,4.683,8.892,10.009l-5.581,47.087  c-0.534,4.506-4.355,7.901-8.892,7.901h-50.453l-0.251,146.078h87.631c30.422,0,55.084-24.662,55.084-55.084V55.085  C408.786,24.662,384.124,0,353.701,0z"/>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-</svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 100 100"
+   xml:space="preserve"
+   sodipodi:docname="facebook.svg"
+   width="100"
+   height="100"
+   inkscape:version="0.92.1 r15371"><metadata
+     id="metadata39"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs37" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     id="namedview35"
+     showgrid="false"
+     inkscape:zoom="5.295144"
+     inkscape:cx="26.673923"
+     inkscape:cy="42.777287"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" /><path
+     style="fill:#475993;stroke-width:1"
+     d="M 86.524461,1.0170424e-5 H 13.4753 C 6.0332453,1.0170424e-5 0,6.0329653 0,13.47521 v 73.049109 c 0,7.442243 6.0330007,13.4752 13.4753,13.4752 h 36.027497 l 0.0614,-35.734415 h -9.283854 c -1.206503,0 -2.185745,-0.975567 -2.190394,-2.18206 L 38.045439,50.56436 c -0.0046,-1.213098 0.97753,-2.198939 2.190637,-2.198939 H 49.50305 V 37.235447 c 0,-12.916231 7.8885,-19.949215 19.410695,-19.949215 h 9.454848 c 1.209683,0 2.190638,0.980703 2.190638,2.190621 v 9.712613 c 0,1.20943 -0.980222,2.189889 -2.189414,2.190623 l -5.802318,0.0027 c -6.26613,0 -7.479482,2.977583 -7.479482,7.347329 v 9.635557 H 78.85687 c 1.311936,0 2.329831,1.145582 2.175226,2.448458 l -1.36527,11.518635 c -0.130632,1.102282 -1.065353,1.932786 -2.175228,1.932786 H 65.149409 l -0.0614,35.734417 H 86.524951 C 93.967005,99.999971 100,93.967012 100,86.525013 V 13.47521 C 99.99976,6.0329653 93.96676,1.0170424e-5 86.524461,1.0170424e-5 Z"
+     id="path2"
+     inkscape:connector-curvature="0" /><g
+     id="g4"
+     transform="translate(0,-308.78799)" /><g
+     id="g6"
+     transform="translate(0,-308.78799)" /><g
+     id="g8"
+     transform="translate(0,-308.78799)" /><g
+     id="g10"
+     transform="translate(0,-308.78799)" /><g
+     id="g12"
+     transform="translate(0,-308.78799)" /><g
+     id="g14"
+     transform="translate(0,-308.78799)" /><g
+     id="g16"
+     transform="translate(0,-308.78799)" /><g
+     id="g18"
+     transform="translate(0,-308.78799)" /><g
+     id="g20"
+     transform="translate(0,-308.78799)" /><g
+     id="g22"
+     transform="translate(0,-308.78799)" /><g
+     id="g24"
+     transform="translate(0,-308.78799)" /><g
+     id="g26"
+     transform="translate(0,-308.78799)" /><g
+     id="g28"
+     transform="translate(0,-308.78799)" /><g
+     id="g30"
+     transform="translate(0,-308.78799)" /><g
+     id="g32"
+     transform="translate(0,-308.78799)" /></svg>

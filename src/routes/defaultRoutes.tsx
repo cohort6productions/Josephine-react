@@ -31,7 +31,6 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
     public render() {
         return (
             <Switch>
-                <Route exact={true} path="/homepage" component={Homepage} />
                 <Route
                     exact={true}
                     path="/incorporation"
@@ -54,8 +53,8 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                     />
                 ))}
 
-                <Route exact={true} path="/error404" component={Error404} />
-                <Route exact={true} path="/" component={IncorporationProcess} />
+                <Route exact={true} path="/" component={Homepage} />
+                <Route path="/error404" component={Error404} />
             </Switch>
         );
     }

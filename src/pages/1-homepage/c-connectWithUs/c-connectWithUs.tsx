@@ -20,7 +20,7 @@ const ConnectWithUs = () => {
                 </h2>
                 <div className="row">
                     <div className="col-sm-12 col-md-6 itemCol">
-                        <a href="https://www.google.com">
+                        <a href="https://medium.com/centreo">
                             <img
                                 className="itemCol__img"
                                 src={tallbuilding}
@@ -32,7 +32,7 @@ const ConnectWithUs = () => {
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-6 itemCol">
-                        <a href="https://www.google.com">
+                        <a href="https://www.meetup.com/Multi-Network-Business-Community/">
                             <img
                                 className="itemCol__img"
                                 src={computer}
@@ -45,7 +45,7 @@ const ConnectWithUs = () => {
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
-                        <a href="https://www.google.com">
+                        <a href="https://www.linkedin.com/company/centre-o/">
                             <img className="itemCol__img" src={money} alt="" />
                             <h4 className="itemCol__subhead  overline-header-bold">
                                 Network with our connections on LinkedIn
@@ -53,7 +53,7 @@ const ConnectWithUs = () => {
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
-                        <a href="https://www.google.com">
+                        <a href="https://www.facebook.com/centreobusinesscentre/">
                             <img className="itemCol__img" src={crowd} alt="" />
                             <h4 className="itemCol__subhead  overline-header-bold">
                                 Catch us of Facebook updates
@@ -61,7 +61,7 @@ const ConnectWithUs = () => {
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
-                        <a href="https://www.google.com">
+                        <a href="https://www.youtube.com/channel/UCwDkjGptwCDw1YxV3hsLmHw">
                             <img
                                 className="itemCol__img"
                                 src={meeting}
