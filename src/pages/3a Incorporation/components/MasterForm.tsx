@@ -107,9 +107,23 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 back={this.back}
                 _setValues={this.setDirectorValues}
             />,
-            <Step6 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
-            <Step7 key="" {...this.props} nextStep={this.nextStep} back={this.back} />,
-            <Summary key="" {...this.props} />
+            <Step6 
+                key="" 
+                {...this.props} 
+                nextStep={this.nextStep} 
+                back={this.back} 
+            />,
+            <Step7 
+                key="" 
+                {...this.props} 
+                nextStep={this.nextStep} 
+                back={this.back} 
+            />,
+            <Summary 
+                key="" 
+                {...this.props} 
+                back={this.back} 
+            />
         ]
         return (
             <section className="my-5" id="incorporation-form">
@@ -178,7 +192,9 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                 fund: '',
                 criminal_record: '',
                 business_relationship: ''
-            }
+            },
+            comments: "",
+            terms: false
 
         };
     },

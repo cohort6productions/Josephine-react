@@ -1,9 +1,9 @@
-import { FormikProps } from 'formik';
+import { FormikProps, Field } from 'formik';
 import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
 
-class Summary extends React.Component<FormikProps<IFormValues>, {}> {
-    constructor(props:FormikProps<IFormValues>) {
+class Summary extends React.Component<{back: () => void} & FormikProps<IFormValues>, {}> {
+    constructor(props: {back: () => void} & FormikProps<IFormValues>) {
         super(props);
     }
     public render() {   
@@ -38,6 +38,49 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                                 ))
                             }
                        </div>
+
+                       <div className="col-12">
+                            <h2> Shareholder(s) Information</h2>
+                            {
+                               
+                                this.props.values.shareholders.map((el, index) => (
+                                    <div key={index}>
+                                        <h4>Shareholder {index}</h4>
+                                    {
+                                        Object.keys(el).map((i) => (
+                                            
+                                            !!el[i] ? 
+                                            <div key={i}> {i}: {el[i]} <br/></div>
+                                            : ''
+                                            
+                                        ))
+                                    }
+                                    </div>
+                                ))
+                            }
+                       </div>
+
+                       <div className="col-12">
+                            <h2> Director(s) Information</h2>
+                            {
+                               
+                                this.props.values.director.map((el, index) => (
+                                    <div key={index}>
+                                        <h4>Director {index}</h4>
+                                    {
+                                        Object.keys(el).map((i) => (
+                                            
+                                            !!el[i] ? 
+                                            <div key={i}> {i}: {el[i]} <br/></div>
+                                            : ''
+                                            
+                                        ))
+                                    }
+                                    </div>
+                                ))
+                            }
+                       </div>
+
                        <div className="col-12">
                             <h2> Share Details</h2>
                             {
@@ -52,19 +95,45 @@ class Summary extends React.Component<FormikProps<IFormValues>, {}> {
                        </div>
 
                        <div className="col-12">
-                            <h2> Other Details</h2>
+                            <h2> Company Secretary Details</h2>
                             {
                                
-                                    Object.keys(this.props.values.others).map((i,j) => (
+                                    Object.keys(this.props.values.company_secretary).map((i,j) => (
                                         <div key={i}>
-                                            {i}: {this.props.values.others[i]} <br/>
+                                            {i}: {this.props.values.company_secretary[i]} <br/>
                                         </div>
                                 
                                 ))
                             }
                        </div>
+
                        <div className="col-12">
-                            <button type="submit" className="btn btn-warning">Confirm</button>
+                            <h2> Other Details</h2>
+                            {
+                               
+                                Object.keys(this.props.values.others).map((i,j) => (
+                                    <div key={i}>
+                                        {i}: {this.props.values.others[i]} <br/>
+                                    </div>
+                                ))
+                            }
+                       </div>
+
+                       <div className="col-12">
+                            <Field className="form-control" component="textarea" name="comments" />
+                       </div>
+
+                       <div className="col-12">
+                            <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above to Terms and condition
+                       </div>
+
+                       <div className="row justify-content-center w-100">
+                            <div className="col-auto">
+                                <button type="button" className="form-control btn btn-default" onClick={this.props.back}>Back</button>
+                            </div>
+                            <div className="col-auto">
+                                <button type="button" className="form-control btn btn-warning">Proceed to payment</button>
+                            </div>
                         </div>
                     </div>
                 </div>

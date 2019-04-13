@@ -11,7 +11,8 @@ const ShareholderForm = (
 
     return (
         <>
-            {props.category === "personal" ? (
+            {
+                props.category === "personal" ? 
                 <>
                     <div className="form-group col-12 col-md-6">
                         <label>First name</label>
@@ -30,7 +31,7 @@ const ShareholderForm = (
                         />
                     </div>
                 </>
-            ) : (
+                : 
                 <>
                     <div className="form-group col-12">
                         <label>Company name</label>
@@ -49,7 +50,8 @@ const ShareholderForm = (
                         />
                     </div>
                 </>
-            )}
+            }
+
             <div className="form-group col-12">
                 <label>Email</label>
                 <Field
@@ -62,7 +64,8 @@ const ShareholderForm = (
 
             </div>
 
-            {props.category === "personal" ? (
+            {
+                props.category === "personal" ? 
                 <>
                     <div className="form-group col-12">
                         <label>Occupation</label>
@@ -83,34 +86,9 @@ const ShareholderForm = (
                         />
                     </div>
                 </>
-            ) : (
+                :
                 <div />
-            )}
-
-            {props.category === "personal" ? (
-                <>
-                    <div className="form-group col-12">
-                        <label>Occupation</label>
-                        <Field
-                            type="text"
-                            className="form-control"
-                            name="occupation"
-                            placeholder="Profession"
-                        />
-                    </div>
-                    <div className="form-group col-12">
-                        <label>Phone</label>
-                        <Field
-                            type="text"
-                            className="form-control"
-                            name="phone"
-                            placeholder="+852 98217722"
-                        />
-                    </div>
-                </>
-            ) : (
-                <div />
-            )}
+            }
 
             <div className="form-group col-12">
                 <label>Address</label>

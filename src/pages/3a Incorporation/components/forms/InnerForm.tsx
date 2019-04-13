@@ -31,7 +31,7 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
 
     public handleSubmit = () => {
         this.addValues(this.props.values)
-        alert(JSON.stringify(this.props.values))
+
         if (!!this.props.emitValue){
             this.props.emitValue(this.props.values, 'submit')
         }
