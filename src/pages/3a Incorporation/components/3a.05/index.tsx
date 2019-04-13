@@ -86,7 +86,6 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     validationSchema: ShareholderSchema,
 
     handleSubmit: (values, { setSubmitting }) => {
-        alert(JSON.stringify(values))
         setSubmitting(false);
     },
 
