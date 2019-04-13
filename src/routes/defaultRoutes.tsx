@@ -3,6 +3,12 @@ import * as React from "react";
 import * as History from "history";
 import { Route, Switch, withRouter, match } from "react-router-dom";
 
+// Data
+import { teamMembers } from "../pages/5c-aboutUs/data";
+
+// Helper function
+import { nameToPathConvert } from "src/helper/helper";
+
 // Import components
 import Homepage from "src/pages/1-homepage/homepage";
 import IncorporationProcess from "src/pages/3a Incorporation/3a";
@@ -11,12 +17,7 @@ import Newsletter from "src/pages/5b-newsletter/newsletter";
 import AboutUs from "src/pages/5c-aboutUs/aboutUs";
 import Member from "src/pages/5d-individualMember/member";
 import Error404 from "src/pages/error404/error404";
-
-// Data
-import { teamMembers } from "../pages/5c-aboutUs/data";
-
-// Helper function
-import { nameToPathConvert } from "src/helper/helper";
+import CompanyIncorporation from "src/pages/3a-companyIncorporation/companyIncorporation";
 
 interface IDefaultRoutesProps {
     history: History.History;
@@ -39,6 +40,13 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                 <Route exact={true} path="/visa" component={Homepage} />
                 <Route exact={true} path="/relocate" component={Homepage} />
                 {/* End of "How to start" */}
+
+                {/* Start of "Often use" */}
+                <Route
+                    exact={true}
+                    path="/compInc"
+                    component={CompanyIncorporation}
+                />
                 <Route
                     exact={true}
                     path="/incorporation"
@@ -49,10 +57,15 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                     path="/conference-room"
                     component={ConferenceRoomBooking}
                 />
+                {/* End of "Often use" */}
+
+                {/* Start of "Resources" */}
                 <Route exact={true} path="/resources" component={Homepage} />
                 <Route exact={true} path="/subscribe" component={Newsletter} />
-                <Route exact={true} path="/about-us" component={AboutUs} />
+                {/* End of "Resources" */}
 
+                {/* Start of "Who we are" */}
+                <Route exact={true} path="/about-us" component={AboutUs} />
                 {teamMembers.map(member => (
                     <Route
                         path={`/about-us/` + nameToPathConvert(member.name)}
@@ -60,9 +73,12 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                         render={() => <Member {...member} />}
                     />
                 ))}
+                {/* End of "Who we are" */}
 
+                {/* Start of "General" */}
                 <Route exact={true} path="/" component={Homepage} />
-                <Route path="/error404" component={Error404} />
+                <Route component={Error404} />
+                {/* End of "General" */}
             </Switch>
         );
     }

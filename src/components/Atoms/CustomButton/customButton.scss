@@ -1,0 +1,47 @@
+.custom-button {
+    border-radius: 4px;
+    // width: fit-content;
+    // padding: 1.3rem 2.7rem;
+    padding: 24px 48px;
+}
+
+.primitive {
+    $color-default: #c4c4c4;
+    $color-focus: #979797;
+    background-color: $color-default;
+
+    &:hover {
+        background-color: $color-focus;
+    }
+}
+
+.theme {
+    $color-default: #F88C2A;
+    $color-focus: #FFAB2E;
+    background-color: $color-default;
+
+    &:hover {
+        background-color: $color-focus;
+    }
+}
+
+.affirmative {
+
+    $color-default: #91D942;
+    $color-focus: rgb(164, 235, 88);
+    background-color: $color-default;
+
+    &:hover {
+        background-color: $color-focus;
+    }
+}
+
+.alertwarning {
+    $color-default: #FF6964;
+    $color-focus: rgb(247, 130, 126);
+    background-color: $color-default;
+
+    &:hover {
+        background-color: $color-focus;
+    }
+}

@@ -2,14 +2,17 @@
 import * as React from "react";
 
 // Components
-import Subscription from "src/components/subscription/subscription";
+import Subscription from "src/components/Organisms/Subscription/subscription";
 
 // Style
 import "./aboutUs.scss";
 
 // List data
 import { testimonial, teamMembers } from "./data";
-import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
+import Hero, {
+    headerStyle,
+    IHeroProps
+} from "src/components/Organisms/Hero/hero";
 
 const Team = (props: any) => (
     <div className="container-fluid section-padding-tb96">

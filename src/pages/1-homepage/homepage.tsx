@@ -6,11 +6,14 @@ import Trailer from "./a-trailer/a-trailer";
 import FindBusiness from "./b-findBusiness/b-findBusiness";
 import ConnectWithUs from "./c-connectWithUs/c-connectWithUs";
 import TrustedPartner from "./d-trustedPartner/d-trustedPartner";
-import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
-import Subscription from "src/components/subscription/subscription";
+import Hero, {
+    headerStyle,
+    IHeroProps
+} from "src/components/Organisms/Hero/hero";
+import Subscription from "src/components/Organisms/Subscription/subscription";
 
 // Style
-import "./style.scss";
+import "./homepage.scss";
 
 // Taken from components/hero
 const heroProps: IHeroProps = {

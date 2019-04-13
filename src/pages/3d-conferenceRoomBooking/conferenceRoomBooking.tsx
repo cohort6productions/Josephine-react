@@ -2,8 +2,11 @@
 import * as React from "react";
 
 // Components
-import Hero, { headerStyle, IHeroProps } from "src/components/hero/hero";
-import Subscription from "src/components/subscription/subscription";
+import Hero, {
+    headerStyle,
+    IHeroProps
+} from "src/components/Organisms/Hero/hero";
+import Subscription from "src/components/Organisms/Subscription/subscription";
 
 // Style
 import "./conferenceRoomBooking.scss";

@@ -2,7 +2,8 @@
 import * as React from "react";
 
 // Style
-import "./trailer.scss";
+import "./a-trailer.scss";
+import CustomButton from "src/components/Atoms/CustomButton/customButton";
 
 const Trailer = () => {
     return (
@@ -18,9 +19,11 @@ const Trailer = () => {
                     mission is to help entrepreneures and businesses to focus on
                     growing their businesses without getting distracted.{" "}
                 </p>
-                <button>
-                    <span className="button-text">watch the trailer</span>
-                </button>
+                <CustomButton
+                    text="Watch the trailer"
+                    link="https://www.youtube.com/watch?v=xqzML__jKyU"
+                    variation="theme"
+                />
             </div>
         </div>
     );

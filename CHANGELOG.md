@@ -1,3 +1,21 @@
+Date: 2019-04-13
+Branch: master
+
+This version aims to create a clickable prototype for the final version of the website, also where the "incorporation form" is clickable and workable for testing.
+Also, focusing on modulating "Atoms" from Figma design, creating a reusable pattern for future development. Most contents are filled in under the structure, styling is what is missing from the current design.
+
+## Added
+
+-   `CustomButton` under src/components/Atom
+-   `CustomButton` now has 4 different instance: `primitive`, `theme`, `affirmative`, and `alertwarning`, reusable at anywhere a button is required
+-   component structure referencing Atomic design (check Figma)
+
+## Need to work on
+
+-   Styling of all pages
+
+---
+
 Date: 2019-04-11
 Branch: master
 

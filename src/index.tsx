@@ -12,8 +12,8 @@ import "./styles/App.scss";
 // React router
 import { BrowserRouter as Router } from "react-router-dom";
 import DefaultRoutes from "./routes/defaultRoutes";
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
+import Header from "./components/Organisms/Header/header";
+import Footer from "./components/Organisms/Footer/footer";
 
 export const App = () => (
     <Router>
