@@ -6,6 +6,7 @@ export interface IFormValues {
     director:any[];
     company_secretary: ICompanySecretary;
     others: IOtherValues;
+    comments: string;
 }
 
 interface IPersonalValues {
