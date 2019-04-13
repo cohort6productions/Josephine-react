@@ -9,11 +9,11 @@ const Trailer = () => {
     return (
         <div className="container-fluid section-padding-tb96">
             <div className="container" id="trailer">
-                <h2 className="section-header all-cap">
-                    <bdi className="text-highlight">Centre O</bdi>
-                    Is a one-stop centre for all business' administrative needs
+                <h2 className="all-cap text-light">
+                    <bdi className="text-highlight">Centre O</bdi> is a one-stop
+                    centre for all business administrative needs.
                 </h2>
-                <p>
+                <p className="text-light">
                     From incorporating business to visa applications, we have
                     specialists, tools and connections cater to your needs. Our
                     mission is to help entrepreneures and businesses to focus on
