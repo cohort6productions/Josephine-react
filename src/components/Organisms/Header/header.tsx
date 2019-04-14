@@ -1,5 +1,6 @@
 import * as React from "react";
 import CustomButton from "src/components/Atoms/CustomButton/customButton";
+import { Link } from "react-router-dom";
 
 class Header extends React.Component<{}, { isTop: boolean }> {
     constructor(props: {}) {
@@ -24,9 +25,10 @@ class Header extends React.Component<{}, { isTop: boolean }> {
                         this.state.isTop ? "bg-transparent" : "up"
                     } pt-3 pb-3 navbar navbar-light bg-light fixed-top justify-content-between`}
                 >
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" to="/">
                         <img src="/images/logo.png" alt="CentreO" />
-                    </a>
+                    </Link>
+
                     <CustomButton
                         text="Book conference room"
                         variation="theme"

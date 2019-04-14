@@ -1,8 +1,12 @@
 // Module
 import * as React from "react";
 
+// Helper function
+import { nameToPathConvert } from "src/helper/helper";
+
 // Components
 import Subscription from "src/components/Organisms/Subscription/subscription";
+import CustomLink from "src/components/Atoms/CustomLink/customLink";
 
 // Style
 import "./aboutUs.scss";
@@ -21,21 +25,29 @@ const Team = (props: any) => (
                 {props.list.map((unit: any, keyIndex: any) => (
                     <div
                         className={
-                            keyIndex < 2
-                                ? "member-box col-sm-12 col-md-6"
-                                : "member-box col-sm-6 col-md-4"
+                            "card p-3 " +
+                            (keyIndex < 2
+                                ? "col-sm-12 col-md-6"
+                                : "col-sm-6 col-md-4")
                         }
                     >
                         <img
-                            className="img-fluid"
+                            className="card-img-top img-fluid"
                             src={unit.image}
                             alt={unit.name}
                         />
-                        <h4>{unit.name}</h4>
-                        <small>{unit.position}</small>
-                        <a href="">
-                            <button>Click here</button>
-                        </a>
+                        <div className="card__body">
+                            <h4>{unit.name}</h4>
+                            <small>{unit.position}</small>
+                        </div>
+                        <div className="card__footer">
+                            <CustomLink
+                                link={
+                                    "/about-us/" + nameToPathConvert(unit.name)
+                                }
+                                variation="default"
+                            />
+                        </div>
                     </div>
                 ))}
             </div>

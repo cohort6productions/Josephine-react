@@ -5,9 +5,24 @@
     -webkit-transition: border-width .1s ease-in-out 0s;
     transition: border-width .1s ease-in-out 0s;
 
+
     &:hover {
         color: transparent;
         text-decoration: none;
         border-width: 4px;
     }
+
+
+    &__icon-container {
+        display: inline-flex;
+        align-items: flex-end;
+
+
+        &__icon {
+            margin-left: 8px;
+            width: .8rem;
+            // height: 16px;
+        }
+    }
+
 }

@@ -1,9 +1,9 @@
 // Module
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 // Style
 import "./customButton.scss";
-// import { Link } from "react-router-dom";
 
 interface ICustomButtonProps {
     text?: string;
@@ -16,7 +16,8 @@ export default class CustomButton extends React.PureComponent<
 > {
     public render() {
         return (
-            <a href={this.props.link}>
+            // <a href={this.props.link}>
+            <Link to={this.props.link}>
                 <button
                     className={"custom-button" + " " + this.props.variation}
                 >
@@ -24,7 +25,8 @@ export default class CustomButton extends React.PureComponent<
                         {this.props.text ? this.props.text : "Click Here"}
                     </span>
                 </button>
-            </a>
+            </Link>
+            // </a>
         );
     }
 }
