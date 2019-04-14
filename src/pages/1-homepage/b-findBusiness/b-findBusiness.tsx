@@ -1,6 +1,5 @@
 // Module
 import * as React from "react";
-import { Link } from "react-router-dom";
 
 // Style
 import "./b-findBusiness.scss";
@@ -10,6 +9,9 @@ import globe from "./img/global.png";
 import china from "./img/china.png";
 import sprout from "./img/sprout.png";
 import coinhand from "./img/coinHand.png";
+
+// Components
+import CustomLink from "src/components/Atoms/CustomLink/customLink";
 
 const FindBusiness = () => {
     return (
@@ -39,7 +41,9 @@ const FindBusiness = () => {
                                 company properly with Centre O.
                             </span>
                         </div>
-                        <Link to="/open">Start</Link>
+                        <div>
+                            <CustomLink link="/open" variation="default" />
+                        </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
                         <img
@@ -49,7 +53,7 @@ const FindBusiness = () => {
                         />
                         <div className="card-body">
                             <h4 className="itemCol__subhead  overline-header-bold">
-                                MAINTAIN & UPKEEPING BUSINESS
+                                BUSINESS UPKEEPING
                             </h4>
                             <span className="itemCol__body">
                                 Administrative tasks are time-consuming yet
@@ -58,7 +62,9 @@ const FindBusiness = () => {
                                 taking care of them.
                             </span>
                         </div>
-                        <Link to="/upkeep">Start</Link>
+                        <div>
+                            <CustomLink link="/upkeep" variation="default" />
+                        </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
                         <img
@@ -78,7 +84,9 @@ const FindBusiness = () => {
                                 business grow as well.
                             </span>
                         </div>
-                        <Link to="/expand">Start</Link>
+                        <div>
+                            <CustomLink link="/expand" variation="default" />
+                        </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
                         <img
@@ -94,11 +102,13 @@ const FindBusiness = () => {
                                 Entering one of the World’s largest consumer
                                 market can be difficult and intimidating. With a
                                 hand-picked, tightly-knitted network of business
-                                partners in China, let CentreO help you tap into
-                                that endless possibilities.{" "}
+                                partners in China, let Centre O help you tap
+                                into that endless possibilities.{" "}
                             </span>
                         </div>
-                        <Link to="/relocate">Start</Link>
+                        <div>
+                            <CustomLink link="/relocate" variation="default" />
+                        </div>
                     </div>
                 </div>
             </div>
