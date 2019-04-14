@@ -15,12 +15,12 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
             <h1 className="my-3 text-center">{title}</h1>
         
                 <div className="row">
-                    <div className="form-group col-6">
+                    <div className="form-group col-12 col-md-6">
                         <label>First Name</label>
                         <Field type="text" className="form-control" name="personal.firstname" required={true} />
                     </div>
 
-                    <div className="form-group col-6">
+                    <div className="form-group col-12 col-md-6">
                         <label>Last Name</label>
                         <Field type="text" className="form-control" name="personal.lastname" />
                     </div>
@@ -31,12 +31,12 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                         {getIn(errors, 'personal.email') && getIn(touched, 'personal.email') && <small className="text-danger small">{getIn(errors, 'personal.email')}</small>}
                     </div>
         
-                    <div className="form-group col-6">
+                    <div className="form-group col-12 col-md-6">
                         <label>Country Code</label>
                         <Field type="text" className="form-control" name="personal.country_code" />
                     </div>
 
-                    <div className="form-group col-6">
+                    <div className="form-group col-12 col-md-6">
                         <label>Phone Number</label>
                         <Field type="text" className="form-control" name="personal.phone" />
                         {getIn(touched, 'personal.phone') && getIn(errors, 'personal.phone') && <small className="text-danger small">{getIn(errors, 'personal.phone')}</small>}

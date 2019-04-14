@@ -117,17 +117,20 @@ class Summary extends React.Component<{back: () => void} & FormikProps<IFormValu
                                     </div>
                                 ))
                             }
+                            <hr/>
                        </div>
 
-                       <div className="col-12">
+                       <div className="form-group col-12 mt-3">
+                            <label>Comments</label>
+
                             <Field className="form-control" component="textarea" name="comments" />
                        </div>
 
-                       <div className="col-12">
-                            <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above to Terms and condition
+                       <div className="form-group col-12">
+                            <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and I agree to the Terms and conditions.
                        </div>
 
-                       <div className="row justify-content-center w-100">
+                       <div className="form-group row justify-content-center w-100">
                             <div className="col-auto">
                                 <button type="button" className="form-control btn btn-default" onClick={this.props.back}>Back</button>
                             </div>

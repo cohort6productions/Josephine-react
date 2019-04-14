@@ -24,16 +24,16 @@ class Header extends React.Component<{}, { isTop: boolean }> {
     public render() {
         return (
             <React.Fragment>
-                <nav className={`${this.state.isTop ? 'bg-transparent' : 'up'} navbar navbar-light bg-light fixed-top`}>
+                {/* <nav className={`${this.state.isTop ? 'bg-transparent' : 'up'} navbar navbar-light bg-light fixed-top`}>
                     <a className="navbar-brand" href="#">
                         <img src="/images/logo.png" alt="CentreO" />
                     </a>
-                </nav>
+                </nav> */}
                 <header>
 
                     <div className="heaeder d-flex align-items-center" style={headerImage}>
                         <div className="container">
-                            <div className="row">
+                            <div className="row mx-0">
                                 <div className="col-12">
                                     <h1>SETUP YOUR COMPANY</h1>
                                 </div>

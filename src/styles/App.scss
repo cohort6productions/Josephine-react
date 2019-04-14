@@ -1,9 +1,11 @@
 // Importing Scss sheets
+@import "./variables";
 @import "./shades/cardAndShades.scss";
 @import "./colors/color.scss";
 @import "./fonts/font.scss";
 @import "./spacings/spacing.scss";
 @import "./temp/temp.scss";
+@import "./buttons";
 
 html,
 body {

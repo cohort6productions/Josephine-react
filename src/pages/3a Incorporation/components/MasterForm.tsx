@@ -130,7 +130,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 <div className="container">
                     <Form>
                         {steps[step] || <div />}
-                        <div className="row justify-content-center">
+                        <div className="row justify-content-center mx-0 ">
                             <div className="col-12 col-md-8 my-3">
                                 <div className="progress">
                                     <div

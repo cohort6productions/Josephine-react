@@ -1,0 +1,15 @@
+button {
+    &.btn {
+        &-default {
+            color: $brand-primary; 
+            background: transparent;
+            border-color: $brand-primary; 
+            border-radius: 0;
+            
+            &:hover {
+                color: #fff;
+                background: $brand-primary;
+            }
+        }
+    }
+}
