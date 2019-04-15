@@ -44,13 +44,13 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                 {/* Start of "Often use" */}
                 <Route
                     exact={true}
-                    path="/compInc"
-                    component={CompanyIncorporation}
+                    path="/incorporation/form"
+                    component={IncorporationProcess}
                 />
                 <Route
                     exact={true}
                     path="/incorporation"
-                    component={IncorporationProcess}
+                    component={CompanyIncorporation}
                 />
                 <Route
                     exact={true}

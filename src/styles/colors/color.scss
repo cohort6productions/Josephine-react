@@ -8,7 +8,7 @@ bg = Background
 
 // Component related
 $cp-bg-default: #FAFAFA;
-$cpAccent-Intense: #FF5F00;
+$cpAccent-intense: #FF5F00;
 $cpAccent-medium: #F88C2A;
 $cpAccent-mild: #F0C107;
 $cpStatus-alert: #FF6964;
@@ -38,6 +38,7 @@ $btn-focusRing-default: #663399;
 
 // Background color
 $bg-default: #F88C2A;
+$background-component: #FAFAFA;
 
 // Text
 $text-default: #222224;
@@ -50,6 +51,7 @@ $text-light:#FAFAFA;
 $inactivate-shade-default: rgba(58, 58, 61, 0.3);
 
 // Classes
+// Text color
 .text-placeholder {
     color: $text-placeholder;
 }
@@ -62,6 +64,46 @@ $inactivate-shade-default: rgba(58, 58, 61, 0.3);
     color: $text-light;
 }
 
+.text-intense {
+    color: $cpAccent-intense;
+}
+
+.text-medium {
+    color: $cpAccent-medium;
+
+}
+
+.text-mild {
+    color: $cpAccent-mild;
+}
+
+
+// Background color
 .bg-theme-default {
     background-color: $bg-default;
+}
+
+.bg-theme-intense {
+    background-color: $cpAccent-intense;
+}
+
+.bg-theme-medium {
+    background-color: $cpAccent-medium;
+}
+
+.bg-theme-mild {
+    background-color: $cpAccent-mild;
+}
+
+// Colour filling
+.fill-mild {
+    fill: $cpAccent-mild
+}
+
+.fill-medium {
+    fill: $cpAccent-medium
+}
+
+.fill-intense {
+    fill: $cpAccent-intense
 }

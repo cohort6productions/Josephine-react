@@ -1,0 +1,51 @@
+.card {
+    background-color: #FAFAFA;
+    padding: 0;
+
+
+    .card-header {
+        text-align: center;
+        // resetting bootstrap card styling
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        &__title {
+            padding: 1.78rem 0;
+        }
+
+        &__title>h3 {
+            margin: 0;
+        }
+
+        &__tag {
+            padding: 1.78rem;
+        }
+    }
+
+    .card-body {
+        // padding-top: 1.78rem;
+        // padding-bottom: 1.78rem;
+        padding: 1.78rem;
+
+        &>ul {
+            padding: 0;
+        }
+
+        &>ul>li {
+            list-style-type: none;
+            margin-bottom: 1.125rem;
+
+            .list-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-right: 16px;
+            }
+        }
+
+        .inact {
+            fill: #919191;
+            color: #919191;
+        }
+    }
+}

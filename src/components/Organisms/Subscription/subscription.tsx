@@ -11,7 +11,7 @@ const Subscription = () => (
                     <p>
                         Sign up to our newsletter for events, unique contents
                         and new services! We hate spam as much as you do, so
-                        we'll never send you more emails than you want, and you
+                        we'll never spam you more emails than you want, and you
                         can unsubscribe at any time.
                     </p>
                 </div>
