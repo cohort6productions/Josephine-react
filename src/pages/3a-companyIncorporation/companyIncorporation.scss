@@ -1,6 +1,8 @@
+// Price tiers
 .card {
     background-color: #FAFAFA;
     padding: 0;
+    margin-top: 1rem;
 
 
     .card-header {
@@ -47,10 +49,18 @@
             fill: #919191;
             color: #919191;
         }
+
+        .card-title {
+            margin: 0;
+        }
+
+        .card-text {
+            margin: 1rem 0 2rem 0;
+        }
     }
 }
 
-
+// Other avaliable incorporation
 .icon-text-container {
     display: flex;
     align-items: center;
@@ -58,5 +68,19 @@
     &>span {
         margin-left: .5rem;
         font-weight: 700;
+    }
+}
+
+// FAQ
+.list-group-item {
+    padding: 1.5rem 1.3rem 1.5rem 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    cursor: pointer;
+
+    .collaps-text {
+        margin-bottom: 0;
     }
 }

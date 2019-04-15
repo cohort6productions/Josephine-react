@@ -77,6 +77,13 @@ $inactivate-shade-default: rgba(58, 58, 61, 0.3);
     color: $cpAccent-mild;
 }
 
+.text-affirmative {
+    color: $cpStatus-affirmative
+}
+
+.text-alert {
+    color: $cpStatus-alert
+}
 
 // Background color
 .bg-theme-default {

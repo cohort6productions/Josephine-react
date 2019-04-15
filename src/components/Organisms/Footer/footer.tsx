@@ -44,7 +44,10 @@ const siteMap = {
 
 const Footer = () => {
     return (
-        <footer className="container-fluid footer-container">
+        <footer
+            className="container-fluid footer-container"
+            id="footer-default"
+        >
             <div className="container footer-container__link-container">
                 <div className="row">
                     <div className="col-12 col-md-4 col-lg-3 footer-section">

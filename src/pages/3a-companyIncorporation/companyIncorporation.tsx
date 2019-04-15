@@ -13,6 +13,7 @@ import Hero, {
 import Subscription from "src/components/Organisms/Subscription/subscription";
 import CustomButton from "src/components/Atoms/CustomButton/customButton";
 import { Checkmark } from "./img/checkMark";
+import { UncontrolledCollapse } from "reactstrap";
 
 // Data
 import { faqIncorporation } from "src/data/faqs";
@@ -180,7 +181,7 @@ const Pricing = () => (
                     <div className="card shadow-sm">
                         <div className="card-header">
                             <div className="card-header__title">
-                                <h3 className="text-mild">GROW</h3>
+                                <h3 className="text-intense">GROW</h3>
                             </div>
                             <div className="card-header__tag bg-theme-intense">
                                 <h2 className="text-light">HKD $16,500</h2>
@@ -365,8 +366,17 @@ const FAQ = (props: {
                 <ul className="list-group list-group-flush">
                     {props.qaArray.map((sets, index) => (
                         <li className="list-group-item">
-                            <h4>{sets.question}</h4>
-                            <p>{sets.answer}</p>
+                            <h4
+                                className="overline-header-bold"
+                                id={"faq" + index}
+                            >
+                                {sets.question}
+                            </h4>
+                            <UncontrolledCollapse toggler={"#faq" + index}>
+                                <p className="ml-3 collaps-text">
+                                    {sets.answer}
+                                </p>
+                            </UncontrolledCollapse>
                         </li>
                     ))}
                 </ul>
@@ -383,37 +393,49 @@ const TwoOptions = () => (
                 </bdi>
                 or not
             </h2>
-            <div className="card-deck">
-                <div className="card border-0">
-                    <div className="card-body">
-                        <h3 className="card-title">I want to talk</h3>
-                        <p className="card-text">
-                            I’m still not sure about what I have to do, I feel
-                            more safter when I have my hands being hold onto
-                            throughtout my journey of incorporating my company
-                            in Hong Kong with Centre O.
-                        </p>
-                        <CustomButton
-                            link="mailto:sales@centreo.hk"
-                            text="Talk to us"
-                            variation={"alertwarning"}
-                        />
+            <div className="row">
+                <div className="col-sm-12 col-md-6">
+                    <div className="card border-0">
+                        <div className="card-body p-5 d-flex flex-column justify-content-between">
+                            <h3 className="card-title all-cap">
+                                I want to <bdi className="text-alert">talk</bdi>
+                            </h3>
+                            <p className="card-text">
+                                I’m not sure about what to do, I feel more
+                                safter when I have my hands being hold onto
+                                throughtout my journey of incorporating my
+                                company in HK with Centre O.
+                            </p>
+
+                            <CustomButton
+                                link="/"
+                                text="Talk to us"
+                                variation={"alertwarning"}
+                            />
+                        </div>
                     </div>
                 </div>
-                <div className="card border-0">
-                    <div className="card-body">
-                        <h3 className="card-title">I am convinced</h3>
-                        <p className="card-text">
-                            The information is clear, and I’m readly convinced
-                            by what I see on the website to incorporate my
-                            company in Hong Kong with Cetnre O. Let’s get this
-                            started.
-                        </p>
-                        <CustomButton
-                            link="/incorporation/form"
-                            text="Let's get rolling"
-                            variation={"affirmative"}
-                        />
+                <div className="col-sm-12 col-md-6">
+                    <div className=" card border-0">
+                        <div className="card-body p-5 d-flex flex-column justify-content-between">
+                            <h3 className="card-title all-cap">
+                                I am{" "}
+                                <bdi className="text-affirmative">
+                                    convinced
+                                </bdi>
+                            </h3>
+                            <p className="card-text">
+                                The information is clear, and I’m readly
+                                convinced by what I see on the website to
+                                incorporate my company in Hong Kong with Centre
+                                O. Let’s get this started.
+                            </p>
+                            <CustomButton
+                                link="/incorporation/form"
+                                text="Let's get rolling"
+                                variation={"affirmative"}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
