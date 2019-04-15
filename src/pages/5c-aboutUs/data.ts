@@ -108,80 +108,88 @@ export const teamMembers = [
         name: "Josephine Lau",
         image: josephine,
         position: "CEO/Founder",
-        description: "long long text",
+        description:
+            "Josephine has always been an entrepreneur; with a deep understanding of how difficult is it to focus on growing a business without getting distracted by unrelated tasks, she is missioned to offer business owners a peace of mind. Since starting Centre O in 2010, she continues to enjoy helping clients with their challenges. Her ultimate goal is to help  clients to focus and their sales and building up their brand by creating more time for them.",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "https://www.linkedin.com/in/hkbusinessresourcecentre/",
+            md: "https://www.medium.com/@josephine_97532"
         }
     },
     {
         name: "Kelly Yu",
         image: kellyY,
         position: "Business Development Manager",
-        description: "long long text",
+        description:
+            "Centre O provides all-round services to the entrepreneurs to simplify their workload and they can be more focus on their own business.  This is her goal to put it into practice, from company set up, bank account introduce to accounting and auditing. Client's satisfaction is her motivation.",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     },
     {
         name: "Kelly Heung",
         image: kellyH,
         position: "Accounting and Auditing Manager",
-        description: "long long text",
+        description:
+            "As a Company Secretary, Kelly is responsible for helping clients with every stage of their business from the company incorporation, onboarding new Directors and Shareholders, conducting yearly filing and renewing Business Registration, to relocating companies. As an Office Manager, she is just like a 'Mom' to our beautiful Wanchai office with Kelly and Josephine.",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     },
     {
         name: "Ekaterina Stefashina",
         image: ekaterina,
         position: "Office Manager",
-        description: "long long text",
+        description:
+            "As a Company Secretary, Kelly is responsible for helping clients with every stage of their business from the company incorporation, onboarding new Directors and Shareholders, conducting yearly filing and renewing Business Registration, to relocating companies. As an Office Manager, she is just like a 'Mom' to our beautiful Wanchai office with Kelly and Josephine.",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     },
     {
         name: "Martine Shum",
         image: martine,
         position: "Office Superhero",
-        description: "long long text",
+        description:
+            "As an administrative officer in Centre O, his goal is to maintain an efficient workflow in the office by completing clerical tasks, which enable colleagues react to client’s enquiries precisely. For example, sorting and filing client’s company related documents, assist in contract drafting, call forwarding, appointment scheduling, issue invoices and office supplies management. ",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     },
     {
         name: "Billa Mok",
         image: billa,
         position: "Business Plan Specialist",
-        description: "long long text",
+        description:
+            "Working as a Business Plan Specialist, Billa’s responsibility is to create comprehensive business plan for clients. This broadens her horizon to go in-depth to difference industries. Billa is also a wizard of the accounting system -  XERO. ",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     },
     {
         name: "Chinenye Egbuna",
         image: chinenye,
         position: "Assistant Account Manager",
-        description: "long long text",
+        description:
+            "Chinenye is the accounting and administrative assistant at Centre O. She provides administrative and accounting support to clients and colleagues. Her main responsibility is to help clients automate their accounting procedures using cloud-based software.",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     },
     {
         name: "Jessica Chung",
         image: jessica,
         position: "Office Superhero",
-        description: "long long text",
+        description:
+            "Jessica is the office superhero to manage the daily letters, documents sorting and filing, services renewal and monthly accounting work. She knows about the dates and numbers, to ensure clients renew services on time, maintaining a good relationship and smooth communication with our clients.",
         socialLink: {
-            li: "https://www.linkedin.com",
-            md: "https://www.medium.com"
+            li: "",
+            md: ""
         }
     }
 ];

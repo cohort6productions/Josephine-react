@@ -25,7 +25,7 @@ const Team = (props: any) => (
                 {props.list.map((unit: any, keyIndex: any) => (
                     <div
                         className={
-                            "card p-3 " +
+                            "member-card p-3 " +
                             (keyIndex < 2
                                 ? "col-sm-12 col-md-6"
                                 : "col-sm-6 col-md-4")
@@ -36,11 +36,11 @@ const Team = (props: any) => (
                             src={unit.image}
                             alt={unit.name}
                         />
-                        <div className="card__body">
+                        <div className="member-card__body">
                             <h4>{unit.name}</h4>
                             <small>{unit.position}</small>
                         </div>
-                        <div className="card__footer">
+                        <div className="member-card__footer">
                             <CustomLink
                                 link={
                                     "/about-us/" + nameToPathConvert(unit.name)
