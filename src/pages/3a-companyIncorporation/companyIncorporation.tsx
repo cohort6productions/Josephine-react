@@ -3,6 +3,7 @@ import * as React from "react";
 
 // Style
 import "./companyIncorporation.scss";
+import globeIcon from "./img/global.png";
 
 // Components
 import Hero, {
@@ -253,13 +254,114 @@ const Pricing = () => (
         </div>
     </div>
 );
-const ServiceBox = () => <div className="ok">something</div>;
+const ServiceBox = () => (
+    <div className="container-fluid section-padding-tb96">
+        <div className="container">
+            <h2 className="section-header all-cap">
+                Other available
+                <bdi className="section-header all-cap text-highlight">
+                    {" "}
+                    incorporation
+                </bdi>
+            </h2>
+            <div className="row">
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        HK Limited Company
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        HK Sole proprietorship
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        HK Branch office
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        HK Representative office
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        BVI Incorporation
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        Samoa Incorporation
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        Seychelles Incorporation
+                    </span>
+                </div>
+                <div className="col-sm-6 col-lg-3 icon-text-container">
+                    <img
+                        className="icon-text-container__img"
+                        src={globeIcon}
+                        alt="Globe icon"
+                    />
+                    <span className="body-short-texts all-cap">
+                        China WFOE Incorporation
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+);
 const FAQ = (props: {
     qaArray: Array<{ question: string; answer: string }>;
 }) => {
     return (
         <div className="container-fluid section-padding-tb96">
             <div className="container">
+                <h2 className="section-header all-cap">
+                    Frequently asked
+                    <bdi className="section-header all-cap text-highlight">
+                        {" "}
+                        questions
+                    </bdi>
+                </h2>
                 <ul className="list-group list-group-flush">
                     {props.qaArray.map((sets, index) => (
                         <li className="list-group-item">
@@ -274,7 +376,13 @@ const FAQ = (props: {
 };
 const TwoOptions = () => (
     <div className="container-fluid section-padding-tb96">
-        <div className="container ">
+        <div className="container">
+            <h2 className="section-header all-cap">
+                <bdi className="section-header all-cap text-highlight">
+                    Ready{" "}
+                </bdi>
+                or not
+            </h2>
             <div className="card-deck">
                 <div className="card border-0">
                     <div className="card-body">

@@ -49,3 +49,14 @@
         }
     }
 }
+
+
+.icon-text-container {
+    display: flex;
+    align-items: center;
+
+    &>span {
+        margin-left: .5rem;
+        font-weight: 700;
+    }
+}
