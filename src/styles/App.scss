@@ -16,6 +16,11 @@ header {
     color: #fff;
 }
 
+// Resetting all Youtube frames
+iframe {
+    border: 0;
+}
+
 ul.dashed {
     list-style-type: none;
     padding-left: 0;

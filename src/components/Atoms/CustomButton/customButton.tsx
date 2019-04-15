@@ -7,6 +7,7 @@ import "./customButton.scss";
 
 interface ICustomButtonProps {
     text?: string;
+    fnTrigger?: () => void;
     link: string;
     variation: "primitive" | "theme" | "affirmative" | "alertwarning";
 }
@@ -14,19 +15,35 @@ interface ICustomButtonProps {
 export default class CustomButton extends React.PureComponent<
     ICustomButtonProps
 > {
+    public textArea() {
+        return (
+            <span className="button-text text-light">
+                {this.props.text ? this.props.text : "Click Here"}
+            </span>
+        );
+    }
     public render() {
         return (
-            // <a href={this.props.link}>
-            <Link to={this.props.link}>
-                <button
-                    className={"custom-button" + " " + this.props.variation}
-                >
-                    <span className="button-text text-light">
-                        {this.props.text ? this.props.text : "Click Here"}
-                    </span>
-                </button>
-            </Link>
-            // </a>
+            <>
+                {this.props.fnTrigger ? (
+                    <button
+                        className={"custom-button" + " " + this.props.variation}
+                        onClick={this.props.fnTrigger}
+                    >
+                        {this.textArea()}
+                    </button>
+                ) : (
+                    <Link to={this.props.link}>
+                        <button
+                            className={
+                                "custom-button" + " " + this.props.variation
+                            }
+                        >
+                            {this.textArea()}
+                        </button>
+                    </Link>
+                )}
+            </>
         );
     }
 }
