@@ -25,7 +25,7 @@ const FindBusiness = () => {
                     </bdi>
                 </h2>
                 <div className="row card-deck">
-                    <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
+                    <div className="col-sm-12 col-md-6 col-lg-3 p-3 itemCol">
                         <img
                             className="itemCol__icon card-img-top"
                             src={sprout}
@@ -45,7 +45,7 @@ const FindBusiness = () => {
                             <CustomLink link="/open" variation="default" />
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
+                    <div className="col-sm-12 col-md-6 col-lg-3 p-3 itemCol">
                         <img
                             className="itemCol__icon card-img-top"
                             src={coinhand}
@@ -66,7 +66,7 @@ const FindBusiness = () => {
                             <CustomLink link="/upkeep" variation="default" />
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
+                    <div className="col-sm-12 col-md-6 col-lg-3 p-3 itemCol">
                         <img
                             className="itemCol__icon card-img-top"
                             src={globe}
@@ -88,7 +88,7 @@ const FindBusiness = () => {
                             <CustomLink link="/expand" variation="default" />
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-6 col-lg-3 card itemCol">
+                    <div className="col-sm-12 col-md-6 col-lg-3 p-3 itemCol">
                         <img
                             className="itemCol__icon card-img-top"
                             src={china}
