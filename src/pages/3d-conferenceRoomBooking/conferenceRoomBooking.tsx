@@ -12,8 +12,8 @@ import Subscription from "src/components/Organisms/Subscription/subscription";
 import "./conferenceRoomBooking.scss";
 
 // Image assets
-import sheungwan from "./img/sheungwan.jpg";
-import wanchai from "./img/wanchai.jpg";
+import sheungwan from "./img/JL.190415.COH.WEBW.SheungwanLoc.jpg";
+import wanchai from "./img/JL.190415.COH.WEBW.WanchaiLoc.jpg";
 import office1 from "./img/JL.190207.COH.WEBW.Gallery1.jpg";
 import office2 from "./img/JL.190207.COH.WEBW.Gallery2.jpg";
 import office3 from "./img/JL.190207.COH.WEBW.Gallery3.jpg";
