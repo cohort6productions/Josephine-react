@@ -66,8 +66,9 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
 
                 {/* Start of "Who we are" */}
                 <Route exact={true} path="/about-us" component={AboutUs} />
-                {teamMembers.map(member => (
-                    <Route
+                {teamMembers.map((member, i) => (
+                    <Route 
+                        key={i}
                         path={`/about-us/` + nameToPathConvert(member.name)}
                         // tslint:disable-next-line:jsx-no-lambda
                         render={() => <Member {...member} />}
