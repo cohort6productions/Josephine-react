@@ -21,7 +21,7 @@ import Subscription from "src/components/Organisms/Subscription/subscription";
 import Button from "reactstrap/lib/Button";
 
 const heroProps: IHeroProps = {
-    style: headerStyle("/images/banner/openBusiness.jpg"),
+    style: headerStyle("/images/banner/visaPermits.jpg"),
     header: "Visa & licencing",
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
