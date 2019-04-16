@@ -7,10 +7,6 @@ import "./businessLeavingHongKong.scss";
 // Image assets
 import compsec from "./img/compSec.jpg";
 import regOffice from "./img/regOffice.jpg";
-import incorp from "./img/compIncorp.jpg";
-import repOffice from "./img/hkRep.jpg";
-import chinaRep from "./img/chinaRep.jpg";
-import wfoe from "./img/WFOE.jpg";
 
 // Components
 import Hero, {
@@ -42,7 +38,7 @@ export default class BusinessLeavingHongKong extends React.PureComponent {
                             </bdi>
                         </h2>
                         <div className="row">
-                            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
+                            <div className="service-rol col-sm-12 col-md-6">
                                 <div className="service-card">
                                     <img
                                         src={compsec}
@@ -50,7 +46,7 @@ export default class BusinessLeavingHongKong extends React.PureComponent {
                                         className="service-card__img rounded"
                                     />
                                     <div className="service-card__body">
-                                        <h3>COMP Scretary</h3>
+                                        <h3>Company Deregisteration</h3>
                                         <span>
                                             Something about the services that
                                             clietns are about to buy, and get
@@ -61,18 +57,18 @@ export default class BusinessLeavingHongKong extends React.PureComponent {
                                     <div className="service-card__footer rounded">
                                         <div className="service-card__footer__pricingBox rounded w-100">
                                             <span className="overline-header-bold text-light">
-                                                HKD$2000 ANNU.
+                                                HKD$3500
                                             </span>
                                         </div>
                                         <Button className="service-card__footer__cta rounded w-100">
                                             <span className="button-text text-light">
-                                                Enroll now
+                                                Order now
                                             </span>
                                         </Button>
                                     </div>
                                 </div>
                             </div>
-                            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
+                            <div className="service-rol col-sm-12 col-md-6">
                                 <div className="service-card">
                                     <img
                                         src={regOffice}
@@ -80,7 +76,7 @@ export default class BusinessLeavingHongKong extends React.PureComponent {
                                         className="service-card__img rounded"
                                     />
                                     <div className="service-card__body">
-                                        <h3>Reg.office</h3>
+                                        <h3>Relocation Services</h3>
                                         <span>
                                             Something about the services that
                                             clietns are about to buy, and get
@@ -89,127 +85,7 @@ export default class BusinessLeavingHongKong extends React.PureComponent {
                                         </span>
                                     </div>
                                     <div className="service-card__footer rounded">
-                                        <div className="service-card__footer__pricingBox rounded w-100">
-                                            <span className="overline-header-bold text-light">
-                                                HKD$2000 ANNU.
-                                            </span>
-                                        </div>
-                                        <Button className="service-card__footer__cta rounded w-100">
-                                            <span className="button-text text-light">
-                                                Enroll now
-                                            </span>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
-                                <div className="service-card">
-                                    <img
-                                        src={incorp}
-                                        alt=""
-                                        className="service-card__img rounded"
-                                    />
-                                    <div className="service-card__body">
-                                        <h3>HK Comp Incorp.</h3>
-                                        <span>
-                                            Something about the services that
-                                            clietns are about to buy, and get
-                                            that going is good. What you are
-                                            buyd is what you are going to get.
-                                        </span>
-                                    </div>
-                                    <div className="service-card__footer rounded">
-                                        <div className="service-card__footer__pricingBox rounded w-100">
-                                            <span className="overline-header-bold text-light">
-                                                HKD$2000 ANNU.
-                                            </span>
-                                        </div>
-                                        <Button className="service-card__footer__cta rounded w-100">
-                                            <span className="button-text text-light">
-                                                Enroll now
-                                            </span>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
-                                <div className="service-card">
-                                    <img
-                                        src={repOffice}
-                                        alt=""
-                                        className="service-card__img rounded"
-                                    />
-                                    <div className="service-card__body">
-                                        <h3>HK Rep. Office</h3>
-                                        <span>
-                                            Something about the services that
-                                            clietns are about to buy, and get
-                                            that going is good. What you are
-                                            buyd is what you are going to get.
-                                        </span>
-                                    </div>
-                                    <div className="service-card__footer rounded">
-                                        <div className="service-card__footer__pricingBox rounded w-100">
-                                            <span className="overline-header-bold text-light">
-                                                HKD$2000 ANNU.
-                                            </span>
-                                        </div>
-                                        <Button className="service-card__footer__cta rounded w-100">
-                                            <span className="button-text text-light">
-                                                Enroll now
-                                            </span>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
-                                <div className="service-card">
-                                    <img
-                                        src={chinaRep}
-                                        alt=""
-                                        className="service-card__img rounded"
-                                    />
-                                    <div className="service-card__body">
-                                        <h3>China Rep. Office</h3>
-                                        <span>
-                                            Something about the services that
-                                            clietns are about to buy, and get
-                                            that going is good. What you are
-                                            buyd is what you are going to get.
-                                        </span>
-                                    </div>
-                                    <div className="service-card__footer rounded">
-                                        <div className="service-card__footer__pricingBox rounded w-100">
-                                            <span className="overline-header-bold text-light">
-                                                HKD$2000 ANNU.
-                                            </span>
-                                        </div>
-                                        <Button className="service-card__footer__cta rounded w-100">
-                                            <span className="button-text text-light">
-                                                Enroll now
-                                            </span>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
-                                <div className="service-card">
-                                    <img
-                                        src={wfoe}
-                                        alt=""
-                                        className="service-card__img rounded"
-                                    />
-                                    <div className="service-card__body">
-                                        <h3>China WFOE.</h3>
-                                        <span>
-                                            Something about the services that
-                                            clietns are about to buy, and get
-                                            that going is good. What you are
-                                            buyd is what you are going to get.
-                                        </span>
-                                    </div>
-                                    <div className="service-card__footer rounded">
-                                        <div className="service-card__footer__pricingBox rounded w-100">
+                                        <div className="service-card__footer__pricingBox rounded w-100 invisible">
                                             <span className="overline-header-bold text-light">
                                                 HKD$2000 ANNU.
                                             </span>
