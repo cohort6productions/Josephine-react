@@ -5,6 +5,20 @@ import { Route, Switch, withRouter, match } from "react-router-dom";
 
 // Data
 import { teamMembers } from "../pages/5c-aboutUs/data";
+import {
+    openServHeroProps,
+    openServList,
+    mainUpkpHeroProps,
+    mainUpkpServList,
+    expandBuzHeroProps,
+    expandBuzServList,
+    visaServHeroProps,
+    visaServList,
+    chinaHeroProps,
+    chinaServList,
+    leaveHeroProps,
+    leaveServList
+} from "src/data/servicesList/data";
 
 // Helper function
 import { nameToPathConvert } from "src/helper/helper";
@@ -15,12 +29,7 @@ import Homepage from "src/pages/1-homepage/homepage";
 import Error404 from "src/pages/error404/error404";
 
 // How to start
-import OpeningNewBusiness from "src/pages/2a-openingNewBusiness/openingNewBusiness";
-import MaintainingUpkeeping from "src/pages/2b-maintainingUpkeeping/maintainingUpkeeping";
-import ExpandingBusiness from "src/pages/2c-expandingBusiness/expandingBusiness";
-import VisaLicencing from "src/pages/2d-visaLicencing/visaLicencing";
-import BusinessEnteringChina from "src/pages/2e-businessEnteringChina/businessEnteringChina";
-import BusinessLeavingHongKong from "src/pages/2f-businessLeavingHongKong/businessLeavingHongKong";
+import ServiceTemplate from "src/components/Templates/2T-serviceTemplates/serviceTemplate";
 
 // Often use
 import CompanyIncorporation from "src/pages/3a-companyIncorporation/companyIncorporation";
@@ -50,28 +59,67 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                 <Route
                     exact={true}
                     path="/open"
-                    component={OpeningNewBusiness}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    render={() => (
+                        <ServiceTemplate
+                            hero={openServHeroProps}
+                            serviceList={openServList}
+                        />
+                    )}
                 />
                 <Route
                     exact={true}
                     path="/upkeep"
-                    component={MaintainingUpkeeping}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    render={() => (
+                        <ServiceTemplate
+                            hero={mainUpkpHeroProps}
+                            serviceList={mainUpkpServList}
+                        />
+                    )}
                 />
                 <Route
                     exact={true}
                     path="/expand"
-                    component={ExpandingBusiness}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    render={() => (
+                        <ServiceTemplate
+                            hero={expandBuzHeroProps}
+                            serviceList={expandBuzServList}
+                        />
+                    )}
                 />
                 <Route
                     exact={true}
                     path="/china"
-                    component={BusinessEnteringChina}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    render={() => (
+                        <ServiceTemplate
+                            hero={chinaHeroProps}
+                            serviceList={chinaServList}
+                        />
+                    )}
                 />
-                <Route exact={true} path="/visa" component={VisaLicencing} />
+                <Route
+                    exact={true}
+                    path="/visa" // tslint:disable-next-line:jsx-no-lambda
+                    render={() => (
+                        <ServiceTemplate
+                            hero={visaServHeroProps}
+                            serviceList={visaServList}
+                        />
+                    )}
+                />
                 <Route
                     exact={true}
                     path="/relocate"
-                    component={BusinessLeavingHongKong}
+                    // tslint:disable-next-line:jsx-no-lambda
+                    render={() => (
+                        <ServiceTemplate
+                            hero={leaveHeroProps}
+                            serviceList={leaveServList}
+                        />
+                    )}
                 />
                 {/* End of "How to start" */}
 
