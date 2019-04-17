@@ -9,9 +9,22 @@ import { IHeroProps, headerStyle } from "src/components/Organisms/Hero/hero";
 import compsec from "./img/compSec.jpg";
 import regOffice from "./img/regOffice.jpg";
 import incorp from "./img/compIncorp.jpg";
-import repOffice from "./img/hkRep.jpg";
+// import repOffice from "./img/hkRep.jpg";
 import chinaRep from "./img/chinaRep.jpg";
 import wfoe from "./img/WFOE.jpg";
+
+import virtualOffice from "./img/virtualOffice.jpg";
+import accountCloud from "./img/accountingCloud.jpg";
+
+import bankOpening from "./img/bankOpening.jpg";
+import chinaTrademark from "./img/chinaTrademark.jpg";
+import chinaVisa from "./img/chinaVisa.jpg";
+import hkRep from "./img/hkRep.jpg";
+import hkTrademark from "./img/hkTrademark.jpg";
+import hkVisa from "./img/hkVisa.jpeg";
+import importExport from "./img/importExport.jpg";
+import payrollMfp from "./img/payrollMpf.jpg";
+import recuritmentLicence from "./img/recruitmentLicence.jpg";
 
 // 2a-Opening New Business
 export const openServHeroProps: IHeroProps = {
@@ -49,7 +62,7 @@ export const openServList: IService[] = [
     },
     {
         itemName: "HK Rep. Office",
-        img: repOffice,
+        img: hkRep,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8500 /Annu.",
@@ -74,6 +87,7 @@ export const openServList: IService[] = [
 ];
 
 // 2b-Maintaining and upkeeping
+
 export const mainUpkpHeroProps: IHeroProps = {
     style: headerStyle("/images/banner/upkeeping.jpg"),
     header: "Maintaining and Upkeeping",
@@ -99,7 +113,7 @@ export const mainUpkpServList: IService[] = [
     },
     {
         itemName: "Virtual Office",
-        img: incorp,
+        img: virtualOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $3850 /Annu.",
@@ -107,7 +121,7 @@ export const mainUpkpServList: IService[] = [
     },
     {
         itemName: "Accounting on Cloud",
-        img: repOffice,
+        img: accountCloud,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $800 /Mo.",
@@ -116,6 +130,7 @@ export const mainUpkpServList: IService[] = [
 ];
 
 // 2c-Expanding Business
+
 export const expandBuzHeroProps: IHeroProps = {
     style: headerStyle("/images/banner/expanding.jpg"),
     header: "Expanding business",
@@ -125,7 +140,7 @@ export const expandBuzHeroProps: IHeroProps = {
 export const expandBuzServList: IService[] = [
     {
         itemName: "Bank Opening",
-        img: compsec,
+        img: bankOpening,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $6000",
@@ -157,7 +172,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "Payroll & MPF",
-        img: compsec,
+        img: payrollMfp,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $200 /Mo.",
@@ -173,7 +188,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "HK Rep. Office",
-        img: compsec,
+        img: hkRep,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8500",
@@ -198,7 +213,7 @@ export const visaServHeroProps: IHeroProps = {
 export const visaServList: IService[] = [
     {
         itemName: "HK Visa",
-        img: compsec,
+        img: hkVisa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $20000",
@@ -206,7 +221,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "China Visa",
-        img: compsec,
+        img: chinaVisa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $800",
@@ -214,7 +229,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "Recruitment Licence",
-        img: compsec,
+        img: recuritmentLicence,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $5000",
@@ -222,7 +237,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "Import Export Licence",
-        img: compsec,
+        img: importExport,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $5000",
@@ -230,7 +245,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "HK Trademark",
-        img: compsec,
+        img: hkTrademark,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $6500",
@@ -238,7 +253,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "China Trademark",
-        img: compsec,
+        img: chinaTrademark,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $6500",
