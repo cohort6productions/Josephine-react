@@ -64,7 +64,7 @@ export const openServList: IService[] = [
         itemName: "HK Com. compIncorp.",
         img: compIncorp,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "With low tax rate and simple, straight forward business regulations, Hong Kong is one of the best place for setting up business. ",
         price: "HKD $6000",
         // TODO: add a Link to send them to the service page
         orderNow: true
@@ -73,7 +73,7 @@ export const openServList: IService[] = [
         itemName: "HK Rep. Office",
         img: hkRep,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Evaluate and assess the market with a representative office in HK, becore setting up a HK limited company.",
         price: "HKD $8500 /Annu.",
         orderNow: true
     },
@@ -81,7 +81,7 @@ export const openServList: IService[] = [
         itemName: "China Rep. Office",
         img: chinaRep,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Interested in exploring the market in China? We can help you setting up a representative office in China as a stepping stone in this specific market.",
         price: "HKD $8800 /Comp.",
         orderNow: true
     },
@@ -89,7 +89,7 @@ export const openServList: IService[] = [
         itemName: "China WFOE.",
         img: wfoe,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Ready to establish a real presence in China? We can help you setting up a proper company in China for easier business relationship with your Chinese stakeholders.",
         price: "HKD $20000 /WFOE.",
         orderNow: true
     }
@@ -108,7 +108,7 @@ export const mainUpkpServList: IService[] = [
         itemName: "Comp. Secretary",
         img: compsec,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Remain in line with the company registry requirements, thanks to our professional services!",
         price: "HKD $2000 /Annu.",
         orderNow: true
     },
@@ -116,7 +116,7 @@ export const mainUpkpServList: IService[] = [
         itemName: "Reg. Office",
         img: regOffice,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Start your business the right way! We ensure all the incoming letters and parcels will be taken care of professionally.",
         price: "HKD $1300 /Annu.",
         orderNow: true
     },
@@ -124,7 +124,7 @@ export const mainUpkpServList: IService[] = [
         itemName: "Virtual Office",
         img: virtualOffice,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Have your business handled by our professional front line colleagues while you are striking for your business!",
         price: "HKD $3850 /Annu.",
         orderNow: true
     },
@@ -151,7 +151,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Bank Opening",
         img: bankOpening,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "With the continuous changes of banking requirements, we are here to give you advices and accelerate the banking process.",
         price: "HKD $6000",
         orderNow: false
     },
@@ -159,7 +159,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Serviced Offices",
         img: servicedOffice,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "With two office locations, we are able to offer a wider range of serviced offices in different sizes, views and prices to meet our clients' needs.",
         price: "HKD $8000 /Mo.",
         orderNow: false
     },
@@ -167,7 +167,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Co-work Hotdesk",
         img: coworkHotdesk,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Another great feature on our professional host services is to help you make the most of your working time. We offer flexible and personalized hot desk for startups and solopreneurs.",
         price: "HKD $2800 /Mo.",
         orderNow: true
     },
@@ -175,7 +175,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Dedicated Desk",
         img: dedicateDesk,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "We off you the flexibility and exposure of an open space, while benefiting of the serviced office facilities.",
         price: "HKD $4800 /Mo.",
         orderNow: true
     },
@@ -183,7 +183,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Payroll & MPF",
         img: payrollMfp,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Saving you extra costs on hiring an administrative staff in Hong Kong! Our payroll service comes in handy for a small operation business!",
         price: "HKD $200 /Mo.",
         orderNow: false
     },
@@ -191,7 +191,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Venue Spaces",
         img: venueSpaces,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Look no further for space to host your seminar, workshop, training or even product launch!",
         price: "HKD $250 /Hr.",
         orderNow: false
     },
@@ -207,7 +207,7 @@ export const expandBuzServList: IService[] = [
         itemName: "Auditing Services",
         img: audit,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "At your business year end, come along with your shoe box, and we will sort out all the accounting and auditing work for your company.",
         price: "HKD $8000",
         orderNow: false
     }
@@ -232,7 +232,7 @@ export const visaServList: IService[] = [
         itemName: "China Visa",
         img: visa,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "We arrange China visa applications for the ease of our clietns that are required to travel into China for differnt purposes.",
         price: "HKD $800",
         orderNow: false
     },
@@ -256,7 +256,7 @@ export const visaServList: IService[] = [
         itemName: "HK Trademark",
         img: hkTrademark,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Do you need a trademark for your intellectual properties?",
         price: "HKD $6500",
         orderNow: true
     },
@@ -264,7 +264,7 @@ export const visaServList: IService[] = [
         itemName: "China Trademark",
         img: chinaTrademark,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Do you need a trademark for your intellectual properties?",
         price: "HKD $6500",
         orderNow: true
     }
@@ -298,7 +298,7 @@ export const chinaServList: IService[] = [
         itemName: "Translation Services",
         img: translation,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "We translate official documents you may need for immigration, bank or government purposes. The translation is certified by HK translators.",
         price: "HKD $650 /page.",
         orderNow: false
     },
@@ -324,7 +324,7 @@ export const leaveServList: IService[] = [
         itemName: "Deregistration of HK Ltd.",
         img: deregistration,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Leaving Hong Kong for good? Let us take care of the administrative burden for your company before you depart.",
         price: "HKD $3500",
         orderNow: true
     },
@@ -332,7 +332,7 @@ export const leaveServList: IService[] = [
         itemName: "Warehouse Solutions",
         img: warehouse,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Do you need warehouse space to stock your products in Hong Kong and redirect them all over the world? Look no further!",
         price: "HKD $2000 /Mo.",
         orderNow: false
     },
@@ -340,7 +340,7 @@ export const leaveServList: IService[] = [
         itemName: "Relocation Services",
         img: relocation,
         description:
-            "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
+            "Moving your life to Hong Kong? We ensure to make it easy and straightforward for you. We offer you a customized package according to your needs.",
         price: "HKD $4000",
         orderNow: false
     }
