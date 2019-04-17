@@ -21,20 +21,35 @@ export default class ServiceCard extends React.PureComponent<IService> {
                         className="service-card__img rounded"
                     />
                     <div className="service-card__body">
-                        <h3>{this.props.itemName}</h3>
+                        <h3 className="">{this.props.itemName}</h3>
                         <span>{this.props.description}</span>
                     </div>
                     <div className="service-card__footer rounded">
                         <div className="service-card__footer__pricingBox rounded w-100">
-                            <span className="overline-header-bold text-light all-cap">
-                                {this.props.price}
+                            <span className="text-light all-cap">
+                                {!this.props.orderNow
+                                    ? "Start from " + this.props.price
+                                    : this.props.price}
                             </span>
                         </div>
-                        <Button className="service-card__footer__cta rounded w-100">
-                            <span className="button-text text-light all-cap">
-                                Order now
-                            </span>
-                        </Button>
+
+                        {this.props.orderNow ? (
+                            <a href="mailto:sales@centreo.hk">
+                                <Button className="service-card__footer__cta rounded w-100">
+                                    <span className="button-text text-light all-cap">
+                                        Order now
+                                    </span>
+                                </Button>
+                            </a>
+                        ) : (
+                            <a href="mailto:sales@centreo.hk">
+                                <Button className="service-card__footer__cta rounded w-100">
+                                    <span className="button-text text-light all-cap">
+                                        Contact Us
+                                    </span>
+                                </Button>
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>
