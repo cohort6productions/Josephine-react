@@ -6,25 +6,34 @@ import { IHeroProps, headerStyle } from "src/components/Organisms/Hero/hero";
 
 // Opening a new business
 // Image assets
-import compsec from "./img/compSec.jpg";
-import regOffice from "./img/regOffice.jpg";
-import incorp from "./img/compIncorp.jpg";
-// import repOffice from "./img/hkRep.jpg";
-import chinaRep from "./img/chinaRep.jpg";
-import wfoe from "./img/WFOE.jpg";
-
-import virtualOffice from "./img/virtualOffice.jpg";
 import accountCloud from "./img/accountingCloud.jpg";
-
+import audit from "./img/audit.jpg";
 import bankOpening from "./img/bankOpening.jpg";
+import chinaRep from "./img/chinaRep.jpg";
+import chinaRepOffice from "./img/chinaRepOffice.jpg";
 import chinaTrademark from "./img/chinaTrademark.jpg";
-import chinaVisa from "./img/chinaVisa.jpg";
+// import chinaVisa from "./img/chinaVisa.jpg";
+import compIncorp from "./img/compIncorp.jpg";
+import compsec from "./img/compSec.jpg";
+import coworkHotdesk from "./img/coworkHotdesk.jpg";
+import dedicateDesk from "./img/dedicatedDesk.jpg";
+import deregistration from "./img/deregistration.jpg";
 import hkRep from "./img/hkRep.jpg";
 import hkTrademark from "./img/hkTrademark.jpg";
-import hkVisa from "./img/hkVisa.jpeg";
+// import hkVisa from "./img/hkVisa.jpeg";
 import importExport from "./img/importExport.jpg";
+import notary from "./img/notary.jpg";
 import payrollMfp from "./img/payrollMpf.jpg";
 import recuritmentLicence from "./img/recruitmentLicence.jpg";
+import regOffice from "./img/regOffice.jpg";
+import relocation from "./img/relocation.jpg";
+import servicedOffice from "./img/servicedOffice.jpg";
+import translation from "./img/translation.jpg";
+import venueSpaces from "./img/venueSpaces.jpg";
+import virtualOffice from "./img/virtualOffice.jpg";
+import visa from "./img/visa.jpg";
+import warehouse from "./img/warehouse.jpg";
+import wfoe from "./img/WFOE.jpg";
 
 // 2a-Opening New Business
 export const openServHeroProps: IHeroProps = {
@@ -52,8 +61,8 @@ export const openServList: IService[] = [
         orderNow: true
     },
     {
-        itemName: "HK Com. Incorp.",
-        img: incorp,
+        itemName: "HK Com. compIncorp.",
+        img: compIncorp,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $6000",
@@ -148,7 +157,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "Serviced Offices",
-        img: compsec,
+        img: servicedOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8000 /Mo.",
@@ -156,7 +165,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "Co-work Hotdesk",
-        img: compsec,
+        img: coworkHotdesk,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $2800 /Mo.",
@@ -164,7 +173,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "Dedicated Desk",
-        img: compsec,
+        img: dedicateDesk,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $4800 /Mo.",
@@ -180,7 +189,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "Venue Spaces",
-        img: compsec,
+        img: venueSpaces,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $250 /Hr.",
@@ -196,7 +205,7 @@ export const expandBuzServList: IService[] = [
     },
     {
         itemName: "Auditing Services",
-        img: compsec,
+        img: audit,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8000",
@@ -213,7 +222,7 @@ export const visaServHeroProps: IHeroProps = {
 export const visaServList: IService[] = [
     {
         itemName: "HK Visa",
-        img: hkVisa,
+        img: visa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $20000",
@@ -221,7 +230,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "China Visa",
-        img: chinaVisa,
+        img: visa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $800",
@@ -271,7 +280,7 @@ export const chinaHeroProps: IHeroProps = {
 export const chinaServList: IService[] = [
     {
         itemName: "China Rep. Office",
-        img: compsec,
+        img: chinaRepOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8800",
@@ -279,7 +288,7 @@ export const chinaServList: IService[] = [
     },
     {
         itemName: "China WFOE",
-        img: compsec,
+        img: wfoe,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $20000",
@@ -287,15 +296,15 @@ export const chinaServList: IService[] = [
     },
     {
         itemName: "Translation Services",
-        img: compsec,
+        img: translation,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $650 /oage.",
+        price: "HKD $650 /page.",
         orderNow: false
     },
     {
         itemName: "Notary Services",
-        img: compsec,
+        img: notary,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $6000",
@@ -313,7 +322,7 @@ export const leaveHeroProps: IHeroProps = {
 export const leaveServList: IService[] = [
     {
         itemName: "Deregistration of HK Ltd.",
-        img: compsec,
+        img: deregistration,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $3500",
@@ -321,7 +330,7 @@ export const leaveServList: IService[] = [
     },
     {
         itemName: "Warehouse Solutions",
-        img: compsec,
+        img: warehouse,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $2000 /Mo.",
@@ -329,7 +338,7 @@ export const leaveServList: IService[] = [
     },
     {
         itemName: "Relocation Services",
-        img: compsec,
+        img: relocation,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $4000",
