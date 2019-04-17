@@ -15,13 +15,18 @@ import DefaultRoutes from "./routes/defaultRoutes";
 import Header from "./components/Organisms/Header/header";
 import Footer from "./components/Organisms/Footer/footer";
 
+// Router wrapper
+import ScrollToTop from "./routes/scrollToTop";
+
 export const App = () => (
     <Router>
-        <div>
-            <Header />
-            <DefaultRoutes />
-            <Footer />
-        </div>
+        <ScrollToTop>
+            <div>
+                <Header />
+                <DefaultRoutes />
+                <Footer />
+            </div>
+        </ScrollToTop>
     </Router>
 );
 
