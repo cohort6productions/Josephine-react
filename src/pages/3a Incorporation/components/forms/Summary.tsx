@@ -1,12 +1,14 @@
 import { FormikProps, Field } from 'formik';
 import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
+import Thumb from './partials/Thumbnail';
 
 class Summary extends React.Component<{back: () => void} & FormikProps<IFormValues>, {}> {
     constructor(props: {back: () => void} & FormikProps<IFormValues>) {
         super(props);
     }
-    public render() {   
+    public render() {  
+        const fileList = ['address_proof', 'identity']
         return (
             <div className="col-12 col-md-8 mx-auto">
                 <h1 className="my-3 text-center">Summary</h1>
@@ -39,47 +41,63 @@ class Summary extends React.Component<{back: () => void} & FormikProps<IFormValu
                             }
                        </div>
 
-                       <div className="col-12">
-                            <h2> Shareholder(s) Information</h2>
-                            {
-                               
-                                this.props.values.shareholders.map((el, index) => (
-                                    <div key={index}>
-                                        <h4>Shareholder {index}</h4>
-                                    {
-                                        Object.keys(el).map((i) => (
-                                            
-                                            !!el[i] ? 
-                                            <div key={i}> {i}: {el[i]} <br/></div>
-                                            : ''
-                                            
-                                        ))
-                                    }
-                                    </div>
-                                ))
-                            }
-                       </div>
+                      {
+                          this.props.values.shareholders.length > 0 ?
+                            <div className="col-12">
+                                <h2> Shareholder(s) Information</h2>
+                                {
+                                
+                                    this.props.values.shareholders.map((el, index) => (
+                                        <div key={index}>
+                                            <h4>Shareholder {index +1}</h4>
+                                        {
+                                            Object.keys(el).map((i) => (
+                                                !!el[i] 
+                                                    ? fileList.includes(i) 
+                                                        ?
+                                                        `${i} : ${<Thumb file={el[i]} />} `
+                                                        :   <div key={i}> 
+                                                                {i}: {el[i]} 
+                                                                <br/>
+                                                            </div>
+                                                    : <div/>
+                                                
+                                            ))
+                                        }
+                                        </div>
+                                    ))
+                                }
+                            </div> : <div/>
+                      }
 
-                       <div className="col-12">
-                            <h2> Director(s) Information</h2>
-                            {
-                               
-                                this.props.values.director.map((el, index) => (
-                                    <div key={index}>
-                                        <h4>Director {index}</h4>
+                        {
+                            this.props.values.director.length > 0 ?
+                            <div className="col-12">
+                                    <h2> Director(s) Information</h2>
                                     {
-                                        Object.keys(el).map((i) => (
-                                            
-                                            !!el[i] ? 
-                                            <div key={i}> {i}: {el[i]} <br/></div>
-                                            : ''
-                                            
+                                    
+                                        this.props.values.director.map((el, index) => (
+                                            <div key={index}>
+                                                <h4>Director {index +1}</h4>
+                                            {
+                                                Object.keys(el).map((i) => (
+                                                    !!el[i] 
+                                                        ? fileList.includes(i) 
+                                                            ?
+                                                            `${i} : ${<Thumb file={el[i]} />} `
+                                                            :   <div key={i}> 
+                                                                    {i}: {el[i]} 
+                                                                    <br/>
+                                                                </div>
+                                                        : <div/>
+                                                    
+                                                ))
+                                            }
+                                            </div>
                                         ))
                                     }
-                                    </div>
-                                ))
-                            }
-                       </div>
+                            </div> : <div/>
+                       }
 
                        <div className="col-12">
                             <h2> Share Details</h2>

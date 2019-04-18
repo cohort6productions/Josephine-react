@@ -44,11 +44,11 @@ export interface IPersonalDetails {
     tax_payable_country: string;
     share_composition: number;
     article_of_associate: string,
-    address_proof: string,
+    address_proof:string,
     authorized_person: string,
     companyname: string,
     business_license: string,
-    identity: string,
+    identity:string,
     category: string,
 }
 

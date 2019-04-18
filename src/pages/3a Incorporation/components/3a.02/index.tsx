@@ -47,4 +47,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
         );
     }
 
+    Step1.displayName = 'Personal Information'
+
+
 export default Step1;

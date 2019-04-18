@@ -11,6 +11,7 @@ import Step5 from './3a.06';
 import Summary from './forms/Summary';
 import Step6 from './3a.07';
 import Step7 from './3a.08';
+import Breadcrumbs from './forms/partials/Breadcrumbs';
 
 interface IFormProps {
     initialEmail?: string;
@@ -46,7 +47,14 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         });
     };
 
+    public handlePath = (nextStep: number) => {
+        this.setState({
+            step: nextStep
+        })
+    }
+
     public setShareholderValues = (data: any) => {
+        alert(JSON.stringify(data))
         this.props.setValues({
             ...this.props.values,
             shareholders: data
@@ -69,6 +77,18 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public render() {
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
+
+        const allPaths = [
+            'Start',
+            'Personal Information',
+            'Company Information',
+            'Share Formation',
+            'Shareholder Information',
+            'Director Information',
+            'Company Secretary',
+            'Others',
+            'Summary'
+        ]
 
         const steps = [
             <Start nextStep={this.nextStep} key="" />,
@@ -97,6 +117,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 total_shares={this.props.values.shares.number}
                 nextStep={this.nextStep}
                 back={this.back}
+                shareholders={this.props.values.shareholders}
                 _setValues={this.setShareholderValues}
             />,
             <Step5
@@ -129,6 +150,11 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             <section className="my-5" id="incorporation-form">
                 <div className="container">
                     <Form>
+                        <Breadcrumbs 
+                            allPaths={allPaths} 
+                            currentPath={step} 
+                            handlePath={this.handlePath}
+                            />
                         {steps[step] || <div />}
                         <div className="row justify-content-center mx-0 ">
                             <div className="col-12 col-md-8 my-3">

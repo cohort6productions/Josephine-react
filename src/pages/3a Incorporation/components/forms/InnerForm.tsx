@@ -12,6 +12,7 @@ interface IProps extends IStepProps {
     description: string;
     _innerhtml: any;
     emitValue?: (value: any, event: string) => void | null;
+    oldValues?: any[] | null;
 }
 
 interface IShareholderState {
@@ -82,6 +83,14 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
         this.setState({
             activeTab: tab
         })
+    }
+
+    public componentDidMount = () => {
+        if (!!this.props.oldValues) {
+            this.setState({
+                currentValues: this.props.oldValues
+            })
+        }
     }
 
     public render() {

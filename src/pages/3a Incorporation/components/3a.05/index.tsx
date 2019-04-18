@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 interface IShareholderProps extends IStepProps {
    _setValues: (values: any) => void;
    total_shares: number;
+   shareholders: any[]
 }
 
 class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValues & IPersonalDetails>, {occupied_shares: number}> {
@@ -38,6 +39,7 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
                 emitValue={this.handleShares}
                 title="Shareholder information" 
                 field="shareholder" 
+                oldValues={this.props.shareholders}
                 _innerhtml={
                     <div className="form-group col-12">
                         <input type="number" className="form-control" value={this.props.total_shares} disabled={true} />
@@ -86,8 +88,12 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     validationSchema: ShareholderSchema,
 
     handleSubmit: (values, { setSubmitting }) => {
+        
         setSubmitting(false);
     },
 
 })(MainForm);
+
+Step4.displayName="Share holders info"
+
 export default Step4;

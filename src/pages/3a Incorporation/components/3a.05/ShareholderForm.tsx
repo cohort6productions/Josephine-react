@@ -1,6 +1,7 @@
 import { Field, FormikProps, getIn } from "formik";
 import * as React from "react";
 import { IPersonalDetails } from "src/Interfaces/FormValues";
+import Thumb from '../forms/partials/Thumbnail';
 
 const ShareholderForm = (
     props: { category: string; total_shares: number } & FormikProps<
@@ -8,6 +9,14 @@ const ShareholderForm = (
     >
 ) => {
     const { touched, errors } = props;
+
+    function handleFile(value: string, files?: FileList | null){
+        if (files) {
+            const localImageUrl =  window.URL.createObjectURL(files[0]);
+            props.setFieldValue(value, localImageUrl)
+        }
+
+    }
 
     return (
         <>
@@ -143,31 +152,38 @@ const ShareholderForm = (
 
                 <h3>Identification</h3>
             </div>
-            {props.category === "personal" ? (
+            {
+                props.category === "personal" ? 
                 <>
                     <div className="form-group col-12">
                         <label>Identity document</label>
-                        {/* <Field type="file" className="form-control" name=""/> */}
+                    
+                        <input id="file" name="identity" type="file" onChange={(e) => handleFile('identity', e.currentTarget.files) } className="form-control" />
+                        { !!props.values.identity ? <Thumb file={props.values.identity} /> : '' }
+         
                     </div>
 
                     <div className="form-group col-12">
                         <label>Proof of address</label>
-                        {/* <Field type="file" className="form-control" name=""/>/1000 */}
+                        <input id="file" name="address_proof" type="file" onChange={(e) => handleFile('address_proof', e.currentTarget.files) } className="form-control" />
+                        { !!props.values.address_proof ? <Thumb file={props.values.address_proof} /> : '' }
                     </div>
                 </>
-            ) : (
+             : 
                 <>
                     <div className="form-group col-12">
                         <label>Business License</label>
-                        {/* <Field type="file" className="form-control" name=""/> */}
+                        <input id="file" name="business_license" type="file" onChange={(e) => handleFile('business_license', e.currentTarget.files) } className="form-control" />
+                        { !!props.values.business_license ? <Thumb file={props.values.business_license} /> : '' }
                     </div>
 
                     <div className="form-group col-12">
                         <label>Article of association</label>
-                        {/* <Field type="file" className="form-control" name=""/>/1000 */}
+                        <input id="file" name="article_of_associate" type="file" onChange={(e) => handleFile('article_of_associate', e.currentTarget.files) } className="form-control" />
+                        { !!props.values.article_of_associate ? <Thumb file={props.values.article_of_associate} /> : '' }
                     </div>
                 </>
-            )}
+            }
         </>
     );
 };
