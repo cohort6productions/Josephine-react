@@ -4,7 +4,7 @@
     background-position: center;
     background-size: cover;
 
-    padding: 5.3rem 2.6rem;
+    padding: 6rem 2.6rem;
 
     h2 {
         margin-bottom: 16px;
@@ -14,13 +14,12 @@
         margin-bottom: 32px;
     }
 
-    .modal-content {
-        background-color: transparent;
-        border: 0;
-    
-        .modal-body {
-            display: flex;
-            justify-content: center;
-        }
-    }
+
+
+}
+
+// Forcing the background and border to go away
+.modal-content {
+    background-color: transparent !important;
+    border: 0 !important;
 }

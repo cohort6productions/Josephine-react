@@ -1,3 +1,25 @@
+Date: 2019-04-18
+Branch: master
+
+This version aims to complete pages under `how to start`, providing all the services page that was required to drive sales from customers. Currently the team is researching on the level of difficulity to implement Stripe payment into the website. The current focus of this iteration is to complete the sytle of the entire website and consolidate the contents of the entire site
+
+## Added
+
+-   Service page template: `2T-serviceTemplates`
+-   Pages scroll to the top when `<Link>` is clicked
+-   Images (resized and optimized for web) for all service pages
+
+## Changed
+
+-   Refactored service pages, now using data array to map routes in `defaultRoutes`
+-   Resized background images for homepage
+
+## Need to work on
+
+-   Styling of all pages
+
+---
+
 Date: 2019-04-13
 Branch: master
 

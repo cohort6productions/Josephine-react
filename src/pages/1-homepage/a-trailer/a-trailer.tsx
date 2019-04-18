@@ -30,7 +30,7 @@ export default class Trailer extends React.Component<{}, { modal: boolean }> {
                 <div className="container" id="trailer">
                     <h2 className="all-cap text-light">
                         <bdi className="text-highlight">Centre O</bdi> is a
-                        one-stop centre for all business administrative needs.
+                        one-stop centre for all business admin needs.
                     </h2>
                     <p className="text-light">
                         From incorporating business to visa applications, we
@@ -49,15 +49,17 @@ export default class Trailer extends React.Component<{}, { modal: boolean }> {
                         isOpen={this.state.modal}
                         toggle={this.toggle}
                         centered={true}
+                        className="pop-modal"
                         // className={this.props.className}
                     >
                         <ModalBody>
-                            <iframe
-                                width="560"
-                                height="315"
-                                src="https://www.youtube.com/embed/xqzML__jKyU"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                            />
+                            <div className="embed-responsive embed-responsive-16by9 w-100">
+                                <iframe
+                                    className="embed-responsive-item"
+                                    src="https://www.youtube.com/embed/xqzML__jKyU"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                                />
+                            </div>
                         </ModalBody>
                     </Modal>
                 </div>
