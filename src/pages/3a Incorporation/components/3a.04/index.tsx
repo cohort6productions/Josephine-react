@@ -5,10 +5,8 @@ import {IFormValues} from 'src/Interfaces/FormValues';
 import ButtonGroup from '../forms/partials/ButtonGroup';
 
 class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
-    displayName: string;
     constructor(props: IStepProps & FormikProps<IFormValues>) {
         super(props);
-        this.displayName = "Shares Formation"
     }
 
     public render() {   

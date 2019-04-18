@@ -94,6 +94,4 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
 
 })(MainForm);
 
-Step4.displayName="Share holders info"
-
 export default Step4;

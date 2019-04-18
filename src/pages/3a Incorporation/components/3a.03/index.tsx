@@ -10,10 +10,8 @@ interface IOfficeAddress{
 }
 
 class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOfficeAddress> {
-    displayName: string;
     constructor(props: IStepProps & FormikProps<IFormValues>) {
         super(props);
-        this.displayName='Company Details'
         this.state = {
             currentIndex: 0,
             office_address: [

@@ -25,6 +25,4 @@ const Start = (props: {nextStep: () => void}) => {
     )
 }
 
-Start.displayName = 'Start'
-
 export default Start;
