@@ -30,3 +30,16 @@ export default class CustomLink extends React.PureComponent<ICustomLinkProps> {
         );
     }
 }
+
+// tslint:disable-next-line: max-classes-per-file
+export class CustomNavLink extends React.PureComponent<ICustomLinkProps> {
+    public render() {
+        return (
+            <div className="custom-link">
+                <span className="button-text text-light">
+                    {this.props.text ? this.props.text : "Click Here"}
+                </span>
+            </div>
+        );
+    }
+}

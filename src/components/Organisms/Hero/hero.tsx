@@ -20,7 +20,7 @@ export interface IHeroProps {
 
 export const headerStyle = (imgLoc: string): IHeaderStyle => ({
     backgroundImage:
-        "linear-gradient(180deg, #000000 5.42%, rgba(85, 72, 100, 0.3) 95.01%), url(" +
+        "linear-gradient(180deg, #222222 0.42%, rgba(85, 72, 100, 0.3) 90.01%), url(" +
         imgLoc +
         ")",
     backgroundPosition: "center",
