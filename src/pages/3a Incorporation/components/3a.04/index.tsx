@@ -12,7 +12,6 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
     public render() {   
         const buttonProps = {
             nextStep: this.props.nextStep,
-            // tslint:disable-next-line:object-literal-sort-keys
             back: this.props.back
         } 
         return (
