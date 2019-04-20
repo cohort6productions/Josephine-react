@@ -1,15 +1,7 @@
 // Importing and uploading fonts
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,700');
-@import "../colors/color.scss";
+@import "./color.scss";
 
-@font-face {
-    font-family: 'Made Evolve Sans Bold';
-    src: url('./fonts/MadeEvolveSansBold.woff2') format('woff2'),
-        url('./fonts/MadeEvolveSansBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 @font-face {
     font-family: 'Made Evolve Sans Regular';
@@ -25,9 +17,6 @@
 $headerFont-regular: "Made Evolve Sans Regular",
 Arial,
 Sans-serif;
-$headerFont-bold: "Made Evolve Sans Bold",
-Arial,
-Sans-serif;
 $bodyFont: 'EB Garamond',
 "Times New Roman",
 Times,
@@ -36,7 +25,8 @@ serif;
 
 
 h1 {
-    font-family: $headerFont-bold;
+    font-family: $headerFont-regular;
+    font-weight: 900;
     font-style: normal;
     font-size: 72px;
     line-height: normal;
@@ -45,7 +35,7 @@ h1 {
 }
 
 h2 {
-    font-family: $headerFont-bold;
+    font-family: $headerFont-regular;
     font-style: normal;
     font-size: 50px;
     line-height: normal;
@@ -123,7 +113,7 @@ small {
 }
 
 .button-text {
-    font-family: $headerFont-bold;
+    font-family: $headerFont-regular;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -140,7 +130,7 @@ small {
 }
 
 .overline-header-bold {
-    font-family: $headerFont-bold;
+    font-family: $headerFont-regular;
     font-size: 24px;
     line-height: 29px;
     letter-spacing: 2px;

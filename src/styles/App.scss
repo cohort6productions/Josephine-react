@@ -1,15 +1,17 @@
-// Importing Scss sheets
-@import "./variables";
-@import "./shades/cardAndShades.scss";
-@import "./colors/color.scss";
-@import "./fonts/font.scss";
-@import "./spacings/spacing.scss";
-@import "./temp/temp.scss";
-@import "./buttons";
+// Classes
+
+
+
 
 html,
 body {
     font-size: 18px;
+
+    margin: 0;
+    padding: 0;
+
+
+
 }
 
 header {
@@ -598,4 +600,19 @@ svg:not(:root).svg-inline--fa {
     overflow: visible;
     position: static;
     width: auto
+}
+
+
+// TODO: Adding in to relocate soon
+.all-cap {
+    text-transform: uppercase;
+}
+
+// Section padding top-bottom 96px;
+.section-padding-tb96 {
+    margin: 5.3rem 0;
+}
+
+.container {
+    padding: 0;
 }

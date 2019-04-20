@@ -81,7 +81,10 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
                         <Nav className="ml-auto" navbar={true}>
                             <NavItem>
                                 <UncontrolledButtonDropdown>
-                                    <DropdownToggle color="null">
+                                    <DropdownToggle
+                                        className="m-1"
+                                        color="null"
+                                    >
                                         <CustomNavLink
                                             link="/"
                                             text="How To Start"
@@ -104,7 +107,10 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
 
                             <NavItem>
                                 <UncontrolledButtonDropdown>
-                                    <DropdownToggle color="null">
+                                    <DropdownToggle
+                                        className="m-1"
+                                        color="null"
+                                    >
                                         <CustomNavLink
                                             link="/"
                                             text="Often Used"
@@ -126,7 +132,10 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
                             </NavItem>
                             <NavItem>
                                 <UncontrolledButtonDropdown>
-                                    <DropdownToggle color="null">
+                                    <DropdownToggle
+                                        className="m-1"
+                                        color="null"
+                                    >
                                         <CustomNavLink
                                             link="/"
                                             text="Resources"
@@ -148,7 +157,10 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
                             </NavItem>
                             <NavItem>
                                 <UncontrolledButtonDropdown>
-                                    <DropdownToggle color="null">
+                                    <DropdownToggle
+                                        className="m-1"
+                                        color="null"
+                                    >
                                         <CustomNavLink
                                             link="/"
                                             text="Who We Are"
@@ -165,135 +177,6 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
                                                 </DropdownItem>
                                             )
                                         )}
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-
-                            <NavItem>
-                                <CustomButton
-                                    text="Book conference room"
-                                    variation="theme"
-                                    link="/conference-room"
-                                />
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-            </React.Fragment>
-        );
-        return (
-            <React.Fragment>
-                {/* <nav
-                    className={`${
-                        this.state.isTop ? "bg-transparent" : "up"
-                    } pt-3 pb-3 navbar navbar-light bg-light fixed-top`}
-                >
-                    <Link className="navbar-brand" to="/">
-                        <img src="/images/logo.png" alt="CentreO" />
-                    </Link>
-
-                    <CustomButton
-                        text="Book conference room"
-                        variation="theme"
-                        link="/conference-room"
-                    />
-                </nav> */}
-                <Navbar
-                    className="navagate"
-                    // fixed={"top"}
-                    light={true}
-                    expand="md"
-                >
-                    <Link className="navbar-brand" to="/">
-                        <img src="/images/logo.png" alt="CentreO" />
-                    </Link>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar={true}>
-                        <Nav className="ml-auto" navbar={true}>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle>Resources</DropdownToggle>
-                                    <DropdownMenu>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/open">
-                                                Resources Library
-                                            </Link>
-                                        </DropdownItem>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/upkeep">
-                                                Handpicked News
-                                            </Link>
-                                        </DropdownItem>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/">Our Thoughts</Link>
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            <Link to="/about-us">
-                                                Networking
-                                            </Link>
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle>Resources</DropdownToggle>
-                                    <DropdownMenu>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/resources">
-                                                Resources Library
-                                            </Link>
-                                        </DropdownItem>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/subscribe">
-                                                Handpicked News
-                                            </Link>
-                                        </DropdownItem>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/">Our Thoughts</Link>
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            <Link to="/about-us">
-                                                Networking
-                                            </Link>
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle>Resources</DropdownToggle>
-                                    <DropdownMenu>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/resources">
-                                                Resources Library
-                                            </Link>
-                                        </DropdownItem>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/subscribe">
-                                                Handpicked News
-                                            </Link>
-                                        </DropdownItem>
-                                        <DropdownItem disabled={true}>
-                                            <Link to="/">Our Thoughts</Link>
-                                        </DropdownItem>
-                                        <DropdownItem>
-                                            <Link to="/about-us">
-                                                Networking
-                                            </Link>
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle>About Us</DropdownToggle>
-                                    <DropdownMenu>
-                                        <DropdownItem>
-                                            <Link to="/about-us">
-                                                About Our Team
-                                            </Link>
-                                        </DropdownItem>
                                     </DropdownMenu>
                                 </UncontrolledButtonDropdown>
                             </NavItem>
