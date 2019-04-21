@@ -13,16 +13,14 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    // NavbarBrand,
     Nav,
     NavItem,
     UncontrolledButtonDropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem
-    // NavLink
 } from "reactstrap";
-import { CustomNavLink } from "src/components/Atoms/CustomLink/customLink";
+import CustomLink from "src/components/Atoms/CustomLink/customLink";
 
 class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
     constructor(props: {}) {
@@ -36,7 +34,7 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
     }
     public componentDidMount() {
         document.addEventListener("scroll", () => {
-            const isTop = window.scrollY < 100;
+            const isTop = window.scrollY < 150;
             if (isTop !== this.state.isTop) {
                 this.setState({ isTop });
             }
@@ -49,149 +47,142 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
         });
     }
 
+    // <nav className={`${this.state.isTop ? "bg-transparent" : "up"} pt-3 pb-3 navbar navbar-light bg-light fixed-top`}/>
+
     public render() {
         return (
-            <React.Fragment>
-                {/* <nav
-                    className={`${
-                        this.state.isTop ? "bg-transparent" : "up"
-                    } pt-3 pb-3 navbar navbar-light bg-light fixed-top`}
-                >
-                    <Link className="navbar-brand" to="/">
-                        <img src="/images/logo.png" alt="CentreO" />
-                    </Link>
+            // <Navbar
+            //     className="navagate"
+            //     fixed={"top"}
+            //     // color="transparent"
+            //     expand="md"
+            // >
+            <nav
+                className={`${
+                    this.state.isTop ? "bg-transparent" : "bg-dark"
+                } fixed-top navbar navbar-expand-lg navbar-light  navagate`}
+            >
+                <Link className="navbar-brand" to="/">
+                    <img src="/images/logo.png" alt="CentreO" />
+                </Link>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar={true}>
+                    <Nav className="ml-auto" navbar={true}>
+                        <NavItem>
+                            <UncontrolledButtonDropdown>
+                                <DropdownToggle className="m-1" color="null">
+                                    <CustomLink
+                                        link=""
+                                        txtCol="light"
+                                        text="How To Start"
+                                        variation="default"
+                                    />
+                                </DropdownToggle>
+                                <DropdownMenu className="nav-menu">
+                                    {siteMap.howToStart.map(
+                                        (listItem, index) => (
+                                            <DropdownItem key={index}>
+                                                <CustomLink
+                                                    variation="default"
+                                                    txtCol="dark"
+                                                    link={listItem.path}
+                                                    text={listItem.text}
+                                                />
+                                            </DropdownItem>
+                                        )
+                                    )}
+                                </DropdownMenu>
+                            </UncontrolledButtonDropdown>
+                        </NavItem>
 
-                    <CustomButton
-                        text="Book conference room"
-                        variation="theme"
-                        link="/conference-room"
-                    />
-                </nav> */}
-                <Navbar
-                    className="navagate"
-                    // fixed={"top"}
-                    light={true}
-                    expand="md"
-                >
-                    <Link className="navbar-brand" to="/">
-                        <img src="/images/logo.png" alt="CentreO" />
-                    </Link>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar={true}>
-                        <Nav className="ml-auto" navbar={true}>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle
-                                        className="m-1"
-                                        color="null"
-                                    >
-                                        <CustomNavLink
-                                            link="/"
-                                            text="How To Start"
-                                            variation="default"
-                                        />
-                                    </DropdownToggle>
-                                    <DropdownMenu>
-                                        {siteMap.howToStart.map(
-                                            (listItem, index) => (
-                                                <DropdownItem key={index}>
-                                                    <Link to={listItem.path}>
-                                                        {listItem.text}
-                                                    </Link>
-                                                </DropdownItem>
-                                            )
-                                        )}
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
+                        <NavItem>
+                            <UncontrolledButtonDropdown>
+                                <DropdownToggle className="m-1" color="null">
+                                    <CustomLink
+                                        link=""
+                                        txtCol="light"
+                                        text="Often Used"
+                                        variation="default"
+                                    />
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    {siteMap.oftenUsed.map(
+                                        (listItem, index) => (
+                                            <DropdownItem key={index}>
+                                                <CustomLink
+                                                    variation="default"
+                                                    txtCol="dark"
+                                                    link={listItem.path}
+                                                    text={listItem.text}
+                                                />
+                                            </DropdownItem>
+                                        )
+                                    )}
+                                </DropdownMenu>
+                            </UncontrolledButtonDropdown>
+                        </NavItem>
+                        <NavItem>
+                            <UncontrolledButtonDropdown>
+                                <DropdownToggle className="m-1" color="null">
+                                    <CustomLink
+                                        link=""
+                                        txtCol="light"
+                                        text="Resources"
+                                        variation="default"
+                                    />
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    {siteMap.resources.map(
+                                        (listItem, index) => (
+                                            <DropdownItem key={index}>
+                                                <CustomLink
+                                                    variation="default"
+                                                    txtCol="dark"
+                                                    link={listItem.path}
+                                                    text={listItem.text}
+                                                />
+                                            </DropdownItem>
+                                        )
+                                    )}
+                                </DropdownMenu>
+                            </UncontrolledButtonDropdown>
+                        </NavItem>
+                        <NavItem>
+                            <UncontrolledButtonDropdown>
+                                <DropdownToggle className="m-1" color="null">
+                                    <CustomLink
+                                        link=""
+                                        txtCol="light"
+                                        text="Who We Are"
+                                        variation="default"
+                                    />
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    {siteMap.whoWeAre.map((listItem, index) => (
+                                        <DropdownItem key={index}>
+                                            <CustomLink
+                                                variation="default"
+                                                txtCol="dark"
+                                                link={listItem.path}
+                                                text={listItem.text}
+                                            />
+                                        </DropdownItem>
+                                    ))}
+                                </DropdownMenu>
+                            </UncontrolledButtonDropdown>
+                        </NavItem>
 
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle
-                                        className="m-1"
-                                        color="null"
-                                    >
-                                        <CustomNavLink
-                                            link="/"
-                                            text="Often Used"
-                                            variation="default"
-                                        />
-                                    </DropdownToggle>
-                                    <DropdownMenu>
-                                        {siteMap.oftenUsed.map(
-                                            (listItem, index) => (
-                                                <DropdownItem key={index}>
-                                                    <Link to={listItem.path}>
-                                                        {listItem.text}
-                                                    </Link>
-                                                </DropdownItem>
-                                            )
-                                        )}
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle
-                                        className="m-1"
-                                        color="null"
-                                    >
-                                        <CustomNavLink
-                                            link="/"
-                                            text="Resources"
-                                            variation="default"
-                                        />
-                                    </DropdownToggle>
-                                    <DropdownMenu>
-                                        {siteMap.resources.map(
-                                            (listItem, index) => (
-                                                <DropdownItem key={index}>
-                                                    <Link to={listItem.path}>
-                                                        {listItem.text}
-                                                    </Link>
-                                                </DropdownItem>
-                                            )
-                                        )}
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-                            <NavItem>
-                                <UncontrolledButtonDropdown>
-                                    <DropdownToggle
-                                        className="m-1"
-                                        color="null"
-                                    >
-                                        <CustomNavLink
-                                            link="/"
-                                            text="Who We Are"
-                                            variation="default"
-                                        />
-                                    </DropdownToggle>
-                                    <DropdownMenu>
-                                        {siteMap.whoWeAre.map(
-                                            (listItem, index) => (
-                                                <DropdownItem key={index}>
-                                                    <Link to={listItem.path}>
-                                                        {listItem.text}
-                                                    </Link>
-                                                </DropdownItem>
-                                            )
-                                        )}
-                                    </DropdownMenu>
-                                </UncontrolledButtonDropdown>
-                            </NavItem>
-
-                            <NavItem>
-                                <CustomButton
-                                    text="Book conference room"
-                                    variation="theme"
-                                    link="/conference-room"
-                                />
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-            </React.Fragment>
+                        <NavItem>
+                            <CustomButton
+                                text="Book conference room"
+                                variation="theme"
+                                link="/conference-room"
+                            />
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </nav>
+            // </Navbar>
         );
     }
 }

@@ -32,7 +32,7 @@ export default class Hero extends React.PureComponent<IHeroProps> {
         return (
             <header>
                 <div
-                    className="jumbotron hero d-flex align-items-center"
+                    className="hero d-flex align-items-center"
                     style={this.props.style}
                 >
                     <div className="container">
@@ -41,9 +41,9 @@ export default class Hero extends React.PureComponent<IHeroProps> {
                         </h1>
 
                         {this.props.subLine ? (
-                            <span className="hero__subheader body-short-texts text-light">
+                            <p className="hero__subheader body-short-texts text-light">
                                 {this.props.subLine}
-                            </span>
+                            </p>
                         ) : null}
                         {this.props.buttonLink ? (
                             <a href={this.props.buttonLink}>Contact Us</a>

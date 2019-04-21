@@ -10,12 +10,12 @@ export const siteMap = {
     ],
     oftenUsed: [
         { path: "/incorporation", text: "HK company incorporation" },
-        { path: "/bank-account", text: "Open bank account" },
-        { path: "/registered-office", text: "Registered office" },
+        // { path: "/bank-account", text: "Open bank account" },
+        // { path: "/registered-office", text: "Registered office" },
         { path: "/conference-room", text: "Book conference room" }
     ],
     resources: [
-        { path: "/resources", text: "Resources library" },
+        // { path: "/resources", text: "Resources library" },
         { path: "/subscribe", text: "Handpicked news" },
         { path: "/", text: "Our thoughts" }
     ],

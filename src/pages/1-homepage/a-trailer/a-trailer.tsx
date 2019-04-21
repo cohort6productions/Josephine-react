@@ -27,7 +27,7 @@ export default class Trailer extends React.Component<{}, { modal: boolean }> {
     public render() {
         return (
             <div className="container-fluid section-padding-tb96">
-                <div className="container" id="trailer">
+                <div className="container rounded" id="trailer">
                     <h2 className="all-cap text-light">
                         <bdi className="text-highlight">Centre O</bdi> is a
                         one-stop centre for all business admin needs.

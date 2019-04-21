@@ -25,41 +25,48 @@ const ConnectWithUs = () => {
                     <div className="col-sm-12 col-md-6 itemCol">
                         <a href="https://medium.com/centreo">
                             <img
-                                className="itemCol__img"
+                                className="itemCol__img rounded"
                                 src={tallbuilding}
-                                alt=""
+                                alt="Hong Kong Building"
                             />
                             <span className="itemCol__subhead   body-short-texts">
-                                Read our blogs and Medium
+                                Read our articles
                             </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-6 itemCol">
                         <a href="https://www.meetup.com/Multi-Network-Business-Community/">
                             <img
-                                className="itemCol__img"
+                                className="itemCol__img rounded"
                                 src={computer}
-                                alt=""
+                                alt="Iphone"
                             />
                             <span className="itemCol__subhead   body-short-texts">
-                                Meetup with business and professionals in Hong
-                                Kong
+                                Meetup with business and professionals in HK
                             </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
                         <a href="https://www.linkedin.com/company/centre-o/">
-                            <img className="itemCol__img" src={money} alt="" />
+                            <img
+                                className="itemCol__img rounded"
+                                src={money}
+                                alt=""
+                            />
                             <span className="itemCol__subhead   body-short-texts">
-                                Network with our connections on LinkedIn
+                                Connections us through LinkedIn
                             </span>
                         </a>
                     </div>
                     <div className="col-sm-12 col-md-4 itemCol">
                         <a href="https://www.facebook.com/centreobusinesscentre/">
-                            <img className="itemCol__img" src={crowd} alt="" />
+                            <img
+                                className="itemCol__img rounded"
+                                src={crowd}
+                                alt=""
+                            />
                             <span className="itemCol__subhead   body-short-texts">
-                                Catch us of Facebook updates
+                                Catch us on Facebook
                             </span>
                         </a>
                     </div>
@@ -71,8 +78,7 @@ const ConnectWithUs = () => {
                                 alt=""
                             />
                             <span className="itemCol__subhead   body-short-texts">
-                                Food for thoughts on growing business in Hong
-                                Kong
+                                Insights on growing business in Hong Kong
                             </span>
                         </a>
                     </div>

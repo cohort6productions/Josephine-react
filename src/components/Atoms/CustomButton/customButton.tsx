@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 // Style
 import "./customButton.scss";
 
+// Components
+import Button from "reactstrap/lib/Button";
+
 interface ICustomButtonProps {
     text?: string;
     fnTrigger?: () => void;
@@ -26,21 +29,21 @@ export default class CustomButton extends React.PureComponent<
         return (
             <>
                 {this.props.fnTrigger ? (
-                    <button
+                    <Button
                         className={"custom-button" + " " + this.props.variation}
                         onClick={this.props.fnTrigger}
                     >
                         {this.textArea()}
-                    </button>
+                    </Button>
                 ) : (
                     <Link to={this.props.link}>
-                        <button
+                        <Button
                             className={
                                 "custom-button" + " " + this.props.variation
                             }
                         >
                             {this.textArea()}
-                        </button>
+                        </Button>
                     </Link>
                 )}
             </>
