@@ -8,7 +8,7 @@ interface IButtonGroup {
 const ButtonGroup = (props: IButtonGroup) => {
     const {back, nextStep, disabled, buttonText} = props;
     return (
-        <div className="row justify-content-center w-100">
+        <div className="row justify-content-center w-100 mx-auto">
             <div className="col-auto">
                 <button type="button" className="form-control btn btn-default" onClick={back}>Back</button>
             </div>
