@@ -42,7 +42,7 @@ export default class Trailer extends React.Component<{}, { modal: boolean }> {
                     <CustomButton
                         text="Watch the trailer"
                         fnTrigger={this.toggle}
-                        link="https://www.youtube.com/watch?v=xqzML__jKyU"
+                        link=""
                         variation="theme"
                     />
                     <Modal
@@ -50,7 +50,6 @@ export default class Trailer extends React.Component<{}, { modal: boolean }> {
                         toggle={this.toggle}
                         centered={true}
                         className="pop-modal"
-                        // className={this.props.className}
                     >
                         <ModalBody>
                             <div className="embed-responsive embed-responsive-16by9 w-100">

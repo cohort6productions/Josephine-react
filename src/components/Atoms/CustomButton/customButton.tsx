@@ -8,6 +8,12 @@ import "./customButton.scss";
 // Components
 import Button from "reactstrap/lib/Button";
 
+// Variation of the button
+// 1. Trigger <Link>
+// 2. Hyperlink to external link
+// 3. Trigger a custom function
+// 4. A button
+
 interface ICustomButtonProps {
     text?: string;
     fnTrigger?: () => void;
@@ -18,34 +24,37 @@ interface ICustomButtonProps {
 export default class CustomButton extends React.PureComponent<
     ICustomButtonProps
 > {
-    public textArea() {
+    public button() {
         return (
-            <span className="button-text text-light">
-                {this.props.text ? this.props.text : "Click Here"}
-            </span>
+            <Button
+                className={"custom-button" + " " + this.props.variation}
+                onClick={this.props.fnTrigger}
+            >
+                <span className="button-text text-light">
+                    {this.props.text ? this.props.text : "Click Here"}
+                </span>
+            </Button>
         );
     }
     public render() {
+        let buttonType: "int-link" | "ext-href" | "primitive";
+        if (this.props.link.match("^http")) {
+            buttonType = "ext-href";
+        } else if (this.props.link.match("^/")) {
+            buttonType = "int-link";
+        } else {
+            buttonType = "primitive";
+        }
+
         return (
             <>
-                {this.props.fnTrigger ? (
-                    <Button
-                        className={"custom-button" + " " + this.props.variation}
-                        onClick={this.props.fnTrigger}
-                    >
-                        {this.textArea()}
-                    </Button>
-                ) : (
-                    <Link to={this.props.link}>
-                        <Button
-                            className={
-                                "custom-button" + " " + this.props.variation
-                            }
-                        >
-                            {this.textArea()}
-                        </Button>
-                    </Link>
+                {buttonType === "ext-href" && (
+                    <a href={this.props.link}>{this.button()}</a>
                 )}
+                {buttonType === "int-link" && (
+                    <Link to={this.props.link}>{this.button()}</Link>
+                )}
+                {buttonType === "primitive" && this.button()}
             </>
         );
     }
