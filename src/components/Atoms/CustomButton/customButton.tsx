@@ -38,7 +38,10 @@ export default class CustomButton extends React.PureComponent<
     }
     public render() {
         let buttonType: "int-link" | "ext-href" | "primitive";
-        if (this.props.link.match("^http")) {
+        if (
+            this.props.link.match("^http") ||
+            this.props.link.match("^mailto")
+        ) {
             buttonType = "ext-href";
         } else if (this.props.link.match("^/")) {
             buttonType = "int-link";

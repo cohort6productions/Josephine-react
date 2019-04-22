@@ -3,6 +3,7 @@ import * as React from "react";
 
 // Style
 import "./hero.scss";
+import CustomButton from "src/components/Atoms/CustomButton/customButton";
 
 export interface IHeaderStyle {
     backgroundImage: string;
@@ -45,9 +46,12 @@ export default class Hero extends React.PureComponent<IHeroProps> {
                                 {this.props.subLine}
                             </p>
                         ) : null}
-                        {this.props.buttonLink ? (
-                            <a href={this.props.buttonLink}>Contact Us</a>
-                        ) : null}
+                        {this.props.buttonLink && (
+                            <CustomButton
+                                link="mailto:sales@centreo.hk"
+                                variation="theme"
+                            />
+                        )}
                     </div>
                 </div>
             </header>
