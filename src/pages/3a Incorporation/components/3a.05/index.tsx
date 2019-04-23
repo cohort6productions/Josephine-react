@@ -65,8 +65,8 @@ const ShareholderSchema = Yup.object().shape({
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
         return {
-            article_of_associate: "",
-            address_proof: "",
+            article_of_associate: undefined,
+            address_proof: undefined,
             authorized_person: "",
             firstname: "",
             lastname: "",
@@ -79,8 +79,8 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             tax_payable_country: "",
             share_composition: 0,
             companyname: "",
-            business_license: "",
-            identity: "",
+            business_license: undefined,
+            identity: undefined,
             category: "",
         };
     },

@@ -12,8 +12,7 @@ const ShareholderForm = (
 
     const handleFile = (value: string) => (event: React.ChangeEvent<HTMLInputElement & EventTarget>) => {
         if (event.currentTarget.files) {
-            const localImageUrl =  window.URL.createObjectURL(event.currentTarget.files[0]);
-            props.setFieldValue(value, localImageUrl)
+            props.setFieldValue(value, event.currentTarget.files[0])
         }
     }
 
@@ -158,7 +157,7 @@ const ShareholderForm = (
                         <label>Identity document</label>
                     
                         <input id="file" name="identity" type="file" onChange={handleFile('identity') } className="form-control" />
-                        { !!props.values.identity ? <Thumb file={props.values.identity} /> : '' }
+                        <Thumb file={props.values.identity} />
          
                     </div>
 

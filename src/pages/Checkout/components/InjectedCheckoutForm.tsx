@@ -1,37 +1,70 @@
 import * as React from 'react';
-import CardSection from './CardSection';
+// import CardSection from './CardSection';
+import {injectStripe, ReactStripeElements, CardElement} from 'react-stripe-elements';
 
-class InjectedCheckoutForm extends React.Component<{stripe:any}, {}> {
-    public handleSubmit = (ev:any) => {
-        // We don't want to let default form submission happen here, which would refresh the page.
-        ev.preventDefault();
-    
-        // Within the context of `Elements`, this call to createToken knows which Element to
-        // tokenize, since there's only one in this group.
-        this.props.stripe.createToken({name: 'Jenny Rosen'}).then((token: any) => {
-          // tslint:disable-next-line:no-console
-          console.log('Received Stripe token:', token);
-        });
-    
-        // However, this line of code will do the same thing:
-        //
-        // this.props.stripe.createToken({type: 'card', name: 'Jenny Rosen'});
-    
-        // You can also use createSource to create Sources. See our Sources
-        // documentation for more: https://stripe.com/docs/stripe-js/reference#stripe-create-source
-        //
-        // this.props.stripe.createSource({type: 'card', owner: {
-        //   name: 'Jenny Rosen'
-        // }});
-      };
+class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & ReactStripeElements.InjectedStripeProps, {name: string, amount: number}> {
+    constructor(props: {onSuccess?: () => void} & ReactStripeElements.InjectedStripeProps) {
+        super(props)
+        this.state = {
+            name: '',
+            amount: 0
+        }
+
+        this.handleChange = this.handleChange.bind(this)
+    }
+    public handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+            if (!!this.props.stripe) {
+                const {token}  = await this.props.stripe.createToken({name: this.state.name});
+                const amount = this.state.amount;
+                if (!!token) {
+                    await fetch('http://localhost:9000/payment', {
+                        method: 'POST',
+                        headers: {
+                            "Content-type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            "token": token,
+                            "amount": amount
+                        })
+                    })
+
+                    if (!!this.props.onSuccess){
+                        this.props.onSuccess()
+                    }
+                    
+                }
+            }
+        }catch(e) {
+            throw e;
+        }
+    }
+
+    public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            name: e.target.value
+        })
+    }
+
     public render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <CardSection />
-                <button>Confirm order</button>
-            </form>
+            <div className="container my-3">
+                <form onSubmit={this.handleSubmit} className="form col-12">
+                    <div className="form-group">
+                        <label>Card Details</label>
+                        <input className="form-control" type="text" onChange={this.handleChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Card Details</label>
+                        <CardElement />
+                    </div>
+                    <button type="submit" className="btn btn--stripe">Confirm order</button>
+                </form>
+            </div>
         );
     }
 }
 
-export default InjectedCheckoutForm;
+export default injectStripe(InjectedCheckoutForm);

@@ -6,7 +6,7 @@ class CardSection extends React.Component {
         return (
             <label>
                 Card details
-                <CardElement style={{ base: { fontSize: '18px' } }} />
+                <CardElement className="form-control col-12" />
             </label>
         );
     }

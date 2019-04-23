@@ -43,12 +43,12 @@ export interface IPersonalDetails {
     tax_number: string;
     tax_payable_country: string;
     share_composition: number;
-    article_of_associate: string,
-    address_proof:string,
+    article_of_associate?:File,
+    address_proof?:File,
     authorized_person: string,
     companyname: string,
-    business_license: string,
-    identity:string,
+    business_license?:File,
+    identity?:File,
     category: string,
 }
 
