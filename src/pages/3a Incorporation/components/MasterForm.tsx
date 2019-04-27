@@ -12,6 +12,8 @@ import Summary from './forms/Summary';
 import Step6 from './3a.07';
 import Step7 from './3a.08';
 import Breadcrumbs from './forms/partials/Breadcrumbs';
+import Checkout from 'src/pages/Checkout';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 interface IFormProps {
     initialEmail?: string;
@@ -20,6 +22,7 @@ interface IFormProps {
 
 interface IFormState {
     step: number;
+    modal: boolean;
 }
 
 const SignupSchema = Yup.object().shape({
@@ -30,6 +33,14 @@ const SignupSchema = Yup.object().shape({
         phone: Yup.string()
             .max(10, "too long")
             .required("Phone Required")
+    }),
+    company: Yup.object().shape({
+        companyname_1: Yup.string()
+            .required("Company name is required"),
+        address: Yup.string()
+            .required("Address Required"),
+        country: Yup.string()
+            .required("country Required")
     })
 });
 
@@ -38,7 +49,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         super(props);
 
         this.state = {
-            step: 0
+            step: 0,
+            modal: false
         };
     }
     public nextStep = () => {
@@ -54,7 +66,6 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     }
 
     public setShareholderValues = (data: any) => {
-        alert(JSON.stringify(data))
         this.props.setValues({
             ...this.props.values,
             shareholders: data
@@ -73,6 +84,16 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             step: this.state.step - 1
         });
     };
+
+    public handleCheckout = () => {
+        this.toggle();
+    }
+
+    public toggle = () => {
+        this.setState(prevState => ({
+            modal: !prevState.modal
+        }));
+    }
 
     public render() {
         const { step } = this.state;
@@ -144,6 +165,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 key="" 
                 {...this.props} 
                 back={this.back} 
+                handleCheckout={this.toggle}
             />
         ]
         return (
@@ -176,6 +198,12 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                             </div>
                         </div>
                     </Form>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
+                        <ModalHeader toggle={this.toggle}>Checkout</ModalHeader>
+                        <ModalBody>
+                            <Checkout onSuccess={this.handleCheckout}/>   
+                        </ModalBody>
+                    </Modal>
                 </div>
             </section>
         );

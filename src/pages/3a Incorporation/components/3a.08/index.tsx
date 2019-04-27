@@ -1,4 +1,4 @@
-import { FormikProps, Field } from 'formik';
+import { FormikProps, Field, getIn } from 'formik';
 import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
 import ButtonGroup from '../forms/partials/ButtonGroup';
@@ -33,6 +33,7 @@ class Step7 extends React.Component<IStep1Props & FormikProps<IFormValues>, IOth
     }
 
     public render() {
+        const {touched, errors} = this.props
         return (
             <div className="col-12 col-md-8 mx-auto">
                 <h1 className="my-3 text-center">Other Information</h1>
@@ -79,7 +80,7 @@ class Step7 extends React.Component<IStep1Props & FormikProps<IFormValues>, IOth
                             </div>
                         </div>
 
-                        <ButtonGroup {...this.props} buttonText="Confirm details"/>
+                        <ButtonGroup {...this.props} disabled={!getIn(touched, 'others') || getIn(errors, 'others')}  buttonText="Confirm details"/>
                     </div>
                 </div>
             );

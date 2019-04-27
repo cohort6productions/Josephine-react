@@ -59,14 +59,16 @@ const ShareholderSchema = Yup.object().shape({
         .required("Email Required"),
     phone: Yup.string()
         .max(10, "too long")
-        .required("Phone Required")
+        .required("Phone Required"),
+    share_composition: Yup.number()
+        .moreThan(1, "shareholders cannot own more than total shares")
 });
 
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
         return {
-            article_of_associate: "",
-            address_proof: "",
+            article_of_associate: undefined,
+            address_proof: undefined,
             authorized_person: "",
             firstname: "",
             lastname: "",
@@ -79,8 +81,8 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             tax_payable_country: "",
             share_composition: 0,
             companyname: "",
-            business_license: "",
-            identity: "",
+            business_license: undefined,
+            identity: undefined,
             category: "",
         };
     },

@@ -7,9 +7,7 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
 
     const handleFile = (value: string) => (event: React.ChangeEvent<HTMLInputElement & EventTarget>) => {
         if (event.currentTarget.files) {
-            const localImageUrl =  window.URL.createObjectURL(event.currentTarget.files[0]);
-            alert(value);
-            props.setFieldValue(value, localImageUrl)
+            props.setFieldValue(value, event.currentTarget.files[0])
         }
     }
     return (

@@ -3,23 +3,17 @@
     background-image: linear-gradient(0deg, rgba(102, 50, 154, 0.4), rgba(37, 18, 56, 0.6)), url("./img/happyGroup.jpg");
     background-position: center;
     background-size: cover;
-
     padding: 6rem 2.6rem;
-
     h2 {
         margin-bottom: 16px;
     }
-
     p {
         margin-bottom: 32px;
     }
-
-
-
 }
 
 // Forcing the background and border to go away
-.modal-content {
-    background-color: transparent !important;
-    border: 0 !important;
+.pop-modal .modal-content {
+    background-color: transparent;
+    border: 0;
 }

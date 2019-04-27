@@ -9,10 +9,10 @@ import Header from './components/Header';
 export default class IncorporationProcess extends React.Component {
     public render() {
         return (
-            <>
+            <div id="incorporation">
                 <Header />
                 <MasterForm />
-            </>
+            </div>
         );
     }
 }

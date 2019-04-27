@@ -40,6 +40,7 @@ import ConferenceRoomBooking from "src/pages/3d-conferenceRoomBooking/conference
 import Newsletter from "src/pages/5b-newsletter/newsletter";
 import AboutUs from "src/pages/5c-aboutUs/aboutUs";
 import Member from "src/pages/5d-individualMember/member";
+import Checkout from 'src/pages/Checkout';
 
 // Route interfaces
 interface IDefaultRoutesProps {
@@ -159,7 +160,8 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                 {/* End of "Who we are" */}
 
                 {/* Start of "General" */}
-                <Route exact={true} path="/" component={Homepage} />
+                <Route exact={true} path="/" component={Homepage} />,
+                <Route exact={true} path="/checkout" component={Checkout} />
                 <Route component={Error404} />
                 {/* End of "General" */}
             </Switch>

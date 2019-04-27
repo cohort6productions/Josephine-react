@@ -41,7 +41,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                         <Field type="text" className="form-control" name="personal.phone" />
                         {getIn(touched, 'personal.phone') && getIn(errors, 'personal.phone') && <small className="text-danger small">{getIn(errors, 'personal.phone')}</small>}
                     </div>
-                    <ButtonGroup {...props} disabled={!!getIn(errors, 'personal')} buttonText="Confirm personal details"/>
+                    <ButtonGroup {...props} disabled={!getIn(touched, 'personal') || getIn(errors, 'personal')} buttonText="Confirm personal details"/>
                 </div>
             </div>
         );

@@ -1,10 +1,8 @@
 @import "../../styles/variables";
-
 button {
     &.active {
         background: darkblue;
         color: #fff;
-
         &:hover {
             background: transparent;
             color: darkblue;
@@ -13,8 +11,64 @@ button {
     }
 }
 
-h1{
-    @include media-breakpoint-down(sm) {
-        font-size: 2.5rem;
+#incorporation {
+    h1 {
+        @include media-breakpoint-down(sm) {
+            font-size: 2.5rem;
+        }
+    }
+    .breadcrumb {
+        &.collapsed {
+            li {
+                overflow: hidden;
+                &:after a {
+                    background: rgb(227, 227, 227);
+                    background: linear-gradient(90deg, rgba(227, 227, 227, 0.4) 0%, rgba(227, 227, 227, 1) 35%);
+                    padding-left: 1em;
+                }
+                a {
+                    max-width: 2em;
+                    transition: max-width 800ms ease-in-out;
+                }
+                a:focus,
+                &:hover a {
+                    max-width: 1000px;
+                }
+                &:hover:after {
+                    padding-left: 0em;
+                    background: transparent;
+                }
+                &.active a {
+                    font-weight: 900;
+                }
+            }
+        }
+        .breadcrumb-item {
+            display: inline-block;
+            position: relative;
+            padding-right: 2em;
+            margin: 0;
+            a {
+                text-decoration: none;
+                display: inline-block;
+                color: #333;
+                white-space: nowrap;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &::before a {
+                content: ">";
+            }
+            &:first-child:before a {
+                content: "";
+            }
+            &.active {
+                a {
+                    max-width: 1000px;
+                    text-decoration: none;
+                }
+            }
+        }
     }
 }
