@@ -14,13 +14,12 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
     }
     public handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         try {
             if (!!this.props.stripe) {
                 const {token}  = await this.props.stripe.createToken({name: this.state.name});
                 const amount = this.state.amount;
                 if (!!token) {
-                    await fetch('http://localhost:9000/payment', {
+                    await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
                         method: 'POST',
                         headers: {
                             "Content-type": "application/json"
@@ -53,7 +52,7 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
             <div className="container my-3">
                 <form onSubmit={this.handleSubmit} className="form col-12">
                     <div className="form-group">
-                        <label>Card Details</label>
+                        <label>Name</label>
                         <input className="form-control" type="text" onChange={this.handleChange}/>
                     </div>
                     <div className="form-group">

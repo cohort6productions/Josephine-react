@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface IThumbnailProps {
-    file?: File
+    file: File
 }
 class Thumb extends React.Component<IThumbnailProps, {loading: boolean, thumb?: string | ArrayBuffer | null}> {
     constructor(props: IThumbnailProps) {
