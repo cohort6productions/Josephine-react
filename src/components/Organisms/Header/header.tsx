@@ -11,7 +11,6 @@ import { siteMap } from "src/data/sitemap";
 // Components
 import {
     Collapse,
-    Navbar,
     NavbarToggler,
     Nav,
     NavItem,
