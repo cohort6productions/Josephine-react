@@ -4,6 +4,15 @@
 
 .navagate {
     padding: 1.5rem 1rem;
+    &.scrolled {
+        padding: .7rem 1rem;
+        .navbar-brand {
+            img {
+                height: 40px;
+            }
+        }
+    }
+    transition: .3s;
 }
 
 .navbar-toggler {

@@ -52,7 +52,7 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
         return (
             <nav
                 className={`${
-                    this.state.isTop ? "bg-transparent" : "bg-dark"
+                    this.state.isTop ? "bg-transparent" : "bg-dark scrolled"
                 } fixed-top navbar navbar-expand-lg navbar-light  navagate`}
             >
                 <Link className="navbar-brand" to="/">
