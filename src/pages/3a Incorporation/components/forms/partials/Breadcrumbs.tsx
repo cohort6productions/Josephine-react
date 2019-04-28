@@ -22,7 +22,7 @@ const Breadcrumbs = (props: IBreadcrumbProps) => {
                         disabled={i === props.currentPath}
                         className={i > props.currentPath ? 'd-none' : ''}
                         >
-                        <a>{path}</a>
+                        <a className="custom-link">{path}</a>
                     </BreadcrumbItem>
                 ))
             }

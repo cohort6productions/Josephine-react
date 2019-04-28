@@ -23,9 +23,10 @@ class Summary extends React.Component<ISummaryProps, {}> {
                             {
                                
                                     Object.keys(this.props.values.personal).map((i,j) => (
-                                        <div key={i}>
+                                        <div key={i} className="row">
                                         
-                                            {i}: {this.props.values.personal[i]} <br/>
+                                            <div className="col-6 text-right label">{i}</div>
+                                            <div className="col-6">{this.props.values.personal[i]} </div>
                                         </div>
                                 
                                 ))
@@ -36,11 +37,10 @@ class Summary extends React.Component<ISummaryProps, {}> {
                             {
                                
                                     Object.keys(this.props.values.company).map((i,j) => (
-                                        <div key={i}>
-                                        
-                                            {i}: {this.props.values.company[i]} <br/>
+                                        <div key={i} className="row">
+                                            <div className="col-6 text-right label">{i}</div> 
+                                            <div className="col-6">{this.props.values.company[i]}</div>
                                         </div>
-                                
                                 ))
                             }
                        </div>
@@ -60,10 +60,10 @@ class Summary extends React.Component<ISummaryProps, {}> {
                                                     ? fileList.includes(i) 
                                                         ?
                                                         `${i} : ${<Thumb file={el[i]} />} `
-                                                        :   <div key={i}> 
-                                                                {i}: {el[i]} 
-                                                                <br/>
-                                                            </div>
+                                                        : <div key={i} className="row">
+                                                            <div className="col-6 text-right label" >{i}</div> 
+                                                            <div className="col-6">{el[i]}</div>
+                                                        </div>
                                                     : <div/>
                                                 
                                             ))
@@ -89,9 +89,9 @@ class Summary extends React.Component<ISummaryProps, {}> {
                                                         ? fileList.includes(i) 
                                                             ?
                                                             `${i} : ${<Thumb file={el[i]} />} `
-                                                            :   <div key={i}> 
-                                                                    {i}: {el[i]} 
-                                                                    <br/>
+                                                            :   <div key={i} className="row"> 
+                                                                    <div className="col-6 text-right label" >{i}</div> 
+                                                                    <div className="col-6">{el[i]} </div>
                                                                 </div>
                                                         : <div/>
                                                     
@@ -108,8 +108,9 @@ class Summary extends React.Component<ISummaryProps, {}> {
                             {
                                
                                     Object.keys(this.props.values.shares).map((i,j) => (
-                                        <div key={i}>
-                                            {i}: {this.props.values.shares[i]} <br/>
+                                        <div key={i} className="row">
+                                            <div className="col-6 text-right label">{i}</div>
+                                            <div className="col-6"> {this.props.values.shares[i]} </div>
                                         </div>
                                 
                                 ))
@@ -121,8 +122,9 @@ class Summary extends React.Component<ISummaryProps, {}> {
                             {
                                
                                     Object.keys(this.props.values.company_secretary).map((i,j) => (
-                                        <div key={i}>
-                                            {i}: {this.props.values.company_secretary[i]} <br/>
+                                        <div key={i} className="row">
+                                            <div className="col-6 text-center label">{i}</div> 
+                                            <div className="col-6">{this.props.values.company_secretary[i]}</div>
                                         </div>
                                 
                                 ))
@@ -134,8 +136,9 @@ class Summary extends React.Component<ISummaryProps, {}> {
                             {
                                
                                 Object.keys(this.props.values.others).map((i,j) => (
-                                    <div key={i}>
-                                        {i}: {this.props.values.others[i]} <br/>
+                                    <div className="row" key={i}>
+                                        <div className="col-6 text-right label" >{i}</div>
+                                         <div className="col-6">{this.props.values.others[i]}</div>
                                     </div>
                                 ))
                             }
