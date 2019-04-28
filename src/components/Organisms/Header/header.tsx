@@ -11,7 +11,6 @@ import { siteMap } from "src/data/sitemap";
 // Components
 import {
     Collapse,
-    Navbar,
     NavbarToggler,
     Nav,
     NavItem,
@@ -51,12 +50,6 @@ class Header extends React.Component<{}, { isTop: boolean; isOpen: boolean }> {
 
     public render() {
         return (
-            // <Navbar
-            //     className="navagate"
-            //     fixed={"top"}
-            //     // color="transparent"
-            //     expand="md"
-            // >
             <nav
                 className={`${
                     this.state.isTop ? "bg-transparent" : "bg-dark"
