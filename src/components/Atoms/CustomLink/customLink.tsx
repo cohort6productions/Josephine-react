@@ -15,7 +15,7 @@ import arrow from "./img/arrow-pointing-to-right.svg";
 interface ICustomLinkProps {
     text?: string;
     link: string;
-    txtCol: "light" | "dark";
+    txtCol?: "light" | "dark";
     variation: "default" | "r-arrow";
 }
 

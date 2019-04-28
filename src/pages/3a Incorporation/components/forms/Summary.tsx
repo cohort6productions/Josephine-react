@@ -3,8 +3,12 @@ import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
 import Thumb from './partials/Thumbnail';
 
-class Summary extends React.Component<{back: () => void} & FormikProps<IFormValues>, {}> {
-    constructor(props: {back: () => void} & FormikProps<IFormValues>) {
+interface ISummaryProps extends FormikProps<IFormValues> {
+    handleCheckout : () => void;
+    back : () => void;
+}
+class Summary extends React.Component<ISummaryProps, {}> {
+    constructor(props: ISummaryProps) {
         super(props);
     }
     public render() {  
@@ -153,7 +157,7 @@ class Summary extends React.Component<{back: () => void} & FormikProps<IFormValu
                                 <button type="button" className="form-control btn btn-default" onClick={this.props.back}>Back</button>
                             </div>
                             <div className="col-auto">
-                                <button type="button" className="form-control btn btn-warning">Proceed to payment</button>
+                                <button type="button" className="form-control btn btn-warning" onClick={this.props.handleCheckout}>Proceed to payment</button>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import { IStepProps } from "src/Interfaces/FormProps";
 import { IFormValues, IPersonalDetails } from "src/Interfaces/FormValues";
 import ButtonGroup from "../forms/partials/ButtonGroup";
 import DirectorForm from "./DirectorForm";
+import * as Yup from 'yup' 
 
 interface IProps extends IStepProps {
     _setValues: (values: any) => void;
@@ -89,6 +90,7 @@ class MainForm extends React.Component<
             back: this.props.back
         };
         const { activeTab } = this.state;
+        const {errors, touched} = this.props;
 
         return (
             <div className="col-12 col-md-8 mx-auto">
@@ -200,6 +202,7 @@ class MainForm extends React.Component<
                                         <Button
                                             color="primary"
                                             onClick={this.handleSubmit}
+                                            disabled={!touched && errors}
                                         >
                                             Submit
                                         </Button>
@@ -218,6 +221,15 @@ class MainForm extends React.Component<
         );
     }
 }
+
+const DirectorSchema = Yup.object().shape({
+    email: Yup.string()
+        .email("Invalid email")
+        .required("Email Required"),
+    phone: Yup.string()
+        .max(10, "too long")
+        .required("Phone Required")
+});
 
 const Step5 = withFormik<IProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
@@ -242,9 +254,8 @@ const Step5 = withFormik<IProps & FormikProps<IFormValues>, {}>({
             category: ""
         };
     },
-
+    validationSchema: DirectorSchema,
     handleSubmit: (values, { setSubmitting }) => {
-        alert(JSON.stringify(values));
         setSubmitting(false);
     }
 })(MainForm);

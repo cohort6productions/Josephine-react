@@ -1,7 +1,5 @@
 import * as React from "react";
-
 import "./SubscribeInput.scss";
-
 import CustomButton from "src/components/Atoms/CustomButton/customButton";
 
 export default class SubscribeInputBox extends React.Component<{}> {

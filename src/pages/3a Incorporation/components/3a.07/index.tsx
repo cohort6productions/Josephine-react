@@ -1,4 +1,4 @@
-import { Field, FormikProps } from 'formik';
+import { Field, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import {IStepProps} from 'src/Interfaces/FormProps';
 import {IFormValues} from 'src/Interfaces/FormValues';
@@ -58,6 +58,7 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
             nextStep: this.handleSubmit,
             back: this.props.back
         }
+        const { touched, errors } = this.props
         return (
             <div className="col-12 col-md-8 mx-auto">
                 <h1 className="my-3 text-center">Company Secretary Details</h1>
@@ -96,7 +97,7 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
                                 </div>
                             </> : <div/>
                         }
-                        <ButtonGroup {...buttonProps}  buttonText="Confirm company secretary details"/>
+                        <ButtonGroup {...buttonProps} disabled={!getIn(touched, 'company_secretary') || getIn(errors, 'company_secretary')}  buttonText="Confirm company secretary details"/>
                     </div>
                 </div>
             );

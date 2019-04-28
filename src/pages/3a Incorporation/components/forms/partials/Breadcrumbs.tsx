@@ -12,7 +12,7 @@ const Breadcrumbs = (props: IBreadcrumbProps) => {
     return (
     <>
         {props.allPaths.length > 0 ?
-            <Breadcrumb>
+            <Breadcrumb listClassName="bg-transparent collapsed" className="col-12">
             {
                 props.allPaths.map((path, i) => (
                     <BreadcrumbItem     
@@ -22,7 +22,7 @@ const Breadcrumbs = (props: IBreadcrumbProps) => {
                         disabled={i === props.currentPath}
                         className={i > props.currentPath ? 'd-none' : ''}
                         >
-                        {path}
+                        <a>{path}</a>
                     </BreadcrumbItem>
                 ))
             }
