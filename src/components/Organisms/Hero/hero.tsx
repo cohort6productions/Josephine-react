@@ -36,7 +36,7 @@ export default class Hero extends React.PureComponent<IHeroProps> {
                     className="hero d-flex align-items-center"
                     style={this.props.style}
                 >
-                    <div className="container">
+                    <div className="container px-3">
                         <h1 className="hero__header text-light">
                             {this.props.header}
                         </h1>

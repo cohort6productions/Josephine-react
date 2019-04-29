@@ -10,6 +10,7 @@ import * as Yup from 'yup'
 interface IProps extends IStepProps {
     _setValues: (values: any) => void;
     shareholders: IPersonalDetails[];
+    directors?: any[] | [];
 }
 
 interface IShareholderState {
@@ -28,6 +29,15 @@ class MainForm extends React.Component<
             modal: false,
             currentValues: []
         };
+    }
+
+    public componentDidMount = () => {
+        if (!!this.props.directors) {
+            this.setState({
+                currentValues: this.props.directors
+            })
+        }
+        this.props.validateForm()
     }
 
     public handleSubmit = () => {
@@ -90,7 +100,7 @@ class MainForm extends React.Component<
             back: this.props.back
         };
         const { activeTab } = this.state;
-        const {errors, touched} = this.props;
+        const {errors} = this.props;
 
         return (
             <div className="col-12 col-md-8 mx-auto">
@@ -202,7 +212,7 @@ class MainForm extends React.Component<
                                         <Button
                                             color="primary"
                                             onClick={this.handleSubmit}
-                                            disabled={!touched && errors}
+                                            disabled={!!errors}
                                         >
                                             Submit
                                         </Button>
@@ -214,6 +224,7 @@ class MainForm extends React.Component<
 
                     <ButtonGroup
                         {...buttonProps}
+                        disabled={this.state.currentValues.length === 0}
                         buttonText="Confirm share details"
                     />
                 </div>

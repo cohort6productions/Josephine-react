@@ -10,6 +10,11 @@ interface IStep1Props {
 }
 const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
     const { touched, errors, title } = props;
+    
+    React.useEffect(() => {
+        props.validateForm()
+    }, [])
+    
     return (
         <div className="col-12 col-md-8 mx-auto">
             <h1 className="my-3 text-center">{title}</h1>
@@ -41,7 +46,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                         <Field type="text" className="form-control" name="personal.phone" />
                         {getIn(touched, 'personal.phone') && getIn(errors, 'personal.phone') && <small className="text-danger small">{getIn(errors, 'personal.phone')}</small>}
                     </div>
-                    <ButtonGroup {...props} disabled={!getIn(touched, 'personal') || getIn(errors, 'personal')} buttonText="Confirm personal details"/>
+                    <ButtonGroup {...props} disabled={getIn(errors, 'personal')}  buttonText="Confirm personal details"/>
                 </div>
             </div>
         );

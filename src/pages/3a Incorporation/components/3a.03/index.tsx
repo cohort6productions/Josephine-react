@@ -35,6 +35,7 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
     }
     public componentDidMount() {
         this.handleAddressChange(0)
+        this.props.validateForm()
     }
 
     public handleAddressChange(index: number) {
@@ -87,7 +88,7 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
                             <Field type="text" className="form-control" name="company.country" disabled={office_address[currentIndex].disabled} />
                             {getIn(errors, 'company.country') && getIn(touched, 'company.country') && <small className="text-danger small">{getIn(errors, 'company.country')}</small>}                                                
                         </div>
-                        <ButtonGroup {...buttonProps} disabled={!getIn(touched, 'company') || getIn(errors, 'company')} buttonText="Confirm company details"/>
+                        <ButtonGroup {...buttonProps} disabled={getIn(errors, 'company')} buttonText="Confirm company details"/>
                     </div>
                 </div>
             );

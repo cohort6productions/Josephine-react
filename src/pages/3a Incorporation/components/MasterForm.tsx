@@ -79,6 +79,12 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         });
     };
 
+    public componentDidMount = () => {
+        this.props.validateForm()
+        // tslint:disable-next-line:no-console
+        console.log(this.props.errors)
+    }
+    
     public back = () => {
         this.setState({
             step: this.state.step - 1
@@ -145,6 +151,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 key=""
                 {...this.props}
                 shareholders={this.props.values.shareholders}
+                directors={this.props.values.director}
                 nextStep={this.nextStep}
                 back={this.back}
                 _setValues={this.setDirectorValues}
@@ -256,7 +263,9 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
 
     handleSubmit: (values, { setSubmitting }) => {
         alert(JSON.stringify(values));
-        setSubmitting(false);
+        setTimeout(() => {
+            setSubmitting(false);
+          }, 1000);
     }
 })(FormWizard);
 

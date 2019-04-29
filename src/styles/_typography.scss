@@ -1,17 +1,12 @@
 // Importing and uploading fonts
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,700');
 @import "./color.scss";
-
-
 @font-face {
     font-family: 'Made Evolve Sans Regular';
-    src: url('./fonts/MadeEvolveSansRegular.woff2') format('woff2'),
-        url('./fonts/MadeEvolveSansRegular.woff') format('woff');
+    src: url('./fonts/MadeEvolveSansRegular.woff2') format('woff2'), url('./fonts/MadeEvolveSansRegular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
-
 
 // Variables
 $headerFont-regular: "Made Evolve Sans Regular",
@@ -21,9 +16,6 @@ $bodyFont: 'EB Garamond',
 "Times New Roman",
 Times,
 serif;
-
-
-
 h1 {
     font-family: $headerFont-regular;
     font-weight: 900;
@@ -32,6 +24,9 @@ h1 {
     line-height: normal;
     letter-spacing: 0.01em;
     color: $text-default;
+    @include media-breakpoint-down(sm) {
+        font-size: 2.5rem;
+    }
 }
 
 h2 {
@@ -40,6 +35,9 @@ h2 {
     font-size: 50px;
     line-height: normal;
     color: $text-default;
+    @include media-breakpoint-down(sm) {
+        font-size: 40px;
+    }
 }
 
 h3 {

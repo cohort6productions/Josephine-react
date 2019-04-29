@@ -70,7 +70,7 @@ const ShareholderForm = (
                     name="email"
                     placeholder="john@doe.com"
                 />
-                {getIn(errors, 'personal.email') && getIn(touched, 'personal.email') && <small className="text-danger small">{getIn(errors, 'personal.email')}</small>}
+                {getIn(errors, 'email') && getIn(touched, 'email') && <small className="text-danger small">{getIn(errors, 'email')}</small>}
 
             </div>
 
@@ -159,8 +159,12 @@ const ShareholderForm = (
                 <>
                     <div className="form-group col-12">
                         <label>Identity document</label>
-                    
-                        <Field name="identity" type="file" className="form-control-file" />
+                        <br/>
+                        <label className="file">
+                            <Field type="file" name="identity" aria-label="File browser example" />
+                            <span className="file-custom"/>
+                        </label>
+                        {/* <Field name="identity" type="file" className="file" /> */}
                         {/* <Thumb file={props.values.identity} /> */}
          
                     </div>
@@ -192,6 +196,9 @@ const ShareholderForm = (
                     </div>
                 </div>
             }
+            <div className="form-group col-12">
+                <button type="submit" className="btn btn-default" color="primary" >Submit</button>
+            </div>
         </>
     );
 };

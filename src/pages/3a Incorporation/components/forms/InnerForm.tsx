@@ -1,6 +1,6 @@
 import { FormikProps } from 'formik';
 import * as React from 'react';
-import { Button, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
+import { Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
 import { IStepProps } from 'src/Interfaces/FormProps';
 import { IFormValues, IPersonalDetails } from 'src/Interfaces/FormValues';
 import ButtonGroup from '../forms/partials/ButtonGroup';
@@ -91,6 +91,7 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                 currentValues: this.props.oldValues
             })
         }
+        this.props.validateForm()
     }
 
     public render() {
@@ -103,7 +104,8 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
 
         const children = React.Children.map(this.props.children, child => {
             return React.cloneElement(child as React.ReactElement<any>, {
-              category: activeTab
+              category: activeTab,
+              handleSubmit: this.handleSubmit
             });
           });
         return (
@@ -135,7 +137,7 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                         <ModalHeader toggle={this.toggle}>{this.props.title}</ModalHeader>
                         <ModalBody>
                             <div className="container">
-                            <form>
+                            <form onSubmit={this.handleSubmit}>
                             <Row>
                                 <div className="col-md-6 mb-3">
                                     <button type="button" className={`btn btn-default w-100 ${activeTab === 'personal' ? 'active': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal</button>
@@ -144,14 +146,13 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                                     <button type="button" className={`btn btn-default w-100 ${activeTab === 'corporate' ? 'active': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
                                 </div>
                                 {children}
-                                <Button color="primary" onClick={this.handleSubmit}>Submit</Button>
                             </Row>
                         </form>
                         </div>
                         </ModalBody>
                     </Modal>
                     
-                    <ButtonGroup {...buttonProps} buttonText="Confirm share details" />
+                    <ButtonGroup {...buttonProps} disabled={this.state.currentValues.length < 1} buttonText="Confirm share details" />
                 </div>
             </div>
         );

@@ -53,23 +53,23 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
     }
 }
 
-const SUPPORTED_FORMATS = ['image/jpeg', 'image/png', 'pdf'];
+// const SUPPORTED_FORMATS = ['image/jpeg', 'image/png', 'pdf'];
 const ShareholderSchema = Yup.object().shape({
     email: Yup.string()
         .email("Invalid email")
         .required("Email Required"),
-    phone: Yup.string()
-        .max(10, "too long")
-        .required("Phone Required"),
-    share_composition: Yup.number()
-        .moreThan(1, "shareholders cannot own more than total shares"),
-    identity: Yup.mixed()
-        .required("A file is required")
-        .test(
-        "fileFormat",
-        "Unsupported Format",
-        value => value && SUPPORTED_FORMATS.includes(value.type)
-        )
+    // phone: Yup.string()
+    //     .max(10, "too long")
+    //     .required("Phone Required"),
+    // share_composition: Yup.number()
+    //     .moreThan(1, "shareholders cannot own more than total shares"),
+    // identity: Yup.mixed()
+    //     .required("A file is required")
+    //     .test(
+    //     "fileFormat",
+    //     "Unsupported Format",
+    //     value => value && SUPPORTED_FORMATS.includes(value.type)
+    //     )
 });
 
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
@@ -100,7 +100,7 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     handleSubmit: (values, { setSubmitting }) => {
         
         setSubmitting(false);
-    },
+    }
 
 })(MainForm);
 
