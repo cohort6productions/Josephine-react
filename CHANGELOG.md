@@ -1,3 +1,20 @@
+Date: 2019-05-01
+Branch: master
+
+This version aims to complete pages under `how to start`, providing all the services page that was required to drive sales from customers. Currently the team is researching on the level of difficulity to implement Stripe payment into the website. The current focus of this iteration is to complete the sytle of the entire website and consolidate the contents of the entire site
+
+## Added
+
+## Changed
+
+-   `Testimonial` section spacing
+
+## Need to work on
+
+-   Mailchimp account linkage
+
+---
+
 Date: 2019-04-18
 Branch: master
 
