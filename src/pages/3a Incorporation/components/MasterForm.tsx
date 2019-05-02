@@ -41,6 +41,14 @@ const SignupSchema = Yup.object().shape({
             .required("Address Required"),
         country: Yup.string()
             .required("country Required")
+    }),
+    shares: Yup.object().shape({
+        number: Yup.number()
+            .required("share number is required")
+            .moreThan(0, "Atlease 1 expected"),
+        value: Yup.number()
+            .required("Share value is required"),
+    
     })
 });
 
@@ -81,8 +89,6 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 
     public componentDidMount = () => {
         this.props.validateForm()
-        // tslint:disable-next-line:no-console
-        console.log(this.props.errors)
     }
     
     public back = () => {
@@ -93,6 +99,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 
     public handleCheckout = () => {
         this.toggle();
+        this.props.submitForm();
     }
 
     public toggle = () => {
@@ -230,7 +237,6 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             personal: {
                 country_code: "",
                 email: "",
-                password: "",
                 phone: "",
                 firstname: "",
                 lastname: ""
@@ -261,8 +267,16 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
     },
     validationSchema: SignupSchema,
 
-    handleSubmit: (values, { setSubmitting }) => {
-        alert(JSON.stringify(values));
+    handleSubmit: async(values, { setSubmitting }) => {
+        await fetch(`${process.env.REACT_APP_API_URL}/registration`, {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                ...values
+            })
+        })
         setTimeout(() => {
             setSubmitting(false);
           }, 1000);

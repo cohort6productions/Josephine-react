@@ -212,7 +212,6 @@ class MainForm extends React.Component<
                                         <Button
                                             color="primary"
                                             onClick={this.handleSubmit}
-                                            disabled={!!errors}
                                         >
                                             Submit
                                         </Button>

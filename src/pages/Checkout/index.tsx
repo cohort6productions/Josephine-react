@@ -7,7 +7,7 @@ class Checkout extends React.Component<{onSuccess: () => void}, {}> {
         return (
             <StripeProvider apiKey="pk_test_uXRBfzbDKRt4fkwDMKUVwzXI00T0PJF1dh">
                 <Elements>
-                    <InjectedCheckoutForm />
+                    <InjectedCheckoutForm onSuccess={this.props.onSuccess}/>
                 </Elements>
             </StripeProvider>
         )
