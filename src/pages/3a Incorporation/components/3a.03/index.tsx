@@ -50,8 +50,15 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
     public render() {
         const {office_address, currentIndex} = this.state;
         const {errors, touched} = this.props;
+
         const buttonProps = {
-            nextStep: this.props.nextStep,
+            nextStep: () => {
+                if (!getIn(errors, 'company')) {
+                    this.props.nextStep()
+                }
+                this.props.setAllFieldsTouched('company')
+    
+            },
             back: this.props.back
         }
         return (
@@ -88,7 +95,7 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
                             <Field type="text" className="form-control" name="company.country" disabled={office_address[currentIndex].disabled} />
                             {getIn(errors, 'company.country') && getIn(touched, 'company.country') && <small className="text-danger small">{getIn(errors, 'company.country')}</small>}                                                
                         </div>
-                        <ButtonGroup {...buttonProps} disabled={getIn(errors, 'company')} buttonText="Confirm company details"/>
+                        <ButtonGroup {...buttonProps} buttonText="Confirm company details"/>
                     </div>
                 </div>
             );

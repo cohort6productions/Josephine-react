@@ -15,8 +15,14 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
 
     public render() {   
         const buttonProps = {
-            nextStep: this.props.nextStep,
-            back: this.props.back
+            back: this.props.back,
+            nextStep: () => {
+                if (!getIn(errors, 'shares')) {
+                    this.props.nextStep()
+                }
+                this.props.setAllFieldsTouched('shares')
+    
+            }
         } 
         const {errors} = this.props
         return (
@@ -39,7 +45,7 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
                             <label>Total value of share</label>
                             <Field type="number" className="form-control" name="shares.value"  placeholder="1000"/>
                         </div>
-                        <ButtonGroup {...buttonProps} disabled={getIn(errors, 'shares')} buttonText="Confirm share details"/>
+                        <ButtonGroup {...buttonProps} buttonText="Confirm share details"/>
                     </div>
                 </div>
             );
