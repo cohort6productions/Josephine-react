@@ -64,6 +64,14 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             modal: false
         };
     }
+
+    public setAllFieldsTouched = (key: string) => {
+        const currentObj = this.props.values[key];
+        
+        Object.keys(currentObj).map((value, index) => {
+            this.props.setFieldTouched(`${key}.${value}`)
+        })
+    }
     public nextStep = () => {
         this.setState({
             step: this.state.step + 1
@@ -114,7 +122,10 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public render() {
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
-
+        const props = {
+            ...this.props,
+            setAllFieldsTouched: this.setAllFieldsTouched
+        }
         const allPaths = [
             'Start',
             'Personal Information',
@@ -131,26 +142,26 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             <Start nextStep={this.nextStep} key="" />,
             <Step1
                 key=""
-                {...this.props}
+                {...props}
                 title="Sign Up"
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step2
                 key=""
-                {...this.props}
+                {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step3
                 key=""
-                {...this.props}
+                {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step4
                 key=""
-                {...this.props}
+                {...props}
                 total_shares={this.props.values.shares.number}
                 nextStep={this.nextStep}
                 back={this.back}
@@ -159,7 +170,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             />,
             <Step5
                 key=""
-                {...this.props}
+                {...props}
                 shareholders={this.props.values.shareholders}
                 directors={this.props.values.director}
                 nextStep={this.nextStep}
@@ -168,19 +179,19 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             />,
             <Step6 
                 key="" 
-                {...this.props} 
+                {...props} 
                 nextStep={this.nextStep} 
                 back={this.back} 
             />,
             <Step7 
                 key="" 
-                {...this.props} 
+                {...props} 
                 nextStep={this.nextStep} 
                 back={this.back} 
             />,
             <Summary 
                 key="" 
-                {...this.props} 
+                {...props} 
                 back={this.back} 
                 handleCheckout={this.toggle}
             />

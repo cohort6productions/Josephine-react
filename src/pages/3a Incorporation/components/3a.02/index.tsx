@@ -7,6 +7,7 @@ interface IStep1Props {
     title:string; 
     nextStep: () => void;
     back: () => void;
+    setAllFieldsTouched: (key: string) => void
 }
 const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
     const { touched, errors, title } = props;
@@ -14,6 +15,17 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
     React.useEffect(() => {
         props.validateForm()
     }, [])
+
+    const btnprops = {
+        ...props,
+        nextStep: () => {
+            if (!getIn(errors, 'personal')) {
+                props.nextStep()
+            }
+            props.setAllFieldsTouched('personal')
+
+        }
+    }
     
     return (
         <div className="col-12 col-md-8 mx-auto">
@@ -46,7 +58,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                         <Field type="text" className="form-control" name="personal.phone" />
                         {getIn(touched, 'personal.phone') && getIn(errors, 'personal.phone') && <small className="text-danger small">{getIn(errors, 'personal.phone')}</small>}
                     </div>
-                    <ButtonGroup {...props} disabled={getIn(errors, 'personal')}  buttonText="Confirm personal details"/>
+                    <ButtonGroup {...btnprops}  buttonText="Confirm personal details"/>
                 </div>
             </div>
         );
