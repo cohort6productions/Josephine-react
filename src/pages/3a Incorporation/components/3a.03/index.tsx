@@ -17,12 +17,12 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
             office_address: [
                 {
                     address: '14/f, China Hong Kong Tower,\n 8 Henessy Road, Wan Chai',
-                    country: 'Hongkong',
+                    country: 'Hong Kong',
                     disabled: true
                 },
                 {
                     address: '14/f, China Hong Kong Tower, 8 Henessy Road, Sheung Wan',
-                    country: 'Hongkong',
+                    country: 'Hong Kong',
                     disabled: true                                      
                 },
                 {
