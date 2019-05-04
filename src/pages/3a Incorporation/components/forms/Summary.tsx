@@ -154,6 +154,7 @@ class Summary extends React.Component<ISummaryProps, {}> {
 
                        <div className="form-group col-12">
                             <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and I agree to the Terms and conditions.
+                            <br/>
                             {getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
                        </div>
 

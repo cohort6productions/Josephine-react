@@ -282,7 +282,7 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
         })
         setTimeout(() => {
             setSubmitting(false);
-          }, 1000);
+        }, 1000);
     }
 })(FormWizard);
 
