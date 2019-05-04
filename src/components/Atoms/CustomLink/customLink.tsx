@@ -22,7 +22,7 @@ interface ICustomLinkProps {
 export default class CustomLink extends React.PureComponent<ICustomLinkProps> {
     public coreLink() {
         return (
-            <div className="custom-link">
+            <div className="cust-link">
                 <span
                     className={
                         this.props.txtCol === "light"

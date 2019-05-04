@@ -76,7 +76,7 @@ const Testimonials = (props: any) => {
                                         src={person.img}
                                         alt={person.name}
                                     />
-                                    <div className="media-body">
+                                    <div className="media-body align-self-center ml-2">
                                         <h4 className="overline-header-bold card-title">
                                             {person.name}
                                         </h4>
@@ -85,7 +85,7 @@ const Testimonials = (props: any) => {
                                         </small>
                                     </div>
                                 </div>
-                                <p className="mt-2 body-short-texts">
+                                <p className="mt-3 body-short-texts">
                                     {person.testimonial}
                                 </p>
                             </div>

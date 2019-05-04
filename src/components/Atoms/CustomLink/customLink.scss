@@ -1,7 +1,8 @@
-.custom-link {
+.cust-link {
     padding: 4px 1px;
     border-radius: 1px;
     border-bottom: 2px solid orange;
+    display: inline-block;
     -webkit-transition: border-width .1s ease-in-out 0s;
     transition: border-width .1s ease-in-out 0s;
 
