@@ -1,4 +1,4 @@
-import { FormikProps, Field } from 'formik';
+import { FormikProps, Field, getIn } from 'formik';
 import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
 import Thumb from './partials/Thumbnail';
@@ -13,6 +13,7 @@ class Summary extends React.Component<ISummaryProps, {}> {
     }
     public render() {  
         const fileList = ['address_proof', 'identity']
+        const { errors, touched } = this.props
         return (
             <div className="col-12 col-md-8 mx-auto">
                 <h1 className="my-3 text-center">Summary</h1>
@@ -153,6 +154,7 @@ class Summary extends React.Component<ISummaryProps, {}> {
 
                        <div className="form-group col-12">
                             <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and I agree to the Terms and conditions.
+                            {getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
                        </div>
 
                        <div className="form-group row justify-content-center w-100">

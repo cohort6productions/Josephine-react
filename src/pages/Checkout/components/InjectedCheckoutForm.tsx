@@ -16,10 +16,10 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
         event.preventDefault();
         try {
             if (!!this.props.stripe) {
-                const {token}  = await this.props.stripe.createToken({name: this.state.name});
+                const {error, token}  = await this.props.stripe.createToken({name: this.state.name});
                 const amount = this.state.amount;
-                if (!!token) {
-                    await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
+                if (!!token && !error) {
+                    const res = await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
                         method: 'POST',
                         headers: {
                             "Content-type": "application/json"
@@ -30,10 +30,12 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
                         })
                     })
 
-                    if (!!this.props.onSuccess){
-                        this.props.onSuccess()
+                    if (res) {
+                        if (!!this.props.onSuccess){
+                            this.props.onSuccess()
+                        }
                     }
-                    
+                      
                 }
             }
         }catch(e) {

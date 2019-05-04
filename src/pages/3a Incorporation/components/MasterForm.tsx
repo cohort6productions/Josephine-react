@@ -49,7 +49,10 @@ const SignupSchema = Yup.object().shape({
         value: Yup.number()
             .required("Share value is required"),
     
-    })
+    }),
+    terms: Yup.boolean()
+        .oneOf([true], 'Must Accept Terms and Conditions')
+
 });
 
 class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
