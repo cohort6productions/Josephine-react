@@ -1,18 +1,22 @@
 @import 'src/styles/variables';
+
 .dark-bg-nav {
     background-color: #663399;
 }
 
 .navagate {
     padding: 1.5rem 1rem;
+
     &.scrolled {
         padding: .7rem 1rem;
+
         .navbar-brand {
             img {
                 height: 40px;
             }
         }
     }
+
     .navbar-brand {
         img {
             @include media-breakpoint-down(sm) {
@@ -20,6 +24,7 @@
             }
         }
     }
+
     transition: .3s;
 }
 
@@ -29,4 +34,14 @@
 
 .navbar-nav {
     align-items: center;
+}
+
+.dropdown-item {
+    &:active {
+        background-color: transparent
+    }
+
+    &:hover {
+        background-color: transparent
+    }
 }
