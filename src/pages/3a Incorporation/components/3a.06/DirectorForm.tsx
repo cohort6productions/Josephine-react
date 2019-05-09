@@ -1,15 +1,31 @@
 import { Field, FormikProps } from 'formik';
 import * as React from 'react';
 import { IPersonalDetails } from 'src/Interfaces/FormValues';
-import Thumb from '../forms/partials/Thumbnail';
+// import Thumb from '../forms/partials/Thumbnail';
 
 const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>) => {
 
     const handleFile = (value: string) => (event: React.ChangeEvent<HTMLInputElement & EventTarget>) => {
         if (event.currentTarget.files) {
-            props.setFieldValue(value, event.currentTarget.files[0])
+            getBase64(event.currentTarget.files[0], (result:any) => {
+                props.setFieldValue(value, result)
+            })
+            
         }
     }
+
+    const getBase64 = (file: File, cb: any) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            cb(reader.result)
+        };
+        reader.onerror = (error) => {
+            // tslint:disable-next-line:no-console
+            console.log('Error: ', error);
+        };
+    }
+
     return (
         <>
             {
@@ -85,14 +101,14 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
                         <label>Identity document</label>
                     
                         <input  name="identity" type="file" onChange={handleFile('identity') } className="form-control-file" />
-                        { props.values.identity ? <Thumb file={props.values.identity} /> : '' }
+                        {/* { props.values.identity ? <img src={props.values.identity} /> : '' } */}
          
                     </div>
 
                     <div className="form-group col-12">
                         <label>Proof of address</label>
                         <input  name="address_proof" type="file" onChange={handleFile('address_proof') } className="form-control-file" />
-                        { props.values.address_proof ? <Thumb file={props.values.address_proof} /> : '' }
+                        {/* { props.values.address_proof ? <Thumb file={props.values.address_proof} /> : '' } */}
                     </div>
                 </>
              : 
@@ -100,13 +116,13 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
                     <div className="form-group col-12">
                         <label>Business License</label>
                         <input  name="business_license" type="file" onChange={handleFile('business_license') } className="form-control-file" />
-                        { props.values.business_license ? <Thumb file={props.values.business_license} /> : '' }
+                        {/* { props.values.business_license ? <Thumb file={props.values.business_license} /> : '' } */}
                     </div>
 
                     <div className="form-group col-12">
                         <label>Article of association</label>
                         <input  name="article_of_associate" type="file" onChange={handleFile('article_of_associate') } className="form-control-file" />
-                        { props.values.article_of_associate ? <Thumb file={props.values.article_of_associate} /> : '' }
+                        {/* { props.values.article_of_associate ? <Thumb file={props.values.article_of_associate} /> : '' } */}
                     </div>
                 </>
             }

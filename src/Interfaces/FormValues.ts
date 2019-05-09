@@ -47,7 +47,7 @@ export interface IPersonalDetails {
     authorized_person: string,
     companyname: string,
     business_license?:File,
-    identity?:File,
+    identity?:string,
     category: string,
 }
 

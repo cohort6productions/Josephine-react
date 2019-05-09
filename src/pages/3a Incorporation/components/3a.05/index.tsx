@@ -54,23 +54,7 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
 }
 
 // const SUPPORTED_FORMATS = ['image/jpeg', 'image/png', 'pdf'];
-const ShareholderSchema = Yup.object().shape({
-    email: Yup.string()
-        .email("Invalid email")
-        .required("Email Required"),
-    // phone: Yup.string()
-    //     .max(10, "too long")
-    //     .required("Phone Required"),
-    // share_composition: Yup.number()
-    //     .moreThan(1, "shareholders cannot own more than total shares"),
-    // identity: Yup.mixed()
-    //     .required("A file is required")
-    //     .test(
-    //     "fileFormat",
-    //     "Unsupported Format",
-    //     value => value && SUPPORTED_FORMATS.includes(value.type)
-    //     )
-});
+// const ShareholderSchema = {};
 
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
@@ -90,12 +74,21 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             share_composition: 0,
             companyname: "",
             business_license: undefined,
-            identity: undefined,
-            category: "",
+            identity: '',
+            category: ""
         };
     },
 
-    validationSchema: ShareholderSchema,
+    validationSchema: (props:IShareholderProps) => Yup.object().shape({
+        email: Yup.string()
+            .email("Invalid email")
+            .required("Email Required"),
+        phone: Yup.string()
+            .max(10, "too long")
+            .required("Phone Required"),
+        share_composition: Yup.number()
+            .lessThan(props.total_shares + 1, `shareholders cannot own more than total shares ${props.total_shares}`),
+    }),
 
     handleSubmit: (values, { setSubmitting }) => {
         

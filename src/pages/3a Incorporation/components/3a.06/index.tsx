@@ -100,7 +100,7 @@ class MainForm extends React.Component<
             back: this.props.back
         };
         const { activeTab } = this.state;
-        const {errors} = this.props;
+        // const {errors} = this.props;
 
         return (
             <div className="col-12 col-md-8 mx-auto">

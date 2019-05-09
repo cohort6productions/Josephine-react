@@ -31,13 +31,17 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
     }
 
     public handleSubmit = () => {
-        this.addValues(this.props.values)
+        // tslint:disable-next-line:no-console
+        console.log(this.props.errors)
+        if (!Object.keys(this.props.errors).length) {
+            this.addValues(this.props.values)
 
-        if (!!this.props.emitValue){
-            this.props.emitValue(this.props.values, 'submit')
+            if (!!this.props.emitValue){
+                this.props.emitValue(this.props.values, 'submit')
+            }
+
+            this.props.resetForm()
         }
-
-        this.props.resetForm()
     }
 
     public addValues = (data: any) => {

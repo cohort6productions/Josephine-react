@@ -14,6 +14,8 @@ import Step7 from './3a.08';
 import Breadcrumbs from './forms/partials/Breadcrumbs';
 import Checkout from 'src/pages/Checkout';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import Pricing from './forms/partials/Pricing';
+import { type } from 'os';
 
 interface IFormProps {
     initialEmail?: string;
@@ -23,6 +25,8 @@ interface IFormProps {
 interface IFormState {
     step: number;
     modal: boolean;
+    paymentAmount: number;
+    paymentType: string;
 }
 
 const SignupSchema = Yup.object().shape({
@@ -61,7 +65,9 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 
         this.state = {
             step: 0,
-            modal: false
+            modal: false,
+            paymentAmount: 0,
+            paymentType: ''
         };
     }
 
@@ -117,6 +123,14 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
+    }
+
+    public setAmount = (pricing: {type: string, price: number}) => {
+        this.setState({
+            paymentType: pricing.type,
+            paymentAmount: pricing.price
+        })
+        this.toggle()
     }
 
     public render() {
@@ -193,9 +207,12 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 key="" 
                 {...props} 
                 back={this.back} 
-                handleCheckout={this.toggle}
-            />
+                nextStep={this.nextStep}
+            />,
+            <Pricing key="" handleCheckout={this.setAmount}/>
         ]
+
+        const {paymentAmount, paymentType} = this.state;
         return (
             <section className="my-5" id="incorporation-form">
                 <div className="container">
@@ -229,7 +246,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                     <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
                         <ModalHeader toggle={this.toggle}>Checkout</ModalHeader>
                         <ModalBody>
-                            <Checkout onSuccess={this.handleCheckout}/>   
+                            <Checkout paymentAmount={paymentAmount} paymentType={paymentType} onSuccess={this.handleCheckout}/>   
                         </ModalBody>
                     </Modal>
                 </div>
@@ -282,6 +299,9 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
     validationSchema: SignupSchema,
 
     handleSubmit: async(values, { setSubmitting }) => {
+        // tslint:disable-next-line:no-console
+        console.log(JSON.stringify(values, undefined, 4));
+        
         await fetch(`${process.env.REACT_APP_API_URL}/registration`, {
             method: 'POST',
             headers: {

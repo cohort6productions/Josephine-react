@@ -2,8 +2,13 @@ import * as React from 'react';
 // import CardSection from './CardSection';
 import {injectStripe, ReactStripeElements, CardElement} from 'react-stripe-elements';
 
-class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & ReactStripeElements.InjectedStripeProps, {name: string, amount: number}> {
-    constructor(props: {onSuccess?: () => void} & ReactStripeElements.InjectedStripeProps) {
+interface ICheckOutProps {
+    paymentAmount: number;
+    paymentType: string;
+    onSuccess: () => void;
+}
+class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeElements.InjectedStripeProps, {name: string, amount: number}> {
+    constructor(props: ICheckOutProps & ReactStripeElements.InjectedStripeProps) {
         super(props)
         this.state = {
             name: '',
@@ -43,7 +48,13 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
         }
     }
 
-    public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    public componentDidMount = () => {
+        this.setState({
+            amount: this.props.paymentAmount
+        })
+    }
+
+    public handleChange = (e: React.ChangeEvent<HTMLInputElement>, statename: string) => {
         this.setState({
             name: e.target.value
         })
@@ -55,7 +66,11 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
                 <form onSubmit={this.handleSubmit} className="form col-12">
                     <div className="form-group">
                         <label>Name</label>
-                        <input className="form-control" type="text" onChange={this.handleChange}/>
+                        <input className="form-control" type="text" onChange={this.handleChange.bind(this,'name')}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input className="form-control" type="email" onChange={this.handleChange.bind(this,'email')}/>
                     </div>
                     <div className="form-group">
                         <label>Card Details</label>

@@ -34,6 +34,13 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
         }
     }
 
+    public componentDidMount = () => {
+        this.props.setValues({
+            ...this.props.values,
+            'company_secretary': this.state.company_secretary[0]
+        });
+    }
+
     public handleChange(index: number) {
         this.setState({
             currentIndex: index
@@ -46,7 +53,7 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
         if (currentIndex === 1) {
             this.props.setValues({
                 ...this.props.values,
-                'company_secretary': company_secretary[currentIndex].address
+                'company_secretary': company_secretary[currentIndex]
             });
         }
 
