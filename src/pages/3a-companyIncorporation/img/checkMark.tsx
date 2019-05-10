@@ -11,7 +11,7 @@ export const Checkmark = () => (
         // xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
         version="1.1"
         viewBox="0 0 100 100"
-        enable-background="new 0 0 129 129"
+        enableBackground="new 0 0 129 129"
         // id="svg10"
         // sodipodi:docname="correct.svg"
         width="100"

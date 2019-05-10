@@ -54,23 +54,22 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
 }
 
 // const SUPPORTED_FORMATS = ['image/jpeg', 'image/png', 'pdf'];
-const ShareholderSchema = Yup.object().shape({
-    email: Yup.string()
-        .email("Invalid email")
-        .required("Email Required"),
-    // phone: Yup.string()
-    //     .max(10, "too long")
-    //     .required("Phone Required"),
-    // share_composition: Yup.number()
-    //     .moreThan(1, "shareholders cannot own more than total shares"),
-    // identity: Yup.mixed()
-    //     .required("A file is required")
-    //     .test(
-    //     "fileFormat",
-    //     "Unsupported Format",
-    //     value => value && SUPPORTED_FORMATS.includes(value.type)
-    //     )
-});
+// const ShareholderSchema = {};
+const checkIfFilesAreTooBig = (file?: string): boolean => {
+    let valid = true
+    if (file) {
+        const stringLength = file.length - 'data:image/png;base64,'.length;
+
+        const sizeInBytes = 4 * Math.ceil((stringLength / 3))*0.5624896334383812;
+        const sizeInMb = (sizeInBytes/1000)/1000;
+
+
+        if (sizeInMb > 1) {
+            valid = false
+        }
+    }
+    return valid
+}
 
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
@@ -90,12 +89,26 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             share_composition: 0,
             companyname: "",
             business_license: undefined,
-            identity: undefined,
-            category: "",
+            identity: '',
+            category: ""
         };
     },
 
-    validationSchema: ShareholderSchema,
+    validationSchema: (props:IShareholderProps) => Yup.object().shape({
+        email: Yup.string()
+            .email("Invalid email")
+            .required("Email Required"),
+        share_composition: Yup.number()
+            .lessThan(props.total_shares + 1, `shareholders cannot own more than total shares ${props.total_shares}`),
+        identity: Yup.string()
+            .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
+        address_proof: Yup.string()
+            .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
+        business_license: Yup.string()
+            .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
+        article_of_associate: Yup.string()
+            .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig)
+    }),
 
     handleSubmit: (values, { setSubmitting }) => {
         

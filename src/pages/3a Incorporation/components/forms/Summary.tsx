@@ -1,19 +1,36 @@
 import { FormikProps, Field, getIn } from 'formik';
 import * as React from 'react';
 import {IFormValues} from 'src/Interfaces/FormValues';
-import Thumb from './partials/Thumbnail';
+// import Thumb from './partials/Thumbnail';
+import { IStepProps } from 'src/Interfaces/FormProps';
+import ButtonGroup from './partials/ButtonGroup';
 
-interface ISummaryProps extends FormikProps<IFormValues> {
-    handleCheckout : () => void;
-    back : () => void;
+interface ISummaryProps extends IStepProps, FormikProps<IFormValues> {
+   
 }
 class Summary extends React.Component<ISummaryProps, {}> {
     constructor(props: ISummaryProps) {
         super(props);
     }
+
+    public componentDidMount = () => {
+        this.props.validateForm()
+    }
+
+    public nextStep = () => {
+        if (!Object.keys(this.props.errors).length) {
+            this.props.nextStep()
+        }
+        this.props.setFieldTouched('terms')
+    }
+
     public render() {  
-        const fileList = ['address_proof', 'identity']
+        const fileList = ['address_proof', 'identity', 'article_of_associate', 'business_license']
         const { errors, touched } = this.props
+        const btnProps = {
+            ...this.props,
+            nextStep: this.nextStep
+        }
         return (
             <div className="col-12 col-md-8 mx-auto">
                 <h1 className="my-3 text-center">Summary</h1>
@@ -58,13 +75,12 @@ class Summary extends React.Component<ISummaryProps, {}> {
                                         {
                                             Object.keys(el).map((i) => (
                                                 !!el[i] 
-                                                    ? fileList.includes(i) 
+                                                    ? !fileList.includes(i) 
                                                         ?
-                                                        `${i} : ${<Thumb file={el[i]} />} `
-                                                        : <div key={i} className="row">
+                                                        <div key={i} className="row">
                                                             <div className="col-6 text-right label" >{i}</div> 
                                                             <div className="col-6">{el[i]}</div>
-                                                        </div>
+                                                        </div> : <div/>
                                                     : <div/>
                                                 
                                             ))
@@ -89,7 +105,7 @@ class Summary extends React.Component<ISummaryProps, {}> {
                                                     !!el[i] 
                                                         ? fileList.includes(i) 
                                                             ?
-                                                            `${i} : ${<Thumb file={el[i]} />} `
+                                                            <div/>
                                                             :   <div key={i} className="row"> 
                                                                     <div className="col-6 text-right label" >{i}</div> 
                                                                     <div className="col-6">{el[i]} </div>
@@ -158,14 +174,7 @@ class Summary extends React.Component<ISummaryProps, {}> {
                             {getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
                        </div>
 
-                       <div className="form-group row justify-content-center w-100">
-                            <div className="col-auto">
-                                <button type="button" className="form-control btn btn-default" onClick={this.props.back}>Back</button>
-                            </div>
-                            <div className="col-auto">
-                                <button type="button" className="form-control btn btn-warning" onClick={this.props.handleCheckout}>Proceed to payment</button>
-                            </div>
-                        </div>
+                       <ButtonGroup {...btnProps} buttonText="Proceed to pricings"/>
                     </div>
                 </div>
             );

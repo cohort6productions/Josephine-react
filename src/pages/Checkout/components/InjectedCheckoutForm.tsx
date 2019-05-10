@@ -2,22 +2,37 @@ import * as React from 'react';
 // import CardSection from './CardSection';
 import {injectStripe, ReactStripeElements, CardElement} from 'react-stripe-elements';
 
-class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & ReactStripeElements.InjectedStripeProps, {name: string, amount: number}> {
-    constructor(props: {onSuccess?: () => void} & ReactStripeElements.InjectedStripeProps) {
+interface ICheckOutProps {
+    paymentAmount: number;
+    paymentType: string;
+    onSuccess: () => void;
+}
+
+interface ICheckOutState {
+    name: string;
+    amount: number;
+    errorMessage: string;
+    email: string;
+}
+class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeElements.InjectedStripeProps, ICheckOutState > {
+    constructor(props: ICheckOutProps & ReactStripeElements.InjectedStripeProps) {
         super(props)
         this.state = {
             name: '',
-            amount: 0
+            amount: 0,
+            errorMessage: '',
+            email: ''
         }
-
+        this.handleFieldChange = this.handleFieldChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
+
     }
     public handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             if (!!this.props.stripe) {
                 const {error, token}  = await this.props.stripe.createToken({name: this.state.name});
-                const amount = this.state.amount;
+                const {amount, email} = this.state;
                 if (!!token && !error) {
                     const res = await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
                         method: 'POST',
@@ -26,7 +41,8 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
                         },
                         body: JSON.stringify({
                             "token": token,
-                            "amount": amount
+                            "amount": amount,
+                            "email": email
                         })
                     })
 
@@ -43,11 +59,26 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
         }
     }
 
-    public handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    public componentDidMount = () => {
         this.setState({
-            name: e.target.value
+            amount: this.props.paymentAmount
         })
     }
+
+    public handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        this.setState({
+            [e.target.name]: e.target.value
+        } as {name: string; email: string;})
+    }
+
+    public handleChange = ({error}: {error?: any}) => {
+        if (error) {
+            this.setState({errorMessage: error.message});
+        } else {
+            this.setState({errorMessage: ''});
+        }
+    };
 
     public render() {
         return (
@@ -55,11 +86,18 @@ class InjectedCheckoutForm extends React.Component<{onSuccess?: () => void} & Re
                 <form onSubmit={this.handleSubmit} className="form col-12">
                     <div className="form-group">
                         <label>Name</label>
-                        <input className="form-control" type="text" onChange={this.handleChange}/>
+                        <input className="form-control" type="text" onChange={this.handleFieldChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input className="form-control" type="email" onChange={this.handleFieldChange}/>
                     </div>
                     <div className="form-group">
                         <label>Card Details</label>
-                        <CardElement />
+                        <CardElement onChange={this.handleChange} />
+                    </div>
+                    <div className="error" role="alert">
+                        <small className="text-danger">{this.state.errorMessage}</small>
                     </div>
                     <button type="submit" className="btn btn--stripe">Confirm order</button>
                 </form>

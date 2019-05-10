@@ -14,6 +14,7 @@ import Step7 from './3a.08';
 import Breadcrumbs from './forms/partials/Breadcrumbs';
 import Checkout from 'src/pages/Checkout';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import Pricing from './forms/partials/Pricing';
 
 interface IFormProps {
     initialEmail?: string;
@@ -23,10 +24,16 @@ interface IFormProps {
 interface IFormState {
     step: number;
     modal: boolean;
+    paymentAmount: number;
+    paymentType: string;
 }
 
 const SignupSchema = Yup.object().shape({
     personal: Yup.object().shape({
+        firstname: Yup.string()
+            .required("First name Required"),
+        lastname: Yup.string()
+            .required("Last name Required"),
         email: Yup.string()
             .email("Invalid email")
             .required("Email Required"),
@@ -45,8 +52,9 @@ const SignupSchema = Yup.object().shape({
     shares: Yup.object().shape({
         number: Yup.number()
             .required("share number is required")
-            .moreThan(0, "Atlease 1 expected"),
+            .moreThan(0, "Atleast 1 expected"),
         value: Yup.number()
+            .moreThan(100, "Atleast 100 expected")
             .required("Share value is required"),
     
     }),
@@ -61,7 +69,9 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 
         this.state = {
             step: 0,
-            modal: false
+            modal: false,
+            paymentAmount: 0,
+            paymentType: ''
         };
     }
 
@@ -119,6 +129,14 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         }));
     }
 
+    public setAmount = (pricing: {type: string, price: number}) => {
+        this.setState({
+            paymentType: pricing.type,
+            paymentAmount: pricing.price
+        })
+        this.toggle()
+    }
+
     public render() {
         const { step } = this.state;
         // tslint:disable-next-line:jsx-key
@@ -135,7 +153,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             'Director Information',
             'Company Secretary',
             'Others',
-            'Summary'
+            'Summary',
+            'Pricing'
         ]
 
         const steps = [
@@ -193,9 +212,12 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 key="" 
                 {...props} 
                 back={this.back} 
-                handleCheckout={this.toggle}
-            />
+                nextStep={this.nextStep}
+            />,
+            <Pricing key="" handleCheckout={this.setAmount}/>
         ]
+
+        const {paymentAmount, paymentType} = this.state;
         return (
             <section className="my-5" id="incorporation-form">
                 <div className="container">
@@ -229,7 +251,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                     <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
                         <ModalHeader toggle={this.toggle}>Checkout</ModalHeader>
                         <ModalBody>
-                            <Checkout onSuccess={this.handleCheckout}/>   
+                            <Checkout paymentAmount={paymentAmount} paymentType={paymentType} onSuccess={this.handleCheckout}/>   
                         </ModalBody>
                     </Modal>
                 </div>
@@ -282,6 +304,9 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
     validationSchema: SignupSchema,
 
     handleSubmit: async(values, { setSubmitting }) => {
+        // tslint:disable-next-line:no-console
+        console.log(JSON.stringify(values, undefined, 4));
+        
         await fetch(`${process.env.REACT_APP_API_URL}/registration`, {
             method: 'POST',
             headers: {

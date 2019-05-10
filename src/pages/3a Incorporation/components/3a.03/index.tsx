@@ -67,12 +67,12 @@ class Step2 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
             
                     <div className="row">
                         <div className="form-group col-12">
-                            <label>Company Name (First preference)</label>
+                            <label>Company Name (First preference) *</label>
                             <Field type="text" className="form-control" name="company.companyname_1" placeholder="Company Name" />
                             {getIn(errors, 'company.companyname_1') && getIn(touched, 'company.companyname_1') && <small className="text-danger small">{getIn(errors, 'company.companyname_1')}</small>}                                                
                         </div>
                         <div className="form-group col-12">
-                            <label>Company Name (First preference)</label>
+                            <label>Company Name (Second preference, Optional) </label>
                             <Field type="text" className="form-control" name="company.companyname_2" placeholder="The Boring Company" />
                         </div>
                         <div className="form-group col-12">
