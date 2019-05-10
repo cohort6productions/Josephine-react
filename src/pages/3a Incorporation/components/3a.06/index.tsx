@@ -40,13 +40,25 @@ class MainForm extends React.Component<
         this.props.validateForm()
     }
 
-    public handleSubmit = () => {
-        this.addValues(this.props.values);
+    public setAllFieldsTouched = () => {
+        const currentObj = this.props.values;
+        
+        Object.keys(currentObj).map((value, index) => {
+            this.props.setFieldTouched(`${value}`)
+        })
+    }
 
-        this.props.resetForm();
+    public handleSubmit = () => {
+        if (!Object.keys(this.props.errors).length) {
+            this.addValues()
+            this.props.resetForm()
+        } 
+
+        this.setAllFieldsTouched()
     };
 
-    public addValues = (data: any) => {
+    public addValues = () => {
+        const data = this.props.values;
         const mutatedShareholders = [...this.state.currentValues];
         const newdata = {
             ...data,
@@ -60,7 +72,7 @@ class MainForm extends React.Component<
     };
 
     public handleShareholder = (data: any, event: any) => {
-        this.addValues(data);
+        this.addValues();
         event.target.classList.add("d-none");
     };
 
@@ -70,6 +82,8 @@ class MainForm extends React.Component<
         this.setState({
             currentValues: mutated
         });
+
+        this.props._setValues(this.state.currentValues);
     };
 
     public toggle = () => {
@@ -145,7 +159,7 @@ class MainForm extends React.Component<
                         return (
                             <div
                                 key={i}
-                                className="col-12 d-flex align-items-center"
+                                className="col-12 d-flex align-items-center my-3"
                             >
                                 {!!obj.firstname
                                     ? obj.firstname
@@ -232,13 +246,34 @@ class MainForm extends React.Component<
     }
 }
 
+const checkIfFilesAreTooBig = (file?: string): boolean => {
+    let valid = true
+    if (file) {
+        const stringLength = file.length - 'data:image/png;base64,'.length;
+
+        const sizeInBytes = 4 * Math.ceil((stringLength / 3))*0.5624896334383812;
+        const sizeInMb = (sizeInBytes/1000)/1000;
+
+
+        if (sizeInMb > 1) {
+            valid = false
+        }
+    }
+    return valid
+}
+
 const DirectorSchema = Yup.object().shape({
     email: Yup.string()
         .email("Invalid email")
         .required("Email Required"),
-    phone: Yup.string()
-        .max(10, "too long")
-        .required("Phone Required")
+    identity: Yup.string()
+        .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
+    address_proof: Yup.string()
+        .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
+    business_license: Yup.string()
+        .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
+    article_of_associate: Yup.string()
+        .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig)
 });
 
 const Step5 = withFormik<IProps & FormikProps<IFormValues>, {}>({

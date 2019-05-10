@@ -6,3 +6,5 @@ export interface IService {
     price?: string;
     linkFn?: () => void;
 }
+
+export const ACCEPT_FILETYPE = "application/pdf, image/*"

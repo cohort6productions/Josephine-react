@@ -15,7 +15,6 @@ import Breadcrumbs from './forms/partials/Breadcrumbs';
 import Checkout from 'src/pages/Checkout';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Pricing from './forms/partials/Pricing';
-import { type } from 'os';
 
 interface IFormProps {
     initialEmail?: string;
@@ -31,6 +30,10 @@ interface IFormState {
 
 const SignupSchema = Yup.object().shape({
     personal: Yup.object().shape({
+        firstname: Yup.string()
+            .required("First name Required"),
+        lastname: Yup.string()
+            .required("Last name Required"),
         email: Yup.string()
             .email("Invalid email")
             .required("Email Required"),
@@ -49,8 +52,9 @@ const SignupSchema = Yup.object().shape({
     shares: Yup.object().shape({
         number: Yup.number()
             .required("share number is required")
-            .moreThan(0, "Atlease 1 expected"),
+            .moreThan(0, "Atleast 1 expected"),
         value: Yup.number()
+            .moreThan(100, "Atleast 100 expected")
             .required("Share value is required"),
     
     }),
@@ -149,7 +153,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             'Director Information',
             'Company Secretary',
             'Others',
-            'Summary'
+            'Summary',
+            'Pricing'
         ]
 
         const steps = [

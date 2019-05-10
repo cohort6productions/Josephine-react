@@ -1,6 +1,7 @@
 import { Field, FormikProps, getIn } from "formik";
 import * as React from "react";
 import { IPersonalDetails } from "src/Interfaces/FormValues";
+import {ACCEPT_FILETYPE} from "src/Interfaces/general"
 // import Thumb from '../forms/partials/Thumbnail';
 
 const ShareholderForm = (
@@ -82,7 +83,7 @@ const ShareholderForm = (
                     name="email"
                     placeholder="john@doe.com"
                 />
-                {getIn(errors, 'email') && getIn(touched, 'email') && <small className="text-danger small">{getIn(errors, 'email')}</small>}
+                {getIn(errors, 'email') && getIn(touched, 'email') ? <small className="text-danger small">{getIn(errors, 'email')}</small> : ''}
 
             </div>
 
@@ -156,7 +157,6 @@ const ShareholderForm = (
                     type="number"
                     className="form-control"
                     name="share_composition"
-                    // onChange={(e) =.}
                 />
                 /{props.total_shares}
             </div>
@@ -171,21 +171,29 @@ const ShareholderForm = (
                 <>
                     <div className="form-group col-12">
                         <label>Identity document</label>
-                        <br/>
-                        <label className="file">
-                            <input type="file" name="identity" onChange={handleFile('identity')} />
-                            <span className="file-custom"/>
-                        </label>
-                        {/* <Field name="identity" type="file" className="file" /> */}
-                        {/* <Thumb file={props.values.identity} /> */}
-         
+                        <input 
+                            name="identity" 
+                            type="file" 
+                            onChange={handleFile('identity') } 
+                            className="form-control-file" 
+                            accept={ACCEPT_FILETYPE}
+                            />
+                    
+                        {getIn(errors, 'identity') && getIn(touched, 'identity') ? <small className="text-danger small">{getIn(errors, 'identity')}</small> : ''}
                     </div>
 
                     <div className="form-group col-12">
                         <label>Proof of address</label>
 
-                        <input name="address_proof" type="file" onChange={handleFile('address_proof') } className="form-control-file" />
-                        {/* { !!props.values.address_proof ? <Thumb file={props.values.address_proof} /> : '' } */}
+                        <input 
+                            name="address_proof" 
+                            type="file" 
+                            onChange={handleFile('address_proof') } 
+                            className="form-control-file"
+                            accept={ACCEPT_FILETYPE}
+                            />
+                        {getIn(errors, 'address_proof') && getIn(touched, 'address_proof') ? <small className="text-danger small">{getIn(errors, 'address_proof')}</small> : ''}
+
                     </div>
                 </>
              : 
@@ -194,16 +202,29 @@ const ShareholderForm = (
                         <label>Business License</label>
                         {/* <Field name="business_license" type="file" className="form-control-file" /> */}
 
-                        <input name="business_license" type="file" onChange={handleFile('business_license') } className="form-control-file" />
-                        {/* { !!props.values.business_license ? <Thumb file={props.values.business_license} /> : '' } */}
+                        <input 
+                            name="business_license" 
+                            type="file" 
+                            onChange={handleFile('business_license') } 
+                            className="form-control-file" 
+                            accept={ACCEPT_FILETYPE}
+                            />
+                        {getIn(errors, 'business_license') && getIn(touched, 'business_license') ? <small className="text-danger small">{getIn(errors, 'business_license')}</small> : ''}
+
                     </div>
 
                     <div className="form-group col-12">
                         <label>Article of association</label>
                         {/* <Field name="article_of_associate" type="file" className="form-control-file" /> */}
 
-                        <input name="article_of_associate" type="file" onChange={handleFile('article_of_associate')} className="form-control-file" />
-                        {/* { !!props.values.article_of_associate ? <Thumb file={props.values.article_of_associate} /> : '' } */}
+                        <input 
+                            name="article_of_associate" 
+                            type="file" 
+                            onChange={handleFile('article_of_associate')} 
+                            className="form-control-file" 
+                            accept={ACCEPT_FILETYPE}
+                            />
+                        {getIn(errors, 'article_of_associate') && getIn(touched, 'article_of_associate') ? <small className="text-danger small">{getIn(errors, 'article_of_associate')}</small> : ''}
                     </div>
                 </div>
             }

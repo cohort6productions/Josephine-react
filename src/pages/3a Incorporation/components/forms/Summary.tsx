@@ -18,11 +18,10 @@ class Summary extends React.Component<ISummaryProps, {}> {
     }
 
     public nextStep = () => {
-        // tslint:disable-next-line:no-console
-        console.log(this.props.errors);
         if (!Object.keys(this.props.errors).length) {
             this.props.nextStep()
         }
+        this.props.setFieldTouched('terms')
     }
 
     public render() {  

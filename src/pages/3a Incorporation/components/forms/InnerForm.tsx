@@ -30,9 +30,15 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
         }
     }
 
+    public setAllFieldsTouched = () => {
+        const currentObj = this.props.values;
+        
+        Object.keys(currentObj).map((value, index) => {
+            this.props.setFieldTouched(`${value}`)
+        })
+    }
+
     public handleSubmit = () => {
-        // tslint:disable-next-line:no-console
-        console.log(this.props.errors)
         if (!Object.keys(this.props.errors).length) {
             this.addValues(this.props.values)
 
@@ -41,7 +47,10 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
             }
 
             this.props.resetForm()
-        }
+        } 
+
+        this.setAllFieldsTouched()
+
     }
 
     public addValues = (data: any) => {
@@ -69,7 +78,11 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
 
         this.setState({
             currentValues: mutated
+        }, () => {
+            this.props._setValues(this.state.currentValues)
         })
+
+        
     }
 
     public toggle = () => {
@@ -101,7 +114,6 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
     public render() {
         const buttonProps = {
             nextStep: this.handleNext,
-            // tslint:disable-next-line:object-literal-sort-keys
             back: this.props.back
         }
         const {activeTab} = this.state
@@ -129,7 +141,7 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                     {
                         this.state.currentValues.map((obj:any, i) => {
                             return (
-                                <div key={i} className="col-12 d-flex align-items-center">
+                                <div key={i} className="col-12 d-flex align-items-center my-3">
                                     {!!obj.firstname ? obj.firstname : obj.companyname}
                                     <button type="button" className="btn btn-default ml-auto" onClick={this.delete.bind(this,i)}>delete</button>
                                 </div>
