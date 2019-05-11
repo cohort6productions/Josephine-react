@@ -72,7 +72,7 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
             
                     <div className="row">
                         <div className="form-group col-12">
-                            <div className="d-flex justify-content-center align-items-center mb-3">
+                            <div className="row justify-content-center align-items-center mb-3 mx-auto">
                                 <button className={`col-12 col-md-4 btn ${currentIndex === 0 ? 'active' : ''}`} type="button" onClick={this.handleChange.bind(this, 0)}>Centre O</button>
                                 <button className={`col-12 col-md-4 btn ${currentIndex === 1 ? 'active' : ''}`} type="button" onClick={this.handleChange.bind(this, 1)}>Other</button>
                             </div>
