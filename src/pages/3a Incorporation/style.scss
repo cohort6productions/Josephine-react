@@ -13,6 +13,14 @@ button {
 }
 
 #incorporation {
+    .overlay {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: #333;
+        opacity: .4;
+    }
     h1 {
         @include media-breakpoint-down(sm) {
             font-size: 2.5rem;

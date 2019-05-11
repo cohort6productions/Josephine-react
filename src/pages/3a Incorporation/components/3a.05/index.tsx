@@ -32,6 +32,19 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
         })
     }
 
+    public componentDidMount = () => {
+        if (!!this.props.shareholders) {
+            let occupied = 0;
+            this.props.shareholders.forEach((holder) => {
+                occupied += holder.share_composition
+            })
+            this.setState({
+                occupied_shares: occupied
+            })
+        }
+        this.props.validateForm()
+    }
+
     public render() {
         return (
             <>
@@ -45,6 +58,7 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
                         <input type="number" className="form-control" value={this.props.total_shares} disabled={true} />
                     </div>
                 }
+                total_shares={this.props.total_shares - this.state.occupied_shares}
                 description="The process of company incorporation takes around 2 days, and the company green box creation will take another 3 to 4 days to produce. Do let us know if you need to setup a company bank account, as we could assist in arranging an appointment with your preferred bank (HSBC, Heng Sang, DBS…).">
                     <ShareholderForm {...this.props} category="" total_shares={this.props.total_shares - this.state.occupied_shares} />
                 </InnerForm>
@@ -53,8 +67,6 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
     }
 }
 
-// const SUPPORTED_FORMATS = ['image/jpeg', 'image/png', 'pdf'];
-// const ShareholderSchema = {};
 const checkIfFilesAreTooBig = (file?: string): boolean => {
     let valid = true
     if (file) {
@@ -99,6 +111,7 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             .email("Invalid email")
             .required("Email Required"),
         share_composition: Yup.number()
+            .moreThan(0, 'Shareholders should own atleast 1 share')
             .lessThan(props.total_shares + 1, `shareholders cannot own more than total shares ${props.total_shares}`),
         identity: Yup.string()
             .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
