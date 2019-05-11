@@ -32,37 +32,43 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
     public handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            this.setState({
-                loading: true
-            })
-            if (!!this.props.stripe) {
-                const {error, token}  = await this.props.stripe.createToken({name: this.state.name});
-                const {amount, email} = this.state;
-                if (!!token && !error) {
-                    const res = await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
-                        method: 'POST',
-                        headers: {
-                            "Content-type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            "token": token,
-                            "amount": amount,
-                            "billing_email": email
-                        })
-                    })
-
-                    if (res.ok) {
-                        this.setState({
-                            loading: false
+            if (!!this.state.email && !!this.state.name) {
+                this.setState({
+                    loading: true
+                })
+                if (!!this.props.stripe) {
+                    const {error, token}  = await this.props.stripe.createToken({name: this.state.name});
+                    const {amount, email} = this.state;
+                    if (!!token && !error) {
+                        const res = await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
+                            method: 'POST',
+                            headers: {
+                                "Content-type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                "token": token,
+                                "amount": amount,
+                                "billing_email": email
+                            })
                         })
 
-                        if (!!this.props.onSuccess){
-                            this.props.onSuccess()
+                        if (res.ok) {
+                            this.setState({
+                                loading: false
+                            })
+
+                            if (!!this.props.onSuccess){
+                                this.props.onSuccess()
+                            }
+                        } else {
+                            throw res.statusText
                         }
-                    } else {
-                        throw res.statusText
                     }
                 }
+            } else {
+                this.setState({
+                    errorMessage: 'Name and Email are required !'
+                })
             }
         }catch(error) {
             // tslint:disable-next-line:no-console
@@ -84,8 +90,9 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
     public handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         this.setState({
-            [e.target.name]: e.target.value
-        } as {name: string; email: string;})
+            [e.target.name]: e.target.value,
+            errorMessage: ''
+        } as {name: string; email: string; errorMessage: string})
     }
 
     public handleChange = ({error}: {error?: any}) => {
@@ -103,6 +110,16 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                     <div className="error my-3" role="alert">
                         <p className="text-danger">{this.state.errorMessage}</p>
                     </div>
+                    <div className="form-group">
+                        <label>Selected Package</label> 
+                        <input type="text" className="form-control" disabled={true} value={this.props.paymentType} />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Total Amount (HKD) </label> 
+                        <input type="text" className="form-control" disabled={true} value={this.props.paymentAmount} />
+                    </div>
+
                     <div className="form-group">
                         <label>Name</label>
                         <input className="form-control" type="text" name="name" onChange={this.handleFieldChange}/>
