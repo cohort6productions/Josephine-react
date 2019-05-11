@@ -13,6 +13,7 @@ interface IProps extends IStepProps {
     _innerhtml: any;
     emitValue?: (value: any, event: string) => void | null;
     oldValues?: any[] | null;
+    total_shares: number;
 }
 
 interface IShareholderState {
@@ -136,13 +137,18 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                     {this.props._innerhtml}
             
                     <div className="form-group col-12">
-                        <button type="button" onClick={this.toggle} className="btn btn-default">+ Add a {this.props.field}</button>
+                        {
+                            this.props.total_shares > 0 ? 
+                            <button type="button" onClick={this.toggle} className="btn btn-default">+ Add a {this.props.field}</button>
+                            : ''
+                        }
                     </div>
+                    
                     {
                         this.state.currentValues.map((obj:any, i) => {
                             return (
                                 <div key={i} className="col-12 d-flex align-items-center my-3">
-                                    {!!obj.firstname ? obj.firstname : obj.companyname}
+                                    {obj.category === 'personal' ? obj.firstname : obj.companyname}
                                     <button type="button" className="btn btn-default ml-auto" onClick={this.delete.bind(this,i)}>delete</button>
                                 </div>
                             )

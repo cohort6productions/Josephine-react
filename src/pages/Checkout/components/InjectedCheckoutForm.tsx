@@ -13,6 +13,7 @@ interface ICheckOutState {
     amount: number;
     errorMessage: string;
     email: string;
+    loading: boolean;
 }
 class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeElements.InjectedStripeProps, ICheckOutState > {
     constructor(props: ICheckOutProps & ReactStripeElements.InjectedStripeProps) {
@@ -21,7 +22,8 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
             name: '',
             amount: 0,
             errorMessage: '',
-            email: ''
+            email: '',
+            loading: false
         }
         this.handleFieldChange = this.handleFieldChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -30,6 +32,9 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
     public handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
+            this.setState({
+                loading: true
+            })
             if (!!this.props.stripe) {
                 const {error, token}  = await this.props.stripe.createToken({name: this.state.name});
                 const {amount, email} = this.state;
@@ -42,20 +47,31 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                         body: JSON.stringify({
                             "token": token,
                             "amount": amount,
-                            "email": email
+                            "billing_email": email
                         })
                     })
 
-                    if (res) {
+                    if (res.ok) {
+                        this.setState({
+                            loading: false
+                        })
+
                         if (!!this.props.onSuccess){
                             this.props.onSuccess()
                         }
+                    } else {
+                        throw res.statusText
                     }
-                      
                 }
             }
-        }catch(e) {
-            throw e;
+        }catch(error) {
+            // tslint:disable-next-line:no-console
+            console.log(error)
+            this.setState({
+                loading: false,
+                errorMessage: error
+            })
+            
         }
     }
 
@@ -84,6 +100,9 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
         return (
             <div className="container my-3">
                 <form onSubmit={this.handleSubmit} className="form col-12">
+                    <div className="error my-3" role="alert">
+                        <p className="text-danger">{this.state.errorMessage}</p>
+                    </div>
                     <div className="form-group">
                         <label>Name</label>
                         <input className="form-control" type="text" onChange={this.handleFieldChange}/>
@@ -96,10 +115,8 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                         <label>Card Details</label>
                         <CardElement onChange={this.handleChange} />
                     </div>
-                    <div className="error" role="alert">
-                        <small className="text-danger">{this.state.errorMessage}</small>
-                    </div>
-                    <button type="submit" className="btn btn--stripe">Confirm order</button>
+                    
+                    <button type="submit" disabled={this.state.loading} className="btn btn--stripe">Confirm order</button>
                 </form>
             </div>
         );

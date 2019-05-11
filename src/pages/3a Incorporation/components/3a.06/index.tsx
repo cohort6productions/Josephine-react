@@ -1,6 +1,6 @@
 import { FormikProps, withFormik } from "formik";
 import * as React from "react";
-import { Button, Modal, ModalBody, ModalHeader, Row } from "reactstrap";
+import { Modal, ModalBody, ModalHeader, Row } from "reactstrap";
 import { IStepProps } from "src/Interfaces/FormProps";
 import { IFormValues, IPersonalDetails } from "src/Interfaces/FormValues";
 import ButtonGroup from "../forms/partials/ButtonGroup";
@@ -50,15 +50,14 @@ class MainForm extends React.Component<
 
     public handleSubmit = () => {
         if (!Object.keys(this.props.errors).length) {
-            this.addValues()
+            this.addValues(this.props.values)
             this.props.resetForm()
         } 
 
         this.setAllFieldsTouched()
     };
 
-    public addValues = () => {
-        const data = this.props.values;
+    public addValues = (data: any) => {
         const mutatedShareholders = [...this.state.currentValues];
         const newdata = {
             ...data,
@@ -72,8 +71,11 @@ class MainForm extends React.Component<
     };
 
     public handleShareholder = (data: any, event: any) => {
-        this.addValues();
-        event.target.classList.add("d-none");
+        const mutatedShareholders = [...this.state.currentValues];
+        mutatedShareholders.push(data);
+        this.setState({
+            currentValues: mutatedShareholders
+        });
     };
 
     public delete = (index: number) => {
@@ -137,9 +139,11 @@ class MainForm extends React.Component<
                         return (
                             <div key={i} className="form-group col-12">
                                 <div className="d-flex align-items-center">
-                                    {el.category === "personal"
+                                    {
+                                        el.category === "personal"
                                         ? el.firstname + " (Individual)"
-                                        : el.companyname + " (Corporate)"}
+                                        : el.companyname + " (Corporate)"
+                                    }
                                     <button
                                         type="button"
                                         className="btn btn-default ml-auto"
@@ -161,7 +165,7 @@ class MainForm extends React.Component<
                                 key={i}
                                 className="col-12 d-flex align-items-center my-3"
                             >
-                                {!!obj.firstname
+                                {obj.category === 'personal'
                                     ? obj.firstname
                                     : obj.companyname}
                                 <button
@@ -223,12 +227,9 @@ class MainForm extends React.Component<
                                             {...this.props}
                                             category={activeTab}
                                         />
-                                        <Button
-                                            color="primary"
-                                            onClick={this.handleSubmit}
-                                        >
-                                            Submit
-                                        </Button>
+                                        <div className="form-group col-12">
+                                            <button type="submit" onClick={this.handleSubmit} className="btn btn-default" color="primary" >Submit</button>
+                                        </div>
                                     </Row>
                                 </form>
                             </div>

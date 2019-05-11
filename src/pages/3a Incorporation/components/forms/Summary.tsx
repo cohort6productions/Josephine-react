@@ -8,9 +8,12 @@ import ButtonGroup from './partials/ButtonGroup';
 interface ISummaryProps extends IStepProps, FormikProps<IFormValues> {
    
 }
-class Summary extends React.Component<ISummaryProps, {}> {
+class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
     constructor(props: ISummaryProps) {
         super(props);
+        this.state = {
+            submitted: false
+        }
     }
 
     public componentDidMount = () => {
@@ -22,6 +25,9 @@ class Summary extends React.Component<ISummaryProps, {}> {
             this.props.nextStep()
         }
         this.props.setFieldTouched('terms')
+        this.setState({
+            submitted: true
+        })
     }
 
     public render() {  
@@ -171,7 +177,7 @@ class Summary extends React.Component<ISummaryProps, {}> {
                        <div className="form-group col-12">
                             <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and I agree to the Terms and conditions.
                             <br/>
-                            {getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
+                            { this.state.submitted && getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
                        </div>
 
                        <ButtonGroup {...btnProps} buttonText="Proceed to pricings"/>

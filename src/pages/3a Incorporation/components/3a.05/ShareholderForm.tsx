@@ -159,6 +159,8 @@ const ShareholderForm = (
                     name="share_composition"
                 />
                 /{props.total_shares}
+                <br/>
+                {getIn(errors, 'share_composition') && getIn(touched, 'share_composition') && <small className="text-danger small">{getIn(errors, 'share_composition')}</small> }
             </div>
 
             <div className="col-12">
