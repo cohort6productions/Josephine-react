@@ -105,11 +105,11 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                     </div>
                     <div className="form-group">
                         <label>Name</label>
-                        <input className="form-control" type="text" onChange={this.handleFieldChange}/>
+                        <input className="form-control" type="text" name="name" onChange={this.handleFieldChange}/>
                     </div>
                     <div className="form-group">
                         <label>Email</label>
-                        <input className="form-control" type="email" onChange={this.handleFieldChange}/>
+                        <input className="form-control" type="email" name="email" onChange={this.handleFieldChange}/>
                     </div>
                     <div className="form-group">
                         <label>Card Details</label>
