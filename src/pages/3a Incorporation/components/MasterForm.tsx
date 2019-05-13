@@ -1,20 +1,20 @@
-import { Form, FormikProps, withFormik } from 'formik';
-import * as React from 'react';
-import {IFormValues} from 'src/Interfaces/FormValues';
-import * as Yup from 'yup';
-import Start from './3a.01';
-import Step1 from './3a.02';
-import Step2 from './3a.03';
-import Step3 from './3a.04';
-import Step4 from './3a.05';
-import Step5 from './3a.06';
-import Summary from './forms/Summary';
-import Step6 from './3a.07';
-import Step7 from './3a.08';
-import Breadcrumbs from './forms/partials/Breadcrumbs';
-import Checkout from 'src/pages/Checkout';
-import { Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
-import Pricing from './forms/partials/Pricing';
+import { Form, FormikProps, withFormik } from "formik";
+import * as React from "react";
+import { IFormValues } from "src/Interfaces/FormValues";
+import * as Yup from "yup";
+import Start from "./3a.01";
+import Step1 from "./3a.02";
+import Step2 from "./3a.03";
+import Step3 from "./3a.04";
+import Step4 from "./3a.05";
+import Step5 from "./3a.06";
+import Summary from "./forms/Summary";
+import Step6 from "./3a.07";
+import Step7 from "./3a.08";
+import Breadcrumbs from "./forms/partials/Breadcrumbs";
+import Checkout from "src/pages/Checkout";
+import { Modal, ModalHeader, ModalBody, Alert } from "reactstrap";
+import Pricing from "./forms/partials/Pricing";
 
 interface IFormProps {
     initialEmail?: string;
@@ -31,44 +31,36 @@ interface IFormState {
 
 const SignupSchema = Yup.object().shape({
     personal: Yup.object().shape({
-        firstname: Yup.string()
-            .required("First name Required"),
-        lastname: Yup.string()
-            .required("Last name Required"),
+        firstname: Yup.string().required("First name is required"),
+        lastname: Yup.string().required("Last name is required"),
         email: Yup.string()
             .email("Invalid email")
-            .required("Email Required"),
+            .required("Email is required"),
         phone: Yup.string()
             .max(10, "too long")
-            .required("Phone Required")
+            .required("Phone number is required")
     }),
     company: Yup.object().shape({
-        companyname_1: Yup.string()
-            .required("Company name is required"),
-        address: Yup.string()
-            .required("Address Required"),
-        country: Yup.string()
-            .required("country Required")
+        companyname_1: Yup.string().required("Company name is required"),
+        address: Yup.string().required("Address is required"),
+        country: Yup.string().required("Country is required")
     }),
     shares: Yup.object().shape({
         number: Yup.number()
-            .required("share number is required")
-            .moreThan(0, "Atleast 1 expected"),
+            .required("Number of shares is required")
+            .moreThan(9999, "At least 10,000 expected"),
         value: Yup.number()
-            .moreThan(99, "Atleast 100 expected")
+            .moreThan(9999, "At least 10,000 expected")
             .required("Share value is required")
     }),
     others: Yup.object().shape({
-        fund: Yup.string()
-            .required("Fund information is required"),
-        criminal_record: Yup.string()
-            .required("Criminal record is required"),
-        business_relationship: Yup.string()
-            .required("Relationship status is required")
+        fund: Yup.string().required("Fund information is required"),
+        criminal_record: Yup.string().required("Criminal record is required"),
+        business_relationship: Yup.string().required(
+            "Relationship status is required"
+        )
     }),
-    terms: Yup.boolean()
-        .oneOf([true], 'Must Accept Terms and Conditions')
-
+    terms: Yup.boolean().oneOf([true], "Must Accept Terms and Conditions")
 });
 
 class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
@@ -79,7 +71,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             step: 0,
             modal: false,
             paymentAmount: 0,
-            paymentType: '',
+            paymentType: "",
             visible: true
         };
 
@@ -88,11 +80,11 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
 
     public setAllFieldsTouched = (key: string) => {
         const currentObj = this.props.values[key];
-        
+
         Object.keys(currentObj).map((value, index) => {
-            this.props.setFieldTouched(`${key}.${value}`)
-        })
-    }
+            this.props.setFieldTouched(`${key}.${value}`);
+        });
+    };
     public nextStep = () => {
         this.setState({
             step: this.state.step + 1
@@ -102,8 +94,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public handlePath = (nextStep: number) => {
         this.setState({
             step: nextStep
-        })
-    }
+        });
+    };
 
     public setShareholderValues = (data: any) => {
         this.props.setValues({
@@ -120,9 +112,9 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     };
 
     public componentDidMount = () => {
-        this.props.validateForm()
-    }
-    
+        this.props.validateForm();
+    };
+
     public back = () => {
         this.setState({
             step: this.state.step - 1
@@ -132,40 +124,45 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public handleCheckout = () => {
         this.props.submitForm();
         this.toggle();
-    }
+    };
 
     public toggle = () => {
         this.setState(prevState => ({
             modal: !prevState.modal
         }));
-    }
+    };
 
-    public setAmount = (pricing: {type: string, price: number}) => {
+    public setAmount = (pricing: { type: string; price: number }) => {
         this.setState({
             paymentType: pricing.type,
             paymentAmount: pricing.price
-        })
-        this.toggle()
-    }
+        });
+        this.toggle();
+    };
 
     public onDismiss = () => {
         this.setState({ visible: false });
-    }
+    };
 
-    public componentWillReceiveProps = (nextProps: FormikProps<IFormValues>) => {
+    public componentWillReceiveProps = (
+        nextProps: FormikProps<IFormValues>
+    ) => {
         if (!!nextProps.status && !!nextProps.status.success) {
-            this.setState({
-                step: 0
-            }, () => {
-                window.scrollTo({
-                    top:0,
-                    behavior: "smooth"
-                });
-            });
+            this.setState(
+                {
+                    step: 0
+                },
+                () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                }
+            );
 
-            setTimeout(() => this.props.resetForm(),3000)
+            setTimeout(() => this.props.resetForm(), 3000);
         }
-    }
+    };
 
     public render() {
         const { step } = this.state;
@@ -173,19 +170,19 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         const props = {
             ...this.props,
             setAllFieldsTouched: this.setAllFieldsTouched
-        }
+        };
         const allPaths = [
-            'Start',
-            'Personal Information',
-            'Company Information',
-            'Share Formation',
-            'Shareholder Information',
-            'Director Information',
-            'Company Secretary',
-            'Others',
-            'Summary',
-            'Pricing'
-        ]
+            "Start",
+            "Personal Information",
+            "Company Information",
+            "Share Formation",
+            "Shareholder Information",
+            "Director Information",
+            "Company Secretary",
+            "Others",
+            "Summary",
+            "Pricing"
+        ];
 
         const steps = [
             <Start nextStep={this.nextStep} key="" />,
@@ -226,53 +223,62 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 back={this.back}
                 _setValues={this.setDirectorValues}
             />,
-            <Step6 
-                key="" 
-                {...props} 
-                nextStep={this.nextStep} 
-                back={this.back} 
+            <Step6
+                key=""
+                {...props}
+                nextStep={this.nextStep}
+                back={this.back}
             />,
-            <Step7 
-                key="" 
-                {...props} 
-                nextStep={this.nextStep} 
-                back={this.back} 
+            <Step7
+                key=""
+                {...props}
+                nextStep={this.nextStep}
+                back={this.back}
             />,
-            <Summary 
-                key="" 
-                {...props} 
-                back={this.back} 
+            <Summary
+                key=""
+                {...props}
+                back={this.back}
                 nextStep={this.nextStep}
             />,
-            <Pricing key="" {...props} handleCheckout={this.setAmount}/>
-        ]
+            <Pricing key="" {...props} handleCheckout={this.setAmount} />
+        ];
 
-        const {paymentAmount, paymentType} = this.state;
-        const {status} = this.props;
+        const { paymentAmount, paymentType } = this.state;
+        const { status } = this.props;
 
         return (
             <section className="my-5" id="incorporation-form">
                 <div className="container">
-                    
-                    {
-                        !!status && !!status.success ? 
-                        <Alert color="info" isOpen={this.state.visible} toggle={this.onDismiss}>
+                    {!!status && !!status.success ? (
+                        <Alert
+                            color="info"
+                            isOpen={this.state.visible}
+                            toggle={this.onDismiss}
+                        >
                             Company Incorporated!
-                        </Alert> : ''
-                    }
+                        </Alert>
+                    ) : (
+                        ""
+                    )}
 
-                    {
-                        !!status && !!status.error ? 
-                        <Alert color="danger" isOpen={this.state.visible} toggle={this.onDismiss}>
+                    {!!status && !!status.error ? (
+                        <Alert
+                            color="danger"
+                            isOpen={this.state.visible}
+                            toggle={this.onDismiss}
+                        >
                             Company Incorporation Failed!
-                        </Alert> : ''
-                    }
+                        </Alert>
+                    ) : (
+                        ""
+                    )}
                     <Form>
-                        <Breadcrumbs 
-                            allPaths={allPaths} 
-                            currentPath={step} 
+                        <Breadcrumbs
+                            allPaths={allPaths}
+                            currentPath={step}
                             handlePath={this.handlePath}
-                            />
+                        />
                         {steps[step] || <div />}
                         <div className="row justify-content-center mx-0 ">
                             <div className="col-12 col-md-8 my-3">
@@ -294,10 +300,18 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                             </div>
                         </div>
                     </Form>
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
+                    <Modal
+                        isOpen={this.state.modal}
+                        toggle={this.toggle}
+                        size="lg"
+                    >
                         <ModalHeader toggle={this.toggle}>Checkout</ModalHeader>
                         <ModalBody>
-                            <Checkout paymentAmount={paymentAmount} paymentType={paymentType} onSuccess={this.handleCheckout}/>   
+                            <Checkout
+                                paymentAmount={paymentAmount}
+                                paymentType={paymentType}
+                                onSuccess={this.handleCheckout}
+                            />
                         </ModalBody>
                     </Modal>
                 </div>
@@ -331,54 +345,53 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             },
             director: [],
             company_secretary: {
-                name: '',
-                email: '',
-                license_no: '',
-                address: '',
-                country: ''
+                name: "",
+                email: "",
+                license_no: "",
+                address: "",
+                country: ""
             },
             others: {
-                fund: '',
-                criminal_record: '',
-                business_relationship: ''
+                fund: "",
+                criminal_record: "",
+                business_relationship: ""
             },
             comments: "",
             terms: false
-
         };
     },
     validationSchema: SignupSchema,
 
-    handleSubmit: async(values, { setSubmitting, setStatus }) => {
-  
+    handleSubmit: async (values, { setSubmitting, setStatus }) => {
         try {
             setSubmitting(true);
 
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/registration`, {
-                method: 'POST',
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    ...values
-                })
-            })
+            const res = await fetch(
+                `${process.env.REACT_APP_API_URL}/registration`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        ...values
+                    })
+                }
+            );
 
             if (res.status === 200) {
                 setSubmitting(false);
-                setStatus({success: 'form submited'})
+                setStatus({ success: "form submited" });
             } else {
-                setStatus({error: 'form not submited'})
+                setStatus({ error: "form not submited" });
             }
-        }catch (e) {
+        } catch (e) {
             // tslint:disable-next-line:no-console
-            console.log(e)
+            console.log(e);
             setSubmitting(false);
 
-            setStatus({error: 'form not submited'})
+            setStatus({ error: "form not submited" });
         }
-
-        
     }
 })(FormWizard);
 
