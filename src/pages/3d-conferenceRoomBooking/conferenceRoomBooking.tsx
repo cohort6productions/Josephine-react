@@ -31,31 +31,27 @@ const Location = () => (
                     <img
                         className="card-img-top"
                         src={wanchai}
-                        alt="Card image cap"
+                        alt="Centre O Wanchai Location"
                     />
                     <div className="card-body">
-                        <h5 className="card-title">Wanchai</h5>
+                        <h3 className="card-title all-cap mb-3">Wanchai</h3>
                         <ul>
                             <li>
-                                <img src="" alt="" />
                                 <span>
                                     Metropolitane shopping mall is within
                                     walking distance, beest mood in the city
                                 </span>
                             </li>
                             <li>
-                                <img src="" alt="" />
                                 <span>Surrounding by 5-star hotels</span>
                             </li>
                             <li>
-                                <img src="" alt="" />
                                 <span>
                                     Restaurants and bars for unwining after long
                                     meetings
                                 </span>
                             </li>
                             <li>
-                                <img src="" alt="" />
                                 <span>Perfect for 4~6 people</span>
                             </li>
                         </ul>
@@ -72,28 +68,24 @@ const Location = () => (
                     <img
                         className="card-img-top"
                         src={sheungwan}
-                        alt="Card image cap"
+                        alt="Centre O Sheungwan Location"
                     />
                     <div className="card-body">
-                        <h5 className="card-title">Sheungwan</h5>
+                        <h3 className="card-title all-cap mb-3">Sheungwan</h3>
                         <ul>
                             <li>
-                                <img src="" alt="" />
                                 <span>Surrounding by office</span>
                             </li>
                             <li>
-                                <img src="" alt="" />
                                 <span>Surrounding by 5-star hotels</span>
                             </li>
                             <li>
-                                <img src="" alt="" />
                                 <span>
                                     Restaurants and bars for unwining after long
                                     meetings
                                 </span>
                             </li>
                             <li>
-                                <img src="" alt="" />
                                 <span>Perfect for 2~4 people</span>
                             </li>
                         </ul>
@@ -119,21 +111,25 @@ const Price = () => (
             </h2>
             <div className="card-deck">
                 <div className="card">
-                    <div className="card-top text-center">
-                        <h3>Work</h3>
+                    <div className="card-body text-center">
+                        <h3 className="all-cap price-card-header">Work</h3>
                     </div>
-                    <div className="card-body">
-                        <h5 className="card-title">Wanchai</h5>
-                        <span>Monday - Friday (9-6)</span>
+                    <div className="card-footer pt-5 pb-5">
+                        <h3 className="card-title text-light">$80/30 mins</h3>
+                        <span className="text-light">
+                            Monday - Friday (9-6)
+                        </span>
                     </div>
                 </div>
                 <div className="card">
-                    <div className="card-top text-center">
-                        <h3>Chill</h3>
+                    <div className="card-body text-center">
+                        <h3 className="all-cap price-card-header">Chill</h3>
                     </div>
-                    <div className="card-body  text-center">
-                        <h5 className="card-title">Sheungwan</h5>
-                        <span>After hours, weekend &and; Public holidays</span>
+                    <div className="card-footer pt-5 pb-5">
+                        <h3 className="card-title text-light">$150/30 mins</h3>
+                        <span className="text-light">
+                            After hours, weekend &amp; Public holidays
+                        </span>
                     </div>
                 </div>
             </div>
