@@ -109,6 +109,19 @@ class MainForm extends React.Component<
         return "just a placeholder";
     };
 
+    public existsInDirectorArray = (objToCompare: any) => {
+        var i;
+        const list = this.state.currentValues
+
+        for (i = 0; i < list.length; i++) {
+            if (list[i] === objToCompare) {
+                return true;
+            }
+        }
+    
+        return false;
+    }
+
     public render() {
         const buttonProps = {
             nextStep: this.handleNext,
@@ -144,16 +157,19 @@ class MainForm extends React.Component<
                                         ? el.firstname + " (Individual)"
                                         : el.companyname + " (Corporate)"
                                     }
-                                    <button
-                                        type="button"
-                                        className="btn btn-default ml-auto"
-                                        onClick={this.handleShareholder.bind(
-                                            this,
-                                            el
-                                        )}
-                                    >
-                                        Add
-                                    </button>
+                                    {
+                                        !this.existsInDirectorArray(el) ?
+                                        <button
+                                            type="button"
+                                            className="btn btn-default ml-auto"
+                                            onClick={this.handleShareholder.bind(
+                                                this,
+                                                el
+                                            )}
+                                        >
+                                            Add
+                                        </button> : ''
+                                    }
                                 </div>
                             </div>
                         );
