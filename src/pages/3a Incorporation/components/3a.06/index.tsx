@@ -110,7 +110,7 @@ class MainForm extends React.Component<
     };
 
     public existsInDirectorArray = (objToCompare: any) => {
-        var i;
+        let i;
         const list = this.state.currentValues
 
         for (i = 0; i < list.length; i++) {
