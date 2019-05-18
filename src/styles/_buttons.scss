@@ -1,13 +1,26 @@
 button {
     &.btn {
+        margin: .25rem;
         &-default {
-            color: $brand-primary;
-            background: transparent;
-            border-color: $brand-primary;
-            border-radius: 0;
+            color: #fff;
+            background: #e9ecef;
+            border-radius: 4px;
+            padding: .5rem 0;
+            width: 151px;
             &:hover {
                 color: #fff;
                 background: $brand-primary;
+            }
+        }
+        &--incorp {
+            padding: .5rem 1rem;
+            background-color: #000000;
+            border-radius: 4px;
+            color: #fff;
+            &:hover {
+                color: $brand-primary;
+                background: #fff;
+                border-color: $brand-primary;
             }
         }
         &--stripe {

@@ -34,6 +34,9 @@ const ShareholderForm = (
 
     return (
         <>
+            <div className="col-12 mt-3">
+                <div className="title">Personal information</div>
+            </div>
             {
                 props.category === "personal" ? 
                 <>
@@ -129,13 +132,11 @@ const ShareholderForm = (
                     placeholder="Country"
                 />
             </div>
-            <hr />
-            <div className="col-12">
-                <hr />
-                <h3>Tax Details</h3>
+            <div className="col-12 mt-3">
+                <div className="title">Tax information</div>
             </div>
             <div className="form-group col-12">
-                <label>Tax Number</label>
+                <label>Tax Number (optional)</label>
                 <Field
                     type="textarea"
                     className="form-control"
@@ -143,7 +144,7 @@ const ShareholderForm = (
                 />
             </div>
             <div className="form-group col-12">
-                <label>Country of tax residence</label>
+                <label>Country of tax residence (The country where you pay your taxes)</label>
                 <Field
                     type="text"
                     className="form-control"
@@ -163,10 +164,8 @@ const ShareholderForm = (
                 {getIn(errors, 'share_composition') && getIn(touched, 'share_composition') && <small className="text-danger small">{getIn(errors, 'share_composition')}</small> }
             </div>
 
-            <div className="col-12">
-                <hr />
-
-                <h3>Identification</h3>
+            <div className="col-12 mt-3">
+                <div className="title">Identity documentations</div>
             </div>
             {
                 props.category === "personal" ? 
@@ -230,8 +229,8 @@ const ShareholderForm = (
                     </div>
                 </div>
             }
-            <div className="form-group col-12">
-                <button type="submit" className="btn btn-default" color="primary" >Submit</button>
+            <div className="form-group col-12 text-center">
+                <button type="submit" className="btn btn--incorp" color="primary" >Submit</button>
             </div>
         </>
     );

@@ -76,7 +76,7 @@ class Step2 extends React.Component<
 
                 <div className="row">
                     <div className="form-group col-12">
-                        <label>Company Name (First preference) *</label>
+                        <label>Company Name (First preference) </label>
                         <Field
                             type="text"
                             className="form-control"
@@ -92,7 +92,7 @@ class Step2 extends React.Component<
                     </div>
                     <div className="form-group col-12">
                         <label>
-                            Company Name (Second preference, Optional){" "}
+                            Company Name (Second preference){" "}
                         </label>
                         <Field
                             type="text"
@@ -101,6 +101,13 @@ class Step2 extends React.Component<
                             placeholder="The Boring Company"
                         />
                     </div>
+
+                    <div className="form-group col-12">
+                        <p className="my-0">
+                            There are cases where the first name preference might have already been taken by other company, hence, having a second preference to ensure the smoothness of the application.
+                        </p>
+                    </div>
+                    
                     <div className="form-group col-12">
                         <label>Nature Of Business</label>
                         <Field
@@ -112,9 +119,9 @@ class Step2 extends React.Component<
                     </div>
                     <div className="form-group col-12">
                         <label>Registered Office Address</label>
-                        <div className="row mx-0 justify-content-center align-items-center mb-3">
+                        <div className="row mx-0 align-items-center mb-3">
                             <button
-                                className={`col-12 col-md-4 btn ${
+                                className={`col-auto btn btn--inactive ${
                                     currentIndex === 0 ? "active" : ""
                                 }`}
                                 type="button"
@@ -123,7 +130,7 @@ class Step2 extends React.Component<
                                 Centre O Wanchai
                             </button>
                             <button
-                                className={`col-12 col-md-4 btn ${
+                                className={`col-auto btn btn--inactive ${
                                     currentIndex === 1 ? "active" : ""
                                 }`}
                                 type="button"
@@ -132,9 +139,10 @@ class Step2 extends React.Component<
                                 Centre O Sheungwan
                             </button>
                             <button
-                                className={`col-12 col-md-4 btn ${
+                                className={`col-auto btn btn--inactive ${
                                     currentIndex === 2 ? "active" : ""
                                 }`}
+                                style={{width: '379px'}}
                                 type="button"
                                 onClick={this.handleAddressChange.bind(this, 2)}
                             >

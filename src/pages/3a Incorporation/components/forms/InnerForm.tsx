@@ -1,6 +1,6 @@
 import { FormikProps } from 'formik';
 import * as React from 'react';
-import { Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
+import { Modal, ModalBody, Row } from 'reactstrap';
 import { IStepProps } from 'src/Interfaces/FormProps';
 import { IFormValues, IPersonalDetails } from 'src/Interfaces/FormValues';
 import ButtonGroup from '../forms/partials/ButtonGroup';
@@ -14,6 +14,7 @@ interface IProps extends IStepProps {
     emitValue?: (value: any, event: string) => void | null;
     oldValues?: any[] | null;
     total_shares: number;
+    whole_shares: number;
 }
 
 interface IShareholderState {
@@ -130,8 +131,8 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                 <h1 className="my-3 text-center">{this.props.title}</h1>
 
                 <div className="row">
-                    <div className="col-12">
-                        {this.props.description}
+                    <div className="col-12 text-center">
+                        <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
                     </div>
 
                     {this.props._innerhtml}
@@ -139,7 +140,7 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                     <div className="form-group col-12">
                         {
                             this.props.total_shares > 0 ? 
-                            <button type="button" onClick={this.toggle} className="btn btn-default">+ Add a {this.props.field}</button>
+                            <button type="button" onClick={this.toggle} className="btn">+ Add a {this.props.field}</button>
                             : ''
                         }
                     </div>
@@ -147,25 +148,28 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                     {
                         this.state.currentValues.map((obj:any, i) => {
                             return (
-                                <div key={i} className="col-12 d-flex align-items-center my-3">
-                                    {obj.category === 'personal' ? obj.firstname : obj.companyname}
-                                    <button type="button" className="btn btn-default ml-auto" onClick={this.delete.bind(this,i)}>delete</button>
+                                <div key={i} className="col-12 d-flex align-items-center mb-1">
+                                    {obj.category === 'personal' ? `${obj.firstname} ${obj.lastname} (Individual)` : `${obj.companyname} (Corporate)`}
+                                    <span className="share-info ml-auto">Shares: {(obj.share_composition/this.props.whole_shares * 100).toFixed(2)}%</span>
+                                    <button type="button" className="btn d-flex" onClick={this.delete.bind(this,i)}><img src="/icons/delete.svg"/></button>
                                 </div>
                             )
                         })
                     }
 
                     <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
-                        <ModalHeader toggle={this.toggle}>{this.props.title}</ModalHeader>
                         <ModalBody>
                             <div className="container">
-                            <form onSubmit={this.handleSubmit}>
+                            <form className="col-12 col-md-10 mx-auto" onSubmit={this.handleSubmit}>
                             <Row>
-                                <div className="col-md-6 mb-3">
-                                    <button type="button" className={`btn btn-default w-100 ${activeTab === 'personal' ? 'active': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal</button>
-                                </div>
-                                <div className="col-md-6 mb-3">
-                                    <button type="button" className={`btn btn-default w-100 ${activeTab === 'corporate' ? 'active': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
+                                <h1 className="col-12 my-3 text-center">Add a {this.props.field}</h1>
+                                <div className="form-group col-12 row justify-content-center">
+                                    <div className="col-auto px-0">
+                                        <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'personal' ? 'active': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal (Natural People)</button>
+                                    </div>
+                                    <div className="col-auto px-0">
+                                        <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'corporate' ? 'active': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
+                                    </div>
                                 </div>
                                 {children}
                             </Row>

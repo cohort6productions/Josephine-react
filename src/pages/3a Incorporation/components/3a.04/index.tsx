@@ -29,13 +29,10 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
                 <h1 className="my-3 text-center">Shares Formation</h1>
 
                 <div className="row">
-                    <div className="col-12">
-                        The process of company incorporation takes around 2
-                        days, and the company green box creation will take
-                        another 3 to 4 days to produce. Do let us know if you
-                        need to setup a company bank account, as we could assist
-                        in arranging an appointment with your preferred bank
-                        (HSBC, Heng Sang, DBS…).
+                    <div className="col-12 text-center">
+                        <p>In Hong Kong, Companies Ordinance has empowered company shares a highly flexible system for the ownership management of limited companies.</p>
+                        <p>The most common arrangement and type is Ordinary Shares of 10,000, each share value of Hk$1, at total of HK$10,000 per company.</p> 
+                        <p>At Centre O we adopt Company Registry's suggested version of Articles of Associations, where it stated the shareholders, directors, related members of the responsibilities and rights.</p>
                     </div>
                     <div className="form-group col-12">
                         <label>Class of shares</label>

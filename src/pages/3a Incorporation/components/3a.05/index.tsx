@@ -55,11 +55,18 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
                 oldValues={this.props.shareholders}
                 _innerhtml={
                     <div className="form-group col-12">
-                        <input type="number" className="form-control" value={this.props.total_shares} disabled={true} />
+                        <input type="text" className="form-control text-center" value={`${this.props.total_shares} Total shares`} disabled={true} />
                     </div>
                 }
+                whole_shares={this.props.total_shares}
                 total_shares={this.props.total_shares - this.state.occupied_shares}
-                description="The process of company incorporation takes around 2 days, and the company green box creation will take another 3 to 4 days to produce. Do let us know if you need to setup a company bank account, as we could assist in arranging an appointment with your preferred bank (HSBC, Heng Sang, DBS…).">
+                description="<p>There is a minimum requirement for all company;
+                <br/>
+                1 shareholder (corporate or individual; HK resident or Non-HK resident), and 
+                <br/>
+               1 individual director (HK resident or Non-HK resident) in your company.
+               </p>
+               <p>The shareholder and director can be the same person, but, at least, one director (if only one or if several) must be an individual/natural person.</p>">
                     <ShareholderForm {...this.props} category="" total_shares={this.props.total_shares - this.state.occupied_shares} />
                 </InnerForm>
             </>

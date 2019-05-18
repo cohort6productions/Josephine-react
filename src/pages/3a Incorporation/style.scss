@@ -2,17 +2,88 @@
 @import "../../styles/forms";
 button {
     &.active {
-        background: darkblue;
+        background: #121232;
         color: #fff;
         &:hover {
             background: transparent;
-            color: darkblue;
-            border: 1px solid darkblue;
+            color: #121232;
+            border: 1px solid #121232;
+        }
+    }
+    &.btn--inactive {
+        border: 1px solid #000;
+        border-radius: 4px;
+    }
+}
+
+.modal {
+    form {
+        label {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-size: 14px;
+            line-height: 16px;
+        }
+        p {
+            font-family: 'Made Evolve Sans Regular';
+            font-size: 16px;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+        }
+        .btn--category {
+            width: 200px;
+            font-size: 14px;
+            height: 48px;
+            padding: 0 32px;
+        }
+        .title {
+            font-family: 'MADE Evolve Sans Regular';
+            font-size: 36px;
+            line-height: 43px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.05em;
+            color: #000000;
+            font-weight: 600;
         }
     }
 }
 
 #incorporation {
+    form {
+        label {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+        }
+        .title {
+            font-family: 'MADE Evolve Sans Regular';
+            font-size: 36px;
+            line-height: 43px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.05em;
+            color: #000000;
+        }
+        p {
+            font-family: 'Made Evolve Sans Regular';
+            font-size: 16px;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+        }
+        .share-info {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 0 1rem;
+            background: #F2F2F2;
+            border-radius: 2px;
+        }
+    }
     .overlay {
         position: absolute;
         top: 0;
