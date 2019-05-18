@@ -110,7 +110,7 @@ const Pricing = () => (
                                 <h3 className="text-medium">SPROUT</h3>
                             </div>
                             <div className="card-header__tag bg-theme-medium">
-                                <h2 className="text-light">HKD $7,200</h2>
+                                <h2 className="text-light">HKD $7,250</h2>
                                 <span className="text-light">
                                     The best way to commit to your business when
                                     most is taken care

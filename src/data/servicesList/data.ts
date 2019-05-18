@@ -45,53 +45,53 @@ export const openServHeroProps: IHeroProps = {
 
 export const openServList: IService[] = [
     {
-        itemName: "Comp. Secretary",
+        itemName: "Company Secretary",
         img: compsec,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $2000 /Annu.",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "Reg. Office",
+        itemName: "Registered Office",
         img: regOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $1300 /Annu.",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "HK Com. compIncorp.",
+        itemName: "HK Company Incorporation",
         img: compIncorp,
         description:
             "With low tax rate and simple, straight forward business regulations, Hong Kong is one of the best place for setting up business. ",
         price: "HKD $6000",
         // TODO: add a Link to send them to the service page
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "HK Rep. Office",
+        itemName: "HK Representative Office",
         img: hkRep,
         description:
             "Evaluate and assess the market with a representative office in HK, becore setting up a HK limited company.",
         price: "HKD $8500 /Annu.",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "China Rep. Office",
+        itemName: "China Representative Office",
         img: chinaRep,
         description:
             "Interested in exploring the market in China? We can help you setting up a representative office in China as a stepping stone in this specific market.",
         price: "HKD $8800 /Comp.",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "China WFOE.",
+        itemName: "China Wholly Foreign Owned Enterprises",
         img: wfoe,
         description:
             "Ready to establish a real presence in China? We can help you setting up a proper company in China for easier business relationship with your Chinese stakeholders.",
         price: "HKD $20000 /WFOE.",
-        orderNow: true
+        orderNow: false
     }
 ];
 
@@ -105,20 +105,20 @@ export const mainUpkpHeroProps: IHeroProps = {
 };
 export const mainUpkpServList: IService[] = [
     {
-        itemName: "Comp. Secretary",
+        itemName: "Company Secretary",
         img: compsec,
         description:
             "Remain in line with the company registry requirements, thanks to our professional services!",
         price: "HKD $2000 /Annu.",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "Reg. Office",
+        itemName: "Registered Office",
         img: regOffice,
         description:
             "Start your business the right way! We ensure all the incoming letters and parcels will be taken care of professionally.",
         price: "HKD $1300 /Annu.",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "Virtual Office",
@@ -126,10 +126,10 @@ export const mainUpkpServList: IService[] = [
         description:
             "Have your business handled by our professional front line colleagues while you are striking for your business!",
         price: "HKD $3850 /Annu.",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "Accounting on Cloud",
+        itemName: "Accounting via Cloud Base System",
         img: accountCloud,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
@@ -148,7 +148,7 @@ export const expandBuzHeroProps: IHeroProps = {
 };
 export const expandBuzServList: IService[] = [
     {
-        itemName: "Bank Opening",
+        itemName: "Company Bank Account Opening",
         img: bankOpening,
         description:
             "With the continuous changes of banking requirements, we are here to give you advices and accelerate the banking process.",
@@ -164,12 +164,12 @@ export const expandBuzServList: IService[] = [
         orderNow: false
     },
     {
-        itemName: "Co-work Hotdesk",
+        itemName: "Coworking Space",
         img: coworkHotdesk,
         description:
             "Another great feature on our professional host services is to help you make the most of your working time. We offer flexible and personalized hot desk for startups and solopreneurs.",
         price: "HKD $2800 /Mo.",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "Dedicated Desk",
@@ -177,7 +177,7 @@ export const expandBuzServList: IService[] = [
         description:
             "We off you the flexibility and exposure of an open space, while benefiting of the serviced office facilities.",
         price: "HKD $4800 /Mo.",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "Payroll & MPF",
@@ -196,12 +196,12 @@ export const expandBuzServList: IService[] = [
         orderNow: false
     },
     {
-        itemName: "HK Rep. Office",
+        itemName: "Hong Kong Representative Office",
         img: hkRep,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8500",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "Auditing Services",
@@ -221,7 +221,7 @@ export const visaServHeroProps: IHeroProps = {
 };
 export const visaServList: IService[] = [
     {
-        itemName: "HK Visa",
+        itemName: "Hong Kong Visa",
         img: visa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
@@ -242,15 +242,15 @@ export const visaServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $5000",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "Import Export Licence",
+        itemName: "Import and Export Licence",
         img: importExport,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $5000",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "HK Trademark",
@@ -258,7 +258,7 @@ export const visaServList: IService[] = [
         description:
             "Do you need a trademark for your intellectual properties?",
         price: "HKD $6500",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "China Trademark",
@@ -266,7 +266,7 @@ export const visaServList: IService[] = [
         description:
             "Do you need a trademark for your intellectual properties?",
         price: "HKD $6500",
-        orderNow: true
+        orderNow: false
     }
 ];
 
@@ -279,20 +279,20 @@ export const chinaHeroProps: IHeroProps = {
 };
 export const chinaServList: IService[] = [
     {
-        itemName: "China Rep. Office",
+        itemName: "China Representative Office",
         img: chinaRepOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8800",
-        orderNow: true
+        orderNow: false
     },
     {
-        itemName: "China WFOE",
+        itemName: "China Wholly Foreign Owned Enterprises",
         img: wfoe,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $20000",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "Translation Services",
@@ -321,12 +321,12 @@ export const leaveHeroProps: IHeroProps = {
 };
 export const leaveServList: IService[] = [
     {
-        itemName: "Deregistration of HK Ltd.",
+        itemName: "De-registration of Hong Kong Limited",
         img: deregistration,
         description:
             "Leaving Hong Kong for good? Let us take care of the administrative burden for your company before you depart.",
         price: "HKD $3500",
-        orderNow: true
+        orderNow: false
     },
     {
         itemName: "Warehouse Solutions",
