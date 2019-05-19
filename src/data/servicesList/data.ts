@@ -10,9 +10,9 @@ import accountCloud from "./img/accountingCloud.jpg";
 import audit from "./img/audit.jpg";
 import bankOpening from "./img/bankOpening.jpg";
 import chinaRep from "./img/chinaRep.jpg";
-import chinaRepOffice from "./img/chinaRepOffice.jpg";
+import chinaRepOffice from "./img/chinaRep.jpg";
 import chinaTrademark from "./img/chinaTrademark.jpg";
-// import chinaVisa from "./img/chinaVisa.jpg";
+import chinaVisa from "./img/chinaVisa.jpg";
 import compIncorp from "./img/compIncorp.jpg";
 import compsec from "./img/compSec.jpg";
 import coworkHotdesk from "./img/coworkHotdesk.jpg";
@@ -20,7 +20,7 @@ import dedicateDesk from "./img/dedicatedDesk.jpg";
 import deregistration from "./img/deregistration.jpg";
 import hkRep from "./img/hkRep.jpg";
 import hkTrademark from "./img/hkTrademark.jpg";
-// import hkVisa from "./img/hkVisa.jpeg";
+import hkVisa from "./img/hkVisa.jpg";
 import importExport from "./img/importExport.jpg";
 import notary from "./img/notary.jpg";
 import payrollMfp from "./img/payrollMpf.jpg";
@@ -31,7 +31,7 @@ import servicedOffice from "./img/servicedOffice.jpg";
 import translation from "./img/translation.jpg";
 import venueSpaces from "./img/venueSpaces.jpg";
 import virtualOffice from "./img/virtualOffice.jpg";
-import visa from "./img/visa.jpg";
+// import visa from "./img/visa.jpg";
 import warehouse from "./img/warehouse.jpg";
 import wfoe from "./img/WFOE.jpg";
 
@@ -222,7 +222,7 @@ export const visaServHeroProps: IHeroProps = {
 export const visaServList: IService[] = [
     {
         itemName: "Hong Kong Visa",
-        img: visa,
+        img: hkVisa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $20000",
@@ -230,7 +230,7 @@ export const visaServList: IService[] = [
     },
     {
         itemName: "China Visa",
-        img: visa,
+        img: chinaVisa,
         description:
             "We arrange China visa applications for the ease of our clietns that are required to travel into China for differnt purposes.",
         price: "HKD $800",

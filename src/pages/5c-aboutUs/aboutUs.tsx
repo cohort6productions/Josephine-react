@@ -97,30 +97,30 @@ const Testimonials = (props: any) => {
     );
 };
 
-const List = () => (
-    <div className="container-fluid section-padding-tb96">
-        <div className="container">
-            <div className="row">
-                <div className="border-left border-warning col-sm-6 col-md-3">
-                    <h2 className="text-highlight">2.2K+</h2>
-                    <h4>Audit Reports</h4>
-                </div>
-                <div className="border-left border-warning col-sm-6 col-md-3">
-                    <h2 className="text-highlight">1.5K+</h2>
-                    <h4>Incorporated Companies</h4>
-                </div>
-                <div className="border-left border-warning col-sm-6 col-md-3">
-                    <h2 className="text-highlight">1K+</h2>
-                    <h4>China Visa Application</h4>
-                </div>
-                <div className="border-left border-warning col-sm-6 col-md-3">
-                    <h2 className="text-highlight">15K+</h2>
-                    <h4>Incorporated Companies</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-);
+// const List = () => (
+//     <div className="container-fluid section-padding-tb96">
+//         <div className="container">
+//             <div className="row">
+//                 <div className="border-left border-warning col-sm-6 col-md-3">
+//                     <h2 className="text-highlight">2.2K+</h2>
+//                     <h4>Audit Reports</h4>
+//                 </div>
+//                 <div className="border-left border-warning col-sm-6 col-md-3">
+//                     <h2 className="text-highlight">1.5K+</h2>
+//                     <h4>Incorporated Companies</h4>
+//                 </div>
+//                 <div className="border-left border-warning col-sm-6 col-md-3">
+//                     <h2 className="text-highlight">1K+</h2>
+//                     <h4>China Visa Application</h4>
+//                 </div>
+//                 <div className="border-left border-warning col-sm-6 col-md-3">
+//                     <h2 className="text-highlight">15K+</h2>
+//                     <h4>Incorporated Companies</h4>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// );
 
 // Taken from components/hero
 const heroProps: IHeroProps = {
@@ -137,7 +137,7 @@ export default class AboutUs extends React.PureComponent {
                 <Hero {...heroProps} />
                 <Team list={teamMembers} />
                 <Testimonials list={testimonial} />
-                <List />
+                {/* <List /> */}
                 <Subscription />
             </>
         );
