@@ -86,7 +86,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-default mx-auto" onClick={selectPrice({type: 'seed', price: 6000})}>Select Seed</button>
+                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'seed', price: 6000})}>Select Seed</button>
                                 </div>
                             </div>
 
@@ -165,7 +165,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-default mx-auto" onClick={selectPrice({type: 'sprout', price: 7200})}>Select Sprout</button>
+                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'sprout', price: 7200})}>Select Sprout</button>
                                 </div>
                             </div>
                         </div>
@@ -243,7 +243,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-default mx-auto" onClick={selectPrice({type: 'grow', price: 16500})}>Select Grow</button>
+                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'grow', price: 16500})}>Select Grow</button>
                                 </div>
                             </div>
                         </div>

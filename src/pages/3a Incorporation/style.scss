@@ -17,39 +17,73 @@ button {
 }
 
 .modal {
-    form {
-        label {
+    .upload-btn {
+        font-family: 'Open Sans', sans-serif;
+        width: 165px;
+        font-size: 14px;
+        padding: 12px 0;
+        line-height: 16px;
+        vertical-align: middle;
+        letter-spacing: 0.5px;
+        height: 43px;
+    }
+    .btn {
+        &.active {
+            background: #121232;
+            color: #fff;
+            &:hover {
+                background: transparent;
+                color: #121232;
+                border: 1px solid #121232;
+            }
+        }
+        &-grey {
+            background: #DADADA;
             font-family: 'Open Sans', sans-serif;
-            font-style: normal;
+            font-style: 'semi-bold';
             font-size: 14px;
             line-height: 16px;
-        }
-        p {
-            font-family: 'Made Evolve Sans Regular';
-            font-size: 16px;
-            line-height: 16px;
-            letter-spacing: 0.05em;
-        }
-        .btn--category {
-            width: 200px;
-            font-size: 14px;
-            height: 48px;
-            padding: 0 32px;
-        }
-        .title {
-            font-family: 'MADE Evolve Sans Regular';
-            font-size: 36px;
-            line-height: 43px;
-            display: flex;
             align-items: center;
-            letter-spacing: 0.05em;
-            color: #000000;
-            font-weight: 600;
+            display: flex;
         }
     }
 }
 
+form {
+    label {
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    p {
+        font-family: 'Made Evolve Sans Regular';
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0.05em;
+    }
+    .btn--category {
+        width: 200px;
+        font-size: 14px;
+        height: 48px;
+        padding: 0 32px;
+    }
+    .title {
+        font-family: 'MADE Evolve Sans Regular';
+        font-size: 36px;
+        line-height: 43px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.05em;
+        color: #000000;
+        font-weight: 600;
+    }
+}
+
 #incorporation {
+    .progress-bar {
+        background: #495057;
+    }
     form {
         label {
             font-family: 'Open Sans', sans-serif;

@@ -282,15 +282,13 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                         {steps[step] || <div />}
                         <div className="row justify-content-center mx-0 ">
                             <div className="col-12 col-md-8 my-3">
-                                <div className="progress">
+                                <div className="progress w-100">
                                     <div
                                         className="progress-bar"
                                         role="progressbar"
                                         style={{
-                                            width:
-                                                ((step + 1) / steps.length) *
-                                                    100 +
-                                                "%"
+                                            width: ((step + 1) / steps.length) * 100 + "%",
+                                            height: '100%'
                                         }}
                                         aria-valuenow={step}
                                         aria-valuemin={0}

@@ -1,6 +1,6 @@
 import { FormikProps, withFormik } from "formik";
 import * as React from "react";
-import { Modal, ModalBody, ModalHeader, Row } from "reactstrap";
+import { Modal, ModalBody, Row } from "reactstrap";
 import { IStepProps } from "src/Interfaces/FormProps";
 import { IFormValues, IPersonalDetails } from "src/Interfaces/FormValues";
 import ButtonGroup from "../forms/partials/ButtonGroup";
@@ -142,7 +142,7 @@ class MainForm extends React.Component<
                         <button
                             type="button"
                             onClick={this.toggle}
-                            className="btn btn-default"
+                            className="btn btn"
                         >
                             + Add a Director
                         </button>
@@ -151,7 +151,13 @@ class MainForm extends React.Component<
                     {this.props.shareholders.map((el, i) => {
                         return (
                             <div key={i} className="form-group col-12">
-                                <div className="d-flex align-items-center">
+                                <div 
+                                    className="d-flex align-items-center pl-3" 
+                                    style={{
+                                        background: 'rgba(0, 0, 0, 0.25)', 
+                                        borderRadius: '4px', 
+                                        height: '50px'
+                                    }}>
                                     {
                                         el.category === "personal"
                                         ? el.firstname + " (Individual)"
@@ -161,13 +167,13 @@ class MainForm extends React.Component<
                                         !this.existsInDirectorArray(el) ?
                                         <button
                                             type="button"
-                                            className="btn btn-default ml-auto"
+                                            className="btn ml-auto"
                                             onClick={this.handleShareholder.bind(
                                                 this,
                                                 el
                                             )}
                                         >
-                                            Add
+                                            <img src="/icons/add.svg" />
                                         </button> : ''
                                     }
                                 </div>
@@ -179,18 +185,12 @@ class MainForm extends React.Component<
                         return (
                             <div
                                 key={i}
-                                className="col-12 d-flex align-items-center my-3"
+                                className="col-12 d-flex align-items-center mb-2 ml-3"
                             >
                                 {obj.category === 'personal'
                                     ? obj.firstname
                                     : obj.companyname}
-                                <button
-                                    type="button"
-                                    className="btn btn-default ml-auto"
-                                    onClick={this.delete.bind(this, i)}
-                                >
-                                    delete
-                                </button>
+                                <button type="button" className="btn d-flex ml-auto" onClick={this.delete.bind(this,i)}><img src="/icons/delete.svg"/></button>
                             </div>
                         );
                     })}
@@ -200,51 +200,25 @@ class MainForm extends React.Component<
                         toggle={this.toggle}
                         size="lg"
                     >
-                        <ModalHeader toggle={this.toggle}>
-                            Director information
-                        </ModalHeader>
                         <ModalBody>
                             <div className="container">
-                                <form>
+                                <form className="col-12 col-md-10 mx-auto">
                                     <Row>
-                                        <div className="col-md-6 mb-3">
-                                            <button
-                                                type="button"
-                                                className={`btn btn-default w-100 ${
-                                                    activeTab === "personal"
-                                                        ? "active"
-                                                        : ""
-                                                }`}
-                                                onClick={this.handleFormTab.bind(
-                                                    this,
-                                                    "personal"
-                                                )}
-                                            >
-                                                Personal
-                                            </button>
-                                        </div>
-                                        <div className="col-md-6 mb-3">
-                                            <button
-                                                type="button"
-                                                className={`btn btn-default w-100 ${
-                                                    activeTab === "corporate"
-                                                        ? "active"
-                                                        : ""
-                                                }`}
-                                                onClick={this.handleFormTab.bind(
-                                                    this,
-                                                    "corporate"
-                                                )}
-                                            >
-                                                Corporate
-                                            </button>
+                                        <h1 className="col-12 my-3 text-center">Add a director</h1>
+                                        <div className="form-group col-12 row justify-content-center">
+                                            <div className="col-auto px-0">
+                                                <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'personal' ? 'active': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal (Natural People)</button>
+                                            </div>
+                                            <div className="col-auto px-0">
+                                                <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'corporate' ? 'active': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
+                                            </div>
                                         </div>
                                         <DirectorForm
                                             {...this.props}
                                             category={activeTab}
                                         />
-                                        <div className="form-group col-12">
-                                            <button type="submit" onClick={this.handleSubmit} className="btn btn-default" color="primary" >Submit</button>
+                                        <div className="form-group col-12 text-center">
+                                            <button type="submit" onClick={this.handleSubmit} className="btn btn--incorp" color="primary">Confirm director's information</button>
                                         </div>
                                     </Row>
                                 </form>

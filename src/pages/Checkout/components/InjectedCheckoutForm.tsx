@@ -71,13 +71,10 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                 })
             }
         }catch(error) {
-            // tslint:disable-next-line:no-console
-            console.log(error)
             this.setState({
                 loading: false,
                 errorMessage: error
             })
-            
         }
     }
 

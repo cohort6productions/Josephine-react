@@ -34,12 +34,12 @@ const ShareholderForm = (
 
     return (
         <>
-            <div className="col-12 mt-3">
-                <div className="title">Personal information</div>
-            </div>
             {
                 props.category === "personal" ? 
                 <>
+                    <div className="col-12 mt-3">
+                        <div className="title">Personal information</div>
+                    </div>
                     <div className="form-group col-12 col-md-6">
                         <label>First name</label>
                         <Field
@@ -59,6 +59,9 @@ const ShareholderForm = (
                 </>
                 : 
                 <>
+                    <div className="col-12 mt-3">
+                        <div className="title">Company information</div>
+                    </div>
                     <div className="form-group col-12">
                         <label>Company name</label>
                         <Field
@@ -152,14 +155,20 @@ const ShareholderForm = (
                 />
             </div>
 
+            <div className="col-12 mt-3">
+                <div className="title">Share composition</div>
+            </div>
+
             <div className="form-group col-12">
-                <label>Share compositions</label>
-                <Field
-                    type="number"
-                    className="form-control"
-                    name="share_composition"
-                />
-                /{props.total_shares}
+                <label>Amount of share capital subscribed</label>
+                <div className="input-group">
+                    <Field
+                        type="number"
+                        className="form-control"
+                        name="share_composition"
+                    />
+                    <span className="btn btn-grey rounded-right" style={{borderRadius: 0}}>/{props.total_shares}</span>
+                </div>
                 <br/>
                 {getIn(errors, 'share_composition') && getIn(touched, 'share_composition') && <small className="text-danger small">{getIn(errors, 'share_composition')}</small> }
             </div>
@@ -172,65 +181,95 @@ const ShareholderForm = (
                 <>
                     <div className="form-group col-12">
                         <label>Identity document</label>
-                        <input 
+
+                        <div className="input-group">
+                            <label className="input-group-btn">
+                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
+                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="identity" accept={ACCEPT_FILETYPE} onChange={handleFile('identity') }  style={{display: 'none' }} />
+                                </span>
+                            </label>
+                            <input type="text" className="form-control" />
+                        </div>
+                        {/* <input 
                             name="identity" 
                             type="file" 
                             onChange={handleFile('identity') } 
                             className="form-control-file" 
                             accept={ACCEPT_FILETYPE}
                             />
-                    
+                     */}
                         {getIn(errors, 'identity') && getIn(touched, 'identity') ? <small className="text-danger small">{getIn(errors, 'identity')}</small> : ''}
                     </div>
 
                     <div className="form-group col-12">
                         <label>Proof of address</label>
-
-                        <input 
+                        <div className="input-group">
+                            <label className="input-group-btn">
+                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
+                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="address_proof" accept={ACCEPT_FILETYPE} onChange={handleFile('address_proof') }  style={{display: 'none' }} />
+                                </span>
+                            </label>
+                            <input type="text" className="form-control" />
+                        </div>
+                        {/* <input 
                             name="address_proof" 
                             type="file" 
                             onChange={handleFile('address_proof') } 
                             className="form-control-file"
                             accept={ACCEPT_FILETYPE}
-                            />
+                            /> */}
                         {getIn(errors, 'address_proof') && getIn(touched, 'address_proof') ? <small className="text-danger small">{getIn(errors, 'address_proof')}</small> : ''}
 
                     </div>
                 </>
              : 
-                <div>
+                <>
                     <div className="form-group col-12">
                         <label>Business License</label>
-                        {/* <Field name="business_license" type="file" className="form-control-file" /> */}
 
-                        <input 
+                        <div className="input-group">
+                            <label className="input-group-btn">
+                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
+                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="business_license" accept={ACCEPT_FILETYPE} onChange={handleFile('business_license') }  style={{display: 'none' }} />
+                                </span>
+                            </label>
+                            <input type="text" className="form-control" />
+                        </div>
+                        {/* <input 
                             name="business_license" 
                             type="file" 
                             onChange={handleFile('business_license') } 
                             className="form-control-file" 
                             accept={ACCEPT_FILETYPE}
-                            />
+                            /> */}
                         {getIn(errors, 'business_license') && getIn(touched, 'business_license') ? <small className="text-danger small">{getIn(errors, 'business_license')}</small> : ''}
 
                     </div>
 
                     <div className="form-group col-12">
                         <label>Article of association</label>
-                        {/* <Field name="article_of_associate" type="file" className="form-control-file" /> */}
-
-                        <input 
+                        
+                        <div className="input-group">
+                            <label className="input-group-btn">
+                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
+                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="article_of_associate" accept={ACCEPT_FILETYPE} onChange={handleFile('article_of_associate') }  style={{display: 'none' }} />
+                                </span>
+                            </label>
+                            <input type="text" className="form-control" />
+                        </div>
+                        {/* <input 
                             name="article_of_associate" 
                             type="file" 
                             onChange={handleFile('article_of_associate')} 
                             className="form-control-file" 
                             accept={ACCEPT_FILETYPE}
-                            />
+                            /> */}
                         {getIn(errors, 'article_of_associate') && getIn(touched, 'article_of_associate') ? <small className="text-danger small">{getIn(errors, 'article_of_associate')}</small> : ''}
                     </div>
-                </div>
+                </>
             }
             <div className="form-group col-12 text-center">
-                <button type="submit" className="btn btn--incorp" color="primary" >Submit</button>
+                <button type="submit" className="btn btn--incorp" color="primary" >Confirm shareholder's information</button>
             </div>
         </>
     );

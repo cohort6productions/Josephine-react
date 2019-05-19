@@ -175,7 +175,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                        </div>
 
                        <div className="form-group col-12">
-                            <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and I agree to the Terms and conditions.
+                            <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and that I accept the <a href="#">Terms & Conditions</a>.
                             <br/>
                             { this.state.submitted && getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
                        </div>
