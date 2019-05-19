@@ -38,16 +38,13 @@ class Start extends React.Component<{nextStep: () => void}, IStartState>{
     public nextStep = () => {
         const {companyname, address, copies, phone} = this.state;
 
-        this.props.nextStep()
-
         if (!companyname || !address || !copies || !phone) {
             this.setState({
                 errorMessage: 'Please complete the checklist before proceeding'
             }) 
+        } else {
+            this.props.nextStep()
         }
-        // else {
-        //     this.props.nextStep()
-        // }
 
     }
 
