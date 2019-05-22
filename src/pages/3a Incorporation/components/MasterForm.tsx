@@ -55,6 +55,7 @@ const SignupSchema = Yup.object().shape({
     }),
     others: Yup.object().shape({
         fund: Yup.string().required("Fund information is required"),
+        optional_fund: Yup.string().required('Fund information is required'),
         criminal_record: Yup.string().required("Criminal record is required"),
         business_relationship: Yup.string().required(
             "Relationship status is required"
@@ -301,9 +302,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                     <Modal
                         isOpen={this.state.modal}
                         toggle={this.toggle}
-                        size="lg"
                     >
-                        <ModalHeader toggle={this.toggle}>Checkout</ModalHeader>
+                        <ModalHeader toggle={this.toggle} className="text-center">Checkout</ModalHeader>
                         <ModalBody>
                             <Checkout
                                 paymentAmount={paymentAmount}
@@ -351,6 +351,7 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             },
             others: {
                 fund: "",
+                optional_fund: '',
                 criminal_record: "",
                 business_relationship: ""
             },

@@ -156,15 +156,20 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
 
                        <div className="col-12">
                             <h2> Other Details</h2>
-                            {
-                               
-                                Object.keys(this.props.values.others).map((i,j) => (
-                                    <div className="row" key={i}>
-                                        <div className="col-6 text-right label" >{i}</div>
-                                         <div className="col-6">{this.props.values.others[i]}</div>
-                                    </div>
-                                ))
-                            }
+                            
+                            <div className="row">
+                                <div className="col-6 text-right label">Funds</div>
+                                <div className="col-6">{this.props.values.others.fund} {this.props.values.others.optional_fund}</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-6 text-right label">Criminal Record</div>
+                                <div className="col-6">{this.props.values.others.criminal_record}</div>
+                            </div>
+                            <div className="row">
+                                <div className="col-6 text-right label">Business Relationship</div>
+                                <div className="col-6">{this.props.values.others.business_relationship}</div>
+                            </div>
+                            
                             <hr/>
                        </div>
 

@@ -61,6 +61,7 @@ interface ICompanySecretary {
 
 interface IOtherValues {
     fund: string;
+    optional_fund: string;
     criminal_record: string;
     business_relationship: string;
 }
