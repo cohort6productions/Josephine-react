@@ -113,11 +113,6 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                     </div>
 
                     <div className="form-group">
-                        <label>Total Amount (HKD) </label> 
-                        <input type="text" className="form-control" disabled={true} value={this.props.paymentAmount} />
-                    </div>
-
-                    <div className="form-group">
                         <label>Name</label>
                         <input className="form-control" type="text" name="name" onChange={this.handleFieldChange}/>
                     </div>
@@ -127,10 +122,10 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                     </div>
                     <div className="form-group">
                         <label>Card Details</label>
-                        <CardElement onChange={this.handleChange} />
+                        <CardElement onChange={this.handleChange}  hidePostalCode={true} />
                     </div>
                     
-                    <button type="submit" disabled={this.state.loading} className="btn btn--stripe">Confirm order</button>
+                    <button type="submit" disabled={this.state.loading} className="btn btn--stripe">Pay HK${this.props.paymentAmount}</button>
                 </form>
             </div>
         );

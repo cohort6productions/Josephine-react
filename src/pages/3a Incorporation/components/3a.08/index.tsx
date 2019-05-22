@@ -5,7 +5,7 @@ import ButtonGroup from "../forms/partials/ButtonGroup";
 import { IStepProps } from "src/Interfaces/FormProps";
 
 interface IOtherState {
-    fund: string;
+    optional_fund: string;
     criminal_record: string;
     business_relationship: string;
     submitted: boolean;
@@ -17,11 +17,12 @@ class Step7 extends React.Component<
     constructor(props: IStepProps & FormikProps<IFormValues>) {
         super(props);
         this.state = {
-            fund: "",
+            optional_fund: "",
             criminal_record: "",
             business_relationship: "",
-            submitted: false
+            submitted: false,
         };
+        this.handleCheckbox = this.handleCheckbox.bind(this);
     }
 
     public handleChange = (
@@ -34,8 +35,42 @@ class Step7 extends React.Component<
             IOtherState,
             any
         >);
+
         this.props.setFieldValue(fieldName, event.target.value);
+        
     };
+
+    public handleCheckbox = (e: any) => {
+        let strarray = this.props.values.others[e.target.name]
+        if (!!strarray) {
+            strarray = this.props.values.others[e.target.name].split(',')
+        } else {
+            strarray = []
+        }
+
+        if (e.target.checked) {
+            if (!strarray.includes(e.target.value)) {
+                const mutated = [...strarray, e.target.value].toString()
+                this.props.setFieldValue(`others.${e.target.name}`, mutated)
+            }
+        }else {
+            const mutated = strarray.filter((el:string) => el !== e.target.value).toString()
+            this.props.setFieldValue(`others.${e.target.name}`, mutated)
+        }
+    }
+
+    public handleFunds = (e:any) => {
+        const strarray = this.props.values[e.target.name].split(',')
+        if (e.target.checked) {
+            if (!strarray.includes(e.target.value)) {
+                const mutated = [...strarray, e.target.value].toString()
+                this.props.setFieldValue(e.target.name, mutated)
+            }
+        }else {
+            const mutated = strarray.filter((el:string) => el !== e.target.value).toString()
+            this.props.setFieldValue(e.target.name, mutated)
+        }
+    }
 
     public componentDidMount = () => {
         this.props.validateForm();
@@ -46,7 +81,11 @@ class Step7 extends React.Component<
         const buttonProps = {
             back: this.props.back,
             nextStep: () => {
-                if (!getIn(errors, "others")) {
+                if (
+                    (!getIn(errors, "others.fund") || !getIn(errors, "others.optional_fund")) 
+                    && !getIn(errors, "others.criminal_record")
+                    && !getIn(errors, "others.business_relationship")
+                    ) {
                     this.props.nextStep();
                 }
                 this.setState({
@@ -66,45 +105,47 @@ class Step7 extends React.Component<
                             Please check relevent box:
                         </label>
                         <div>
-                            <Field
-                                type="radio"
-                                name="others.fund"
+                            <input
+                                type="checkbox"
+                                name="fund"
                                 value="savings"
+                                onChange={this.handleCheckbox}
                             />{" "}
                             Savings
                         </div>
                         <div>
-                            <Field
-                                type="radio"
-                                name="others.fund"
+                            <input
+                                type="checkbox"
+                                name="fund"
                                 value="investors"
+                                onChange={this.handleCheckbox}
                             />{" "}
                             Investors
                         </div>
                         <div>
-                            <Field
-                                type="radio"
-                                name="others.fund"
+                            <input
+                                type="checkbox"
+                                name="fund"
                                 value="borrowing"
+                                onChange={this.handleCheckbox}
                             />{" "}
                             Borrowing
                         </div>
                         <div>
-                            <Field
-                                type="radio"
-                                name="others.fund"
-                                value={this.state.fund}
+                            <input
+                                type="checkbox"
+                                value={this.state.optional_fund}
                             />{" "}
                             Other, Please Specify
                             <input
                                 type="text"
                                 className="form-control"
-                                onChange={this.handleChange.bind(this, "fund")}
+                                onChange={this.handleChange.bind(this, "optional_fund")}
                             />
                         </div>
                         {this.state.submitted &&
-                        getIn(errors, "others.fund") &&
-                        getIn(touched, "others.fund") ? (
+                        getIn(errors, "others.fund") && getIn(errors, "others.optional_fund") &&
+                        getIn(touched, "others.fund") && getIn(touched, "others.optional_fund") ? (
                             <small className="text-danger small">
                                 {getIn(errors, "others.fund")}
                             </small>
