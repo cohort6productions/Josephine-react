@@ -1,48 +1,79 @@
 @import "../../styles/variables";
 @import "../../styles/forms";
-
 button {
+    &.btn {
+        font-family: 'MADE Evolve Sans Regular';
+        font-size: 14px;
+        line-height: 16px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 24px 48px;
+    }
+    &.btn--inactive {
+        border-radius: 4px;
+        color: #F88C2A;
+        background: #FAFAFA;
+    }
     &.active {
-        background: #121232;
+        background: #F88C2A;
         color: #fff;
-
+        border-radius: 4px;
         &:hover {
             background: transparent;
-            color: #121232;
-            border: 1px solid #121232;
+            color: #F88C2A;
+            border: 1px solid #F88C2A;
         }
     }
-
-    &.btn--inactive {
-        border: 1px solid #000;
+    &.btn--category {
+        background: #FAFAFA;
         border-radius: 4px;
+        color: #F88C2A;
+        &.btn--incorp {
+            background: #F88C2A;
+            color: #fff;
+        }
     }
 }
 
 .modal {
+    &.modal--incorp {
+        .modal-dialog {
+            max-width: 1024px !important;
+        }
+    }
     .upload-btn {
-        font-family: 'Open Sans', sans-serif;
         width: 165px;
         font-size: 14px;
-        padding: 12px 0;
         line-height: 16px;
         vertical-align: middle;
         letter-spacing: 0.5px;
         height: 43px;
+        background: #663399;
+        border-radius: 4px;
+        color: #FAFAFA;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
     }
-
     .btn {
         &.active {
             background: #121232;
             color: #fff;
-
             &:hover {
                 background: transparent;
                 color: #121232;
                 border: 1px solid #121232;
             }
         }
-
         &-grey {
             background: #DADADA;
             font-family: 'Open Sans', sans-serif;
@@ -56,53 +87,113 @@ button {
 }
 
 form {
-    label {
-        font-family: 'Open Sans', sans-serif;
-        font-style: normal;
-        font-size: 14px;
-        line-height: 16px;
+    font-family: 'MADE Evolve Sans Regular';
+    .btn--category {
+        background: #FAFAFA;
+        border-radius: 4px;
+        color: #F88C2A;
+        &.btn--incorp {
+            background: #F88C2A;
+            color: #fff;
+        }
     }
-
+    label {
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 2px;
+    }
+    .small {
+        font-size: 13px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        letter-spacing: 1px;
+        color: #000000;
+    }
+    input,
+    select,
+    textarea {
+        &.form-control {
+            border: 1px solid #FAFAFA;
+            box-sizing: border-box;
+            border-radius: 4px;
+            &::placeholder {
+                font-size: 18px;
+                line-height: 20px;
+                /* identical to box height, or 111% */
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.25px;
+                color: #919191;
+            }
+        }
+        border: 1px solid #FAFAFA;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+    .title {
+        font-family: 'MADE Evolve Sans Regular';
+        font-size: 36px;
+        line-height: 42px;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 32px;
+    }
     p {
         font-family: 'Made Evolve Sans Regular';
         font-size: 16px;
         line-height: 16px;
         letter-spacing: 0.05em;
     }
-
-    .btn--category {
-        width: 200px;
-        font-size: 14px;
-        height: 48px;
-        padding: 0 32px;
-    }
-
-    .title {
-        font-family: 'MADE Evolve Sans Regular';
-        font-size: 36px;
-        line-height: 43px;
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.05em;
-        color: #000000;
+    .share-info {
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
         font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 0 1rem;
+        background: #F2F2F2;
+        border-radius: 2px;
+    }
+    .form-group {
+        margin-bottom: 16px;
     }
 }
 
 #incorporation {
-    .progress-bar {
-        background: #495057;
-    }
-
-    form {
-        label {
-            font-family: 'Open Sans', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 16px;
+    .progress {
+        max-width: 526px;
+        .progress-bar {
+            background: #663399;
         }
-
+    }
+    form {
+        font-family: 'MADE Evolve Sans Regular';
+        label {
+            font-size: 24px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 2px;
+        }
+        input,
+        select {
+            border: 1px solid #FAFAFA;
+            box-sizing: border-box;
+            border-radius: 4px;
+            &::placeholder {
+                font-size: 18px;
+                line-height: 20px;
+                /* identical to box height, or 111% */
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.25px;
+                color: #919191;
+            }
+        }
         .title {
             font-family: 'MADE Evolve Sans Regular';
             font-size: 36px;
@@ -112,14 +203,12 @@ form {
             letter-spacing: 0.05em;
             color: #000000;
         }
-
         p {
             font-family: 'Made Evolve Sans Regular';
             font-size: 16px;
             line-height: 16px;
             letter-spacing: 0.05em;
         }
-
         .share-info {
             font-family: 'Open Sans', sans-serif;
             font-style: normal;
@@ -130,8 +219,10 @@ form {
             background: #F2F2F2;
             border-radius: 2px;
         }
+        .form-group {
+            margin-bottom: 32px;
+        }
     }
-
     .overlay {
         position: absolute;
         top: 0;
@@ -140,70 +231,72 @@ form {
         background: #333;
         opacity: .4;
     }
-
     h1 {
+        font-family: 'MADE Evolve Sans Regular';
+        font-size: 50px;
+        line-height: 58px;
+        /* identical to box height */
+        color: #000000;
         @include media-breakpoint-down(sm) {
             font-size: 2.5rem;
         }
     }
-
+    .others {
+        input[type="radio"] {
+            -webkit-appearance: checkbox;
+            /* Chrome, Safari, Opera */
+            -moz-appearance: checkbox;
+            /* Firefox */
+            -ms-appearance: checkbox;
+            /* not currently supported */
+        }
+    }
     .breadcrumb {
         &.collapsed {
             li {
                 overflow: hidden;
-
                 &:after a {
                     background: rgb(227, 227, 227);
                     background: linear-gradient(90deg, rgba(227, 227, 227, 0.4) 0%, rgba(227, 227, 227, 1) 35%);
                     padding-left: 1em;
                 }
-
                 a {
                     max-width: 2em;
                     transition: max-width 800ms ease-in-out;
                 }
-
                 a:focus,
                 &:hover a {
                     max-width: 1000px;
                 }
-
                 &:hover:after {
                     padding-left: 0em;
                     background: transparent;
                 }
-
                 &.active a {
                     font-weight: 900;
                 }
             }
         }
-
         .breadcrumb-item {
             display: inline-block;
             position: relative;
             padding-right: 2em;
             margin: 0;
-
             a {
                 text-decoration: none;
                 display: inline-block;
                 color: #333;
                 white-space: nowrap;
-
                 &:hover {
-                    text-decoration: underline;
+                    text-decoration: none;
                 }
             }
-
             &::before a {
                 content: ">";
             }
-
             &:first-child:before a {
                 content: "";
             }
-
             &.active {
                 a {
                     max-width: 1000px;
@@ -212,12 +305,22 @@ form {
             }
         }
     }
-
     .label {
         opacity: .7;
     }
+    .control-box {
+        background: #FAFAFA;
+        border-radius: 4px;
+        padding: 0 17px;
+        height: 48px;
+        button {
+            &:focus,
+            &:active {
+                border: none;
+            }
+        }
+    }
 }
-
 
 .form-control::placeholder {
     color: #eee

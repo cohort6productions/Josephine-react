@@ -128,10 +128,10 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
           });
         return (
             <div className="col-12 col-md-8 mx-auto">
-                <h1 className="my-3 text-center">{this.props.title}</h1>
+                <h1 className="my-3">{this.props.title}</h1>
 
                 <div className="row">
-                    <div className="col-12 text-center">
+                    <div className="col-12">
                         <div dangerouslySetInnerHTML={{ __html: this.props.description }} />
                     </div>
 
@@ -140,35 +140,43 @@ class InnerForm extends React.Component<IProps & FormikProps<IPersonalDetails>, 
                     <div className="form-group col-12">
                         {
                             this.props.total_shares > 0 ? 
-                            <button type="button" onClick={this.toggle} className="btn">+ Add a {this.props.field}</button>
+                            <div className="col-12 d-flex align-items-center mb-1 control-box">
+                                Add a {this.props.field}
+                                
+                                <button type="button" className="btn d-flex ml-auto px-0" onClick={this.toggle}><img src="/icons/add.svg"/></button>
+                            </div>
                             : ''
                         }
                     </div>
                     
-                    {
-                        this.state.currentValues.map((obj:any, i) => {
-                            return (
-                                <div key={i} className="col-12 d-flex align-items-center mb-1">
-                                    {obj.category === 'personal' ? `${obj.firstname} ${obj.lastname} (Individual)` : `${obj.companyname} (Corporate)`}
-                                    <span className="share-info ml-auto">Shares: {(obj.share_composition/this.props.whole_shares * 100).toFixed(2)}%</span>
-                                    <button type="button" className="btn d-flex" onClick={this.delete.bind(this,i)}><img src="/icons/delete.svg"/></button>
-                                </div>
-                            )
-                        })
-                    }
+                    <div className="form-group col-12">
+                    
+                        {
+                            this.state.currentValues.map((obj:any, i) => {
+                                return (
+                                    <div key={i} className="col-12 d-flex align-items-center mb-2 control-box">
+                                        {obj.category === 'personal' ? `${obj.firstname} ${obj.lastname} (Individual)` : `${obj.companyname} (Corporate)`}
+                                        <span className="share-info ml-auto">Shares: {(obj.share_composition/this.props.whole_shares * 100).toFixed(2)}%</span>
+                                        <button type="button" className="btn d-flex px-0" onClick={this.delete.bind(this,i)}><img src="/icons/delete.svg"/></button>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
 
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
+
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg" modalClassName="modal--incorp">
                         <ModalBody>
                             <div className="container">
                             <form className="col-12 col-md-10 mx-auto" onSubmit={this.handleSubmit}>
                             <Row>
                                 <h1 className="col-12 my-3 text-center">Add a {this.props.field}</h1>
-                                <div className="form-group col-12 row justify-content-center">
+                                <div className="form-group col-12 row mb-0">
                                     <div className="col-auto px-0">
-                                        <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'personal' ? 'active': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal (Natural People)</button>
+                                        <button type="button" className={`btn btn--category ${activeTab === 'personal' ? 'btn--incorp': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal (Natural People)</button>
                                     </div>
                                     <div className="col-auto px-0">
-                                        <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'corporate' ? 'active': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
+                                        <button type="button" className={`btn btn--category ${activeTab === 'corporate' ? 'btn--incorp': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
                                     </div>
                                 </div>
                                 {children}

@@ -95,16 +95,16 @@ class Step7 extends React.Component<
             }
         };
         return (
-            <div className="col-12 col-md-8 mx-auto">
+            <div className="col-12 col-md-8 mx-auto others">
                 <h1 className="my-3 text-center">Other Information</h1>
 
                 <div className="row">
-                    <div className="form-group col-12">
-                        <label>
+                    <div className="form-group col-12 row">
+                        <label className="col-12">
                             Where do the funds of your business come from?
                             Please check relevent box:
                         </label>
-                        <div>
+                        <div className="col-auto">
                             <input
                                 type="checkbox"
                                 name="fund"
@@ -113,7 +113,7 @@ class Step7 extends React.Component<
                             />{" "}
                             Savings
                         </div>
-                        <div>
+                        <div className="col-auto">
                             <input
                                 type="checkbox"
                                 name="fund"
@@ -122,7 +122,7 @@ class Step7 extends React.Component<
                             />{" "}
                             Investors
                         </div>
-                        <div>
+                        <div className="col-auto">
                             <input
                                 type="checkbox"
                                 name="fund"
@@ -131,7 +131,7 @@ class Step7 extends React.Component<
                             />{" "}
                             Borrowing
                         </div>
-                        <div>
+                        <div className="col-12">
                             <input
                                 type="checkbox"
                                 value={this.state.optional_fund}

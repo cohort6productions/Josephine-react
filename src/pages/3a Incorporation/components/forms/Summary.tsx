@@ -21,7 +21,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
     }
 
     public nextStep = () => {
-        if (!Object.keys(this.props.errors).length) {
+        if (!getIn(this.props.errors, 'terms')) {
             this.props.nextStep()
         }
         this.props.setFieldTouched('terms')
@@ -175,7 +175,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
 
                        <div className="form-group col-12 mt-3">
                             <label>Comments</label>
-
+                            <p>Please comment down below if you have any:</p>
                             <Field className="form-control" component="textarea" name="comments" />
                        </div>
 

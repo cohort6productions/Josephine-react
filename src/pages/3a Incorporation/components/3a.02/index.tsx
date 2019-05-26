@@ -2,15 +2,15 @@ import { Field, FormikProps, getIn } from "formik";
 import * as React from "react";
 import { IFormValues } from "src/Interfaces/FormValues";
 import ButtonGroup from "../forms/partials/ButtonGroup";
+import {countries} from 'src/data/countries';
 
 interface IStep1Props {
-    title: string;
     nextStep: () => void;
     back: () => void;
     setAllFieldsTouched: (key: string) => void;
 }
 const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
-    const { touched, errors, title } = props;
+    const { touched, errors } = props;
 
     React.useEffect(() => {
         props.validateForm();
@@ -28,7 +28,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
 
     return (
         <div className="col-12 col-md-8 mx-auto">
-            <h1 className="my-3 text-center">{title}</h1>
+            <h1 className="my-3">CONTACT INFOMRATION</h1>
 
             <div className="row">
                 <div className="form-group col-12 col-md-6">
@@ -79,21 +79,24 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                             </small>
                         )}
                 </div>
-
+        
                 <div className="form-group col-12 col-md-6">
-                    <label>Country Code*</label>
+                    <label>Country Code *</label>
                     <Field
-                        type="text"
-                        className="form-control"
+                        component="select" 
                         name="personal.country_code"
-                        placeholder="+852"
-                    />
-                    {getIn(touched, "personal.country_code") &&
-                        getIn(errors, "personal.country_code") && (
-                            <small className="text-danger small">
-                                {getIn(errors, "personal.country_code")}
-                            </small>
-                        )}
+                        className="form-control"
+                    >
+                        <option value="" label="Select country code" />
+                        {
+                            countries.map((country:any) => (
+                                <option key={country.name} value={country.callingCodes[0]} label={`${country.name} (${country.callingCodes[0]})`} />
+                            ))
+                        }
+                    </Field>
+                    {getIn(errors, 'personal.country_code') && getIn(touched, 'personal.country_code') && <small className="text-danger small">{getIn(errors, 'personal.country_code')}</small>}
+
+                    {/* <Field type="text" className="form-control" name="personal.country_code" /> */}
                 </div>
 
                 <div className="form-group col-12 col-md-6">

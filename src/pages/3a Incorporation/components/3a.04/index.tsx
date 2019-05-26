@@ -26,20 +26,29 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
         const { errors, touched } = this.props;
         return (
             <div className="col-12 col-md-8 mx-auto">
-                <h1 className="my-3 text-center">Shares Formation</h1>
+                <h1 className="my-3">Shares Formation</h1>
 
                 <div className="row">
-                    <div className="col-12 text-center">
+                    <div className="col-12">
                         <p>In Hong Kong, Companies Ordinance has empowered company shares a highly flexible system for the ownership management of limited companies.</p>
                         <p>The most common arrangement and type is Ordinary Shares of 10,000, each share value of Hk$1, at total of HK$10,000 per company.</p> 
                         <p>At Centre O we adopt Company Registry's suggested version of Articles of Associations, where it stated the shareholders, directors, related members of the responsibilities and rights.</p>
                     </div>
-                    <div className="form-group col-12">
+                    <div className="form-group col-12 col-md-6">
                         <label>Class of shares</label>
                         <Field
                             type="text"
                             className="form-control"
                             name="shares.class"
+                            disabled={true}
+                        />
+                    </div>
+                    <div className="form-group col-12 col-md-6">
+                        <label>Currency of shares</label>
+                        <Field
+                            type="text"
+                            className="form-control"
+                            name="shares.currency"
                             disabled={true}
                         />
                     </div>
