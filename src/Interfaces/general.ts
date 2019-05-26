@@ -4,6 +4,7 @@ export interface IService {
     description: string;
     orderNow: boolean;
     price?: string;
+    sku?: string;
     linkFn?: () => void;
 }
 

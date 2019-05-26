@@ -50,7 +50,8 @@ export const openServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $2000 /Annu.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Registered Office",
@@ -58,7 +59,8 @@ export const openServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $1300 /Annu.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "HK Company Incorporation",
@@ -75,7 +77,8 @@ export const openServList: IService[] = [
         description:
             "Evaluate and assess the market with a representative office in HK, becore setting up a HK limited company.",
         price: "HKD $8500 /Annu.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "China Representative Office",
@@ -83,7 +86,8 @@ export const openServList: IService[] = [
         description:
             "Interested in exploring the market in China? We can help you setting up a representative office in China as a stepping stone in this specific market.",
         price: "HKD $8800 /Comp.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "China Wholly Foreign Owned Enterprises",
@@ -91,7 +95,8 @@ export const openServList: IService[] = [
         description:
             "Ready to establish a real presence in China? We can help you setting up a proper company in China for easier business relationship with your Chinese stakeholders.",
         price: "HKD $20000 /WFOE.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     }
 ];
 
@@ -110,7 +115,8 @@ export const mainUpkpServList: IService[] = [
         description:
             "Remain in line with the company registry requirements, thanks to our professional services!",
         price: "HKD $2000 /Annu.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Registered Office",
@@ -118,7 +124,8 @@ export const mainUpkpServList: IService[] = [
         description:
             "Start your business the right way! We ensure all the incoming letters and parcels will be taken care of professionally.",
         price: "HKD $1300 /Annu.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Virtual Office",
@@ -126,7 +133,8 @@ export const mainUpkpServList: IService[] = [
         description:
             "Have your business handled by our professional front line colleagues while you are striking for your business!",
         price: "HKD $3850 /Annu.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Accounting via Cloud Base System",
@@ -134,7 +142,8 @@ export const mainUpkpServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $800 /Mo.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     }
 ];
 
@@ -169,7 +178,8 @@ export const expandBuzServList: IService[] = [
         description:
             "Another great feature on our professional host services is to help you make the most of your working time. We offer flexible and personalized hot desk for startups and solopreneurs.",
         price: "HKD $2800 /Mo.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Dedicated Desk",
@@ -177,7 +187,8 @@ export const expandBuzServList: IService[] = [
         description:
             "We off you the flexibility and exposure of an open space, while benefiting of the serviced office facilities.",
         price: "HKD $4800 /Mo.",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Payroll & MPF",
@@ -201,7 +212,8 @@ export const expandBuzServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8500",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Auditing Services",
@@ -242,7 +254,8 @@ export const visaServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $5000",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Import and Export Licence",
@@ -250,7 +263,8 @@ export const visaServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $5000",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "HK Trademark",
@@ -258,7 +272,8 @@ export const visaServList: IService[] = [
         description:
             "Do you need a trademark for your intellectual properties?",
         price: "HKD $6500",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "China Trademark",
@@ -266,7 +281,8 @@ export const visaServList: IService[] = [
         description:
             "Do you need a trademark for your intellectual properties?",
         price: "HKD $6500",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     }
 ];
 
@@ -284,7 +300,8 @@ export const chinaServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $8800",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "China Wholly Foreign Owned Enterprises",
@@ -292,7 +309,8 @@ export const chinaServList: IService[] = [
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $20000",
-        orderNow: false
+        orderNow: true,
+        sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Translation Services",
@@ -326,7 +344,7 @@ export const leaveServList: IService[] = [
         description:
             "Leaving Hong Kong for good? Let us take care of the administrative burden for your company before you depart.",
         price: "HKD $3500",
-        orderNow: false
+        orderNow: true, sku: "sku_F8WRZKvH3dwe4Q"
     },
     {
         itemName: "Warehouse Solutions",

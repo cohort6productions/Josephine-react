@@ -34,22 +34,22 @@ export default class ServiceCard extends React.PureComponent<IService> {
                         </div>
 
                         {this.props.orderNow ? (
-                            <a href="mailto:sales@centreo.hk">
-                                <Button className="service-card__footer__cta rounded w-100">
-                                    <span className="button-text text-light all-cap">
-                                        Order now
+
+                            <Button className="service-card__footer__cta rounded w-100" >
+                                <span className="button-text text-light all-cap">
+                                    Order now
                                     </span>
-                                </Button>
-                            </a>
+                            </Button>
+
                         ) : (
-                            <a href="mailto:sales@centreo.hk">
-                                <Button className="service-card__footer__cta rounded w-100">
-                                    <span className="button-text text-light all-cap">
-                                        Contact Us
+                                <a href="mailto:sales@centreo.hk">
+                                    <Button className="service-card__footer__cta rounded w-100">
+                                        <span className="button-text text-light all-cap">
+                                            Contact Us
                                     </span>
-                                </Button>
-                            </a>
-                        )}
+                                    </Button>
+                                </a>
+                            )}
                     </div>
                 </div>
             </div>

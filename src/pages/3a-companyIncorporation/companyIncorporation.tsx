@@ -15,6 +15,9 @@ import CustomButton from "src/components/Atoms/CustomButton/customButton";
 import { Checkmark } from "./img/checkMark";
 import { UncontrolledCollapse } from "reactstrap";
 
+// Helper function
+import { getItem } from "src/helper/helper";
+
 // Data
 import { faqIncorporation } from "src/data/faqs";
 
@@ -23,26 +26,6 @@ const heroProps: IHeroProps = {
     header: "Company incorporation",
     subLine:
         "We assist our clients in company incorporations and consultation services on business maintainance and upkeeping."
-};
-
-const checkout = () => {
-    const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
-    stripe
-        .redirectToCheckout({
-            items: [{ sku: "sku_F8WRZKvH3dwe4Q", quantity: 1 }],
-
-            // Do not rely on the redirect to the successUrl for fulfilling
-            // purchases, customers may not always reach the success_url after
-            // a successful payment.
-            // Instead use one of the strategies described in
-            // https://stripe.com/docs/payments/checkout/fulfillment
-            successUrl: "https://www.ivanoung.io/success",
-            cancelUrl: "https://www.ivanoung.io/canceled"
-        })
-        .then((result: string) => {
-            // tslint:disable-next-line: no-console
-            console.log(result);
-        });
 };
 
 const Pricing = () => (
@@ -61,13 +44,12 @@ const Pricing = () => (
                                     The best way to start the business just to
                                     test the water
                                 </span>
-                                <button
-                                    id="checkout-button-sku_F8WRZKvH3dwe4Q"
-                                    role="link"
-                                    onClick={checkout}
-                                >
-                                    Checkout
-                                </button>
+                                <CustomButton
+                                    text="Get Now"
+                                    fnTrigger={getItem}
+                                    link=""
+                                    variation="primitive"
+                                />
                             </div>
                         </div>
                         <div className="card-body">
@@ -142,6 +124,12 @@ const Pricing = () => (
                                     The best way to commit to your business when
                                     most is taken care
                                 </span>
+                                <CustomButton
+                                    text="Get Now"
+                                    fnTrigger={getItem}
+                                    link=""
+                                    variation="primitive"
+                                />
                             </div>
                         </div>
                         <div className="card-body">
@@ -216,6 +204,12 @@ const Pricing = () => (
                                     Kickback and relax, everything is taken care
                                     for you
                                 </span>
+                                <CustomButton
+                                    text="Get Now"
+                                    fnTrigger={getItem}
+                                    link=""
+                                    variation="primitive"
+                                />
                             </div>
                         </div>
                         <div className="card-body">
