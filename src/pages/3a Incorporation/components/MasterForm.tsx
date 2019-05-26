@@ -36,12 +36,24 @@ const SignupSchema = Yup.object().shape({
         email: Yup.string()
             .email("Invalid email")
             .required("Email is required"),
-        phone: Yup.string()
-            .max(10, "too long")
-            .required("Phone number is required")
+        phone: Yup.number()
+            .typeError("That doesn't look like a phone number")
+            .positive("A phone number can't start with a minus")
+            .integer("A phone number can't include a decimal point")
+            .required("Phone number is required"),
+        country_code: Yup.number()
+            .typeError("That doesn't look like a vaid area code")
+            .positive("An area code can't start with a minus")
+            .integer("An area code can't include a decimal point")
+            .required("Area code is required")
     }),
     company: Yup.object().shape({
-        companyname_1: Yup.string().required("Company name is required"),
+        companyname_1: Yup.string().required(
+            "First preference company name is required"
+        ),
+        companyname_2: Yup.string().required(
+            "Second preference company name is required"
+        ),
         address: Yup.string().required("Address is required"),
         country: Yup.string().required("Country is required")
     }),
@@ -55,7 +67,7 @@ const SignupSchema = Yup.object().shape({
     }),
     others: Yup.object().shape({
         fund: Yup.string().required("Fund information is required"),
-        optional_fund: Yup.string().required('Fund information is required'),
+        optional_fund: Yup.string().required("Fund information is required"),
         criminal_record: Yup.string().required("Criminal record is required"),
         business_relationship: Yup.string().required(
             "Relationship status is required"
@@ -288,8 +300,11 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                                         className="progress-bar"
                                         role="progressbar"
                                         style={{
-                                            width: ((step + 1) / steps.length) * 100 + "%",
-                                            height: '100%'
+                                            width:
+                                                ((step + 1) / steps.length) *
+                                                    100 +
+                                                "%",
+                                            height: "100%"
                                         }}
                                         aria-valuenow={step}
                                         aria-valuemin={0}
@@ -299,11 +314,13 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                             </div>
                         </div>
                     </Form>
-                    <Modal
-                        isOpen={this.state.modal}
-                        toggle={this.toggle}
-                    >
-                        <ModalHeader toggle={this.toggle} className="text-center">Checkout</ModalHeader>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                        <ModalHeader
+                            toggle={this.toggle}
+                            className="text-center"
+                        >
+                            Checkout
+                        </ModalHeader>
                         <ModalBody>
                             <Checkout
                                 paymentAmount={paymentAmount}
@@ -338,8 +355,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             shareholders: [],
             shares: {
                 class: "Ordinary",
-                number: 0,
-                value: 0
+                number: 10000,
+                value: 10000
             },
             director: [],
             company_secretary: {
@@ -351,7 +368,7 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             },
             others: {
                 fund: "",
-                optional_fund: '',
+                optional_fund: "",
                 criminal_record: "",
                 business_relationship: ""
             },

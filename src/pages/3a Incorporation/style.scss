@@ -1,15 +1,18 @@
 @import "../../styles/variables";
 @import "../../styles/forms";
+
 button {
     &.active {
         background: #121232;
         color: #fff;
+
         &:hover {
             background: transparent;
             color: #121232;
             border: 1px solid #121232;
         }
     }
+
     &.btn--inactive {
         border: 1px solid #000;
         border-radius: 4px;
@@ -27,16 +30,19 @@ button {
         letter-spacing: 0.5px;
         height: 43px;
     }
+
     .btn {
         &.active {
             background: #121232;
             color: #fff;
+
             &:hover {
                 background: transparent;
                 color: #121232;
                 border: 1px solid #121232;
             }
         }
+
         &-grey {
             background: #DADADA;
             font-family: 'Open Sans', sans-serif;
@@ -56,18 +62,21 @@ form {
         font-size: 14px;
         line-height: 16px;
     }
+
     p {
         font-family: 'Made Evolve Sans Regular';
         font-size: 16px;
         line-height: 16px;
         letter-spacing: 0.05em;
     }
+
     .btn--category {
         width: 200px;
         font-size: 14px;
         height: 48px;
         padding: 0 32px;
     }
+
     .title {
         font-family: 'MADE Evolve Sans Regular';
         font-size: 36px;
@@ -84,6 +93,7 @@ form {
     .progress-bar {
         background: #495057;
     }
+
     form {
         label {
             font-family: 'Open Sans', sans-serif;
@@ -92,6 +102,7 @@ form {
             font-size: 14px;
             line-height: 16px;
         }
+
         .title {
             font-family: 'MADE Evolve Sans Regular';
             font-size: 36px;
@@ -101,12 +112,14 @@ form {
             letter-spacing: 0.05em;
             color: #000000;
         }
+
         p {
             font-family: 'Made Evolve Sans Regular';
             font-size: 16px;
             line-height: 16px;
             letter-spacing: 0.05em;
         }
+
         .share-info {
             font-family: 'Open Sans', sans-serif;
             font-style: normal;
@@ -118,6 +131,7 @@ form {
             border-radius: 2px;
         }
     }
+
     .overlay {
         position: absolute;
         top: 0;
@@ -126,57 +140,70 @@ form {
         background: #333;
         opacity: .4;
     }
+
     h1 {
         @include media-breakpoint-down(sm) {
             font-size: 2.5rem;
         }
     }
+
     .breadcrumb {
         &.collapsed {
             li {
                 overflow: hidden;
+
                 &:after a {
                     background: rgb(227, 227, 227);
                     background: linear-gradient(90deg, rgba(227, 227, 227, 0.4) 0%, rgba(227, 227, 227, 1) 35%);
                     padding-left: 1em;
                 }
+
                 a {
                     max-width: 2em;
                     transition: max-width 800ms ease-in-out;
                 }
+
                 a:focus,
                 &:hover a {
                     max-width: 1000px;
                 }
+
                 &:hover:after {
                     padding-left: 0em;
                     background: transparent;
                 }
+
                 &.active a {
                     font-weight: 900;
                 }
             }
         }
+
         .breadcrumb-item {
             display: inline-block;
             position: relative;
             padding-right: 2em;
             margin: 0;
+
             a {
                 text-decoration: none;
                 display: inline-block;
                 color: #333;
                 white-space: nowrap;
+
                 &:hover {
                     text-decoration: underline;
                 }
             }
+
             &::before a {
                 content: ">";
             }
+
             &:first-child:before a {
                 content: "";
             }
+
             &.active {
                 a {
                     max-width: 1000px;
@@ -185,7 +212,13 @@ form {
             }
         }
     }
+
     .label {
         opacity: .7;
     }
+}
+
+
+.form-control::placeholder {
+    color: #eee
 }

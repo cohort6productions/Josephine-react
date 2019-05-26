@@ -76,7 +76,7 @@ class Step2 extends React.Component<
 
                 <div className="row">
                     <div className="form-group col-12">
-                        <label>Company Name (First preference) </label>
+                        <label>Company Name (First preference)* </label>
                         <Field
                             type="text"
                             className="form-control"
@@ -91,23 +91,30 @@ class Step2 extends React.Component<
                             )}
                     </div>
                     <div className="form-group col-12">
-                        <label>
-                            Company Name (Second preference){" "}
-                        </label>
+                        <label>Company Name (Second preference)* </label>
                         <Field
                             type="text"
                             className="form-control"
                             name="company.companyname_2"
                             placeholder="The Boring Company"
                         />
+                        {getIn(errors, "company.companyname_2") &&
+                            getIn(touched, "company.companyname_2") && (
+                                <small className="text-danger small">
+                                    {getIn(errors, "company.companyname_2")}
+                                </small>
+                            )}
                     </div>
 
                     <div className="form-group col-12">
                         <p className="my-0">
-                            There are cases where the first name preference might have already been taken by other company, hence, having a second preference to ensure the smoothness of the application.
+                            There are cases where the first name preference
+                            might have already been taken by other company,
+                            hence, having a second preference to ensure the
+                            smoothness of the application.
                         </p>
                     </div>
-                    
+
                     <div className="form-group col-12">
                         <label>Nature Of Business</label>
                         <Field
@@ -142,7 +149,7 @@ class Step2 extends React.Component<
                                 className={`col-auto btn btn--inactive ${
                                     currentIndex === 2 ? "active" : ""
                                 }`}
-                                style={{width: '379px'}}
+                                style={{ width: "379px" }}
                                 type="button"
                                 onClick={this.handleAddressChange.bind(this, 2)}
                             >
