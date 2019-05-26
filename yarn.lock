@@ -962,6 +962,7 @@
 "@types/react-stripe-elements@^1.1.10":
   version "1.1.10"
   resolved "https://registry.yarnpkg.com/@types/react-stripe-elements/-/react-stripe-elements-1.1.10.tgz#c224a6bc1b1638ff94b84c881758d534defeff64"
+  integrity sha512-FcGRb2Rwolgx6/epqnZ4ZOMHTx6wUBhkVFWWvob46fBBece3cvxCaP/vPFhf3+dUHfQeITCjMEavdB6rrbZFzg==
   dependencies:
     "@types/react" "*"
     "@types/stripe-v3" "*"
