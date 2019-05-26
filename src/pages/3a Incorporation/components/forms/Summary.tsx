@@ -21,7 +21,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
     }
 
     public nextStep = () => {
-        if (!Object.keys(this.props.errors).length) {
+        if (!getIn(this.props.errors, 'terms')) {
             this.props.nextStep()
         }
         this.props.setFieldTouched('terms')

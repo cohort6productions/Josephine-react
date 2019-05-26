@@ -27,6 +27,7 @@ interface ICompanyValues {
 
 interface IShareValues {
     class: string;
+    currency: string;
     number: number;
     value: number;
 }

@@ -2,6 +2,7 @@ import { Field, FormikProps, getIn } from "formik";
 import * as React from "react";
 import { IFormValues } from "src/Interfaces/FormValues";
 import ButtonGroup from "../forms/partials/ButtonGroup";
+import {countries} from 'src/data/countries';
 
 interface IStep1Props {
     title: string;
@@ -79,21 +80,24 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                             </small>
                         )}
                 </div>
-
+        
                 <div className="form-group col-12 col-md-6">
-                    <label>Country Code*</label>
+                    <label>Country Code *</label>
                     <Field
-                        type="text"
-                        className="form-control"
+                        component="select" 
                         name="personal.country_code"
-                        placeholder="+852"
-                    />
-                    {getIn(touched, "personal.country_code") &&
-                        getIn(errors, "personal.country_code") && (
-                            <small className="text-danger small">
-                                {getIn(errors, "personal.country_code")}
-                            </small>
-                        )}
+                        className="form-control"
+                    >
+                        <option value="" label="Select country code" />
+                        {
+                            countries.map((country:any) => (
+                                <option key={country.name} value={country.callingCodes[0]} label={country.name} />
+                            ))
+                        }
+                    </Field>
+                    {getIn(errors, 'personal.country_code') && getIn(touched, 'personal.country_code') && <small className="text-danger small">{getIn(errors, 'personal.country_code')}</small>}
+
+                    {/* <Field type="text" className="form-control" name="personal.country_code" /> */}
                 </div>
 
                 <div className="form-group col-12 col-md-6">

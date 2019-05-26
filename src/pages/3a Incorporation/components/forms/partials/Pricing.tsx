@@ -86,7 +86,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'seed', price: 6000})}>Select Seed</button>
+                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'Seed', price: 6000})}>Select Seed</button>
                                 </div>
                             </div>
 
@@ -99,7 +99,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                     <h3 className="text-medium">SPROUT</h3>
                                 </div>
                                 <div className="card-header__tag bg-theme-medium">
-                                    <h2 className="text-light">HKD $7,200</h2>
+                                    <h2 className="text-light">HKD $7,250</h2>
                                     <span className="text-light">
                                         The best way to commit to your business when
                                         most is taken care
@@ -165,7 +165,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'sprout', price: 7200})}>Select Sprout</button>
+                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'Sprout', price: 7250})}>Select Sprout</button>
                                 </div>
                             </div>
                         </div>
@@ -243,7 +243,7 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'grow', price: 16500})}>Select Grow</button>
+                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'Grow', price: 16500})}>Select Grow</button>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@ import * as React from "react";
 import { IStepProps } from "src/Interfaces/FormProps";
 import { IFormValues } from "src/Interfaces/FormValues";
 import ButtonGroup from "../forms/partials/ButtonGroup";
+import {countries} from 'src/data/countries';
 
 interface IOfficeAddress {
     office_address: any[];
@@ -72,7 +73,7 @@ class Step2 extends React.Component<
         };
         return (
             <div className="col-12 col-md-8 mx-auto">
-                <h1 className="my-3 text-center">Company Details</h1>
+                <h1 className="my-3">Company Details</h1>
 
                 <div className="row">
                     <div className="form-group col-12">
@@ -173,11 +174,24 @@ class Step2 extends React.Component<
                     <div className="form-group col-12">
                         <label>Country</label>
                         <Field
+                            component="select" 
+                            name="company.country"
+                            className="form-control"
+                            disabled={office_address[currentIndex].disabled}
+                        >
+                            <option value="" label="Select a country" />
+                            {
+                                countries.map((country:any) => (
+                                    <option key={country.name} value={country.name} label={country.name} />
+                                ))
+                            }
+                        </Field>
+                        {/* <Field
                             type="text"
                             className="form-control"
                             name="company.country"
                             disabled={office_address[currentIndex].disabled}
-                        />
+                        /> */}
                         {getIn(errors, "company.country") &&
                             getIn(touched, "company.country") && (
                                 <small className="text-danger small">

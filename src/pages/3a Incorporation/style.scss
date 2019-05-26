@@ -1,21 +1,32 @@
 @import "../../styles/variables";
 @import "../../styles/forms";
-
 button {
+    &.btn {
+        font-family: 'MADE Evolve Sans Regular';
+        font-size: 14px;
+        line-height: 16px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        padding: 24px 48px;
+    }
+    &.btn--inactive {
+        border-radius: 4px;
+        color: #F88C2A;
+        background: #FAFAFA;
+    }
     &.active {
-        background: #121232;
+        background: #F88C2A;
         color: #fff;
-
+        border-radius: 4px;
         &:hover {
             background: transparent;
-            color: #121232;
-            border: 1px solid #121232;
+            color: #F88C2A;
+            border: 1px solid #F88C2A;
         }
-    }
-
-    &.btn--inactive {
-        border: 1px solid #000;
-        border-radius: 4px;
     }
 }
 
@@ -30,19 +41,16 @@ button {
         letter-spacing: 0.5px;
         height: 43px;
     }
-
     .btn {
         &.active {
             background: #121232;
             color: #fff;
-
             &:hover {
                 background: transparent;
                 color: #121232;
                 border: 1px solid #121232;
             }
         }
-
         &-grey {
             background: #DADADA;
             font-family: 'Open Sans', sans-serif;
@@ -62,21 +70,20 @@ form {
         font-size: 14px;
         line-height: 16px;
     }
-
     p {
         font-family: 'Made Evolve Sans Regular';
-        font-size: 16px;
-        line-height: 16px;
-        letter-spacing: 0.05em;
+        font-size: 18px;
+        line-height: 20px;
+        /* or 111% */
+        letter-spacing: 0.25px;
+        color: #000000;
     }
-
     .btn--category {
         width: 200px;
         font-size: 14px;
         height: 48px;
         padding: 0 32px;
     }
-
     .title {
         font-family: 'MADE Evolve Sans Regular';
         font-size: 36px;
@@ -90,19 +97,27 @@ form {
 }
 
 #incorporation {
-    .progress-bar {
-        background: #495057;
-    }
-
-    form {
-        label {
-            font-family: 'Open Sans', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 16px;
+    .progress {
+        max-width: 526px;
+        .progress-bar {
+            background: #663399;
         }
-
+    }
+    form {
+        font-family: 'MADE Evolve Sans Regular';
+        label {
+            font-size: 24px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 2px;
+        }
+        input,
+        select {
+            border: 1px solid #FAFAFA;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
         .title {
             font-family: 'MADE Evolve Sans Regular';
             font-size: 36px;
@@ -112,14 +127,12 @@ form {
             letter-spacing: 0.05em;
             color: #000000;
         }
-
         p {
             font-family: 'Made Evolve Sans Regular';
             font-size: 16px;
             line-height: 16px;
             letter-spacing: 0.05em;
         }
-
         .share-info {
             font-family: 'Open Sans', sans-serif;
             font-style: normal;
@@ -130,8 +143,10 @@ form {
             background: #F2F2F2;
             border-radius: 2px;
         }
+        .form-group {
+            margin-bottom: 32px;
+        }
     }
-
     .overlay {
         position: absolute;
         top: 0;
@@ -140,70 +155,62 @@ form {
         background: #333;
         opacity: .4;
     }
-
     h1 {
+        font-family: 'MADE Evolve Sans Regular';
+        font-size: 50px;
+        line-height: 58px;
+        /* identical to box height */
+        color: #000000;
         @include media-breakpoint-down(sm) {
             font-size: 2.5rem;
         }
     }
-
     .breadcrumb {
         &.collapsed {
             li {
                 overflow: hidden;
-
                 &:after a {
                     background: rgb(227, 227, 227);
                     background: linear-gradient(90deg, rgba(227, 227, 227, 0.4) 0%, rgba(227, 227, 227, 1) 35%);
                     padding-left: 1em;
                 }
-
                 a {
                     max-width: 2em;
                     transition: max-width 800ms ease-in-out;
                 }
-
                 a:focus,
                 &:hover a {
                     max-width: 1000px;
                 }
-
                 &:hover:after {
                     padding-left: 0em;
                     background: transparent;
                 }
-
                 &.active a {
                     font-weight: 900;
                 }
             }
         }
-
         .breadcrumb-item {
             display: inline-block;
             position: relative;
             padding-right: 2em;
             margin: 0;
-
             a {
                 text-decoration: none;
                 display: inline-block;
                 color: #333;
                 white-space: nowrap;
-
                 &:hover {
                     text-decoration: underline;
                 }
             }
-
             &::before a {
                 content: ">";
             }
-
             &:first-child:before a {
                 content: "";
             }
-
             &.active {
                 a {
                     max-width: 1000px;
@@ -212,12 +219,10 @@ form {
             }
         }
     }
-
     .label {
         opacity: .7;
     }
 }
-
 
 .form-control::placeholder {
     color: #eee

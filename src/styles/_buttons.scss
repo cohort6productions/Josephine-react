@@ -2,11 +2,12 @@ button {
     &.btn {
         margin: .25rem;
         &-default {
-            color: #fff;
-            background: #e9ecef;
+            background: #FAFAFA;
+            border: 2px solid #FF6964;
+            box-sizing: border-box;
             border-radius: 4px;
             padding: .5rem 0;
-            width: 151px;
+            color: #FF6964;
             &:hover {
                 color: #fff;
                 background: $brand-primary;
@@ -14,7 +15,7 @@ button {
         }
         &--incorp {
             padding: .5rem 1rem;
-            background-color: #000000;
+            background: #F88C2A;
             border-radius: 4px;
             color: #fff;
             &:hover {

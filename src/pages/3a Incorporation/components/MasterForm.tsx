@@ -1,7 +1,7 @@
 import { Form, FormikProps, withFormik } from "formik";
 import * as React from "react";
 import { IFormValues } from "src/Interfaces/FormValues";
-import * as Yup from "yup";
+import {IncorporationSchema} from "./forms/validationSchema";
 import Start from "./3a.01";
 import Step1 from "./3a.02";
 import Step2 from "./3a.03";
@@ -28,53 +28,6 @@ interface IFormState {
     paymentType: string;
     visible: boolean;
 }
-
-const SignupSchema = Yup.object().shape({
-    personal: Yup.object().shape({
-        firstname: Yup.string().required("First name is required"),
-        lastname: Yup.string().required("Last name is required"),
-        email: Yup.string()
-            .email("Invalid email")
-            .required("Email is required"),
-        phone: Yup.number()
-            .typeError("That doesn't look like a phone number")
-            .positive("A phone number can't start with a minus")
-            .integer("A phone number can't include a decimal point")
-            .required("Phone number is required"),
-        country_code: Yup.number()
-            .typeError("That doesn't look like a vaid area code")
-            .positive("An area code can't start with a minus")
-            .integer("An area code can't include a decimal point")
-            .required("Area code is required")
-    }),
-    company: Yup.object().shape({
-        companyname_1: Yup.string().required(
-            "First preference company name is required"
-        ),
-        companyname_2: Yup.string().required(
-            "Second preference company name is required"
-        ),
-        address: Yup.string().required("Address is required"),
-        country: Yup.string().required("Country is required")
-    }),
-    shares: Yup.object().shape({
-        number: Yup.number()
-            .required("Number of shares is required")
-            .moreThan(9999, "At least 10,000 expected"),
-        value: Yup.number()
-            .moreThan(9999, "At least 10,000 expected")
-            .required("Share value is required")
-    }),
-    others: Yup.object().shape({
-        fund: Yup.string().required("Fund information is required"),
-        optional_fund: Yup.string().required("Fund information is required"),
-        criminal_record: Yup.string().required("Criminal record is required"),
-        business_relationship: Yup.string().required(
-            "Relationship status is required"
-        )
-    }),
-    terms: Yup.boolean().oneOf([true], "Must Accept Terms and Conditions")
-});
 
 class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     constructor(props: FormikProps<IFormValues>) {
@@ -293,8 +246,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                             handlePath={this.handlePath}
                         />
                         {steps[step] || <div />}
-                        <div className="row justify-content-center mx-0 ">
-                            <div className="col-12 col-md-8 my-3">
+                        <div className="row justify-content-center mx-auto text-center">
+                            <div className="col-12 mx-auto my-3">
                                 <div className="progress w-100">
                                     <div
                                         className="progress-bar"
@@ -356,7 +309,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             shares: {
                 class: "Ordinary",
                 number: 10000,
-                value: 10000
+                value: 10000,
+                currency: "HKD"
             },
             director: [],
             company_secretary: {
@@ -376,7 +330,7 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             terms: false
         };
     },
-    validationSchema: SignupSchema,
+    validationSchema: IncorporationSchema,
 
     handleSubmit: async (values, { setSubmitting, setStatus }) => {
         try {
@@ -394,13 +348,14 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                     })
                 }
             );
+            setSubmitting(false);
 
             if (res.status === 200) {
-                setSubmitting(false);
                 setStatus({ success: "form submited" });
             } else {
                 setStatus({ error: "form not submited" });
             }
+
         } catch (e) {
             // tslint:disable-next-line:no-console
             console.log(e);
