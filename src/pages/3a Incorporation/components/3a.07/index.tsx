@@ -3,6 +3,7 @@ import * as React from 'react';
 import {IStepProps} from 'src/Interfaces/FormProps';
 import {IFormValues} from 'src/Interfaces/FormValues';
 import ButtonGroup from '../forms/partials/ButtonGroup';
+import { countries } from 'src/data/countries';
 
 interface IOfficeAddress{
     company_secretary: any[];
@@ -68,14 +69,13 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
         const { touched, errors } = this.props
         return (
             <div className="col-12 col-md-8 mx-auto">
-                <h1 className="my-3 text-center">Company Secretary Details</h1>
+                <h1 className="my-3">Company Secretary Details</h1>
             
                     <div className="row">
                         <div className="form-group col-12">
-                            <div className="row justify-content-center align-items-center mb-3 mx-auto">
-                                <button className={`col-12 col-md-4 btn btn-category ${currentIndex === 0 ? 'active' : ''}`} type="button" onClick={this.handleChange.bind(this, 0)}>Centre O 
-(Package default)</button>
-                                <button className={`col-12 col-md-4 btn btn-category ${currentIndex === 1 ? 'active' : ''}`} type="button" onClick={this.handleChange.bind(this, 1)}>Other</button>
+                            <div className="row align-items-center mb-3">
+                                <button className={`col-12 col-md-4 btn ${currentIndex === 0 ? 'btn--incorp' : 'btn-category'}`} type="button" onClick={this.handleChange.bind(this, 0)}>Centre O</button>
+                                <button className={`col-12 col-md-4 btn ${currentIndex === 1 ? 'btn--incorp' : 'btn-category'}`} type="button" onClick={this.handleChange.bind(this, 1)}>Other</button>
                             </div>
                         </div>
                         {
@@ -101,11 +101,22 @@ class Step6 extends React.Component<FormikProps<IFormValues> & IStepProps, IOffi
             
                                 <div className="form-group col-12">
                                     <label>Country</label>
-                                    <Field type="text" className="form-control" name="company_secretary.country" />
+                                    <Field
+                                        component="select" 
+                                        name="company_secretary.country"
+                                        className="form-control"
+                                    >
+                                        <option value="" label="Select a country" />
+                                        {
+                                            countries.map((country:any) => (
+                                                <option key={country.name} value={country.name} label={country.name} />
+                                            ))
+                                        }
+                                    </Field>
                                 </div>
                             </> : <div/>
                         }
-                        <ButtonGroup {...buttonProps} disabled={!getIn(touched, 'company_secretary') || getIn(errors, 'company_secretary')}  buttonText="Confirm company secretary details"/>
+                        <ButtonGroup {...buttonProps} disabled={!getIn(touched, 'company_secretary') || getIn(errors, 'company_secretary')}  buttonText="Confirm Secretary details"/>
                     </div>
                 </div>
             );

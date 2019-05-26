@@ -136,89 +136,98 @@ class MainForm extends React.Component<
                 <h1 className="my-3 text-center">Director information</h1>
 
                 <div className="row">
-                    <div className="col-12">Description</div>
-
-                    <div className="form-group col-12">
-                        <button
-                            type="button"
-                            onClick={this.toggle}
-                            className="btn btn"
-                        >
-                            + Add a Director
-                        </button>
+                    <div className="col-12 mb-5">
+                        <p>
+                            There is a minimum requirement for all companies;
+                            <b>One</b> shareholder (corporate or individual; HK resident or Non-HK resident), and
+                            <b>One</b> individual director (HK resident or Non-HK resident) in your company.
+                        </p>
+                        <p>
+                            The shareholder and director can be the same person, but, at least, one director (if only one or if serveral) must be an individual/natural person.
+                        </p>
                     </div>
 
-                    {this.props.shareholders.map((el, i) => {
-                        return (
-                            <div key={i} className="form-group col-12">
-                                <div 
-                                    className="d-flex align-items-center pl-3" 
-                                    style={{
-                                        background: 'rgba(0, 0, 0, 0.25)', 
-                                        borderRadius: '4px', 
-                                        height: '50px'
-                                    }}>
-                                    {
-                                        el.category === "personal"
-                                        ? el.firstname + " (Individual)"
-                                        : el.companyname + " (Corporate)"
-                                    }
-                                    {
-                                        !this.existsInDirectorArray(el) ?
-                                        <button
-                                            type="button"
-                                            className="btn ml-auto"
-                                            onClick={this.handleShareholder.bind(
-                                                this,
-                                                el
-                                            )}
-                                        >
-                                            <img src="/icons/add.svg" />
-                                        </button> : ''
-                                    }
-                                </div>
-                            </div>
-                        );
-                    })}
+                    <div className="form-group col-12 ">
+                        <div className="col-12 d-flex align-items-center mb-3 control-box">
+                            Add a Director
+                            
+                            <button type="button" className="btn d-flex ml-auto px-0" onClick={this.toggle}><img src="/icons/add.svg"/></button>
+                        </div>
 
-                    {this.state.currentValues.map((obj: any, i) => {
-                        return (
-                            <div
-                                key={i}
-                                className="col-12 d-flex align-items-center mb-2 ml-3"
-                            >
-                                {obj.category === 'personal'
-                                    ? obj.firstname
-                                    : obj.companyname}
-                                <button type="button" className="btn d-flex ml-auto" onClick={this.delete.bind(this,i)}><img src="/icons/delete.svg"/></button>
-                            </div>
-                        );
-                    })}
+                        {
+                            this.props.shareholders.map((el, i) => {
+                                return (  
+                                        !this.existsInDirectorArray(el) ?
+                                        <div
+                                            key={i} 
+                                            className="d-flex align-items-center mb-3 control-box"
+                                            style={{
+                                                background: 'rgba(0, 0, 0, 0.25)', 
+                                                borderRadius: '4px', 
+                                            }}>
+                                            {
+                                                el.category === "personal"
+                                                ? el.firstname + " (Individual)"
+                                                : el.companyname + " (Corporate)"
+                                            }
+                                            
+                                            <button
+                                                type="button"
+                                                className="btn ml-auto px-0"
+                                                onClick={this.handleShareholder.bind(
+                                                    this,
+                                                    el
+                                                )}
+                                            >
+                                                <img src="/icons/add.svg" />
+                                            </button>
+                                        </div> :''
+                                    )
+                            })
+                        }
+
+                        {
+                            this.state.currentValues.map((obj: any, i) => {
+                                return (
+                                    <div
+                                        key={i}
+                                        className="col-12 d-flex align-items-center mb-3 control-box"
+                                    >
+                                        {obj.category === 'personal'
+                                            ? obj.firstname
+                                            : obj.companyname}
+                                        <button type="button" className="btn d-flex ml-auto px-0" onClick={this.delete.bind(this,i)}><img src="/icons/delete.svg"/></button>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
 
                     <Modal
                         isOpen={this.state.modal}
                         toggle={this.toggle}
                         size="lg"
+                        modalClassName="modal--incorp"
                     >
                         <ModalBody>
                             <div className="container">
                                 <form className="col-12 col-md-10 mx-auto">
                                     <Row>
                                         <h1 className="col-12 my-3 text-center">Add a director</h1>
-                                        <div className="form-group col-12 row justify-content-center">
+                                        <div className="form-group col-12 row">
                                             <div className="col-auto px-0">
-                                                <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'personal' ? 'active': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal (Natural People)</button>
+                                                <button type="button" className={`btn btn--category  ${activeTab === 'personal' ? 'btn--incorp': ''}`} onClick={this.handleFormTab.bind(this, 'personal')}>Personal (Natural People)</button>
                                             </div>
                                             <div className="col-auto px-0">
-                                                <button type="button" className={`btn btn--inactive btn--category ${activeTab === 'corporate' ? 'active': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
+                                                <button type="button" className={`btn btn--category ${activeTab === 'corporate' ? 'btn--incorp': ''}`}  onClick={this.handleFormTab.bind(this, 'corporate')}>Corporate</button>
                                             </div>
                                         </div>
                                         <DirectorForm
                                             {...this.props}
                                             category={activeTab}
                                         />
-                                        <div className="form-group col-12 text-center">
-                                            <button type="submit" onClick={this.handleSubmit} className="btn btn--incorp" color="primary">Confirm director's information</button>
+                                        <div className="form-group col-12 text-center mt-3">
+                                            <button type="submit" onClick={this.handleSubmit} className="btn btn--incorp mx-auto" color="primary">Confirm director's information</button>
                                         </div>
                                     </Row>
                                 </form>

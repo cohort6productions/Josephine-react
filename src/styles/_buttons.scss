@@ -39,5 +39,8 @@ button {
             cursor: pointer;
             transition: all .2s ease-in-out;
         }
+        &:focus {
+            box-shadow: none;
+        }
     }
 }

@@ -2,6 +2,8 @@ import { Field, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import { IPersonalDetails } from 'src/Interfaces/FormValues';
 import {ACCEPT_FILETYPE} from "src/Interfaces/general"
+import { UploadInfo } from '../forms/partials/UploadInfo';
+import { countries } from 'src/data/countries';
 // import Thumb from '../forms/partials/Thumbnail';
 
 const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>) => {
@@ -86,7 +88,18 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
                 <Field component="textarea" className="form-control" name="address"/>
             </div>
             <div className="form-group col-12">
-                <Field type="text" className="form-control" name="country" placeholder="Country"/>
+                <Field
+                    component="select" 
+                    name="country"
+                    className="form-control"
+                    >
+                        <option value="" label="Select a country" />
+                        {
+                            countries.map((country:any) => (
+                                <option key={country.name} value={country.name} label={country.name} />
+                            ))
+                        }
+                </Field>
             </div>
 
             <div className="col-12 mt-3">
@@ -94,11 +107,22 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
             </div>
             <div className="form-group col-12">
                 <label>Tax Number</label>
-                <Field type="textarea" className="form-control" name="tax_number"/>
+                <Field type="textarea" className="form-control" name="tax_number" placeholder="1020304858"/>
             </div>
             <div className="form-group col-12">
                 <label>Country of tax residence</label>
-                <Field type="text" className="form-control" name="tax_payable_country"/>
+                <Field
+                    component="select" 
+                    name="tax_payable_country"
+                    className="form-control"
+                    >
+                        <option value="" label="Select a country" />
+                        {
+                            countries.map((country:any) => (
+                                <option key={country.name} value={country.name} label={country.name} />
+                            ))
+                        }
+                </Field>
             </div>
             
             <div className="col-12 mt-3">
@@ -109,47 +133,38 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
                 props.category === "personal" ? 
                 <>
                     <div className="form-group col-12">
-                        <label>Identity document</label>
+                        <label>
+                            Identity document
+                            <UploadInfo />
+                        </label>
 
                         <div className="input-group">
+                            <input type="text" className="form-control" />
+
                             <label className="input-group-btn">
-                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
-                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="identity" accept={ACCEPT_FILETYPE} onChange={handleFile('identity') }  style={{display: 'none' }} />
+                                <span className="btn upload-btn">
+                                    Upload <input type="file" name="identity" accept={ACCEPT_FILETYPE} onChange={handleFile('identity') }  style={{display: 'none' }} />
                                 </span>
                             </label>
-                            <input type="text" className="form-control" />
                         </div>
-
-                        {/* <input 
-                            name="identity" 
-                            type="file" 
-                            onChange={handleFile('identity') } 
-                            className="form-control-file" 
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
-                    
                         {getIn(errors, 'identity') && getIn(touched, 'identity') ? <small className="text-danger small">{getIn(errors, 'identity')}</small> : ''}
                     </div>
 
                     <div className="form-group col-12">
-                        <label>Proof of address</label>
+                        <label>
+                            Proof of address
+                            <UploadInfo />
+                        </label>
 
                         <div className="input-group">
+                            <input type="text" className="form-control" />
+
                             <label className="input-group-btn">
-                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
-                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="address_proof" accept={ACCEPT_FILETYPE} onChange={handleFile('address_proof') }  style={{display: 'none' }} />
+                                <span className="btn upload-btn" >
+                                    Upload <input type="file" name="address_proof" accept={ACCEPT_FILETYPE} onChange={handleFile('address_proof') }  style={{display: 'none' }} />
                                 </span>
                             </label>
-                            <input type="text" className="form-control" />
                         </div>
-
-                        {/* <input 
-                            name="address_proof" 
-                            type="file" 
-                            onChange={handleFile('address_proof') } 
-                            className="form-control-file"
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
                         {getIn(errors, 'address_proof') && getIn(touched, 'address_proof') ? <small className="text-danger small">{getIn(errors, 'address_proof')}</small> : ''}
 
                     </div>
@@ -157,44 +172,38 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
              : 
                 <>
                     <div className="form-group col-12">
-                        <label>Business License</label>
+                        <label>
+                            Business License
+                            <UploadInfo />
+                        </label>
                         <div className="input-group">
+                            <input type="text" className="form-control" />
+
                             <label className="input-group-btn">
-                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
-                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="business_license" accept={ACCEPT_FILETYPE} onChange={handleFile('business_license') }  style={{display: 'none' }} />
+                                <span className="btn upload-btn">
+                                    Upload <input type="file" name="business_license" accept={ACCEPT_FILETYPE} onChange={handleFile('business_license') }  style={{display: 'none' }} />
                                 </span>
                             </label>
-                            <input type="text" className="form-control" />
                         </div>
 
-                        {/* <input 
-                            name="business_license" 
-                            type="file" 
-                            onChange={handleFile('business_license') } 
-                            className="form-control-file" 
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
                         {getIn(errors, 'business_license') && getIn(touched, 'business_license') ? <small className="text-danger small">{getIn(errors, 'business_license')}</small> : ''}
 
                     </div>
 
                     <div className="form-group col-12">
-                        <label>Article of association</label>
+                        <label>
+                            Article of association
+                            <UploadInfo />
+                        </label>
                         <div className="input-group">
                             <label className="input-group-btn">
-                                <span className="btn active upload-btn" style={{borderBottomRightRadius: 0, borderTopRightRadius: 0}}>
-                                    +&nbsp;&nbsp;&nbsp;Upload <input type="file" name="article_of_associate" accept={ACCEPT_FILETYPE} onChange={handleFile('article_of_associate') }  style={{display: 'none' }} />
+                                <span className="btn upload-btn">
+                                    Upload <input type="file" name="article_of_associate" accept={ACCEPT_FILETYPE} onChange={handleFile('article_of_associate') }  style={{display: 'none' }} />
                                 </span>
                             </label>
                             <input type="text" className="form-control" />
                         </div>
-                        {/* <input 
-                            name="article_of_associate" 
-                            type="file" 
-                            onChange={handleFile('article_of_associate')} 
-                            className="form-control-file" 
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
+                    
                         {getIn(errors, 'article_of_associate') && getIn(touched, 'article_of_associate') ? <small className="text-danger small">{getIn(errors, 'article_of_associate')}</small> : ''}
                     </div>
                 </>

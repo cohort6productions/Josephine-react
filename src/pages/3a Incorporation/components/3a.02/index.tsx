@@ -5,13 +5,12 @@ import ButtonGroup from "../forms/partials/ButtonGroup";
 import {countries} from 'src/data/countries';
 
 interface IStep1Props {
-    title: string;
     nextStep: () => void;
     back: () => void;
     setAllFieldsTouched: (key: string) => void;
 }
 const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
-    const { touched, errors, title } = props;
+    const { touched, errors } = props;
 
     React.useEffect(() => {
         props.validateForm();
@@ -29,7 +28,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
 
     return (
         <div className="col-12 col-md-8 mx-auto">
-            <h1 className="my-3 text-center">{title}</h1>
+            <h1 className="my-3">CONTACT INFOMRATION</h1>
 
             <div className="row">
                 <div className="form-group col-12 col-md-6">
@@ -91,7 +90,7 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                         <option value="" label="Select country code" />
                         {
                             countries.map((country:any) => (
-                                <option key={country.name} value={country.callingCodes[0]} label={country.name} />
+                                <option key={country.name} value={country.callingCodes[0]} label={`${country.name} (${country.callingCodes[0]})`} />
                             ))
                         }
                     </Field>

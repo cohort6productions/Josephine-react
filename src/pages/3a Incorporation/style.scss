@@ -28,18 +28,41 @@ button {
             border: 1px solid #F88C2A;
         }
     }
+    &.btn--category {
+        background: #FAFAFA;
+        border-radius: 4px;
+        color: #F88C2A;
+        &.btn--incorp {
+            background: #F88C2A;
+            color: #fff;
+        }
+    }
 }
 
 .modal {
+    &.modal--incorp {
+        .modal-dialog {
+            max-width: 1024px !important;
+        }
+    }
     .upload-btn {
-        font-family: 'Open Sans', sans-serif;
         width: 165px;
         font-size: 14px;
-        padding: 12px 0;
         line-height: 16px;
         vertical-align: middle;
         letter-spacing: 0.5px;
         height: 43px;
+        background: #663399;
+        border-radius: 4px;
+        color: #FAFAFA;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 3px;
+        text-transform: uppercase;
     }
     .btn {
         &.active {
@@ -64,35 +87,79 @@ button {
 }
 
 form {
-    label {
-        font-family: 'Open Sans', sans-serif;
-        font-style: normal;
-        font-size: 14px;
-        line-height: 16px;
+    font-family: 'MADE Evolve Sans Regular';
+    .btn--category {
+        background: #FAFAFA;
+        border-radius: 4px;
+        color: #F88C2A;
+        &.btn--incorp {
+            background: #F88C2A;
+            color: #fff;
+        }
     }
-    p {
-        font-family: 'Made Evolve Sans Regular';
-        font-size: 18px;
-        line-height: 20px;
-        /* or 111% */
-        letter-spacing: 0.25px;
+    label {
+        font-size: 24px;
+        line-height: 28px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 2px;
+    }
+    .small {
+        font-size: 13px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+        text-align: right;
+        letter-spacing: 1px;
         color: #000000;
     }
-    .btn--category {
-        width: 200px;
-        font-size: 14px;
-        height: 48px;
-        padding: 0 32px;
+    input,
+    select,
+    textarea {
+        &.form-control {
+            border: 1px solid #FAFAFA;
+            box-sizing: border-box;
+            border-radius: 4px;
+            &::placeholder {
+                font-size: 18px;
+                line-height: 20px;
+                /* identical to box height, or 111% */
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.25px;
+                color: #919191;
+            }
+        }
+        border: 1px solid #FAFAFA;
+        box-sizing: border-box;
+        border-radius: 4px;
     }
     .title {
         font-family: 'MADE Evolve Sans Regular';
         font-size: 36px;
-        line-height: 43px;
-        display: flex;
-        align-items: center;
-        letter-spacing: 0.05em;
-        color: #000000;
+        line-height: 42px;
         font-weight: 600;
+        color: #000000;
+        margin-bottom: 32px;
+    }
+    p {
+        font-family: 'Made Evolve Sans Regular';
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0.05em;
+    }
+    .share-info {
+        font-family: 'Open Sans', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 0 1rem;
+        background: #F2F2F2;
+        border-radius: 2px;
+    }
+    .form-group {
+        margin-bottom: 16px;
     }
 }
 
@@ -117,6 +184,15 @@ form {
             border: 1px solid #FAFAFA;
             box-sizing: border-box;
             border-radius: 4px;
+            &::placeholder {
+                font-size: 18px;
+                line-height: 20px;
+                /* identical to box height, or 111% */
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.25px;
+                color: #919191;
+            }
         }
         .title {
             font-family: 'MADE Evolve Sans Regular';
@@ -165,6 +241,16 @@ form {
             font-size: 2.5rem;
         }
     }
+    .others {
+        input[type="radio"] {
+            -webkit-appearance: checkbox;
+            /* Chrome, Safari, Opera */
+            -moz-appearance: checkbox;
+            /* Firefox */
+            -ms-appearance: checkbox;
+            /* not currently supported */
+        }
+    }
     .breadcrumb {
         &.collapsed {
             li {
@@ -202,7 +288,7 @@ form {
                 color: #333;
                 white-space: nowrap;
                 &:hover {
-                    text-decoration: underline;
+                    text-decoration: none;
                 }
             }
             &::before a {
@@ -221,6 +307,18 @@ form {
     }
     .label {
         opacity: .7;
+    }
+    .control-box {
+        background: #FAFAFA;
+        border-radius: 4px;
+        padding: 0 17px;
+        height: 48px;
+        button {
+            &:focus,
+            &:active {
+                border: none;
+            }
+        }
     }
 }
 

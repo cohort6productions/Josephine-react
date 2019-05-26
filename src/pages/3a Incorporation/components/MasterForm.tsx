@@ -27,6 +27,7 @@ interface IFormState {
     paymentAmount: number;
     paymentType: string;
     visible: boolean;
+    left_shares: number;
 }
 
 class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
@@ -38,7 +39,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             modal: false,
             paymentAmount: 0,
             paymentType: "",
-            visible: true
+            visible: true,
+            left_shares: 0
         };
 
         this.onDismiss = this.onDismiss.bind(this);
@@ -78,6 +80,9 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     };
 
     public componentDidMount = () => {
+        this.setState({
+            left_shares: this.props.values.shares.number
+        });
         this.props.validateForm();
     };
 
@@ -109,6 +114,13 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     public onDismiss = () => {
         this.setState({ visible: false });
     };
+
+    public UpdateShares = (occupied: number) => {
+        const total = this.state.left_shares - occupied;
+        this.setState({
+            left_shares: total
+        })
+    }
 
     public componentWillReceiveProps = (
         nextProps: FormikProps<IFormValues>
@@ -155,7 +167,6 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             <Step1
                 key=""
                 {...props}
-                title="Sign Up"
                 nextStep={this.nextStep}
                 back={this.back}
             />,
@@ -175,6 +186,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 key=""
                 {...props}
                 total_shares={this.props.values.shares.number}
+                UpdateShares={this.UpdateShares}
+                left_shares={this.state.left_shares}
                 nextStep={this.nextStep}
                 back={this.back}
                 shareholders={this.props.values.shareholders}
@@ -299,7 +312,7 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                 country: ""
             },
             personal: {
-                country_code: "",
+                country_code: "852",
                 email: "",
                 phone: "",
                 firstname: "",
