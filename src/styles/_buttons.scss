@@ -1,21 +1,21 @@
 button {
     &.btn {
-        margin: .25rem;
+        // margin: .25rem;
         &-default {
-            background: #FAFAFA;
-            border: 2px solid #FF6964;
+            background: #fafafa;
+            border: 2px solid #ff6964;
             box-sizing: border-box;
             border-radius: 4px;
-            padding: .5rem 0;
-            color: #FF6964;
+            padding: 0.5rem 0;
+            color: #ff6964;
             &:hover {
                 color: #fff;
                 background: $brand-primary;
             }
         }
         &--incorp {
-            padding: .5rem 1rem;
-            background: #F88C2A;
+            padding: 0.5rem 1rem;
+            background: #f88c2a;
             border-radius: 4px;
             color: #fff;
             &:hover {
@@ -29,15 +29,17 @@ button {
             border-radius: 4px;
             background-color: #3ea8e5;
             background-image: linear-gradient(-180deg, #44b1e8, #3098de);
-            box-shadow: 0 1px 0 0 rgba(46, 86, 153, .15), inset 0 1px 0 0 rgba(46, 86, 153, .1), inset 0 -1px 0 0 rgba(46, 86, 153, .4);
+            box-shadow: 0 1px 0 0 rgba(46, 86, 153, 0.15),
+                inset 0 1px 0 0 rgba(46, 86, 153, 0.1),
+                inset 0 -1px 0 0 rgba(46, 86, 153, 0.4);
             font-size: 17px;
             line-height: 21px;
             height: 37px;
             font-weight: 700;
-            text-shadow: 0 -1px 0 rgba(0, 0, 0, .12);
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
             color: #fff;
             cursor: pointer;
-            transition: all .2s ease-in-out;
+            transition: all 0.2s ease-in-out;
         }
         &:focus {
             box-shadow: none;

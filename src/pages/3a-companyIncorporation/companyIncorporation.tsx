@@ -16,7 +16,7 @@ import { Checkmark } from "./img/checkMark";
 import { UncontrolledCollapse } from "reactstrap";
 
 // Helper function
-import { getItem } from "src/helper/helper";
+import { getIncorpGrow, getIncorpSeed, getIncorpSprout } from "src/helper/helper";
 
 // Data
 import { faqIncorporation } from "src/data/faqs";
@@ -46,7 +46,7 @@ const Pricing = () => (
                                 </span>
                                 <CustomButton
                                     text="Get Now"
-                                    fnTrigger={getItem}
+                                    fnTrigger={getIncorpSeed}
                                     link=""
                                     variation="primitive"
                                 />
@@ -126,7 +126,7 @@ const Pricing = () => (
                                 </span>
                                 <CustomButton
                                     text="Get Now"
-                                    fnTrigger={getItem}
+                                    fnTrigger={getIncorpSprout}
                                     link=""
                                     variation="primitive"
                                 />
@@ -206,7 +206,7 @@ const Pricing = () => (
                                 </span>
                                 <CustomButton
                                     text="Get Now"
-                                    fnTrigger={getItem}
+                                    fnTrigger={getIncorpGrow}
                                     link=""
                                     variation="primitive"
                                 />

@@ -2,8 +2,9 @@
     padding: 0;
 
     .service-card {
-        background-color: #FAFAFA;
+        background-color: #fafafa;
         margin: 1rem;
+        border: 0;
 
         &__img {
             width: 100%;
@@ -11,25 +12,30 @@
 
         &__body {
             padding: 1.76rem 1.125rem;
+            background-color: #fafafa;
+            &__header {
+                margin-bottom: 1.5rem;
+            }
         }
 
         &__footer {
             text-align: center;
+            background-color: transparent;
+            padding: 0;
 
             &__pricingBox {
-                background-color: #FF6964;
-                padding: .5rem 0;
+                background-color: #ff6964;
+                padding: 0.5rem 0;
             }
 
             &__cta {
                 padding: 1rem 0;
-                background-color: #F88C2A;
+                background-color: #f88c2a;
 
                 &:hover {
-                    background-color: #FFAB2E;
+                    background-color: #ffab2e;
                 }
             }
         }
-
     }
 }

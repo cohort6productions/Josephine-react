@@ -13,18 +13,18 @@ import { IService } from "src/Interfaces/general";
 export default class ServiceCard extends React.PureComponent<IService> {
     public render() {
         return (
-            <div className="service-rol col-sm-12 col-md-6 col-lg-4">
-                <div className="service-card">
+            <div className="service-rol col-sm-12 col-md-6 col-lg-4 card-deck">
+                <div className="service-card card">
                     <img
                         src={this.props.img}
                         alt={this.props.itemName}
-                        className="service-card__img rounded"
+                        className="service-card__img rounded card-img-top"
                     />
-                    <div className="service-card__body">
-                        <h3 className="">{this.props.itemName}</h3>
+                    <div className="service-card__body card-body">
+                        <h3 className="service-card__body__header">{this.props.itemName}</h3>
                         <span>{this.props.description}</span>
                     </div>
-                    <div className="service-card__footer rounded">
+                    <div className="service-card__footer rounded card-footer">
                         <div className="service-card__footer__pricingBox rounded w-100">
                             <span className="text-light all-cap">
                                 {!this.props.orderNow

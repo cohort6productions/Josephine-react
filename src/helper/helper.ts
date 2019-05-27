@@ -24,6 +24,13 @@ export const checkout = (sku: string) => {
         });
 };
 
-export const getItem = () => {
-    checkout("sku_F8WRZKvH3dwe4Q");
+export const getIncorpSeed = () => {
+    checkout("sku_F91WsAemxZnUAu");
+};
+export const getIncorpGrow = () => {
+    checkout("sku_F91WBTCSbbbws2");
+};
+
+export const getIncorpSprout = () => {
+    checkout("sku_F91W7iRi7fDbmS");
 };
