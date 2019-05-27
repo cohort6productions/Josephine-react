@@ -16,19 +16,23 @@ import Button from "reactstrap/lib/Button";
 
 interface ICustomButtonProps {
     text?: string;
-    fnTrigger?: () => void;
+    fnTrigger?: any;
+    key?: string;
+    id?: string;
     link: string;
     variation: "primitive" | "theme" | "affirmative" | "alertwarning";
 }
 
 export default class CustomButton extends React.PureComponent<
     ICustomButtonProps
-> {
+    > {
     public button() {
         return (
             <Button
                 className={"custom-button" + " " + this.props.variation}
                 onClick={this.props.fnTrigger}
+                key={this.props.key ? this.props.key : ""}
+                id={this.props.id}
             >
                 <span className="button-text text-light">
                     {this.props.text ? this.props.text : "Click Here"}

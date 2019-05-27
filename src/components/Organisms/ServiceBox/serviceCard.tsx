@@ -9,6 +9,7 @@ import Button from "reactstrap/lib/Button";
 
 // Interfaces
 import { IService } from "src/Interfaces/general";
+import { getService } from 'src/helper/helper';
 
 export default class ServiceCard extends React.PureComponent<IService> {
     public render() {
@@ -35,7 +36,7 @@ export default class ServiceCard extends React.PureComponent<IService> {
 
                         {this.props.orderNow ? (
 
-                            <Button className="service-card__footer__cta rounded w-100" >
+                            <Button className="service-card__footer__cta rounded w-100" id={this.props.sku} onClick={getService}>
                                 <span className="button-text text-light all-cap">
                                     Order now
                                     </span>

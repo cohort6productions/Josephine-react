@@ -5,7 +5,7 @@ export interface IService {
     orderNow: boolean;
     price?: string;
     sku?: string;
-    linkFn?: () => void;
+    linkFn?: any;
 }
 
 export const ACCEPT_FILETYPE = "application/pdf, image/*"

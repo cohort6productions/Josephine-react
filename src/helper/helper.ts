@@ -14,6 +14,7 @@ export const checkout = (sku: string) => {
             // purchases, customers may not always reach the success_url after
             // a successful payment.
             // Instead use one of the strategies described in
+
             // https://stripe.com/docs/payments/checkout/fulfillment
             successUrl: "https://josephine-react.netlify.com/",
             cancelUrl: "https://josephine-react.netlify.com/"
@@ -24,13 +25,6 @@ export const checkout = (sku: string) => {
         });
 };
 
-export const getIncorpSeed = () => {
-    checkout("sku_F91WsAemxZnUAu");
-};
-export const getIncorpGrow = () => {
-    checkout("sku_F91WBTCSbbbws2");
-};
-
-export const getIncorpSprout = () => {
-    checkout("sku_F91W7iRi7fDbmS");
+export const getService = (ev: any) => {
+    checkout(ev.target.id);
 };

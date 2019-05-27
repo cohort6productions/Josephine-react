@@ -51,7 +51,7 @@ export const openServList: IService[] = [
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $2000 /Annu.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        sku: "sku_F91QxKf3FSpSpZ"
     },
     {
         itemName: "Registered Office",
@@ -60,7 +60,7 @@ export const openServList: IService[] = [
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $1300 /Annu.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        sku: "sku_F91QBJve6goBag"
     },
     {
         itemName: "HK Company Incorporation",
@@ -78,7 +78,7 @@ export const openServList: IService[] = [
             "Evaluate and assess the market with a representative office in HK, becore setting up a HK limited company.",
         price: "HKD $8500 /Annu.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        sku: "sku_F91QOXcly3cYvZ"
     },
     {
         itemName: "China Representative Office",
@@ -87,7 +87,7 @@ export const openServList: IService[] = [
             "Interested in exploring the market in China? We can help you setting up a representative office in China as a stepping stone in this specific market.",
         price: "HKD $8800 /Comp.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        sku: "sku_F91RGwCwYmtc2p"
     },
     {
         itemName: "China Wholly Foreign Owned Enterprises",
@@ -96,7 +96,7 @@ export const openServList: IService[] = [
             "Ready to establish a real presence in China? We can help you setting up a proper company in China for easier business relationship with your Chinese stakeholders.",
         price: "HKD $20000 /WFOE.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        sku: "sku_F91RzRScKDkAFQ"
     }
 ];
 
