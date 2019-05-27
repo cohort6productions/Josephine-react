@@ -179,19 +179,14 @@ class Step2 extends React.Component<
                             className="form-control"
                             disabled={office_address[currentIndex].disabled}
                         >
-                            <option value="" label="Select a country" />
+                            <option value="" label="Select a country">Select a country</option>
                             {
                                 countries.map((country:any) => (
-                                    <option key={country.name} value={country.name} label={country.name} />
+                                    <option key={country.name} value={country.name} label={country.name}>{country.name}</option>
                                 ))
                             }
                         </Field>
-                        {/* <Field
-                            type="text"
-                            className="form-control"
-                            name="company.country"
-                            disabled={office_address[currentIndex].disabled}
-                        /> */}
+              
                         {getIn(errors, "company.country") &&
                             getIn(touched, "company.country") && (
                                 <small className="text-danger small">

@@ -139,10 +139,10 @@ const ShareholderForm = (
                     name="country"
                     className="form-control"
                     >
-                        <option value="" label="Select a country" />
+                        <option value="" label="Select a country">Select a country</option>
                         {
                             countries.map((country:any) => (
-                                <option key={country.name} value={country.name} label={country.name} />
+                                <option key={country.name} value={country.name} label={country.name}>{country.name}</option>
                             ))
                         }
                 </Field>
@@ -166,10 +166,10 @@ const ShareholderForm = (
                     name="tax_payable_country"
                     className="form-control"
                     >
-                        <option value="" label="Select a country" />
+                        <option value="" label="Select a country">Select a country</option>
                         {
                             countries.map((country:any) => (
-                                <option key={country.name} value={country.name} label={country.name} />
+                                <option key={country.name} value={country.name} label={country.name}>{country.name}</option>
                             ))
                         }
                 </Field>

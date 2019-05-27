@@ -87,16 +87,14 @@ const Step1 = (props: IStep1Props & FormikProps<IFormValues>) => {
                         name="personal.country_code"
                         className="form-control"
                     >
-                        <option value="" label="Select country code" />
+                        <option value="" label="Select country code">Select country code</option>
                         {
                             countries.map((country:any) => (
-                                <option key={country.name} value={country.callingCodes[0]} label={`${country.name} (${country.callingCodes[0]})`} />
+                                <option key={country.name} value={country.callingCodes[0]} label={`${country.name} (${country.callingCodes[0]})`}>{`${country.name} (${country.callingCodes[0]})`}</option>
                             ))
                         }
                     </Field>
                     {getIn(errors, 'personal.country_code') && getIn(touched, 'personal.country_code') && <small className="text-danger small">{getIn(errors, 'personal.country_code')}</small>}
-
-                    {/* <Field type="text" className="form-control" name="personal.country_code" /> */}
                 </div>
 
                 <div className="form-group col-12 col-md-6">
