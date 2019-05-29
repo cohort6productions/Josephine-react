@@ -13,6 +13,9 @@ button {
         letter-spacing: 3px;
         text-transform: uppercase;
         padding: 24px 48px;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
     }
     &.btn--inactive {
         border-radius: 4px;

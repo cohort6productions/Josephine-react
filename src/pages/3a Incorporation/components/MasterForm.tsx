@@ -336,8 +336,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             others: {
                 fund: "",
                 optional_fund: "",
-                criminal_record: "",
-                business_relationship: ""
+                criminal_record: "no",
+                business_relationship: "no"
             },
             comments: "",
             terms: false
