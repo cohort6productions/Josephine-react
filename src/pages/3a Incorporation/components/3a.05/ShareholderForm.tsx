@@ -214,14 +214,6 @@ const ShareholderForm = (
                                 </span>
                             </label>
                         </div>
-                        {/* <input 
-                            name="identity" 
-                            type="file" 
-                            onChange={handleFile('identity') } 
-                            className="form-control-file" 
-                            accept={ACCEPT_FILETYPE}
-                            />
-                     */}
                         {getIn(errors, 'identity') && getIn(touched, 'identity') ? <small className="text-danger small">{getIn(errors, 'identity')}</small> : ''}
                     </div>
 
@@ -239,13 +231,6 @@ const ShareholderForm = (
                                 </span>
                             </label>
                         </div>
-                        {/* <input 
-                            name="address_proof" 
-                            type="file" 
-                            onChange={handleFile('address_proof') } 
-                            className="form-control-file"
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
                         {getIn(errors, 'address_proof') && getIn(touched, 'address_proof') ? <small className="text-danger small">{getIn(errors, 'address_proof')}</small> : ''}
 
                     </div>
@@ -266,13 +251,6 @@ const ShareholderForm = (
                                 </span>
                             </label>
                         </div>
-                        {/* <input 
-                            name="business_license" 
-                            type="file" 
-                            onChange={handleFile('business_license') } 
-                            className="form-control-file" 
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
                         {getIn(errors, 'business_license') && getIn(touched, 'business_license') ? <small className="text-danger small">{getIn(errors, 'business_license')}</small> : ''}
 
                     </div>
@@ -292,13 +270,6 @@ const ShareholderForm = (
                                 </span>
                             </label>
                         </div>
-                        {/* <input 
-                            name="article_of_associate" 
-                            type="file" 
-                            onChange={handleFile('article_of_associate')} 
-                            className="form-control-file" 
-                            accept={ACCEPT_FILETYPE}
-                            /> */}
                         {getIn(errors, 'article_of_associate') && getIn(touched, 'article_of_associate') ? <small className="text-danger small">{getIn(errors, 'article_of_associate')}</small> : ''}
                     </div>
                 </>
