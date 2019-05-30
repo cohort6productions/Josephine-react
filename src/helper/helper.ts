@@ -6,8 +6,11 @@ export const nameToPathConvert = (name: string) => {
 declare const Stripe: any;
 
 export const checkout = (sku: string) => {
+    // Ivan's fake testing Strip API key
     // const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
-    const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
+
+    // Josephine's real account Stripe API key
+    const stripe = Stripe("pk_live_aP8FpYehV4MJDjPugMyg59Xd");
     stripe
         .redirectToCheckout({
             // "sku_F8WRZKvH3dwe4Q"
