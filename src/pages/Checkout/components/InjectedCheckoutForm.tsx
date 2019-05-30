@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import CardSection from './CardSection';
 import {injectStripe, ReactStripeElements, CardElement} from 'react-stripe-elements';
 
 interface ICheckOutProps {

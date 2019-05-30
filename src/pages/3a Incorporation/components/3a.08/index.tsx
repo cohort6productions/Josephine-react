@@ -142,16 +142,17 @@ class Step7 extends React.Component<
                                 className="form-control"
                                 onChange={this.handleChange.bind(this, "optional_fund")}
                             />
+                            {
+                                this.state.submitted &&
+                                    getIn(errors, "others.fund") && getIn(errors, "others.optional_fund") &&
+                                    getIn(touched, "others.fund") && getIn(touched, "others.optional_fund") 
+                                    ? <small className="text-danger small">
+                                            {getIn(errors, "others.fund")}
+                                        </small>
+                                    : ""
+                            }
                         </div>
-                        {this.state.submitted &&
-                        getIn(errors, "others.fund") && getIn(errors, "others.optional_fund") &&
-                        getIn(touched, "others.fund") && getIn(touched, "others.optional_fund") ? (
-                            <small className="text-danger small">
-                                {getIn(errors, "others.fund")}
-                            </small>
-                        ) : (
-                            ""
-                        )}
+                        
                     </div>
 
                     <div className="form-group col-12">
@@ -164,6 +165,7 @@ class Step7 extends React.Component<
                                 type="radio"
                                 name="others.criminal_record"
                                 value="no"
+                                checked={true}
                             />{" "}
                             No
                         </div>
@@ -211,6 +213,7 @@ class Step7 extends React.Component<
                                 type="radio"
                                 name="others.business_relationship"
                                 value="no"
+                                checked={true}
                             />{" "}
                             No
                         </div>

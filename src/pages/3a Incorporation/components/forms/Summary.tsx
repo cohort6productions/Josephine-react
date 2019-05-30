@@ -176,7 +176,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                        <div className="form-group col-12 mt-3">
                             <label>Comments</label>
                             <p>Please comment down below if you have any:</p>
-                            <Field className="form-control" component="textarea" name="comments" />
+                            <Field className="form-control" placeholder="Comment here" component="textarea" name="comments" />
                        </div>
 
                        <div className="form-group col-12">

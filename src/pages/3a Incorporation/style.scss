@@ -2,6 +2,7 @@
 @import "../../styles/forms";
 button {
     &.btn {
+        margin: .25rem;
         font-family: 'MADE Evolve Sans Regular';
         font-size: 14px;
         line-height: 16px;
@@ -12,6 +13,9 @@ button {
         letter-spacing: 3px;
         text-transform: uppercase;
         padding: 24px 48px;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
     }
     &.btn--inactive {
         border-radius: 4px;
@@ -155,7 +159,7 @@ form {
         font-size: 12px;
         line-height: 16px;
         padding: 0 1rem;
-        background: #F2F2F2;
+        background: #FAFAFA;
         border-radius: 2px;
     }
     .form-group {
