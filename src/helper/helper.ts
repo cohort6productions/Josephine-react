@@ -4,6 +4,7 @@ export const nameToPathConvert = (name: string) => {
 };
 
 export const checkout = (sku: string) => {
+    // const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
     const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
     stripe
         .redirectToCheckout({
