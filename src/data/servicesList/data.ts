@@ -51,7 +51,7 @@ export const openServList: IService[] = [
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
         price: "HKD $2000 /Annu.",
         orderNow: true,
-        sku: "sku_FA8GBHAyLDrTkj"
+        sku: "sku_FA8RxVqzgwllyc"
     },
     {
         itemName: "Registered Office",
