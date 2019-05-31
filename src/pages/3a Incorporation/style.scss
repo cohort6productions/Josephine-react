@@ -1,44 +1,49 @@
 @import "../../styles/variables";
 @import "../../styles/forms";
-button {
-    &.btn {
-        margin: .25rem;
-        font-family: 'MADE Evolve Sans Regular';
-        font-size: 14px;
-        line-height: 16px;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        padding: 24px 48px;
-        @include media-breakpoint-down(sm) {
-            width: 100%;
+#incorporation, .modal--incorp {
+    button {
+        &.btn {
+            margin: .25rem;
+            font-family: 'MADE Evolve Sans Regular';
+            font-size: 14px;
+            line-height: 16px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 24px 48px;
         }
-    }
-    &.btn--inactive {
-        border-radius: 4px;
-        color: #F88C2A;
-        background: #FAFAFA;
-    }
-    &.active {
-        background: #F88C2A;
-        color: #fff;
-        border-radius: 4px;
-        &:hover {
-            background: transparent;
+        &.btn--inactive {
+            border-radius: 4px;
             color: #F88C2A;
-            border: 1px solid #F88C2A;
+            background: #FAFAFA;
         }
-    }
-    &.btn--category {
-        background: #FAFAFA;
-        border-radius: 4px;
-        color: #F88C2A;
-        &.btn--incorp {
+        &.active {
             background: #F88C2A;
             color: #fff;
+            border-radius: 4px;
+            &:hover {
+                background: transparent;
+                color: #F88C2A;
+                border: 1px solid #F88C2A;
+            }
+        }
+        &.btn--category {
+            background: #FAFAFA;
+            border-radius: 4px;
+            color: #F88C2A;
+            &.btn--incorp {
+                background: #F88C2A;
+                color: #fff;
+                @include media-breakpoint-down(sm) {
+                    width: 100%;
+                }
+            }
+            @include media-breakpoint-down(sm) {
+                width: 100%;
+            }
         }
     }
 }
@@ -90,80 +95,82 @@ button {
     }
 }
 
-form {
-    font-family: 'MADE Evolve Sans Regular';
-    .btn--category {
-        background: #FAFAFA;
-        border-radius: 4px;
-        color: #F88C2A;
-        &.btn--incorp {
-            background: #F88C2A;
-            color: #fff;
+.modal--incorp, #incorporation {
+    form {
+        font-family: 'MADE Evolve Sans Regular';
+        .btn--category {
+            background: #FAFAFA;
+            border-radius: 4px;
+            color: #F88C2A;
+            &.btn--incorp {
+                background: #F88C2A;
+                color: #fff;
+            }
         }
-    }
-    label {
-        font-size: 24px;
-        line-height: 28px;
-        display: flex;
-        align-items: center;
-        letter-spacing: 2px;
-    }
-    .small {
-        font-size: 13px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-        text-align: right;
-        letter-spacing: 1px;
-        color: #000000;
-    }
-    input,
-    select,
-    textarea {
-        &.form-control {
+        label {
+            font-size: 24px;
+            line-height: 28px;
+            display: flex;
+            align-items: center;
+            letter-spacing: 2px;
+        }
+        .small {
+            font-size: 13px;
+            line-height: 19px;
+            display: flex;
+            align-items: center;
+            text-align: right;
+            letter-spacing: 1px;
+            color: #000000;
+        }
+        input,
+        select,
+        textarea {
+            &.form-control {
+                border: 1px solid #FAFAFA;
+                box-sizing: border-box;
+                border-radius: 4px;
+                &::placeholder {
+                    font-size: 18px;
+                    line-height: 20px;
+                    /* identical to box height, or 111% */
+                    display: flex;
+                    align-items: center;
+                    letter-spacing: 0.25px;
+                    color: #919191;
+                }
+            }
             border: 1px solid #FAFAFA;
             box-sizing: border-box;
             border-radius: 4px;
-            &::placeholder {
-                font-size: 18px;
-                line-height: 20px;
-                /* identical to box height, or 111% */
-                display: flex;
-                align-items: center;
-                letter-spacing: 0.25px;
-                color: #919191;
-            }
         }
-        border: 1px solid #FAFAFA;
-        box-sizing: border-box;
-        border-radius: 4px;
-    }
-    .title {
-        font-family: 'MADE Evolve Sans Regular';
-        font-size: 36px;
-        line-height: 42px;
-        font-weight: 600;
-        color: #000000;
-        margin-bottom: 32px;
-    }
-    p {
-        font-family: 'Made Evolve Sans Regular';
-        font-size: 16px;
-        line-height: 16px;
-        letter-spacing: 0.05em;
-    }
-    .share-info {
-        font-family: 'Open Sans', sans-serif;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-        padding: 0 1rem;
-        background: #FAFAFA;
-        border-radius: 2px;
-    }
-    .form-group {
-        margin-bottom: 16px;
+        .title {
+            font-family: 'MADE Evolve Sans Regular';
+            font-size: 36px;
+            line-height: 42px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 32px;
+        }
+        p {
+            font-family: 'Made Evolve Sans Regular';
+            font-size: 16px;
+            line-height: 16px;
+            letter-spacing: 0.05em;
+        }
+        .share-info {
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            padding: 0 1rem;
+            background: #FAFAFA;
+            border-radius: 2px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
     }
 }
 
@@ -213,16 +220,7 @@ form {
             line-height: 16px;
             letter-spacing: 0.05em;
         }
-        .share-info {
-            font-family: 'Open Sans', sans-serif;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 12px;
-            line-height: 16px;
-            padding: 0 1rem;
-            background: #F2F2F2;
-            border-radius: 2px;
-        }
+  
         .form-group {
             margin-bottom: 32px;
         }
