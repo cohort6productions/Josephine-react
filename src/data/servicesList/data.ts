@@ -377,7 +377,7 @@ export const leaveServList: IServiceItem[] = [
         pricing: {
             scheme: "sku",
             price: "HKD $3500",
-            schemeId: "sku_F*WRZKvH3dwe4Q"
+            schemeId: "sku_FAkuMTbqoemzE3"
         },
     },
     {
@@ -387,9 +387,7 @@ export const leaveServList: IServiceItem[] = [
             "Do you need warehouse space to stock your products in Hong Kong and redirect them all over the world? Look no further!",
         orderNow: false,
         pricing: {
-            scheme: "sku",
-            price: "HKD $2000 /Mo.",
-            schemeId: "sku_F*WRZKvH3dwe4Q"
+            price: "HKD $2000 /Mo."
         },
     },
     {
@@ -399,9 +397,7 @@ export const leaveServList: IServiceItem[] = [
             "Moving your life to Hong Kong? We ensure to make it easy and straightforward for you. We offer you a customized package according to your needs.",
         orderNow: false,
         pricing: {
-            scheme: "sku",
-            price: "HKD $4000",
-            schemeId: "sku_F*WRZKvH3dwe4Q"
+            price: "HKD $4000"
         },
     }
 ];

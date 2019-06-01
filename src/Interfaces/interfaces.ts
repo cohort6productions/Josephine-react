@@ -15,8 +15,8 @@ export interface IServiceItem {
     orderNow: boolean;
     pricing: {
         // Plan for recurring plans, sku for one-time purchase
-        scheme: "plan" | "sku",
-        schemeId: string,
+        scheme?: "plan" | "sku",
+        schemeId?: string,
         price: string
     }
 }

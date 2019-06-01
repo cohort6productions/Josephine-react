@@ -6,16 +6,16 @@ import { Route, Switch, withRouter, match } from "react-router-dom";
 // Data
 import { teamMembers } from "../pages/5c-aboutUs/data";
 import {
-    openServHeroProps,
-    openServList,
-    mainUpkpHeroProps,
-    mainUpkpServList,
-    expandBuzHeroProps,
-    expandBuzServList,
-    visaServHeroProps,
-    visaServList,
-    chinaHeroProps,
-    chinaServList,
+    // openServHeroProps,
+    // openServList,
+    // mainUpkpHeroProps,
+    // mainUpkpServList,
+    // expandBuzHeroProps,
+    // expandBuzServList,
+    // visaServHeroProps,
+    // visaServList,
+    // chinaHeroProps,
+    // chinaServList,
     leaveHeroProps,
     leaveServList
 } from "src/data/servicesList/data";
@@ -32,9 +32,9 @@ import Error404 from "src/pages/error404/error404";
 import ServiceTemplate from "src/components/Templates/2T-serviceTemplates/serviceTemplate";
 
 // Often use
-import CompanyIncorporation from "src/pages/3a-companyIncorporation/companyIncorporation";
-import IncorporationProcess from "src/pages/3a Incorporation/3a";
-import ConferenceRoomBooking from "src/pages/3d-conferenceRoomBooking/conferenceRoomBooking";
+// import CompanyIncorporation from "src/pages/3a-companyIncorporation/companyIncorporation";
+// import IncorporationProcess from "src/pages/3a Incorporation/3a";
+// import ConferenceRoomBooking from "src/pages/3d-conferenceRoomBooking/conferenceRoomBooking";
 
 // Resources
 import Newsletter from "src/pages/5b-newsletter/newsletter";
@@ -57,7 +57,7 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
         return (
             <Switch>
                 {/* Start of "How to start" */}
-                <Route
+                {/* <Route
                     exact={true}
                     path="/open"
                     // tslint:disable-next-line:jsx-no-lambda
@@ -67,8 +67,8 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                             serviceList={openServList}
                         />
                     )}
-                />
-                <Route
+                /> */}
+                {/* <Route
                     exact={true}
                     path="/upkeep"
                     // tslint:disable-next-line:jsx-no-lambda
@@ -78,8 +78,8 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                             serviceList={mainUpkpServList}
                         />
                     )}
-                />
-                <Route
+                /> */}
+                {/* <Route
                     exact={true}
                     path="/expand"
                     // tslint:disable-next-line:jsx-no-lambda
@@ -89,8 +89,8 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                             serviceList={expandBuzServList}
                         />
                     )}
-                />
-                <Route
+                /> */}
+                {/* <Route
                     exact={true}
                     path="/china"
                     // tslint:disable-next-line:jsx-no-lambda
@@ -100,8 +100,8 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                             serviceList={chinaServList}
                         />
                     )}
-                />
-                <Route
+                /> */}
+                {/* <Route
                     exact={true}
                     path="/visa" // tslint:disable-next-line:jsx-no-lambda
                     render={() => (
@@ -110,7 +110,7 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                             serviceList={visaServList}
                         />
                     )}
-                />
+                /> */}
                 <Route
                     exact={true}
                     path="/relocate"
@@ -125,7 +125,7 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                 {/* End of "How to start" */}
 
                 {/* Start of "Often use" */}
-                <Route
+                {/* <Route
                     exact={true}
                     path="/incorporation/form"
                     component={IncorporationProcess}
@@ -139,7 +139,7 @@ class DefaultRoutes extends React.Component<IDefaultRoutesProps> {
                     exact={true}
                     path="/conference-room"
                     component={ConferenceRoomBooking}
-                />
+                /> */}
                 {/* End of "Often use" */}
 
                 {/* Start of "Resources" */}

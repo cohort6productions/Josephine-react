@@ -1,3 +1,6 @@
+// const dotenv = require('dotenv');
+// import dotenv from "dotenv";
+
 // Turn all letter to lowercase and replace all spaces to "-", use at creating url paths
 export const nameToPathConvert = (name: string) => {
     return name.toLowerCase().replace(" ", "-");
@@ -5,28 +8,28 @@ export const nameToPathConvert = (name: string) => {
 
 declare const Stripe: any;
 
-export const checkout = (sku: string) => {
-    // Ivan's fake testing Strip API key
-    // const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
+export const checkout = (scheme: "plan" | "sku", schemeId: string) => {
+    // const env = "test";
+    const env = "live";
+    let stripe;
 
-    // Josephine's real account Stripe API key
-    // const stripe = Stripe("pk_live_aP8FpYehV4MJDjPugMyg59Xd");
+    if (env === "live") {
+        stripe = Stripe(process.env.REACT_APP_STRIPE_LIVE_KEY)
+    } else {
+        stripe = Stripe(process.env.REACT_APP_STRIPE_TEST_KEY)
+    }
 
-
-    const stripe = Stripe("pk_test_MAsIAZNyaLugCkYDR719XCPl");
     stripe
         .redirectToCheckout({
-            // "sku_F8WRZKvH3dwe4Q"
-            items: [{ sku, quantity: 1 }],
+            items: [{ [scheme]: schemeId, quantity: 1 }],
 
             // Do not rely on the redirect to the successUrl for fulfilling
             // purchases, customers may not always reach the success_url after
             // a successful payment.
             // Instead use one of the strategies described in
-
             // https://stripe.com/docs/payments/checkout/fulfillment
-            successUrl: "https://josephine-react.netlify.com/",
-            cancelUrl: "https://josephine-react.netlify.com/"
+            successUrl: "https://josephine-react.netlify.com/orderSuccess",
+            cancelUrl: "https://josephine-react.netlify.com/orderFailed"
         })
         .then((result: string) => {
             // tslint:disable-next-line: no-console
@@ -35,5 +38,7 @@ export const checkout = (sku: string) => {
 };
 
 export const getService = (ev: any) => {
-    checkout(ev.target.id);
+    const schemeId = ev.target.dataset.schemeid
+    const scheme = ev.target.dataset.scheme
+    checkout(scheme, schemeId);
 };
