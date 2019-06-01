@@ -1,6 +1,6 @@
 // General
 // Interfaces
-import { IService } from "src/Interfaces/general";
+import { IService, IServiceItem } from "src/Interfaces/interfaces";
 
 import { IHeroProps, headerStyle } from "src/components/Organisms/Hero/hero";
 
@@ -293,6 +293,8 @@ export const chinaHeroProps: IHeroProps = {
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
+
+
 export const chinaServList: IService[] = [
     {
         itemName: "China Representative Office",
@@ -337,29 +339,69 @@ export const leaveHeroProps: IHeroProps = {
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
-export const leaveServList: IService[] = [
+// export const leaveServList: IService[] = [
+//     {
+//         itemName: "De-registration of Hong Kong Limited",
+//         img: deregistration,
+//         description:
+//             "Leaving Hong Kong for good? Let us take care of the administrative burden for your company before you depart.",
+//         price: "HKD $3500",
+//         orderNow: true, sku: "sku_F8WRZKvH3dwe4Q"
+//     },
+//     {
+//         itemName: "Warehouse Solutions",
+//         img: warehouse,
+//         description:
+//             "Do you need warehouse space to stock your products in Hong Kong and redirect them all over the world? Look no further!",
+//         price: "HKD $2000 /Mo.",
+//         orderNow: false
+//     },
+//     {
+//         itemName: "Relocation Services",
+//         img: relocation,
+//         description:
+//             "Moving your life to Hong Kong? We ensure to make it easy and straightforward for you. We offer you a customized package according to your needs.",
+//         price: "HKD $4000",
+//         orderNow: false
+//     }
+// ];
+
+
+export const leaveServList: IServiceItem[] = [
     {
-        itemName: "De-registration of Hong Kong Limited",
+        name: "De-registration of Hong Kong Limited",
         img: deregistration,
         description:
             "Leaving Hong Kong for good? Let us take care of the administrative burden for your company before you depart.",
-        price: "HKD $3500",
-        orderNow: true, sku: "sku_F8WRZKvH3dwe4Q"
+        orderNow: true,
+        pricing: {
+            scheme: "sku",
+            price: "HKD $3500",
+            schemeId: "sku_F*WRZKvH3dwe4Q"
+        },
     },
     {
-        itemName: "Warehouse Solutions",
+        name: "Warehouse Solutions",
         img: warehouse,
         description:
             "Do you need warehouse space to stock your products in Hong Kong and redirect them all over the world? Look no further!",
-        price: "HKD $2000 /Mo.",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            scheme: "sku",
+            price: "HKD $2000 /Mo.",
+            schemeId: "sku_F*WRZKvH3dwe4Q"
+        },
     },
     {
-        itemName: "Relocation Services",
+        name: "Relocation Services",
         img: relocation,
         description:
             "Moving your life to Hong Kong? We ensure to make it easy and straightforward for you. We offer you a customized package according to your needs.",
-        price: "HKD $4000",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            scheme: "sku",
+            price: "HKD $4000",
+            schemeId: "sku_F*WRZKvH3dwe4Q"
+        },
     }
 ];

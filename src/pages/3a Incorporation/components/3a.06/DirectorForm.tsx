@@ -1,7 +1,7 @@
 import { Field, FormikProps, getIn } from 'formik';
 import * as React from 'react';
 import { IPersonalDetails } from 'src/Interfaces/FormValues';
-import {ACCEPT_FILETYPE} from "src/Interfaces/general"
+import {ACCEPT_FILETYPE} from "src/Interfaces/interfaces"
 import { UploadInfo } from '../forms/partials/UploadInfo';
 import { countries } from 'src/data/countries';
 // import Thumb from '../forms/partials/Thumbnail';

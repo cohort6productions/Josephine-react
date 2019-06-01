@@ -9,7 +9,7 @@ import Subscription from "src/components/Organisms/Subscription/subscription";
 import ServiceCard from "src/components/Organisms/ServiceBox/serviceCard";
 
 // Interfaces
-import { IService } from "src/Interfaces/general";
+import { IService } from "src/Interfaces/interfaces";
 import Hero, { IHeroProps } from "src/components/Organisms/Hero/hero";
 
 interface IServiceTemplateProps {

@@ -8,7 +8,7 @@ import "./serviceCard.scss";
 import Button from "reactstrap/lib/Button";
 
 // Interfaces
-import { IService } from "src/Interfaces/general";
+import { IService } from "src/Interfaces/interfaces";
 import { getService } from 'src/helper/helper';
 
 export default class ServiceCard extends React.PureComponent<IService> {
