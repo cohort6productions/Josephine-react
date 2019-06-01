@@ -1,6 +1,6 @@
 // General
 // Interfaces
-import { IService, IServiceItem } from "src/Interfaces/interfaces";
+import { IServiceItem } from "src/Interfaces/interfaces";
 
 import { IHeroProps, headerStyle } from "src/components/Organisms/Hero/hero";
 
