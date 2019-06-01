@@ -10,7 +10,10 @@ export const checkout = (sku: string) => {
     // const stripe = Stripe("pk_test_ygtH7d7VG435kX0qzDZwF239");
 
     // Josephine's real account Stripe API key
-    const stripe = Stripe("pk_live_aP8FpYehV4MJDjPugMyg59Xd");
+    // const stripe = Stripe("pk_live_aP8FpYehV4MJDjPugMyg59Xd");
+
+
+    const stripe = Stripe("pk_test_MAsIAZNyaLugCkYDR719XCPl");
     stripe
         .redirectToCheckout({
             // "sku_F8WRZKvH3dwe4Q"
