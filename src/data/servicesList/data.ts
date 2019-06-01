@@ -43,60 +43,80 @@ export const openServHeroProps: IHeroProps = {
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
 
-export const openServList: IService[] = [
+export const openServList: IServiceItem[] = [
     {
-        itemName: "Company Secretary",
+        name: "Company Secretary",
         img: compsec,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $2000 /Annu.",
         orderNow: true,
-        sku: "sku_FA8Z1jYs30u1Kz"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $2000 /Annu.",
+            schemeId: "plan_FAkc7vNAvMCWU2"
+        }
     },
     {
-        itemName: "Registered Office",
+        name: "Registered Office",
         img: regOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $1300 /Annu.",
         orderNow: true,
-        sku: "sku_F91QBJve6goBag"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $1300 /Annu.",
+            schemeId: "plan_FAke4a55TOBpHe"
+        }
     },
     {
-        itemName: "HK Company Incorporation",
+        name: "HK Company Incorporation",
         img: compIncorp,
         description:
             "With low tax rate and simple, straight forward business regulations, Hong Kong is one of the best place for setting up business. ",
-        price: "HKD $6000",
+        orderNow: false,
+        pricing: {
+            price: "HKD $6000",
+        }
+
         // TODO: add a Link to send them to the service page
-        orderNow: false
     },
     {
-        itemName: "HK Representative Office",
+        name: "HK Representative Office",
         img: hkRep,
         description:
             "Evaluate and assess the market with a representative office in HK, becore setting up a HK limited company.",
-        price: "HKD $8500 /Annu.",
         orderNow: true,
-        sku: "sku_F91QOXcly3cYvZ"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $8500 /Annu.",
+            schemeId: "plan_F9HDJbrZXNwfYu"
+        }
+
+
     },
     {
-        itemName: "China Representative Office",
+        name: "China Representative Office",
         img: chinaRep,
         description:
             "Interested in exploring the market in China? We can help you setting up a representative office in China as a stepping stone in this specific market.",
-        price: "HKD $8800 /Comp.",
         orderNow: true,
-        sku: "sku_F91RGwCwYmtc2p"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $8500 /Company",
+            schemeId: "sku_FAku901ELmuE6U"
+        }
     },
     {
-        itemName: "China Wholly Foreign Owned Enterprises",
+        name: "China Wholly Foreign Owned Enterprises",
         img: wfoe,
         description:
             "Ready to establish a real presence in China? We can help you setting up a proper company in China for easier business relationship with your Chinese stakeholders.",
-        price: "HKD $20000 /WFOE.",
         orderNow: true,
-        sku: "sku_F91RzRScKDkAFQ"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $20000 /WFOE",
+            schemeId: "sku_FAkubAgBGteQpw"
+        }
     }
 ];
 
@@ -108,42 +128,54 @@ export const mainUpkpHeroProps: IHeroProps = {
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
-export const mainUpkpServList: IService[] = [
+export const mainUpkpServList: IServiceItem[] = [
     {
-        itemName: "Company Secretary",
+        name: "Company Secretary",
         img: compsec,
         description:
             "Remain in line with the company registry requirements, thanks to our professional services!",
-        price: "HKD $2000 /Annu.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
-    },
+        pricing: {
+            scheme: "plan",
+            price: "HKD $2000 /Annu.",
+            schemeId: "plan_FAkc7vNAvMCWU2"
+        }
+    }
+    ,
     {
-        itemName: "Registered Office",
+        name: "Registered Office",
         img: regOffice,
         description:
             "Start your business the right way! We ensure all the incoming letters and parcels will be taken care of professionally.",
-        price: "HKD $1300 /Annu.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $1300 /Annu.",
+            schemeId: "plan_FAke4a55TOBpHe"
+        }
+
     },
     {
-        itemName: "Virtual Office",
+        name: "Virtual Office",
         img: virtualOffice,
         description:
             "Have your business handled by our professional front line colleagues while you are striking for your business!",
-        price: "HKD $3850 /Annu.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $3850 /Annu.",
+            schemeId: "plan_FAkfUseTX7CUbt"
+        }
     },
     {
-        itemName: "Accounting via Cloud Base System",
+        name: "Accounting via Cloud Base System",
         img: accountCloud,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $800 /Mo.",
-        orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        orderNow: false,
+        pricing: {
+            price: "HKD $800 /Month",
+        }
     }
 ];
 
@@ -155,73 +187,93 @@ export const expandBuzHeroProps: IHeroProps = {
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
-export const expandBuzServList: IService[] = [
+export const expandBuzServList: IServiceItem[] = [
     {
-        itemName: "Company Bank Account Opening",
+        name: "Company Bank Account Opening",
         img: bankOpening,
         description:
             "With the continuous changes of banking requirements, we are here to give you advices and accelerate the banking process.",
-        price: "HKD $6000",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $6000",
+        }
     },
     {
-        itemName: "Serviced Offices",
+        name: "Serviced Offices",
         img: servicedOffice,
         description:
             "With two office locations, we are able to offer a wider range of serviced offices in different sizes, views and prices to meet our clients' needs.",
-        price: "HKD $8000 /Mo.",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $8000 /Mo.",
+        }
     },
     {
-        itemName: "Coworking Space",
+        name: "Coworking Space",
         img: coworkHotdesk,
         description:
             "Another great feature on our professional host services is to help you make the most of your working time. We offer flexible and personalized hot desk for startups and solopreneurs.",
-        price: "HKD $2800 /Mo.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $2800 /Month",
+            schemeId: "plan_FAkgpwqcH556rJ"
+        }
     },
     {
-        itemName: "Dedicated Desk",
+        name: "Dedicated Desk",
         img: dedicateDesk,
         description:
             "We off you the flexibility and exposure of an open space, while benefiting of the serviced office facilities.",
-        price: "HKD $4800 /Mo.",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $4800 /Month",
+            schemeId: "plan_FAkrcaSGQ56fDf"
+        }
     },
     {
-        itemName: "Payroll & MPF",
+        name: "Payroll & MPF",
         img: payrollMfp,
         description:
             "Saving you extra costs on hiring an administrative staff in Hong Kong! Our payroll service comes in handy for a small operation business!",
-        price: "HKD $200 /Mo.",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $200 /Month",
+        }
     },
     {
-        itemName: "Venue Spaces",
+        name: "Venue Spaces",
         img: venueSpaces,
         description:
             "Look no further for space to host your seminar, workshop, training or even product launch!",
-        price: "HKD $250 /Hr.",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $250 /Hr."
+        }
+
     },
     {
-        itemName: "Hong Kong Representative Office",
+        name: "Hong Kong Representative Office",
         img: hkRep,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $8500",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "plan",
+            price: "HKD $8500 /Month",
+            schemeId: "plan_F9HDJbrZXNwfYu"
+        }
     },
     {
-        itemName: "Auditing Services",
+        name: "Auditing Services",
         img: audit,
         description:
             "At your business year end, come along with your shoe box, and we will sort out all the accounting and auditing work for your company.",
-        price: "HKD $8000",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $8000 /Hr."
+        }
     }
 ];
 // // 2d-Visa and licencing
@@ -231,58 +283,80 @@ export const visaServHeroProps: IHeroProps = {
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
-export const visaServList: IService[] = [
+export const visaServList: IServiceItem[] = [
     {
-        itemName: "Hong Kong Visa",
+        name: "Hong Kong Visa",
         img: hkVisa,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $20000",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $20000"
+        }
+
     },
     {
-        itemName: "China Visa",
+        name: "China Visa",
         img: chinaVisa,
         description:
             "We arrange China visa applications for the ease of our clietns that are required to travel into China for differnt purposes.",
-        price: "HKD $800",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $800"
+        }
+
     },
     {
-        itemName: "Recruitment Licence",
+        name: "Recruitment Licence",
         img: recuritmentLicence,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $5000",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $5000",
+            schemeId: "sku_FAku901ELmuE6U"
+        },
+
     },
     {
-        itemName: "Import and Export Licence",
+        name: "Import and Export Licence",
         img: importExport,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $5000",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $5000",
+            schemeId: "sku_FAkt6vVxRKFqd9"
+        }
     },
     {
-        itemName: "HK Trademark",
+        name: "HK Trademark",
         img: hkTrademark,
         description:
             "Do you need a trademark for your intellectual properties?",
-        price: "HKD $6500",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $6500",
+            schemeId: "sku_FAktziClMslD0G"
+        },
+
     },
     {
-        itemName: "China Trademark",
+        name: "China Trademark",
         img: chinaTrademark,
         description:
             "Do you need a trademark for your intellectual properties?",
-        price: "HKD $6500",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $6500",
+            schemeId: "sku_FAkt4xxMoQ57pJ"
+        },
+
+
     }
 ];
 
@@ -295,40 +369,53 @@ export const chinaHeroProps: IHeroProps = {
 };
 
 
-export const chinaServList: IService[] = [
+export const chinaServList: IServiceItem[] = [
     {
-        itemName: "China Representative Office",
+        name: "China Representative Office",
         img: chinaRepOffice,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $8800",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $8800",
+            schemeId: "sku_FAku901ELmuE6U"
+        },
     },
     {
-        itemName: "China Wholly Foreign Owned Enterprises",
+        name: "China Wholly Foreign Owned Enterprises",
         img: wfoe,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $20000",
         orderNow: true,
-        sku: "sku_F8WRZKvH3dwe4Q"
+        pricing: {
+            scheme: "sku",
+            price: "HKD $20000",
+            schemeId: "sku_FAkubAgBGteQpw"
+        },
+
+
     },
     {
-        itemName: "Translation Services",
+        name: "Translation Services",
         img: translation,
         description:
             "We translate official documents you may need for immigration, bank or government purposes. The translation is certified by HK translators.",
-        price: "HKD $650 /page.",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $650 /page.",
+        },
+
     },
     {
-        itemName: "Notary Services",
+        name: "Notary Services",
         img: notary,
         description:
             "Something about the services that clietns are about to buy, and get that going is good. What you are buyd is what you are going to get.",
-        price: "HKD $6000",
-        orderNow: false
+        orderNow: false,
+        pricing: {
+            price: "HKD $6000",
+        },
     }
 ];
 
@@ -339,33 +426,6 @@ export const leaveHeroProps: IHeroProps = {
     subLine:
         "Build your company's foundation on professionals and experts, focus on what matters to your business the most."
 };
-// export const leaveServList: IService[] = [
-//     {
-//         itemName: "De-registration of Hong Kong Limited",
-//         img: deregistration,
-//         description:
-//             "Leaving Hong Kong for good? Let us take care of the administrative burden for your company before you depart.",
-//         price: "HKD $3500",
-//         orderNow: true, sku: "sku_F8WRZKvH3dwe4Q"
-//     },
-//     {
-//         itemName: "Warehouse Solutions",
-//         img: warehouse,
-//         description:
-//             "Do you need warehouse space to stock your products in Hong Kong and redirect them all over the world? Look no further!",
-//         price: "HKD $2000 /Mo.",
-//         orderNow: false
-//     },
-//     {
-//         itemName: "Relocation Services",
-//         img: relocation,
-//         description:
-//             "Moving your life to Hong Kong? We ensure to make it easy and straightforward for you. We offer you a customized package according to your needs.",
-//         price: "HKD $4000",
-//         orderNow: false
-//     }
-// ];
-
 
 export const leaveServList: IServiceItem[] = [
     {
