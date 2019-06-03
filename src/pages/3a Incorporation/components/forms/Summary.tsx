@@ -47,7 +47,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                             {
                                
                                     Object.keys(this.props.values.personal).map((i,j) => (
-                                        <div key={i} className="row">
+                                        <div key={`personal_${i}`} className="row">
                                         
                                             <div className="col-6 text-right label">{i}</div>
                                             <div className="col-6">{this.props.values.personal[i]} </div>
@@ -61,7 +61,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                             {
                                
                                     Object.keys(this.props.values.company).map((i,j) => (
-                                        <div key={i} className="row">
+                                        <div key={j} id={`${i}_${j}`} className="row">
                                             <div className="col-6 text-right label">{i}</div> 
                                             <div className="col-6">{this.props.values.company[i]}</div>
                                         </div>
@@ -76,18 +76,18 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                 {
                                 
                                     this.props.values.shareholders.map((el, index) => (
-                                        <div key={index}>
+                                        <div key={`shareholder_${index+1}`}>
                                             <h4>Shareholder {index +1}</h4>
                                         {
                                             Object.keys(el).map((i) => (
                                                 !!el[i] 
                                                     ? !fileList.includes(i) 
                                                         ?
-                                                        <div key={i} className="row">
+                                                        <div key={`shareholder_${index+1}_${i}`} className="row">
                                                             <div className="col-6 text-right label" >{i}</div> 
                                                             <div className="col-6">{el[i]}</div>
-                                                        </div> : <div/>
-                                                    : <div/>
+                                                        </div> : ""
+                                                    : ""
                                                 
                                             ))
                                         }
@@ -104,19 +104,19 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                     {
                                     
                                         this.props.values.director.map((el, index) => (
-                                            <div key={index}>
+                                            <div key={`director_${index+1}`}>
                                                 <h4>Director {index +1}</h4>
                                             {
                                                 Object.keys(el).map((i) => (
                                                     !!el[i] 
                                                         ? fileList.includes(i) 
                                                             ?
-                                                            <div/>
-                                                            :   <div key={i} className="row"> 
+                                                            ""
+                                                            :   <div key={`director_${index+1}_${i}`} className="row"> 
                                                                     <div className="col-6 text-right label" >{i}</div> 
                                                                     <div className="col-6">{el[i]} </div>
                                                                 </div>
-                                                        : <div/>
+                                                        : ""
                                                     
                                                 ))
                                             }
@@ -131,7 +131,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                             {
                                
                                     Object.keys(this.props.values.shares).map((i,j) => (
-                                        <div key={i} className="row">
+                                        <div key={`shares_${i}`} className="row">
                                             <div className="col-6 text-right label">{i}</div>
                                             <div className="col-6"> {this.props.values.shares[i]} </div>
                                         </div>
@@ -145,7 +145,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                             {
                                
                                     Object.keys(this.props.values.company_secretary).map((i,j) => (
-                                        <div key={i} className="row">
+                                        <div key={`company_secretary_${i}`} className="row">
                                             <div className="col-6 text-center label">{i}</div> 
                                             <div className="col-6">{this.props.values.company_secretary[i]}</div>
                                         </div>
@@ -180,7 +180,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                        </div>
 
                        <div className="form-group col-12">
-                            <Field type="checkbox" name="terms" /> I hereby confirm that the information provided above is correct and that I accept the <a href="#">Terms & Conditions</a>.
+                            <Field type="checkbox" name="terms" checked={this.props.values.terms}/> I hereby confirm that the information provided above is correct and that I accept the <a href="#">Terms & Conditions</a>.
                             <br/>
                             { this.state.submitted && getIn(errors, 'terms') && getIn(touched, 'terms') && <small className="text-danger small">{getIn(errors, 'terms')}</small>}                       
                        </div>

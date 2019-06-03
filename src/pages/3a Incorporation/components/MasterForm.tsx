@@ -93,8 +93,8 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     };
 
     public handleCheckout = () => {
-        this.props.submitForm();
         this.toggle();
+        this.props.submitForm();
     };
 
     public toggle = () => {
@@ -163,27 +163,27 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         ];
 
         const steps = [
-            <Start nextStep={this.nextStep} key="" />,
+            <Start nextStep={this.nextStep} key="Start" />,
             <Step1
-                key=""
+                key="Step1"
                 {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step2
-                key=""
+                key="Step2"
                 {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step3
-                key=""
+                key="Step3"
                 {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step4
-                key=""
+                key="Step4"
                 {...props}
                 total_shares={this.props.values.shares.number}
                 UpdateShares={this.UpdateShares}
@@ -194,7 +194,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 _setValues={this.setShareholderValues}
             />,
             <Step5
-                key=""
+                key="Step5"
                 {...props}
                 shareholders={this.props.values.shareholders}
                 directors={this.props.values.director}
@@ -203,24 +203,29 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 _setValues={this.setDirectorValues}
             />,
             <Step6
-                key=""
+                key="Step6"
                 {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Step7
-                key=""
+                key="Step7"
                 {...props}
                 nextStep={this.nextStep}
                 back={this.back}
             />,
             <Summary
-                key=""
+                key="Summary"
                 {...props}
                 back={this.back}
                 nextStep={this.nextStep}
             />,
-            <Pricing key="" {...props} handleCheckout={this.setAmount} />
+            <Pricing 
+                key="Pricing" 
+                {...props} back={this.back} 
+                nextStep={this.nextStep} 
+                handleCheckout={this.setAmount} 
+            />
         ];
 
         const { paymentAmount, paymentType } = this.state;

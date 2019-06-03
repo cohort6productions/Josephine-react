@@ -60,6 +60,9 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                                 this.props.onSuccess()
                             }
                         } else {
+                            this.setState({
+                                loading: false
+                            })
                             throw res.statusText
                         }
                     }

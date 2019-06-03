@@ -2,15 +2,20 @@ import { Checkmark } from "src/pages/3a-companyIncorporation/img/checkMark";
 import * as React from 'react';
 import { FormikProps } from 'formik';
 import { IFormValues } from 'src/Interfaces/FormValues';
+import { IStepProps } from 'src/Interfaces/FormProps';
 
-const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<IFormValues>) => {
+interface IPricingProps extends IStepProps {
+    handleCheckout: (priceObj: any) => void
+}
+
+const Pricing = (props: IPricingProps & FormikProps<IFormValues>) => {
     const selectPrice = (priceObj: any) => (e: any) => {
         props.handleCheckout(priceObj)
     }
 
     return (
     
-        <div className="container-fluid section-padding-tb96">
+        <div className="container-fluid">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-4 pl-3 pr-3">
@@ -247,6 +252,10 @@ const Pricing = (props: {handleCheckout: (priceObj: any) => void} & FormikProps<
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="col-12 mt-3">
+                        <button type="button" className="btn btn-default mx-auto" onClick={props.back}>Back</button>
                     </div>
                 </div>
             </div>

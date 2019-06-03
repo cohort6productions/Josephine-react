@@ -7,6 +7,7 @@ export interface IFormValues {
     company_secretary: ICompanySecretary;
     others: IOtherValues;
     comments: string;
+    terms: boolean;
 }
 
 interface IPersonalValues {

@@ -34,7 +34,7 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
                         <p>The most common arrangement and type is Ordinary Shares of 10,000, each share value of Hk$1, at total of HK$10,000 per company.</p> 
                         <p>At Centre O we adopt Company Registry's suggested version of Articles of Associations, where it stated the shareholders, directors, related members of the responsibilities and rights.</p>
                     </div>
-                    <div className="form-group col-12 col-md-6">
+                    <div className="form-group col-12 col-lg-6">
                         <label>Class of shares</label>
                         <Field
                             type="text"
@@ -43,7 +43,7 @@ class Step3 extends React.Component<IStepProps & FormikProps<IFormValues>, {}> {
                             disabled={true}
                         />
                     </div>
-                    <div className="form-group col-12 col-md-6">
+                    <div className="form-group col-12 col-lg-6">
                         <label>Currency of shares</label>
                         <Field
                             type="text"

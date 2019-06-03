@@ -86,7 +86,14 @@ class Step7 extends React.Component<
                     && !getIn(errors, "others.criminal_record")
                     && !getIn(errors, "others.business_relationship")
                     ) {
-                    this.props.nextStep();
+                        if (getIn(errors, "others.optional_fund")) {
+                            this.props.setFieldValue('others.optional_fund', '\n')
+                        }
+
+                        if (getIn(errors, "others.fund")) {
+                            this.props.setFieldValue('others.fund', '\n')
+                        }
+                        this.props.nextStep();
                 }
                 this.setState({
                     submitted: true

@@ -11,14 +11,13 @@ declare const Stripe: any;
 export const checkout = (scheme: "plan" | "sku", schemeId: string) => {
     // const env = "test";
     const env = "live";
-    let stripe;
-
+    let stripeToken = ''
     if (env === "live") {
-        stripe = Stripe(process.env.REACT_APP_STRIPE_LIVE_KEY)
+        stripeToken = process.env.REACT_APP_STRIPE_LIVE_KEY || ''
     } else {
-        stripe = Stripe(process.env.REACT_APP_STRIPE_TEST_KEY)
+        stripeToken = process.env.REACT_APP_STRIPE_TEST_KEY || ''
     }
-
+    const stripe = Stripe(stripeToken)
     stripe
         .redirectToCheckout({
             items: [{ [scheme]: schemeId, quantity: 1 }],
