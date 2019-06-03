@@ -246,8 +246,9 @@ class MainForm extends React.Component<
     }
 }
 
-const checkIfFilesAreTooBig = (file?: string): boolean => {
+const checkIfFilesAreTooBig = (fileObj?: any): boolean => {
     let valid = true
+    const file = fileObj.file
     if (file) {
         const stringLength = file.length - 'data:image/png;base64,'.length;
 
@@ -266,21 +267,27 @@ const DirectorSchema = Yup.object().shape({
     email: Yup.string()
         .email("Invalid email")
         .required("Email Required"),
-    identity: Yup.string()
+    identity: Yup.object()
         .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
-    address_proof: Yup.string()
+    address_proof: Yup.object()
         .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
-    business_license: Yup.string()
+    business_license: Yup.object()
         .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
-    article_of_associate: Yup.string()
+    article_of_associate: Yup.object()
         .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig)
 });
 
 const Step5 = withFormik<IProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
+        const FileObj = {
+            name: "",
+            url: "",
+            file: "",
+            source: "Director"
+        }
         return {
-            article_of_associate: "",
-            address_proof: "",
+            article_of_associate: FileObj,
+            address_proof: FileObj,
             authorized_person: "",
             firstname: "",
             lastname: "",
@@ -293,8 +300,8 @@ const Step5 = withFormik<IProps & FormikProps<IFormValues>, {}>({
             tax_payable_country: "",
             share_composition: 0,
             companyname: "",
-            business_license: "",
-            identity: "",
+            business_license: FileObj,
+            identity: FileObj,
             type: "personal",
             category: ""
         };

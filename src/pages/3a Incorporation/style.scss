@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/forms";
-#incorporation, .modal--incorp {
+#incorporation,
+.modal--incorp {
     button {
         &.btn {
             margin: .25rem;
@@ -95,7 +96,8 @@
     }
 }
 
-.modal--incorp, #incorporation {
+.modal--incorp,
+#incorporation {
     form {
         font-family: 'MADE Evolve Sans Regular';
         .btn--category {
@@ -124,6 +126,7 @@
             color: #000000;
         }
         input,
+        a.form-control,
         select,
         textarea {
             &.form-control {
@@ -143,6 +146,17 @@
             border: 1px solid #FAFAFA;
             box-sizing: border-box;
             border-radius: 4px;
+            &.text-line {
+                background-color: transparent;
+                outline: none;
+                outline-style: none;
+                outline-offset: 0;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: dashed #3A3A3D 1px;
+                border-radius: 0;
+            }
         }
         .title {
             font-family: 'MADE Evolve Sans Regular';
@@ -198,7 +212,6 @@
             &::placeholder {
                 font-size: 18px;
                 line-height: 20px;
-                /* identical to box height, or 111% */
                 display: flex;
                 align-items: center;
                 letter-spacing: 0.25px;
@@ -220,7 +233,6 @@
             line-height: 16px;
             letter-spacing: 0.05em;
         }
-  
         .form-group {
             margin-bottom: 32px;
         }

@@ -116,7 +116,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
     };
 
     public UpdateShares = (occupied: number) => {
-        const total = this.state.left_shares - occupied;
+        const total = this.props.values.shares.number - occupied;
         this.setState({
             left_shares: total
         })
@@ -341,8 +341,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
             others: {
                 fund: "",
                 optional_fund: "",
-                criminal_record: "no",
-                business_relationship: "no"
+                criminal_record: "",
+                business_relationship: ""
             },
             comments: "",
             terms: false

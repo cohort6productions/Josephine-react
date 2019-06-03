@@ -37,6 +37,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
             ...this.props,
             nextStep: this.nextStep
         }
+     
         return (
             <div className="col-12 col-md-8 mx-auto">
                 <h1 className="my-3 text-center">Summary</h1>
@@ -49,7 +50,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                     Object.keys(this.props.values.personal).map((i,j) => (
                                         <div key={`personal_${i}`} className="row">
                                         
-                                            <div className="col-6 text-right label">{i}</div>
+                                            <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div>
                                             <div className="col-6">{this.props.values.personal[i]} </div>
                                         </div>
                                 
@@ -61,8 +62,8 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                             {
                                
                                     Object.keys(this.props.values.company).map((i,j) => (
-                                        <div key={j} id={`${i}_${j}`} className="row">
-                                            <div className="col-6 text-right label">{i}</div> 
+                                        <div key={j} className="row">
+                                            <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div> 
                                             <div className="col-6">{this.props.values.company[i]}</div>
                                         </div>
                                 ))
@@ -80,14 +81,22 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                             <h4>Shareholder {index +1}</h4>
                                         {
                                             Object.keys(el).map((i) => (
-                                                !!el[i] 
-                                                    ? !fileList.includes(i) 
-                                                        ?
-                                                        <div key={`shareholder_${index+1}_${i}`} className="row">
-                                                            <div className="col-6 text-right label" >{i}</div> 
+                                                !!el[i] ?                                            
+                                                <div key={`shareholder_${index+1}_${i}`} className="row">
+                                                    {
+                                                        !fileList.includes(i) ?
+                                                        <>
+                                                            <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div> 
                                                             <div className="col-6">{el[i]}</div>
-                                                        </div> : ""
-                                                    : ""
+                                                        </>
+                                                        : !!el[i].url ? 
+                                                            <>  
+                                                                <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div> 
+                                                                <div className="col-6"><a href={el[i].url} target="_blank">{el[i].name}</a></div>
+                                                            </>: ""
+                                                    }
+                                                </div> 
+                                                : ""
                                                 
                                             ))
                                         }
@@ -108,15 +117,23 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                                 <h4>Director {index +1}</h4>
                                             {
                                                 Object.keys(el).map((i) => (
-                                                    !!el[i] 
-                                                        ? fileList.includes(i) 
-                                                            ?
-                                                            ""
-                                                            :   <div key={`director_${index+1}_${i}`} className="row"> 
-                                                                    <div className="col-6 text-right label" >{i}</div> 
-                                                                    <div className="col-6">{el[i]} </div>
-                                                                </div>
-                                                        : ""
+                                                    !!el[i] ?    
+                                                                                            
+                                                    <div key={`director_${index+1}_${i}`} className="row">
+                                                        {
+                                                            !fileList.includes(i) ?
+                                                            <>
+                                                                <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div> 
+                                                                <div className="col-6">{el[i]}</div>
+                                                            </>
+                                                            : !!el[i].url ? 
+                                                                <>  
+                                                                    <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div> 
+                                                                    <div className="col-6"><a href={el[i].url} target="_blank">{el[i].name}</a></div>
+                                                                </>: ""
+                                                        }
+                                                    </div> 
+                                                    : ""
                                                     
                                                 ))
                                             }
@@ -132,7 +149,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                
                                     Object.keys(this.props.values.shares).map((i,j) => (
                                         <div key={`shares_${i}`} className="row">
-                                            <div className="col-6 text-right label">{i}</div>
+                                            <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div>
                                             <div className="col-6"> {this.props.values.shares[i]} </div>
                                         </div>
                                 
@@ -146,7 +163,7 @@ class Summary extends React.Component<ISummaryProps, {submitted: boolean}> {
                                
                                     Object.keys(this.props.values.company_secretary).map((i,j) => (
                                         <div key={`company_secretary_${i}`} className="row">
-                                            <div className="col-6 text-center label">{i}</div> 
+                                            <div className="col-6 text-right label text-capitalize">{i.replace(/_/gi, ' ')}</div> 
                                             <div className="col-6">{this.props.values.company_secretary[i]}</div>
                                         </div>
                                 

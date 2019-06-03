@@ -29,6 +29,8 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
         }else {
             newShares = this.state.occupied_shares - value.share_composition
         }
+        // tslint:disable-next-line:no-console
+        console.log(newShares);
         this.setState({
             occupied_shares: newShares 
         }, () => {
@@ -80,8 +82,9 @@ class MainForm extends React.Component<IShareholderProps & FormikProps<IFormValu
     }
 }
 
-const checkIfFilesAreTooBig = (file?: string): boolean => {
+const checkIfFilesAreTooBig = (fileObj?: any): boolean => {
     let valid = true
+    const file = fileObj.file
     if (file) {
         const stringLength = file.length - 'data:image/png;base64,'.length;
 
@@ -98,9 +101,15 @@ const checkIfFilesAreTooBig = (file?: string): boolean => {
 
 const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
     mapPropsToValues: () => {
+        const FileObj = {
+            name: "",
+            url: "",
+            file: "",
+            source: "Shareholder"
+        }
         return {
-            article_of_associate: undefined,
-            address_proof: undefined,
+            article_of_associate: FileObj,
+            address_proof: FileObj,
             authorized_person: "",
             firstname: "",
             lastname: "",
@@ -113,8 +122,8 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
             tax_payable_country: "",
             share_composition: 0,
             companyname: "",
-            business_license: undefined,
-            identity: '',
+            business_license: FileObj,
+            identity: FileObj,
             category: ""
         };
     },
@@ -126,13 +135,13 @@ const Step4 = withFormik<IShareholderProps & FormikProps<IFormValues>, {}>({
         share_composition: Yup.number()
             .moreThan(0, 'Shareholders should own atleast 1 share')
             .lessThan(props.left_shares + 1, `shareholders cannot own more than ${props.left_shares}`),
-        identity: Yup.string()
+        identity: Yup.object()
             .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
-        address_proof: Yup.string()
+        address_proof: Yup.object()
             .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
-        business_license: Yup.string()
+        business_license: Yup.object()
             .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig),
-        article_of_associate: Yup.string()
+        article_of_associate: Yup.object()
             .test('is-too-big', 'File size should be less than 1Mb', checkIfFilesAreTooBig)
     }),
 

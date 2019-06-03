@@ -9,6 +9,9 @@ interface IOtherState {
     criminal_record: string;
     business_relationship: string;
     submitted: boolean;
+    fundActive: boolean;
+    crecordActive: boolean;
+    businessActive: boolean;
 }
 class Step7 extends React.Component<
     IStepProps & FormikProps<IFormValues>,
@@ -21,6 +24,9 @@ class Step7 extends React.Component<
             criminal_record: "",
             business_relationship: "",
             submitted: false,
+            fundActive: false,
+            crecordActive: false,
+            businessActive: false
         };
         this.handleCheckbox = this.handleCheckbox.bind(this);
     }
@@ -49,7 +55,7 @@ class Step7 extends React.Component<
         }
 
         if (e.target.checked) {
-            if (!strarray.includes(e.target.value)) {
+             if(!strarray.includes(e.target.value)) {
                 const mutated = [...strarray, e.target.value].toString()
                 this.props.setFieldValue(`others.${e.target.name}`, mutated)
             }
@@ -57,6 +63,35 @@ class Step7 extends React.Component<
             const mutated = strarray.filter((el:string) => el !== e.target.value).toString()
             this.props.setFieldValue(`others.${e.target.name}`, mutated)
         }
+    }
+
+    public handleOptional = (e: React.ChangeEvent<HTMLInputElement>, reverse = false) => {
+        let currentInput = ""
+        switch (e.target.name) {
+            case "others.fund":
+                currentInput = "fundActive"
+                this.props.setFieldValue('others.optional_fund', e.target.checked ? e.target.value : "")
+                this.setState({
+                    optional_fund: e.target.checked ? e.target.value : ""
+                })
+                break;
+            case "others.criminal_record":
+                this.props.setFieldValue(e.target.name, e.target.value)
+                currentInput = "crecordActive"
+                break;
+            default:
+                this.props.setFieldValue(e.target.name, e.target.value)
+                currentInput = "businessActive"
+        }
+        if (!!currentInput) {
+            this.setState({
+                [currentInput] : reverse ? !e.target.checked : e.target.checked
+            } as Pick<
+                IOtherState,
+                any
+            >)
+        }
+
     }
 
     public handleFunds = (e:any) => {
@@ -70,6 +105,11 @@ class Step7 extends React.Component<
             const mutated = strarray.filter((el:string) => el !== e.target.value).toString()
             this.props.setFieldValue(e.target.name, mutated)
         }
+    }
+
+    public handleOthers = (e: any) => {
+        this.props.setFieldValue(e.target.name, e.target.value)
+        this.handleOptional(e, true)
     }
 
     public componentDidMount = () => {
@@ -141,12 +181,14 @@ class Step7 extends React.Component<
                         <div className="col-12">
                             <input
                                 type="checkbox"
-                                value={this.state.optional_fund}
+                                name="others.fund"
+                                onChange={this.handleOptional}
                             />{" "}
                             Other, Please Specify
                             <input
                                 type="text"
-                                className="form-control"
+                                disabled={!this.state.fundActive}
+                                className="text-line ml-2"
                                 onChange={this.handleChange.bind(this, "optional_fund")}
                             />
                             {
@@ -168,11 +210,11 @@ class Step7 extends React.Component<
                             any other country?
                         </label>
                         <div>
-                            <Field
+                            <input
                                 type="radio"
                                 name="others.criminal_record"
+                                onChange={this.handleOthers}
                                 value="no"
-                                checked={true}
                             />{" "}
                             No
                         </div>
@@ -181,12 +223,14 @@ class Step7 extends React.Component<
                             <Field
                                 type="radio"
                                 name="others.criminal_record"
+                                onChange={this.handleOptional}
                                 value={this.state.criminal_record}
                             />{" "}
                             Yes, Please specify
                             <input
                                 type="text"
-                                className="form-control"
+                                className="text-line ml-2"
+                                disabled={!this.state.crecordActive}
                                 onChange={this.handleChange.bind(
                                     this,
                                     "criminal_record"
@@ -216,24 +260,26 @@ class Step7 extends React.Component<
                             (Anti-Terroism Measures) Ordiance, Cap. 575?
                         </label>
                         <div>
-                            <Field
+                            <input
                                 type="radio"
                                 name="others.business_relationship"
+                                onChange={this.handleOthers}
                                 value="no"
-                                checked={true}
                             />{" "}
                             No
                         </div>
                         <div>
-                            <Field
+                            <input
                                 type="radio"
                                 name="others.business_relationship"
+                                onChange={this.handleOptional}
                                 value={this.state.business_relationship}
                             />{" "}
                             Yes, Please specify
                             <input
                                 type="text"
-                                className="form-control"
+                                disabled={!this.state.businessActive}
+                                className="text-line ml-2"
                                 onChange={this.handleChange.bind(
                                     this,
                                     "business_relationship"

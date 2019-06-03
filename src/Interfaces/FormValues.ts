@@ -44,13 +44,19 @@ export interface IPersonalDetails {
     tax_number: string;
     tax_payable_country: string;
     share_composition: number;
-    article_of_associate?:string,
-    address_proof?:string,
+    article_of_associate: IFileObj,
+    address_proof: IFileObj,
     authorized_person: string,
     companyname: string,
-    business_license?:string,
-    identity?:string,
+    business_license: IFileObj,
+    identity: IFileObj,
     category: string,
+}
+interface IFileObj {
+    name: string; 
+    url: string; 
+    file: string;
+    source: string;
 }
 
 interface ICompanySecretary {

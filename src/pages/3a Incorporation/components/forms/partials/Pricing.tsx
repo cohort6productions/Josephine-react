@@ -10,7 +10,12 @@ interface IPricingProps extends IStepProps {
 
 const Pricing = (props: IPricingProps & FormikProps<IFormValues>) => {
     const selectPrice = (priceObj: any) => (e: any) => {
-        props.handleCheckout(priceObj)
+        if (!Object.keys(props.errors).length) {
+            props.handleCheckout(priceObj)
+        } else {
+            // tslint:disable-next-line:no-console
+            console.log(props.errors)
+        }
     }
 
     return (

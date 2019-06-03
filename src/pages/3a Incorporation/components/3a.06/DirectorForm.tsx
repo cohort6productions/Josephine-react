@@ -8,10 +8,18 @@ import { countries } from 'src/data/countries';
 
 const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>) => {
 
-    const handleFile = (value: string) => (event: React.ChangeEvent<HTMLInputElement & EventTarget>) => {
+    const handleFile = (event: React.ChangeEvent<HTMLInputElement & EventTarget>) => {
         if (event.currentTarget.files) {
-            getBase64(event.currentTarget.files[0], (result:any) => {
-                props.setFieldValue(value, result)
+            const file = event.currentTarget.files[0]
+            const value = event.currentTarget.name
+            getBase64(file, (result:any) => {
+                const fileObj = {
+                    name: file.name,
+                    file: result,
+                    url: URL.createObjectURL(file),
+                    source: "Director"
+                }
+                props.setFieldValue(value, fileObj)
             })
             
         }
@@ -29,12 +37,17 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
         };
     }
 
-    const {errors, touched} = props;
+    const {
+        errors, 
+        touched, 
+        values, 
+        category
+    } = props;
 
     return (
         <>
             {
-                props.category === 'personal' ? 
+                category === 'personal' ? 
                 <>
                     <div className="col-12 mt-3">
                         <div className="title">Personal information</div>
@@ -130,7 +143,7 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
             </div>
             
             {
-                props.category === "personal" ? 
+                category === "personal" ? 
                 <>
                     <div className="form-group col-12">
                         <label>
@@ -139,11 +152,17 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
                         </label>
 
                         <div className="input-group">
-                            <input type="text" className="form-control" />
+                            <a 
+                                href={!!values.identity.url ? values.identity.url : 'javascript:void(0)'}
+                                className="form-control"
+                                target="_blank"
+                                >
+                                {values.identity.name}
+                            </a>
 
                             <label className="input-group-btn">
                                 <span className="btn upload-btn">
-                                    Upload <input type="file" name="identity" accept={ACCEPT_FILETYPE} onChange={handleFile('identity') }  style={{display: 'none' }} />
+                                Upload <input type="file" name="identity" accept={ACCEPT_FILETYPE} onChange={handleFile}  style={{display: 'none' }} />
                                 </span>
                             </label>
                         </div>
@@ -155,13 +174,18 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
                             Proof of address
                             <UploadInfo />
                         </label>
-
                         <div className="input-group">
-                            <input type="text" className="form-control" />
+                            <a 
+                                href={!!values.address_proof.url ? values.address_proof.url : 'javascript:void(0)'}
+                                className="form-control"
+                                target="_blank"
+                                >
+                                {values.address_proof.name}
+                            </a>
 
                             <label className="input-group-btn">
-                                <span className="btn upload-btn" >
-                                    Upload <input type="file" name="address_proof" accept={ACCEPT_FILETYPE} onChange={handleFile('address_proof') }  style={{display: 'none' }} />
+                                <span className="btn upload-btn">
+                                Upload <input type="file" name="address_proof" accept={ACCEPT_FILETYPE} onChange={handleFile}  style={{display: 'none' }} />
                                 </span>
                             </label>
                         </div>
@@ -169,45 +193,58 @@ const DirectorForm = (props: {category: string;} & FormikProps<IPersonalDetails>
 
                     </div>
                 </>
-             : 
+            : 
                 <>
                     <div className="form-group col-12">
                         <label>
-                            Business License
+                            Business License 
                             <UploadInfo />
                         </label>
-                        <div className="input-group">
-                            <input type="text" className="form-control" />
 
+                        <div className="input-group">
+                            <a 
+                                href={!!values.business_license.url ? values.business_license.url : 'javascript:void(0)'}
+                                className="form-control"
+                                target="_blank"
+                                >
+                                {values.business_license.name}
+                            </a>
                             <label className="input-group-btn">
                                 <span className="btn upload-btn">
-                                    Upload <input type="file" name="business_license" accept={ACCEPT_FILETYPE} onChange={handleFile('business_license') }  style={{display: 'none' }} />
+                                Upload <input type="file" name="business_license" accept={ACCEPT_FILETYPE} onChange={handleFile}  style={{display: 'none' }} />
                                 </span>
                             </label>
                         </div>
-
                         {getIn(errors, 'business_license') && getIn(touched, 'business_license') ? <small className="text-danger small">{getIn(errors, 'business_license')}</small> : ''}
 
                     </div>
 
                     <div className="form-group col-12">
                         <label>
-                            Article of association
+                            Article of association 
                             <UploadInfo />
                         </label>
+                        
                         <div className="input-group">
+                            <a 
+                                href={!!values.article_of_associate.url ? values.article_of_associate.url : 'javascript:void(0)'}
+                                className="form-control"
+                                target="_blank"
+                                >
+                                {values.article_of_associate.name}
+                            </a>
+
                             <label className="input-group-btn">
                                 <span className="btn upload-btn">
-                                    Upload <input type="file" name="article_of_associate" accept={ACCEPT_FILETYPE} onChange={handleFile('article_of_associate') }  style={{display: 'none' }} />
+                                    Upload <input type="file" name="article_of_associate" accept={ACCEPT_FILETYPE} onChange={handleFile}  style={{display: 'none' }} />
                                 </span>
                             </label>
-                            <input type="text" className="form-control" />
                         </div>
-                    
                         {getIn(errors, 'article_of_associate') && getIn(touched, 'article_of_associate') ? <small className="text-danger small">{getIn(errors, 'article_of_associate')}</small> : ''}
                     </div>
                 </>
             }
+            
         </>
     )
 }
