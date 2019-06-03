@@ -12,7 +12,7 @@ class Checkout extends React.Component<ICheckOutProps, {}> {
         super(props)
     }
     public render() {
-        const stripeToken = process.env.REACT_APP_STRIPE_API_TOKEN || ''
+        const stripeToken = process.env.REACT_APP_STRIPE_LIVE_KEY || ''
         return (
             <StripeProvider apiKey={stripeToken}>
                 <Elements>
