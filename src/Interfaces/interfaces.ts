@@ -13,6 +13,7 @@ export interface IServiceItem {
     img: "*.jpg" | "*.png";
     description: string;
     orderNow: boolean;
+    link?: string;
     pricing: {
         // Plan for recurring plans, sku for one-time purchase
         scheme?: "plan" | "sku",

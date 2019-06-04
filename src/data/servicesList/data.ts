@@ -74,6 +74,7 @@ export const openServList: IServiceItem[] = [
         description:
             "With low tax rate and simple, straight forward business regulations, Hong Kong is one of the best place for setting up business. ",
         orderNow: false,
+        link: "/incorporation/form",
         pricing: {
             price: "HKD $6000",
         }

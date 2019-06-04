@@ -15,9 +15,6 @@ import CustomButton from "src/components/Atoms/CustomButton/customButton";
 import { Checkmark } from "./img/checkMark";
 import { UncontrolledCollapse } from "reactstrap";
 
-// Helper function
-import { getService } from "src/helper/helper";
-
 // Data
 import { faqIncorporation } from "src/data/faqs";
 
@@ -27,6 +24,14 @@ const heroProps: IHeroProps = {
     subLine:
         "We assist our clients in company incorporations and consultation services on business maintainance and upkeeping."
 };
+
+const redirectButton = () => (
+    <CustomButton
+    text="Get Now"
+    link="/incorporation/form"
+    variation="theme"
+/>
+)
 
 const Pricing = () => (
     <div className="container-fluid section-padding-tb96">
@@ -40,17 +45,12 @@ const Pricing = () => (
                             </div>
                             <div className="card-header__tag bg-theme-mild">
                                 <h2 className="text-light">HKD $6,000</h2>
-                                <span className="text-light">
+                                <span className="text-light mb-3">
                                     The best way to start the business just to
                                     test the water
                                 </span>
-                                <CustomButton
-                                    text="Get Now"
-                                    fnTrigger={getService}
-                                    id="sku_F91WsAemxZnUAu"
-                                    link=""
-                                    variation="primitive"
-                                />
+                                {redirectButton()}
+
                             </div>
                         </div>
                         <div className="card-body">
@@ -121,17 +121,14 @@ const Pricing = () => (
                             </div>
                             <div className="card-header__tag bg-theme-medium">
                                 <h2 className="text-light">HKD $7,250</h2>
-                                <span className="text-light">
+                                <span className="text-light mb-3">
                                     The best way to commit to your business when
                                     most is taken care
                                 </span>
-                                <CustomButton
-                                    text="Get Now"
-                                    fnTrigger={getService}
-                                    id="sku_F91W7iRi7fDbmS"
-                                    link=""
-                                    variation="primitive"
-                                />
+
+
+                                {redirectButton()}
+
                             </div>
                         </div>
                         <div className="card-body">
@@ -202,17 +199,14 @@ const Pricing = () => (
                             </div>
                             <div className="card-header__tag bg-theme-intense">
                                 <h2 className="text-light">HKD $16,500</h2>
-                                <span className="text-light">
+                                <span className="text-light mb-3">
                                     Kickback and relax, everything is taken care
                                     for you
                                 </span>
-                                <CustomButton
-                                    text="Get Now"
-                                    fnTrigger={getService}
-                                    id="sku_F91WBTCSbbbws2"
-                                    link=""
-                                    variation="primitive"
-                                />
+
+
+                                {redirectButton()}
+
                             </div>
                         </div>
                         <div className="card-body">

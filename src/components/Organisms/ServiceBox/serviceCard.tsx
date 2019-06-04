@@ -1,5 +1,6 @@
 // Modules
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 // Style
 import "./serviceCard.scss";
@@ -35,21 +36,27 @@ export default class ServiceCard extends React.PureComponent<IServiceItem> {
                         </div>
 
                         {this.props.orderNow ? (
-
                             <Button className="service-card__footer__cta rounded w-100 button-text text-light all-cap"
                                 data-schemeid={this.props.pricing.schemeId}
                                 data-scheme={this.props.pricing.scheme}
                                 onClick={getService}>
                                 Order now
                             </Button>
-
                         ) : (
-                                <a href="mailto:sales@centreo.hk">
+                            this.props.link ? (
+                                <Link to={this.props.link}><Button className="service-card__footer__cta rounded w-100 button-text text-light all-cap">
+                                Contact Us
+                        </Button></Link>
+                            ) : (
+<a href="mailto:sales@centreo.hk">
                                     <Button className="service-card__footer__cta rounded w-100 button-text text-light all-cap">
                                         Contact Us
-                                    </Button>
+                                </Button>
                                 </a>
-                            )}
+                            )
+                                
+                            )
+                        }
                     </div>
                 </div>
             </div>
