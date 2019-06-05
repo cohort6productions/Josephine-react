@@ -234,6 +234,10 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
         return (
             <section className="my-5" id="incorporation-form">
                 <div className="container">
+                    <div className={`incorp-loader ${this.props.isSubmitting ? 'd-flex': 'd-none'}`}>
+                        Processing your data <span className="animate-flicker">&nbsp;...</span>
+                    </div>
+
                     {!!status && !!status.success ? (
                         <Alert
                             color="info"

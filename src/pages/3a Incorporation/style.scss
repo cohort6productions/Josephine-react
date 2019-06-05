@@ -189,6 +189,55 @@
 }
 
 #incorporation {
+    .incorp-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        background: linear-gradient(to left, #663399, #f27e1bcc);
+        z-index: 9999;
+        color: #d8cbcb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-family: 'MADE Evolve Sans Regular';
+        span {
+            color: #d8cbcb;
+            font-size: 1.5rem;
+            font-family: 'MADE Evolve Sans Regular';
+        }
+
+        @keyframes flickerAnimation {
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+          }
+          @-o-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+          }
+          @-moz-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+          }
+          @-webkit-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+          }
+          .animate-flicker {
+             -webkit-animation: flickerAnimation .7s infinite;
+             -moz-animation: flickerAnimation .7s infinite;
+             -o-animation: flickerAnimation .7s infinite;
+              animation: flickerAnimation .7s infinite;
+          }          
+    }
+      
     .progress {
         max-width: 526px;
         .progress-bar {
