@@ -108,6 +108,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
             paymentType: pricing.type,
             paymentAmount: pricing.price
         });
+        this.props.setFieldValue('package', pricing.type)
         this.toggle();
     };
 
@@ -349,7 +350,8 @@ const MasterForm = withFormik<IFormProps, IFormValues>({
                 business_relationship: ""
             },
             comments: "",
-            terms: false
+            terms: false,
+            package: ""
         };
     },
     validationSchema: IncorporationSchema,

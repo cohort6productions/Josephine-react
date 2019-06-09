@@ -8,6 +8,7 @@ export interface IFormValues {
     others: IOtherValues;
     comments: string;
     terms: boolean;
+    package: string;
 }
 
 interface IPersonalValues {
