@@ -39,7 +39,7 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                     const {error, token}  = await this.props.stripe.createToken({name: this.state.name});
                     const {amount, email} = this.state;
                     if (!!token && !error) {
-                        const res = await fetch(`${process.env.REACT_APP_API_URL}/payment`, {
+                        fetch(`${process.env.REACT_APP_API_URL}/payment`, {
                             method: 'POST',
                             headers: {
                                 "Content-type": "application/json"
@@ -50,21 +50,30 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                                 "billing_email": email
                             })
                         })
-
-                        if (res.ok) {
-                            this.setState({
-                                loading: false
-                            })
-
-                            if (!!this.props.onSuccess){
-                                this.props.onSuccess()
+                        .then(res => res.json())
+                        .then((res) => {
+                            if (res.code === 200) {
+                                this.setState({
+                                    loading: false
+                                })
+    
+                                if (!!this.props.onSuccess){
+                                    this.props.onSuccess()
+                                }
+                            } else {
+                                this.setState({
+                                    loading: false,
+                                    errorMessage: res.message.message
+                                })
                             }
-                        } else {
+                        }).catch((err) => {
                             this.setState({
-                                loading: false
+                                loading: false,
+                                errorMessage: err.message
                             })
-                            throw res.statusText
-                        }
+                        })
+
+                        
                     }
                 }
             } else {
@@ -127,7 +136,7 @@ class InjectedCheckoutForm extends React.Component<ICheckOutProps & ReactStripeE
                         <CardElement onChange={this.handleChange}  hidePostalCode={true} />
                     </div>
                     
-                    <button type="submit" disabled={this.state.loading} className="btn btn--stripe">Pay HK${this.props.paymentAmount}</button>
+                    <button type="submit" disabled={this.state.loading} className="btn btn--stripe">{ this.state.loading ? 'loading ...' : `Pay HK${this.props.paymentAmount}`}</button>
                 </form>
             </div>
         );

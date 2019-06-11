@@ -133,8 +133,7 @@ class FormWizard extends React.Component<FormikProps<IFormValues>, IFormState> {
                 },
                 () => {
                     window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
+                        top: 0
                     });
                 }
             );

@@ -96,7 +96,7 @@ const Pricing = (props: IPricingProps & FormikProps<IFormValues>) => {
                                 </ul>
 
                                 <div className="col-12">
-                                    <button type="button" disabled={props.isSubmitting} className="btn btn-warning mx-auto" onClick={selectPrice({type: 'Seed', price: 6000})}>Select Seed</button>
+                                    <button type="button" className="btn btn-warning mx-auto" onClick={selectPrice({type: 'Seed', price: 6000})}>Select Seed</button>
                                 </div>
                             </div>
 
